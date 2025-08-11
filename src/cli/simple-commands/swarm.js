@@ -4,6 +4,7 @@
 
 import { args, mkdirAsync, writeTextFile, exit, cwd } from '../node-compat.js';
 import { spawn, execSync } from 'child_process';
+import { spawnEngine } from '../engine/engine-adapter.js';
 import { existsSync, chmodSync, statSync } from 'fs';
 import { open } from 'fs/promises';
 import process from 'process';
@@ -18,6 +19,7 @@ function isHeadlessEnvironment() {
     'CI',
     'GITHUB_ACTIONS',
     'GITLAB_CI',
+import { spawnEngine } from '../engine/engine-adapter.js';
     'JENKINS_URL',
     'CIRCLECI',
     'TRAVIS',
@@ -25,17 +27,17 @@ function isHeadlessEnvironment() {
     'DRONE',
     'DOCKER_CONTAINER',
   ];
-  
+
   const isCI = ciEnvironments.some(env => process.env[env]);
-  
+
   // Check if running in Docker
-  const isDocker = existsSync('/.dockerenv') || 
-    (existsSync('/proc/1/cgroup') && 
+  const isDocker = existsSync('/.dockerenv') ||
+    (existsSync('/proc/1/cgroup') &&
      require('fs').readFileSync('/proc/1/cgroup', 'utf8').includes('docker'));
-  
+
   // Check TTY availability
   const hasTTY = process.stdin.isTTY && process.stdout.isTTY;
-  
+
   return isCI || isDocker || !hasTTY;
 }
 
@@ -44,7 +46,7 @@ function isHeadlessEnvironment() {
  */
 async function basicSwarmNew(args, flags) {
   const objective = (args || []).join(' ').trim();
-  
+
   if (!objective) {
     console.error('❌ Usage: swarm <objective>');
     showSwarmHelp();
@@ -52,7 +54,7 @@ async function basicSwarmNew(args, flags) {
   }
 
   const isHeadless = isHeadlessEnvironment();
-  
+
   // Configure for headless mode
   if (isHeadless) {
     console.log('🤖 Headless environment detected - running in non-interactive mode');
@@ -76,13 +78,13 @@ async function basicSwarmNew(args, flags) {
   try {
     // Try to use the swarm executor
     const { executeSwarm } = await import('./swarm-executor.js');
-    
+
     console.log(`🐝 Starting basic swarm execution...`);
     console.log(`📋 Objective: ${objective}`);
     console.log(`🎯 Strategy: ${flags.strategy || 'auto'}`);
     console.log(`🏗️  Mode: ${flags.mode || 'centralized'}`);
     console.log(`🤖 Max Agents: ${flags['max-agents'] || 5}`);
-    
+
     if (isHeadless) {
       console.log(`🖥️  Headless Mode: Enabled`);
       console.log(`📄 Output Format: ${flags['output-format']}`);
@@ -102,7 +104,7 @@ async function basicSwarmNew(args, flags) {
         tasks: result.summary?.totalTasks,
         timestamp: new Date().toISOString(),
       };
-      
+
       if (flags['output-file']) {
         const fs = await import('fs/promises');
         await fs.writeFile(flags['output-file'], JSON.stringify(output, null, 2));
@@ -127,7 +129,7 @@ async function basicSwarmNew(args, flags) {
     return result;
   } catch (error) {
     console.error(`❌ Basic swarm execution error: ${error.message}`);
-    
+
     // In headless mode, ensure we output JSON error
     if (flags['output-format'] === 'json') {
       const errorOutput = {
@@ -137,7 +139,7 @@ async function basicSwarmNew(args, flags) {
       };
       console.log(JSON.stringify(errorOutput, null, 2));
     }
-    
+
     throw error;
   }
 }
@@ -163,7 +165,7 @@ EXAMPLES:
 DEFAULT BEHAVIOR:
   Swarm attempts to open Claude Code CLI with comprehensive MCP tool instructions
   including memory coordination, agent management, and task orchestration.
-  
+
   If Claude CLI is not available:
   • Use --claude flag to open Claude Code CLI
   • Use --executor flag to run with the built-in executor
@@ -238,7 +240,7 @@ HEADLESS MODE:
   - CI/CD environments (GitHub Actions, GitLab CI, Jenkins, etc.)
   - Docker containers without TTY
   - Non-interactive shells (no stdin/stdout TTY)
-  
+
   In headless mode:
   - Output defaults to JSON format
   - Non-interactive mode is enabled
@@ -262,7 +264,7 @@ export async function swarmCommand(args, flags) {
       'no-auto-permissions': false,
     };
   }
-  
+
   // Handle health check first
   if (flags && flags['health-check']) {
     try {
@@ -317,7 +319,7 @@ export async function swarmCommand(args, flags) {
   if (useJsonLogs) {
     const originalLog = console.log;
     const originalError = console.error;
-    
+
     console.log = (...args) => {
       originalLog(JSON.stringify({
         level: 'info',
@@ -326,7 +328,7 @@ export async function swarmCommand(args, flags) {
         service: 'claude-flow-swarm'
       }));
     };
-    
+
     console.error = (...args) => {
       originalError(JSON.stringify({
         level: 'error',
@@ -439,17 +441,17 @@ If you need to do X operations, they should be in 1 message, not X messages.
   mcp__claude-flow__agent_spawn {"type": "coder", "name": "BackendDev"}
   mcp__claude-flow__agent_spawn {"type": "coder", "name": "FrontendDev"}
   mcp__claude-flow__agent_spawn {"type": "tester", "name": "QAEngineer"}
-  
+
   // Initialize ALL memory keys
   mcp__claude-flow__memory_store {"key": "swarm/objective", "value": "${objective}"}
   mcp__claude-flow__memory_store {"key": "swarm/config", "value": {"strategy": "${strategy}", "mode": "${mode}"}}
-  
+
   // Create task hierarchy
   mcp__claude-flow__task_create {"name": "${objective}", "type": "parent", "id": "main"}
   mcp__claude-flow__task_create {"name": "Research Phase", "parent": "main"}
   mcp__claude-flow__task_create {"name": "Design Phase", "parent": "main"}
   mcp__claude-flow__task_create {"name": "Implementation", "parent": "main"}
-  
+
   // Initialize comprehensive todo list
   TodoWrite {"todos": [
     {"id": "1", "content": "Initialize ${maxAgents} agent swarm", "status": "completed", "priority": "high"},
@@ -468,10 +470,10 @@ If you need to do X operations, they should be in 1 message, not X messages.
   mcp__claude-flow__task_assign {"taskId": "design-1", "agentId": "architect-1"}
   mcp__claude-flow__task_assign {"taskId": "code-1", "agentId": "coder-1"}
   mcp__claude-flow__task_assign {"taskId": "code-2", "agentId": "coder-2"}
-  
+
   // Communicate to all agents
   mcp__claude-flow__agent_communicate {"to": "all", "message": "Begin phase 1"}
-  
+
   // Update multiple task statuses
   mcp__claude-flow__task_update {"taskId": "research-1", "status": "in_progress"}
   mcp__claude-flow__task_update {"taskId": "design-1", "status": "pending"}
@@ -484,7 +486,7 @@ If you need to do X operations, they should be in 1 message, not X messages.
   mcp__claude-flow__memory_store {"key": "research/requirements", "value": {...}}
   mcp__claude-flow__memory_store {"key": "research/constraints", "value": {...}}
   mcp__claude-flow__memory_store {"key": "architecture/decisions", "value": {...}}
-  
+
   // Retrieve related data
   mcp__claude-flow__memory_retrieve {"key": "research/*"}
   mcp__claude-flow__memory_search {"pattern": "architecture"}
@@ -497,12 +499,12 @@ If you need to do X operations, they should be in 1 message, not X messages.
   Read {"file_path": "/src/index.js"}
   Read {"file_path": "/src/config.js"}
   Read {"file_path": "/package.json"}
-  
+
   // Write multiple files
   Write {"file_path": "/src/api/auth.js", "content": "..."}
   Write {"file_path": "/src/api/users.js", "content": "..."}
   Write {"file_path": "/tests/auth.test.js", "content": "..."}
-  
+
   // Update memory with results
   mcp__claude-flow__memory_store {"key": "code/api/auth", "value": "implemented"}
   mcp__claude-flow__memory_store {"key": "code/api/users", "value": "implemented"}
@@ -552,7 +554,7 @@ ${agentRecommendations}
    - Create ALL initial todos at once
    - Store initial memory state
    - Create task hierarchy
-   
+
    Example:
    \`\`\`
    [BatchTool]:
@@ -570,7 +572,7 @@ ${agentRecommendations}
    - Assign multiple tasks in one batch
    - Update multiple statuses together
    - Store multiple results simultaneously
-   
+
 3. **MONITORING (Combined Operations):**
    - Check all agent statuses together
    - Retrieve multiple memory items
@@ -624,7 +626,7 @@ ${
   enableSparc
     ? `
 1. SPARC METHODOLOGY WITH PARALLEL EXECUTION:
-   
+
    S - Specification Phase (Single BatchTool):
    \`\`\`
    [BatchTool]:
@@ -634,7 +636,7 @@ ${
      mcp__claude-flow__task_create { name: "Requirement 3" }
      mcp__claude-flow__agent_spawn { type: "researcher", name: "SpecAnalyst" }
    \`\`\`
-   
+
    P - Pseudocode Phase (Single BatchTool):
    \`\`\`
    [BatchTool]:
@@ -643,7 +645,7 @@ ${
      mcp__claude-flow__task_create { name: "Design Data Model" }
      mcp__claude-flow__agent_communicate { to: "all", message: "Review design" }
    \`\`\`
-   
+
    A - Architecture Phase (Single BatchTool):
    \`\`\`
    [BatchTool]:
@@ -652,7 +654,7 @@ ${
      mcp__claude-flow__task_create { name: "Backend", subtasks: [...] }
      mcp__claude-flow__task_create { name: "Frontend", subtasks: [...] }
    \`\`\`
-   
+
    R - Refinement Phase (Single BatchTool):
    \`\`\`
    [BatchTool]:
@@ -661,7 +663,7 @@ ${
      mcp__claude-flow__task_update { taskId: "2", progress: 75 }
      mcp__claude-flow__memory_store { key: "learnings/iteration1", value: {...} }
    \`\`\`
-   
+
    C - Completion Phase (Single BatchTool):
    \`\`\`
    [BatchTool]:
@@ -673,7 +675,7 @@ ${
 `
     : `
 1. STANDARD SWARM EXECUTION WITH PARALLEL OPERATIONS:
-   
+
    Initial Setup (Single BatchTool):
    \`\`\`
    [BatchTool]:
@@ -683,7 +685,7 @@ ${
      mcp__claude-flow__agent_spawn { type: "tester" }
      mcp__claude-flow__memory_store { key: "init", value: {...} }
    \`\`\`
-   
+
    Task Assignment (Single BatchTool):
    \`\`\`
    [BatchTool]:
@@ -691,7 +693,7 @@ ${
      mcp__claude-flow__task_assign { taskId: "2", agentId: "agent-2" }
      mcp__claude-flow__task_assign { taskId: "3", agentId: "agent-3" }
    \`\`\`
-   
+
    Monitoring & Updates (Single BatchTool):
    \`\`\`
    [BatchTool]:
@@ -774,39 +776,39 @@ The swarm should be self-documenting - use memory_store to save all important in
         console.log(`🎯 Strategy: ${strategy}`);
         console.log(`🏗️  Mode: ${mode}`);
         console.log(`🤖 Max Agents: ${maxAgents}\n`);
-        
+
         console.log('🚀 Launching Claude Code with Swarm Coordination');
         console.log('─'.repeat(60));
-        
+
         // Pass the prompt directly as an argument to claude
         const claudeArgs = [swarmPrompt];
-        
+
         // Add auto-permission flag by default for swarm mode (unless explicitly disabled)
         if (flags['dangerously-skip-permissions'] !== false && !flags['no-auto-permissions']) {
           claudeArgs.push('--dangerously-skip-permissions');
           console.log('🔓 Using --dangerously-skip-permissions by default for seamless swarm execution');
         }
-        
+
         // --claude flag means interactive mode, so don't add non-interactive flags
-        
+
         // Spawn claude with the prompt as the first argument (exactly like hive-mind does)
         const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
-        const claudeProcess = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
+        const claudeProcess = spawnEngine(claudeArgs, {
           stdio: 'inherit',
           shell: false,
         });
-        
+
         console.log('\n✓ Claude Code launched with swarm coordination prompt!');
         console.log('  The swarm coordinator will orchestrate all agent tasks');
         console.log('  Use MCP tools for coordination and memory sharing');
-        
+
         console.log('\n💡 Pro Tips:');
         console.log('─'.repeat(30));
         console.log('• Use TodoWrite to track parallel tasks');
         console.log('• Store results with mcp__claude-flow__memory_usage');
         console.log('• Monitor progress with mcp__claude-flow__swarm_monitor');
         console.log('• Check task status with mcp__claude-flow__task_status');
-        
+
         // Set up clean termination
         const cleanup = () => {
           console.log('\n🛑 Shutting down swarm gracefully...');
@@ -815,10 +817,10 @@ The swarm should be self-documenting - use memory_store to save all important in
           }
           process.exit(0);
         };
-        
+
         process.on('SIGINT', cleanup);
         process.on('SIGTERM', cleanup);
-        
+
         // Wait for claude to exit
         claudeProcess.on('exit', (code) => {
           if (code === 0) {
@@ -828,7 +830,7 @@ The swarm should be self-documenting - use memory_store to save all important in
           }
           process.exit(code || 0);
         });
-        
+
         // Handle spawn errors (e.g., claude not found)
         claudeProcess.on('error', (err) => {
           if (err.code === 'ENOENT') {
@@ -839,16 +841,16 @@ The swarm should be self-documenting - use memory_store to save all important in
           }
           process.exit(1);
         });
-        
+
         return;
       }
 
       // Check if we're in non-interactive/headless mode FIRST (like alpha.83)
-      const isNonInteractive = flags['no-interactive'] || 
-                               flags['non-interactive'] || 
+      const isNonInteractive = flags['no-interactive'] ||
+                               flags['non-interactive'] ||
                                flags['output-format'] === 'stream-json' ||
                                isHeadlessEnvironment();
-      
+
       // Check if claude command exists
       let claudeAvailable = false;
       try {
@@ -916,7 +918,7 @@ The swarm should be self-documenting - use memory_store to save all important in
 
       // Spawn claude with the prompt as the first argument
       const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
-      const claudeProcess = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
+      const claudeProcess = spawnEngine(claudeArgs, {
         stdio: 'inherit',
         shell: false,
       });
@@ -1143,7 +1145,7 @@ exit 0
       const module = await import(distPath);
       swarmAction = module.swarmAction;
     } catch (distError) {
-      // Instead of immediately falling back to basic mode, 
+      // Instead of immediately falling back to basic mode,
       // continue to the Claude integration below
       console.log('📦 Compiled swarm module not found, checking for Claude CLI...');
     }
@@ -1399,7 +1401,7 @@ Begin execution now. Create all necessary files and provide a complete, working 
         }
 
         // Spawn claude process
-        const claudeProcess = spawn('claude', claudeArgs, {
+        const claudeProcess = spawnEngine(claudeArgs, {
           stdio: ['pipe', 'inherit', 'inherit'],
           shell: false,
         });
@@ -1570,7 +1572,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ 
+  res.json({
     status: 'healthy',
     service: 'REST API',
     swarmId: '${swarmId}',
