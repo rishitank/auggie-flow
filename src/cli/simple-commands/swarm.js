@@ -19,7 +19,7 @@ function isHeadlessEnvironment() {
     'CI',
     'GITHUB_ACTIONS',
     'GITLAB_CI',
-import { spawnEngine } from '../engine/engine-adapter.js';
+
     'JENKINS_URL',
     'CIRCLECI',
     'TRAVIS',
@@ -793,7 +793,7 @@ The swarm should be self-documenting - use memory_store to save all important in
 
         // Spawn claude with the prompt as the first argument (exactly like hive-mind does)
         const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
-        const claudeProcess = spawnEngine(claudeArgs, {
+        const claudeProcess = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
           stdio: 'inherit',
           shell: false,
         });
@@ -918,7 +918,7 @@ The swarm should be self-documenting - use memory_store to save all important in
 
       // Spawn claude with the prompt as the first argument
       const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
-      const claudeProcess = spawnEngine(claudeArgs, {
+      const claudeProcess = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
         stdio: 'inherit',
         shell: false,
       });
@@ -1401,7 +1401,7 @@ Begin execution now. Create all necessary files and provide a complete, working 
         }
 
         // Spawn claude process
-        const claudeProcess = spawnEngine(claudeArgs, {
+        const claudeProcess = spawn('claude', claudeArgs, {
           stdio: ['pipe', 'inherit', 'inherit'],
           shell: false,
         });
