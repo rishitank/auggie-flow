@@ -612,8 +612,9 @@ class SwarmUI {
 
     if (os.platform() === 'win32') {
       // Windows: Use wmic to find and kill processes
+      const binName = process.env.AUGGIE_FLOW_BIN || 'auggie-flow';
       exec(
-        'wmic process where "commandline like \'%claude-flow swarm%\'" get processid',
+        `wmic process where "commandline like '%${binName} swarm%'" get processid`,
         (error, stdout) => {
           if (!error && stdout) {
             const pids = stdout
