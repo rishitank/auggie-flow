@@ -153,11 +153,13 @@ claudeCommand
 
         if (options.dryRun) {
           console.log(chalk.yellow(`\nDRY RUN - Task: ${task.name || task.id}`));
-          console.log(chalk.gray(`claude ${claudeArgs.join(' ')}`));
+          const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+console.log(chalk.gray(`${engine} ${claudeArgs.join(' ')}`));
         } else {
-          console.log(chalk.blue(`\nSpawning Claude for task: ${task.name || task.id}`));
+          const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+console.log(chalk.blue(`\nSpawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} for task: ${task.name || task.id}`));
 
-          const claude = spawn('claude', claudeArgs, {
+          const claude = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
             stdio: 'inherit',
             env: {
               ...process.env,

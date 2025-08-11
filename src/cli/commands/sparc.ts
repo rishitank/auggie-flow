@@ -479,7 +479,8 @@ async function executeClaudeWithSparc(
 
   try {
     const { spawn } = await import('child_process');
-    const child = spawn('claude', claudeArgs, {
+    const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+    const child = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
       env: {
         ...process.env,
         CLAUDE_INSTANCE_ID: instanceId,

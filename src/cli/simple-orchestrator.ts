@@ -272,8 +272,8 @@ function startWebUI(host: string, port: number) {
                             reconnectTimer = null;
                         }
                         
-                        appendOutput('\n<span class="success">🔗 Connected to Claude-Flow Console</span>\n');
-                        appendOutput('<span class="info">Type "help" for available commands or use any claude-flow command</span>\n\n');
+                        appendOutput('\n<span class="success">🔗 Connected to Auggie-Flow Console</span>\n');
+                        appendOutput('<span class="info">Type "help" for available commands or use any auggie-flow command</span>\n\n');
                     };
                     
                     ws.onmessage = (event) => {
@@ -365,7 +365,7 @@ function startWebUI(host: string, port: number) {
             
             function sendCommand(command) {
                 if (ws && ws.readyState === WebSocket.OPEN) {
-                    appendOutput('<span class="prompt">claude-flow> </span>' + command + '\n');
+                    appendOutput('<span class="prompt">auggie-flow> </span>' + command + '\n');
                     ws.send(JSON.stringify({
                         type: 'command',
                         data: command
@@ -700,9 +700,9 @@ function startWebUI(host: string, port: number) {
     const cmd = args[0];
     const cmdArgs = args.slice(1);
 
-    // Determine the correct claude-flow executable path
+    // Determine the correct auggie-flow executable path
     const rootDir = path.resolve(__dirname, '../..');
-    const cliPath = path.join(rootDir, 'bin', 'claude-flow');
+    const cliPath = path.join(rootDir, 'bin', 'auggie-flow');
 
     // Spawn the command
     const child = spawn('node', [path.join(rootDir, 'src/cli/simple-cli.js'), ...cmdArgs], {
@@ -882,8 +882,8 @@ export async function startOrchestrator(options: any) {
     );
   }
 
-  console.log('\n💡 Use "claude-flow status" to check system status');
-  console.log('💡 Use "claude-flow stop" to stop the orchestrator');
+  console.log('\n💡 Use "auggie-flow status" to check system status');
+  console.log('💡 Use "auggie-flow stop" to stop the orchestrator');
 
   // Keep the process running
   if (!options.daemon) {

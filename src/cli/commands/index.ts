@@ -1279,11 +1279,12 @@ Now, please proceed with the task: ${task}`;
                 continue;
               }
 
-              console.log(`\n🚀 Spawning Claude for task: ${task.name || taskId}`);
+              const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+console.log(`\n🚀 Spawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} for task: ${task.name || taskId}`);
 
               const { spawn } = await import('child_process');
               const child = spawn(
-                'claude',
+                engine === 'auggie' ? 'auggie' : 'claude',
                 claudeCmd.slice(1).map((arg) => arg.replace(/^"|"$/g, '')),
                 {
                   env: {

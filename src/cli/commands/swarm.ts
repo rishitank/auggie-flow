@@ -478,7 +478,7 @@ When you're done, please end with "TASK COMPLETED" on its own line.`;
       ];
 
       // Write command to file for tracking
-      await fs.writeFile(`${agentDir}/command.txt`, `claude ${claudeArgs.join(' ')}`);
+      await fs.writeFile(`${agentDir}/command.txt`, `${(Deno.env.get('AUGGIE_FLOW_ENGINE') ?? 'auggie') === 'auggie' ? 'auggie' : 'claude'} ${claudeArgs.join(' ')}`);
 
       console.log(`    → Running: ${task.description}`);
 
@@ -487,7 +487,8 @@ When you're done, please end with "TASK COMPLETED" on its own line.`;
 
       // Create a wrapper script that will tee the output
       const wrapperScript = `#!/bin/bash
-claude ${claudeArgs.map((arg) => `"${arg}"`).join(' ')} | tee "${agentDir}/output.txt"
+ENGINE=\"${(Deno.env.get('AUGGIE_FLOW_ENGINE') ?? 'auggie') === 'auggie' ? 'auggie' : 'claude'}\"
+$ENGINE ${claudeArgs.map((arg) => `"${arg}"`).join(' ')} | tee "${agentDir}/output.txt"
 exit \${PIPESTATUS[0]}`;
 
       const wrapperPath = `${agentDir}/wrapper.sh`;

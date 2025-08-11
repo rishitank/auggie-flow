@@ -544,7 +544,8 @@ class SwarmUI {
 
       // Execute swarm command
       const args = ['swarm', description, '--ui', '--monitor'];
-      const process = spawn('claude-flow', args, {
+      const binary = process.env.AUGGIE_FLOW_BIN || 'auggie-flow';
+      const process = spawn(binary, args, {
         detached: true,
         stdio: 'ignore',
       });

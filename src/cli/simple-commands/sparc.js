@@ -445,8 +445,9 @@ async function executeClaude(enhancedTask, toolsList, instanceId, memoryNamespac
     // Use spawn for claude command
     const env = { ...process.env, CLAUDE_INSTANCE_ID: instanceId };
 
-    console.log('\n📡 Spawning claude process...\n');
-    const child = spawn('claude', claudeArgs, {
+    const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+    console.log(`\n📡 Spawning ${engine === 'auggie' ? 'auggie' : 'claude'} process...\n`);
+    const child = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
       cwd: cwd(),
       env: env,
       stdio: 'inherit'

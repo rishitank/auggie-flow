@@ -790,7 +790,8 @@ The swarm should be self-documenting - use memory_store to save all important in
         // --claude flag means interactive mode, so don't add non-interactive flags
         
         // Spawn claude with the prompt as the first argument (exactly like hive-mind does)
-        const claudeProcess = spawn('claude', claudeArgs, {
+        const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+        const claudeProcess = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
           stdio: 'inherit',
           shell: false,
         });
@@ -914,7 +915,8 @@ The swarm should be self-documenting - use memory_store to save all important in
       }
 
       // Spawn claude with the prompt as the first argument
-      const claudeProcess = spawn('claude', claudeArgs, {
+      const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+      const claudeProcess = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
         stdio: 'inherit',
         shell: false,
       });
