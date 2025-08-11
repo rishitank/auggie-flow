@@ -19,5 +19,5 @@ jobs:
         env:
           AUGGIE_FLOW_ENGINE: auggie
         run: |
-          npm test --silent -- -t "auggie-flow smoke"
+          npm test --silent -- --config tests/jest.smoke.config.js
 
