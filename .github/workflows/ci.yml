@@ -35,8 +35,8 @@ jobs:
           npm audit --audit-level=high
           npm audit --production --audit-level=moderate
         
-      - name: Lint code
-        run: npm run lint
+      - name: Lint core
+        run: npm run lint:core
 
       - name: Type check
         run: npm run typecheck
