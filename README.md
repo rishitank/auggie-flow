@@ -1,5 +1,8 @@
 # 🌊 Claude-Flow v2.0.0 Alpha: AI Orchestration Platform
 
+> Auggie Flow: This fork adds first-class support for Auggie CLI. Use `auggie-flow` and set `AUGGIE_FLOW_ENGINE=auggie` to prefer Auggie.
+
+
 <div align="center">
 
 [![🌟 Star on GitHub](https://img.shields.io/github/stars/ruvnet/claude-flow?style=for-the-badge&logo=github&color=gold)](https://github.com/ruvnet/claude-flow)
@@ -58,7 +61,7 @@ npm install -g @anthropic-ai/claude-code
 # 1. Initialize Claude Flow with enhanced MCP setup (auto-configures permissions!)
 npx claude-flow@alpha init --force
 
-# 2. Explore all revolutionary capabilities  
+# 2. Explore all revolutionary capabilities
 npx claude-flow@alpha --help
 
 # 3a. Quick AI coordination (recommended for most tasks)
@@ -108,7 +111,7 @@ npx claude-flow@alpha init --force --project-name "my-app"
 # Feature 1: Authentication (new hive)
 npx claude-flow@alpha hive-mind spawn "auth-system" --namespace auth --claude
 
-# Feature 2: User management (separate hive)  
+# Feature 2: User management (separate hive)
 npx claude-flow@alpha hive-mind spawn "user-management" --namespace users --claude
 
 # Resume Feature 1 later (use session ID from spawn output)
@@ -141,7 +144,7 @@ npx claude-flow@alpha swarm "Deep dive into API gateway patterns" --continue-ses
 ```bash
 # Check what's actually stored (even if directories look empty)
 npx claude-flow@alpha memory stats        # See memory data
-npx claude-flow@alpha memory list         # List all namespaces  
+npx claude-flow@alpha memory list         # List all namespaces
 npx claude-flow@alpha hive-mind status    # See active hives
 
 # Your project structure after initialization:
@@ -181,7 +184,7 @@ npx claude-flow@alpha init --force  # Auto-configures MCP servers & hooks
 
 #### **Pre-Operation Hooks**
 - **`pre-task`**: Auto-assigns agents based on task complexity
-- **`pre-search`**: Caches searches for improved performance  
+- **`pre-search`**: Caches searches for improved performance
 - **`pre-edit`**: Validates files and prepares resources
 - **`pre-command`**: Security validation before execution
 
@@ -207,7 +210,7 @@ npx claude-flow@alpha init --force  # Auto-configures MCP servers & hooks
       "alwaysRun": false
     },
     "postEditHook": {
-      "command": "npx", 
+      "command": "npx",
       "args": ["claude-flow", "hooks", "post-edit", "--file", "${file}", "--format", "true"],
       "alwaysRun": true
     },
@@ -429,7 +432,7 @@ v2.0.0 Alpha automatically configures MCP servers for seamless Claude Code integ
 ```bash
 # Automatic MCP integration (happens during init)
 ✅ claude-flow MCP server configured
-✅ ruv-swarm MCP server configured  
+✅ ruv-swarm MCP server configured
 ✅ 87 tools available in Claude Code
 ✅ --dangerously-skip-permissions set as default
 ```
@@ -618,7 +621,7 @@ Found issues with the alpha? We want to hear from you!
 ```bash
 # Test available GitHub modes
 npx claude-flow@alpha github gh-coordinator --help
-npx claude-flow@alpha github pr-manager --help  
+npx claude-flow@alpha github pr-manager --help
 npx claude-flow@alpha github issue-tracker --help
 npx claude-flow@alpha github release-manager --help
 npx claude-flow@alpha github repo-architect --help
@@ -861,7 +864,7 @@ MIT License - see [LICENSE](./LICENSE) for details.
 ## 🎉 **Alpha Credits**
 
 - **🧠 Hive-Mind Architecture**: Inspired by natural swarm intelligence
-- **⚡ Neural Computing**: Advanced AI coordination patterns  
+- **⚡ Neural Computing**: Advanced AI coordination patterns
 - **🛡️ Claude Code Integration**: Seamless AI development workflow
 - **🚀 Performance Optimization**: 2.8-4.4x speed improvements through parallel coordination
 

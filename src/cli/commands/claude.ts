@@ -80,12 +80,13 @@ claudeCommand
         return;
       }
 
-      console.log(chalk.green(`Spawning Claude instance: ${instanceId}`));
+      const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+      console.log(chalk.green(`Spawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} instance: ${instanceId}`));
       console.log(chalk.gray(`Task: ${task}`));
       console.log(chalk.gray(`Tools: ${tools}`));
 
-      // Spawn Claude process
-      const claude = spawn('claude', claudeArgs, {
+      // Spawn engine process
+      const claude = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
         stdio: 'inherit',
         env: {
           ...process.env,

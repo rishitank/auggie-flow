@@ -1,5 +1,8 @@
 import { spawnSync } from 'child_process';
 import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function run(cmd: string, args: string[] = [], env: NodeJS.ProcessEnv = {}) {
   const res = spawnSync(cmd, args, { encoding: 'utf-8', env: { ...process.env, ...env } });
