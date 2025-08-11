@@ -6,6 +6,7 @@ import { promises as fs } from 'node:fs';
 import { Command } from 'commander';
 import chalk from 'chalk';
 import { spawn } from 'node:child_process';
+import { spawnEngine } from '../engine/engine-adapter.js';
 import { generateId } from '../../utils/helpers.js';
 
 export const claudeCommand = new Command()
@@ -86,7 +87,7 @@ claudeCommand
       console.log(chalk.gray(`Tools: ${tools}`));
 
       // Spawn engine process
-      const claude = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
+      const claude = spawnEngine(claudeArgs, {
         stdio: 'inherit',
         env: {
           ...process.env,
@@ -160,7 +161,7 @@ console.log(chalk.gray(`${engine} ${claudeArgs.join(' ')}`));
           const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
 console.log(chalk.blue(`\nSpawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} for task: ${task.name || task.id}`));
 
-          const claude = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
+          const claude = spawnEngine(claudeArgs, {
             stdio: 'inherit',
             env: {
               ...process.env,
