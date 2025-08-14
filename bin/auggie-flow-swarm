@@ -23,7 +23,7 @@ elif [ -f "$SCRIPT_DIR/../src/cli/swarm-standalone.js" ]; then
     SWARM_IMPL="$SCRIPT_DIR/../src/cli/swarm-standalone.js"
 else
     echo "Error: Unable to find swarm implementation files"
-    echo "Please ensure claude-flow is properly installed"
+    echo "Please ensure auggie-flow is properly installed"
     exit 1
 fi
 

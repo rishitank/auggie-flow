@@ -21,8 +21,8 @@ else
   # Global npm installation - files might be in different location
   # Try to find the module root
   NODE_ROOT=$(npm root -g 2>/dev/null)
-  if [ -n "$NODE_ROOT" ] && [ -f "$NODE_ROOT/claude-flow/src/cli/simple-cli.js" ]; then
-    ROOT_DIR="$NODE_ROOT/claude-flow"
+  if [ -n "$NODE_ROOT" ] && [ -f "$NODE_ROOT/auggie-flow/src/cli/simple-cli.js" ]; then
+    ROOT_DIR="$NODE_ROOT/auggie-flow"
   else
     # Fallback to relative path
     ROOT_DIR=$(cd "$SCRIPT_DIR/.." && pwd)
@@ -66,11 +66,11 @@ else
   echo ""
   echo "To install and run:"
   echo "  1. Install tsx: npm install -g tsx"
-  echo "  2. Run: claude-flow <command>"
+  echo "  2. Run: auggie-flow <command>"
   echo ""
   echo "Or use npx directly:"
   echo "  npx tsx src/cli/simple-cli.ts <command>"
   echo ""
-  echo "Documentation: https://github.com/ruvnet/claude-code-flow"
+  echo "Documentation: https://github.com/augmentcode/auggie-flow"
   exit 1
 fi

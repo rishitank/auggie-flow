@@ -1,10 +1,10 @@
 #!/bin/bash
 # Background swarm launcher for Claude Code
-# Usage: claude-flow-swarm-bg <objective> [options]
+# Usage: auggie-flow-swarm-bg <objective> [options]
 
 # Get the directory where this script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-CLAUDE_FLOW="$SCRIPT_DIR/claude-flow"
+CLAUDE_FLOW="$SCRIPT_DIR/auggie-flow"
 
 # Extract objective (first non-flag argument)
 OBJECTIVE=""

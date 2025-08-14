@@ -19,8 +19,8 @@ if (!flags.includes('--background')) {
   flags.push('--background');
 }
 
-// Get the claude-flow binary path
-const claudeFlowPath = path.join(__dirname, 'claude-flow');
+// Get the auggie-flow binary path
+const claudeFlowPath = path.join(__dirname, 'auggie-flow');
 
 // Create swarm run directory
 const swarmId = `swarm_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
@@ -71,7 +71,7 @@ console.log(`\n✅ Swarm launched successfully!`);
 console.log(`\nMonitor progress with:`);
 console.log(`  tail -f ${logFile}`);
 console.log(`\nCheck status with:`);
-console.log(`  claude-flow swarm status ${swarmId}`);
+console.log(`  auggie-flow swarm status ${swarmId}`);
 console.log(`\nThe swarm will continue running in the background.`);
 
 // Exit immediately, letting the swarm run independently
