@@ -1198,7 +1198,7 @@ Now, please proceed with the task: ${task}`;
               {
                 env: {
                   ...process.env,
-                  CLAUDE_INSTANCE_ID: instanceId,
+                  AUGGIE_INSTANCE_ID: instanceId,
                   AUGGIE_FLOW_MODE: (ctx.flags.mode as string) || 'full',
                   AUGGIE_FLOW_COVERAGE: (ctx.flags.coverage || 80).toString(),
                   AUGGIE_FLOW_COMMIT: (ctx.flags.commit as string) || 'phase',
@@ -1287,8 +1287,8 @@ console.log(`\n🚀 Spawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} for ta
                 {
                   env: {
                     ...process.env,
-                    CLAUDE_TASK_ID: taskId,
-                    CLAUDE_TASK_TYPE: task.type || 'general',
+                    AUGGIE_TASK_ID: taskId,
+                    AUGGIE_TASK_TYPE: task.type || 'general',
                   },
                   stdio: 'inherit',
                 },

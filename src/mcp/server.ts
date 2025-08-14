@@ -595,7 +595,7 @@ export class MCPServer implements IMCPServer {
             ...context,
             workingDirectory,
             sessionId: `mcp-session-${Date.now()}`,
-            swarmId: process.env.CLAUDE_SWARM_ID || `mcp-swarm-${Date.now()}`,
+            swarmId: process.env.AUGGIE_SWARM_ID || `mcp-swarm-${Date.now()}`,
           };
 
           return await originalHandler(input, ruvSwarmContext);

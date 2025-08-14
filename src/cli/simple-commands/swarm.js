@@ -946,7 +946,7 @@ The swarm should be self-documenting - use memory_store to save all important in
   }
 
   // Check if we should run in background mode
-  if (flags && flags.background && !process.env.CLAUDE_SWARM_NO_BG) {
+  if (flags && flags.background && !process.env.AUGGIE_SWARM_NO_BG) {
     // Check if we're in Deno environment
     if (typeof Deno !== 'undefined') {
       // In Deno, spawn a new process for true background execution
@@ -989,7 +989,7 @@ const flags = ${JSON.stringify(newFlags)};
 const args = ${JSON.stringify(args)};
 
 // Set env to prevent background spawning
-process.env.CLAUDE_SWARM_NO_BG = 'true';
+process.env.AUGGIE_SWARM_NO_BG = 'true';
 
 // Run the swarm
 await swarmCommand(args, flags);

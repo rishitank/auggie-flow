@@ -124,7 +124,7 @@ export const SAFE_CONDITIONAL_PATTERN = {
             {
               type: 'command',
               command:
-                'bash -c \'if [ -z "$CLAUDE_HOOK_CONTEXT" ]; then claude -c -p "Update history.md" --skip-hooks; else echo "Skipping update - in hook context"; fi\'',
+                'bash -c \'if [ -z "$AUGGIE_HOOK_CONTEXT" ]; then claude -c -p "Update history.md" --skip-hooks; else echo "Skipping update - in hook context"; fi\'',
             },
           ],
         },
@@ -138,7 +138,7 @@ export const SAFE_CONDITIONAL_PATTERN = {
     '📊 Provides clear feedback',
   ],
   usage: [
-    '1. Checks CLAUDE_HOOK_CONTEXT environment variable',
+    '1. Checks AUGGIE_HOOK_CONTEXT environment variable',
     '2. Only runs claude if not in hook context',
     '3. Uses --skip-hooks to prevent triggering more hooks',
     '4. Shows clear message when skipping',
@@ -219,7 +219,7 @@ export const SAFE_QUEUE_PATTERN = {
             {
               type: 'command',
               command:
-                'echo \'{"command": "update-history", "timestamp": "\'$(date -Iseconds)\'", "session": "\'$CLAUDE_SESSION_ID\'"}\' >> ~/.auggie/command_queue.jsonl',
+                'echo \'{"command": "update-history", "timestamp": "\'$(date -Iseconds)\'", "session": "\'$AUGGIE_SESSION_ID\'"}\' >> ~/.auggie/command_queue.jsonl',
             },
           ],
         },

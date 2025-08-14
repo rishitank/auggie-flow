@@ -20,7 +20,7 @@ const VARIABLE_SYNTAXES = {
   },
   environment: {
     pattern: /\$(\w+)/g,
-    example: '$CLAUDE_FILE',
+    example: '$AUGGIE_FILE',
     description: 'Environment variable syntax (unverified)',
   },
   jq: {
@@ -37,9 +37,9 @@ const VARIABLE_SYNTAXES = {
 
 // Mapping of our variables to Claude Code environment variables
 const VARIABLE_MAPPINGS = {
-  file: ['CLAUDE_EDITED_FILE', 'CLAUDE_FILE', 'EDITED_FILE'],
-  command: ['CLAUDE_COMMAND', 'COMMAND', 'CMD'],
-  tool: ['CLAUDE_TOOL', 'TOOL_NAME', 'TOOL'],
+  file: ['AUGGIE_EDITED_FILE', 'AUGGIE_FILE', 'EDITED_FILE'],
+  command: ['AUGGIE_COMMAND', 'COMMAND', 'CMD'],
+  tool: ['AUGGIE_TOOL', 'TOOL_NAME', 'TOOL'],
 };
 
 /**
@@ -56,7 +56,7 @@ async function detectWorkingSyntax() {
  */
 function transformHookCommand(command, fromSyntax, toSyntax) {
   if (fromSyntax === 'legacy' && toSyntax === 'environment') {
-    // Replace ${file} with $CLAUDE_EDITED_FILE
+    // Replace ${file} with $AUGGIE_EDITED_FILE
     return command.replace(/\$\{(\w+)\}/g, (match, varName) => {
       const mappings = VARIABLE_MAPPINGS[varName];
       if (mappings && mappings[0]) {
@@ -115,8 +115,8 @@ async function createWrapperScripts(commands) {
 # Handles variable interpolation for Claude Code hooks
 
 # Try to get file from various sources
-FILE="$CLAUDE_EDITED_FILE"
-[ -z "$FILE" ] && FILE="$CLAUDE_FILE"
+FILE="$AUGGIE_EDITED_FILE"
+[ -z "$FILE" ] && FILE="$AUGGIE_FILE"
 [ -z "$FILE" ] && FILE="$1"
 
 if [ -n "$FILE" ]; then
@@ -352,7 +352,7 @@ This command will:
   • Backup original settings files
 
 Available syntaxes:
-  • environment: Use environment variables like $CLAUDE_EDITED_FILE (unverified)
+  • environment: Use environment variables like $AUGGIE_EDITED_FILE (unverified)
   • jq: Use official jq JSON parsing approach (recommended)
   • wrapper: Create wrapper scripts to handle variables
 

@@ -180,8 +180,8 @@ export class ClaudeAPIClient extends EventEmitter {
     if (process.env.ANTHROPIC_API_KEY) {
       config.apiKey = process.env.ANTHROPIC_API_KEY;
     }
-    if (process.env.CLAUDE_API_URL) {
-      config.apiUrl = process.env.CLAUDE_API_URL;
+    if (process.env.AUGGIE_API_URL) {
+      config.apiUrl = process.env.AUGGIE_API_URL;
     }
     if (process.env.AUGGIE_MODEL) {
       config.model = process.env.AUGGIE_MODEL as ClaudeModel;

@@ -13,7 +13,7 @@ REM This script ensures claude-flow runs from your project directory
 
 set PROJECT_DIR=%CD%
 set PWD=%PROJECT_DIR%
-set CLAUDE_WORKING_DIR=%PROJECT_DIR%
+set AUGGIE_WORKING_DIR=%PROJECT_DIR%
 
 REM Try to find claude-flow binary
 REM Check common locations for npm/npx installations
@@ -68,7 +68,7 @@ PROJECT_DIR="\${PWD}"
 
 # Set environment to ensure correct working directory
 export PWD="\${PROJECT_DIR}"
-export CLAUDE_WORKING_DIR="\${PROJECT_DIR}"
+export AUGGIE_WORKING_DIR="\${PROJECT_DIR}"
 
 # Try to find claude-flow binary
 # Check common locations for npm/npx installations

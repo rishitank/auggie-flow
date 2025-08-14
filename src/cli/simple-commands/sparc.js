@@ -445,7 +445,7 @@ async function executeClaude(enhancedTask, toolsList, instanceId, memoryNamespac
     }
 
     // Use spawn for engine command via adapter
-    const env = { ...process.env, CLAUDE_INSTANCE_ID: instanceId };
+    const env = { ...process.env, AUGGIE_INSTANCE_ID: instanceId };
 
     console.log(`\n📡 Spawning engine process...\n`);
     const child = spawnEngine(claudeArgs, {

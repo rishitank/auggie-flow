@@ -1416,7 +1416,7 @@ ${flags.mode === 'full' || !flags.mode ? `Full-stack development covering all as
                 args: claudeArgs,
                 env: {
                   ...Deno.env.toObject(),
-                  CLAUDE_INSTANCE_ID: instanceId,
+                  AUGGIE_INSTANCE_ID: instanceId,
                   AUGGIE_FLOW_MODE: flags.mode || 'full',
                   AUGGIE_FLOW_COVERAGE: (flags.coverage || 80).toString(),
                   AUGGIE_FLOW_COMMIT: flags.commit || 'phase',

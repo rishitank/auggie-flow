@@ -689,7 +689,7 @@ export async function swarmAction(ctx: CommandContext) {
     // Start the objective execution
     await coordinator.executeObjective(objectiveId);
 
-    if (options.background && process.env['CLAUDE_SWARM_NO_BG']) {
+    if (options.background && process.env['AUGGIE_SWARM_NO_BG']) {
       // We're running inside the background script
       // Save state and continue with normal execution
       await fs.writeFile(`${swarmDir}/coordinator.json`, JSON.stringify({

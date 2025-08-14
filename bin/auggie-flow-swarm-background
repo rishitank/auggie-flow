@@ -43,8 +43,8 @@ const swarmProcess = spawn(claudeFlowPath, ['swarm', objective, ...flags], {
   stdio: ['ignore', logStream, logStream],
   env: {
     ...process.env,
-    CLAUDE_SWARM_BACKGROUND: 'true',
-    CLAUDE_SWARM_ID: swarmId
+    AUGGIE_SWARM_BACKGROUND: 'true',
+    AUGGIE_SWARM_ID: swarmId
   }
 });
 

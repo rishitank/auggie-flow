@@ -111,17 +111,17 @@ export class TaskExecutorV2 extends TaskExecutor {
       ...process.env,
       ...context.environment,
       ...options.environmentOverride,
-      CLAUDE_TASK_ID: task.id.id,
-      CLAUDE_AGENT_ID: agent.id.id,
-      CLAUDE_SESSION_ID: sessionId,
-      CLAUDE_WORKING_DIR: context.workingDirectory,
-      CLAUDE_NON_INTERACTIVE: options.nonInteractive ? '1' : '0',
-      CLAUDE_AUTO_APPROVE: options.autoApprove ? '1' : '0',
+      AUGGIE_TASK_ID: task.id.id,
+      AUGGIE_AGENT_ID: agent.id.id,
+      AUGGIE_SESSION_ID: sessionId,
+      AUGGIE_WORKING_DIR: context.workingDirectory,
+      AUGGIE_NON_INTERACTIVE: options.nonInteractive ? '1' : '0',
+      AUGGIE_AUTO_APPROVE: options.autoApprove ? '1' : '0',
     };
 
     // Add prompt defaults if provided
     if (options.promptDefaults) {
-      env.CLAUDE_PROMPT_DEFAULTS = JSON.stringify(options.promptDefaults);
+      env.AUGGIE_PROMPT_DEFAULTS = JSON.stringify(options.promptDefaults);
     }
 
     this.logger.debug('Executing Claude command v2', {

@@ -959,7 +959,7 @@ async function setupMonitoring(workingDir) {
       enabled: true,
       telemetry: {
         claudeCode: {
-          env: 'CLAUDE_CODE_ENABLE_TELEMETRY',
+          env: 'AUGGIE_CODE_ENABLE_TELEMETRY',
           value: '1',
           description: 'Enable Claude Code OpenTelemetry metrics'
         }
@@ -985,10 +985,10 @@ async function setupMonitoring(workingDir) {
     const envSnippet = `
 # Claude Flow Token Tracking
 # Add this to your shell profile (.bashrc, .zshrc, etc.)
-export CLAUDE_CODE_ENABLE_TELEMETRY=1
+export AUGGIE_CODE_ENABLE_TELEMETRY=1
 
 # Optional: Set custom metrics path
-# export CLAUDE_METRICS_PATH="$HOME/.auggie/metrics"
+# export AUGGIE_METRICS_PATH="$HOME/.auggie/metrics"
 `;
     
     const envPath = path.join(trackingDir, 'env-setup.sh');
@@ -996,7 +996,7 @@ export CLAUDE_CODE_ENABLE_TELEMETRY=1
     printSuccess('  ✓ Created environment setup script');
     
     console.log('\n  📋 To enable Claude Code telemetry:');
-    console.log('     1. Add to your shell profile: export CLAUDE_CODE_ENABLE_TELEMETRY=1');
+    console.log('     1. Add to your shell profile: export AUGGIE_CODE_ENABLE_TELEMETRY=1');
     console.log('     2. Or run: source .claude-flow/env-setup.sh');
     console.log('\n  💡 Token usage will be tracked in .claude-flow/token-usage.json');
     console.log('     Run: claude-flow analysis token-usage --breakdown --cost-analysis');

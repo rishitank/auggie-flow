@@ -306,7 +306,7 @@ EXAMPLES:
 
 async function getRealTokenUsage(agent) {
   // Check if Claude Code OpenTelemetry is configured
-  const isOTelEnabled = process.env.CLAUDE_CODE_ENABLE_TELEMETRY === '1';
+  const isOTelEnabled = process.env.AUGGIE_CODE_ENABLE_TELEMETRY === '1';
   
   if (!isOTelEnabled) {
     // Try to read from local metrics file if OTel is not enabled
@@ -504,5 +504,5 @@ async function showSimulatedTokenUsage(breakdown, costAnalysis) {
     console.log(`  • Coordinator agents: Implement response caching (-8% potential)`);
   }
 
-  console.log(`\\n📄 Note: Enable CLAUDE_CODE_ENABLE_TELEMETRY=1 for real metrics`);
+  console.log(`\\n📄 Note: Enable AUGGIE_CODE_ENABLE_TELEMETRY=1 for real metrics`);
 }

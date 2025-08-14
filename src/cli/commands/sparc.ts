@@ -483,8 +483,8 @@ async function executeClaudeWithSparc(
     const child = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
       env: {
         ...process.env,
-        CLAUDE_INSTANCE_ID: instanceId,
-        CLAUDE_SPARC_MODE: 'true',
+        AUGGIE_INSTANCE_ID: instanceId,
+        AUGGIE_SPARC_MODE: 'true',
         AUGGIE_FLOW_MEMORY_ENABLED: 'true',
         AUGGIE_FLOW_MEMORY_NAMESPACE: flags.namespace || 'sparc',
       },

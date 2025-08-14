@@ -75,22 +75,22 @@ export class PromptDefaultsManager {
     const env = process.env;
 
     // Common defaults from environment
-    if (env.CLAUDE_AUTO_APPROVE === '1' || env.CLAUDE_AUTO_APPROVE === 'true') {
+    if (env.AUGGIE_AUTO_APPROVE === '1' || env.AUGGIE_AUTO_APPROVE === 'true') {
       this.environmentDefaults.set('confirm:*', true);
     }
 
-    if (env.CLAUDE_DEFAULT_MODEL) {
-      this.environmentDefaults.set('select:model', env.CLAUDE_DEFAULT_MODEL);
+    if (env.AUGGIE_DEFAULT_MODEL) {
+      this.environmentDefaults.set('select:model', env.AUGGIE_DEFAULT_MODEL);
     }
 
-    if (env.CLAUDE_DEFAULT_REGION) {
-      this.environmentDefaults.set('select:region', env.CLAUDE_DEFAULT_REGION);
+    if (env.AUGGIE_DEFAULT_REGION) {
+      this.environmentDefaults.set('select:region', env.AUGGIE_DEFAULT_REGION);
     }
 
-    // Parse CLAUDE_PROMPT_DEFAULTS if set
-    if (env.CLAUDE_PROMPT_DEFAULTS) {
+    // Parse AUGGIE_PROMPT_DEFAULTS if set
+    if (env.AUGGIE_PROMPT_DEFAULTS) {
       try {
-        const defaults = JSON.parse(env.CLAUDE_PROMPT_DEFAULTS);
+        const defaults = JSON.parse(env.AUGGIE_PROMPT_DEFAULTS);
         Object.entries(defaults).forEach(([key, value]) => {
           this.environmentDefaults.set(key, value);
         });

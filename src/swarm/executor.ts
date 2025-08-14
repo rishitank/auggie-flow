@@ -264,10 +264,10 @@ export class TaskExecutor extends EventEmitter {
     const env = {
       ...process.env,
       ...context.environment,
-      CLAUDE_TASK_ID: task.id.id,
-      CLAUDE_AGENT_ID: agent.id.id,
-      CLAUDE_SESSION_ID: sessionId,
-      CLAUDE_WORKING_DIR: context.workingDirectory,
+      AUGGIE_TASK_ID: task.id.id,
+      AUGGIE_AGENT_ID: agent.id.id,
+      AUGGIE_SESSION_ID: sessionId,
+      AUGGIE_WORKING_DIR: context.workingDirectory,
     };
 
     this.logger.debug('Executing Claude command', {

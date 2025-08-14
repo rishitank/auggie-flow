@@ -870,8 +870,8 @@ export class ClaudeCodeInterface extends EventEmitter {
         logDirectory: path.join(this.config.workingDirectory, 'logs', agent.id),
         environment: {
           ...this.config.environmentVariables,
-          CLAUDE_AGENT_ID: agent.id,
-          CLAUDE_TASK_ID: taskDefinition.id.id,
+          AUGGIE_AGENT_ID: agent.id,
+          AUGGIE_TASK_ID: taskDefinition.id.id,
         },
         resources: {
           maxMemory: taskDefinition.requirements.memoryRequired || 512 * 1024 * 1024,

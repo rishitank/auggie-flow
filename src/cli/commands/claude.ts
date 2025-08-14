@@ -91,7 +91,7 @@ claudeCommand
         stdio: 'inherit',
         env: {
           ...process.env,
-          CLAUDE_INSTANCE_ID: instanceId,
+          AUGGIE_INSTANCE_ID: instanceId,
           AUGGIE_FLOW_MODE: options.mode,
           AUGGIE_FLOW_COVERAGE: parseInt(options.coverage).toString(),
           AUGGIE_FLOW_COMMIT: options.commit,
@@ -165,8 +165,8 @@ console.log(chalk.blue(`\nSpawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} 
             stdio: 'inherit',
             env: {
               ...process.env,
-              CLAUDE_TASK_ID: task.id || generateId('task'),
-              CLAUDE_TASK_TYPE: task.type || 'general',
+              AUGGIE_TASK_ID: task.id || generateId('task'),
+              AUGGIE_TASK_TYPE: task.type || 'general',
             },
           });
 
