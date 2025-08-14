@@ -1192,9 +1192,8 @@ Now, please proceed with the task: ${task}`;
             console.log('');
 
             // Execute Claude command
-            const { spawn } = await import('child_process');
-            const child = spawn(
-              'claude',
+            const { spawnEngine } = await import('../engine/engine-adapter.js');
+            const child = spawnEngine(
               claudeCmd.slice(1).map((arg) => arg.replace(/^"|"$/g, '')),
               {
                 env: {
@@ -1282,9 +1281,8 @@ Now, please proceed with the task: ${task}`;
               const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
 console.log(`\n🚀 Spawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} for task: ${task.name || taskId}`);
 
-              const { spawn } = await import('child_process');
-              const child = spawn(
-                engine === 'auggie' ? 'auggie' : 'claude',
+              const { spawnEngine } = await import('../engine/engine-adapter.js');
+              const child = spawnEngine(
                 claudeCmd.slice(1).map((arg) => arg.replace(/^"|"$/g, '')),
                 {
                   env: {

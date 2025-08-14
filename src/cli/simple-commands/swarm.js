@@ -4,7 +4,7 @@
 
 import { args, mkdirAsync, writeTextFile, exit, cwd } from '../node-compat.js';
 import { spawn, execSync } from 'child_process';
-// Removed unused spawnEngine import to avoid lint error
+import { spawnEngine } from '../engine/engine-adapter.js';
 import { existsSync, chmodSync, statSync, readFileSync } from 'fs';
 import { open } from 'fs/promises';
 import process from 'process';
@@ -791,9 +791,8 @@ The swarm should be self-documenting - use memory_store to save all important in
 
         // --claude flag means interactive mode, so don't add non-interactive flags
 
-        // Spawn claude with the prompt as the first argument (exactly like hive-mind does)
-        const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
-        const claudeProcess = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
+        // Spawn engine with the prompt as the first argument (exactly like hive-mind does)
+        const claudeProcess = spawnEngine(claudeArgs, {
           stdio: 'inherit',
           shell: false,
         });
@@ -916,9 +915,8 @@ The swarm should be self-documenting - use memory_store to save all important in
         claudeArgs.push('--verbose'); // Verbose output
       }
 
-      // Spawn claude with the prompt as the first argument
-      const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
-      const claudeProcess = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
+      // Spawn engine with the prompt as the first argument
+      const claudeProcess = spawnEngine(claudeArgs, {
         stdio: 'inherit',
         shell: false,
       });
@@ -1400,8 +1398,8 @@ Begin execution now. Create all necessary files and provide a complete, working 
           claudeArgs.push('--dangerously-skip-permissions');
         }
 
-        // Spawn claude process
-        const claudeProcess = spawn('claude', claudeArgs, {
+        // Spawn engine process
+        const claudeProcess = spawnEngine(claudeArgs, {
           stdio: ['pipe', 'inherit', 'inherit'],
           shell: false,
         });

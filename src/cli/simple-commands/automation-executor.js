@@ -8,6 +8,7 @@
 
 import { promises as fs } from 'fs';
 import { spawn } from 'child_process';
+import { spawnEngine } from '../engine/engine-adapter.js';
 import { join, dirname } from 'path';
 import { printSuccess, printError, printWarning } from '../utils.js';
 
@@ -293,7 +294,7 @@ console.log(`    🤖 Spawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} for 
 
     // Spawn engine process (Auggie preferred)
     const engine = process.env.AUGGIE_FLOW_ENGINE || (await detectPreferredEngine()) || 'claude';
-    const claudeProcess = spawn(engine, claudeArgs, {
+    const claudeProcess = spawnEngine(claudeArgs, {
       stdio: stdioConfig,
       shell: false,
     });

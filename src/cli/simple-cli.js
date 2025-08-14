@@ -23,6 +23,7 @@ import {
   errors,
 } from './node-compat.js';
 import { spawn } from 'child_process';
+import { spawnEngine } from './engine/engine-adapter.js';
 import process from 'process';
 import readline from 'readline';
 import { getMainHelp, getCommandHelp, getStandardizedCommandHelp } from './help-text.js';
@@ -1530,7 +1531,7 @@ ${flags.mode === 'full' || !flags.mode ? `Full-stack development covering all as
               }
 
               const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
-const child = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
+const child = spawnEngine(claudeArgs, {
                 env: {
                   ...process.env,
                   CLAUDE_INSTANCE_ID: instanceId,

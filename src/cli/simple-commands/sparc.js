@@ -4,6 +4,8 @@ import { promises as fs } from 'fs';
 import { spawn } from 'child_process';
 import { promisify } from 'util';
 import { createSparcPrompt } from './sparc-modes/index.js';
+import { spawnEngine } from '../engine/engine-adapter.js';
+
 import { cwd, exit, existsSync } from '../node-compat.js';
 import process from 'process';
 
@@ -442,12 +444,11 @@ async function executeClaude(enhancedTask, toolsList, instanceId, memoryNamespac
       console.warn('⚠️  Could not verify claude command location');
     }
 
-    // Use spawn for claude command
+    // Use spawn for engine command via adapter
     const env = { ...process.env, CLAUDE_INSTANCE_ID: instanceId };
 
-    const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
-    console.log(`\n📡 Spawning ${engine === 'auggie' ? 'auggie' : 'claude'} process...\n`);
-    const child = spawn(engine === 'auggie' ? 'auggie' : 'claude', claudeArgs, {
+    console.log(`\n📡 Spawning engine process...\n`);
+    const child = spawnEngine(claudeArgs, {
       cwd: cwd(),
       env: env,
       stdio: 'inherit'
