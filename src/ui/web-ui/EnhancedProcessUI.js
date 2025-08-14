@@ -577,7 +577,7 @@ export class EnhancedProcessUI {
 
     console.log();
     console.log(colors.cyan('📊 GitHub Integration Status:'));
-    console.log(`  Repository: ${colors.green('claude-code-flow')}`);
+    console.log(`  Repository: ${colors.green('auggie-flow')}`);
     console.log(`  Branch: ${colors.yellow('auggie-flow-v2.0.0')}`);
     console.log(`  Status: ${colors.green('Connected')}`);
     console.log(`  Last Sync: ${colors.gray('Recently')}`);

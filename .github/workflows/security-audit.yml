@@ -8,7 +8,6 @@ on:
   workflow_dispatch:
 jobs:
   npm-audit:
-    if: ${{ hashFiles('package.json') != '' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -20,8 +19,11 @@ jobs:
         with:
           node-version: 'lts/*'
           cache: 'npm'
+          cache-dependency-path: package-lock.json
       - name: Install dependencies (no scripts)
+        if: ${{ hashFiles('package-lock.json') != '' && hashFiles('package.json') != '' }}
         run: npm ci --ignore-scripts
       - name: Run npm audit (prod only; high+)
+        if: ${{ hashFiles('package-lock.json') != '' && hashFiles('package.json') != '' }}
         run: npm audit --omit=dev --audit-level=high
 

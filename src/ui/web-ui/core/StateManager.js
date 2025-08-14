@@ -14,6 +14,7 @@ export class StateManager {
     this.viewStates = new Map();
     this.sessionData = new Map();
     this.storageKey = 'auggie-flow-ui-state';
+    this.legacyStorageKeys = ['claude-flow-ui-state'];
     this.isInitialized = false;
     this.autoSaveInterval = 30000; // 30 seconds
     this.autoSaveTimer = null;
@@ -55,6 +56,21 @@ export class StateManager {
         const stored = localStorage.getItem(this.storageKey);
         if (stored) {
           persistedData = JSON.parse(stored);
+        } else if (this.legacyStorageKeys?.length) {
+          for (const legacyKey of this.legacyStorageKeys) {
+            const legacyStored = localStorage.getItem(legacyKey);
+            if (legacyStored) {
+              try {
+                persistedData = JSON.parse(legacyStored);
+                // Migrate immediately
+                localStorage.setItem(this.storageKey, legacyStored);
+                localStorage.removeItem(legacyKey);
+                break;
+              } catch (e) {
+                console.warn('Failed to parse legacy UI state; skipping migration');
+              }
+            }
+          }
         }
       }
 
