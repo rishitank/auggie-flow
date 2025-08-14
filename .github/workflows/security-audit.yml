@@ -1,0 +1,27 @@
+name: Security Audit (npm)
+on:
+  pull_request:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'npm-shrinkwrap.json'
+  workflow_dispatch:
+jobs:
+  npm-audit:
+    if: ${{ hashFiles('package.json') != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+      - name: Install dependencies (no scripts)
+        run: npm ci --ignore-scripts
+      - name: Run npm audit (prod only; high+)
+        run: npm audit --omit=dev --audit-level=high
+
