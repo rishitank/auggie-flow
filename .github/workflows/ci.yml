@@ -35,7 +35,7 @@ jobs:
 
 
       - name: Regenerate lockfile (align with package.json)
-        run: npm install --package-lock-only
+        run: npm install --package-lock-only --legacy-peer-deps --no-audit --no-fund
 
       - name: Install dependencies
         run: npm ci
@@ -81,7 +81,7 @@ jobs:
           cache: 'npm'
 
       - name: Regenerate lockfile (align with package.json)
-        run: npm install --package-lock-only
+        run: npm install --package-lock-only --legacy-peer-deps --no-audit --no-fund
 
       - name: Install dependencies
         run: npm ci
