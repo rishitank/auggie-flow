@@ -6,7 +6,15 @@ export default {
     '<rootDir>/cli/features/basic-features.test.ts'
   ],
   transform: {
-    '^.+\\.(ts|tsx)$': ['ts-jest', { useESM: true, isolatedModules: true }],
+    '^.+\\.(ts|tsx)$': ['ts-jest', {
+      useESM: true,
+      isolatedModules: true,
+      tsconfig: {
+        esModuleInterop: true,
+        allowJs: true,
+        module: 'esnext'
+      }
+    }],
   },
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   moduleNameMapper: {
@@ -15,16 +23,6 @@ export default {
   },
   setupFiles: [
     '<rootDir>/smoke.setup.js'
-  ],
-  globals: {
-    'ts-jest': {
-      useESM: true,
-      tsconfig: {
-        esModuleInterop: true,
-        allowJs: true,
-        module: 'esnext'
-      }
-    }
-  }
+  ]
 }
 

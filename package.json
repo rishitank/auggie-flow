@@ -60,7 +60,7 @@
     "start": "node server.js"
   },
   "keywords": [
-    "claude",
+    "auggie",
     "ai",
     "agent",
     "orchestration",
@@ -83,12 +83,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruvnet/claude-code-flow.git"
+    "url": "git+https://github.com/augmentcode/auggie-flow.git"
   },
   "bugs": {
-    "url": "https://github.com/ruvnet/claude-code-flow/issues"
+    "url": "https://github.com/augmentcode/auggie-flow/issues"
   },
-  "homepage": "https://github.com/ruvnet/claude-code-flow#readme",
+  "homepage": "https://github.com/augmentcode/auggie-flow#readme",
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=9.0.0"
@@ -106,7 +106,7 @@
     "bin/auggie-flow-swarm-ui",
     "dist/",
     "src/",
-    ".claude/",
+    ".auggie/",
     "docker-test/",
     "scripts/",
     "README.md",
