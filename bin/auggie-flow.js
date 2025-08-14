@@ -80,6 +80,15 @@ async function main() {
         shell: false
       });
 
+      const cleanupTsx = () => {
+        if (!child.killed) {
+          child.kill('SIGTERM');
+          setTimeout(() => {
+            if (!child.killed) child.kill('SIGKILL');
+          }, 5000);
+        }
+      };
+
       child.on('error', (error) => {
         console.error('❌ tsx execution failed:', error.message);
         console.log('\n🔄 Trying npx tsx...');
@@ -88,6 +97,19 @@ async function main() {
           stdio: 'inherit',
           shell: false
         });
+
+        const cleanupNpx = () => {
+          if (!npxChild.killed) {
+            npxChild.kill('SIGTERM');
+            setTimeout(() => {
+              if (!npxChild.killed) npxChild.kill('SIGKILL');
+            }, 5000);
+          }
+        };
+
+        process.on('SIGTERM', cleanupNpx);
+        process.on('SIGINT', cleanupNpx);
+        process.on('exit', cleanupNpx);
 
         npxChild.on('error', (npxError) => {
           console.error('❌ npx tsx also failed:', npxError.message);
@@ -99,6 +121,10 @@ async function main() {
           process.exit(code || 0);
         });
       });
+
+      process.on('SIGTERM', cleanupTsx);
+      process.on('SIGINT', cleanupTsx);
+      process.on('exit', cleanupTsx);
 
       child.on('exit', (code) => {
         process.exit(code || 0);

@@ -96,6 +96,7 @@
   "files": [
     "cli.js",
     "bin/claude-flow.js",
+    "bin/auggie-flow.js",
     "bin/claude-flow",
     "bin/claude-flow-dev",
     "bin/claude-flow-pkg.js",
