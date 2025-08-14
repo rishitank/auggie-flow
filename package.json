@@ -46,6 +46,7 @@
     "lint": "eslint src --ext .ts --max-warnings 0",
     "lint:core": "eslint src/cli src/cli/engine src/swarm --ext .ts --max-warnings 0",
     "format": "prettier --write 'src/**/*.{ts,js,json}'",
+    "format:check": "prettier --check 'src/**/*.{ts,js,json}'",
     "diagnostics": "node -e \"import('./dist/monitoring/diagnostics.js').then(m => m.DiagnosticManager.quickDiagnostic().then(console.log))\"",
     "health-check": "node -e \"import('./dist/monitoring/health-check.js').then(m => new m.HealthCheckManager().performHealthCheck().then(console.log))\"",
     "postinstall": "node scripts/install-arm64.js",
