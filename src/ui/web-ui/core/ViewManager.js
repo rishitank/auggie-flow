@@ -63,7 +63,10 @@ export class ViewManager {
    * Add CSS styles for view transitions
    */
   addTransitionStyles() {
-    if (document.getElementById('auggie-flow-styles')) return;
+    if (
+      document.getElementById('auggie-flow-styles') ||
+      document.getElementById('claude-flow-styles')
+    ) return;
 
     const styles = document.createElement('style');
     styles.id = 'auggie-flow-styles';
