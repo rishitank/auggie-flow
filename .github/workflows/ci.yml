@@ -38,7 +38,7 @@ jobs:
         run: npm install --package-lock-only --legacy-peer-deps --no-audit --no-fund
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Run security audit
         run: |
@@ -84,7 +84,7 @@ jobs:
         run: npm install --package-lock-only --legacy-peer-deps --no-audit --no-fund
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Run tests (CI + coverage)
         run: npm run test:ci
@@ -133,7 +133,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Build project
         run: |
