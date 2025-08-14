@@ -51,7 +51,7 @@ export class SwarmWebUIIntegration {
     try {
       // This would check for actual MCP connection
       // For demo purposes, simulate availability
-      return compat.getEnv('CLAUDE_FLOW_SWARM_ENABLED') === 'true';
+      return compat.getEnv('AUGGIE_FLOW_SWARM_ENABLED') === 'true';
     } catch (err) {
       return false;
     }

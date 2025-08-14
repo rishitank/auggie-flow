@@ -346,9 +346,9 @@ async function initializeProject(projectPath, options = {}) {
       'coordination/subtasks',
       'coordination/orchestration',
       '.claude',
-      '.claude/commands',
-      '.claude/commands/sparc',
-      '.claude/logs',
+      '.auggie/commands',
+      '.auggie/commands/sparc',
+      '.auggie/logs',
     ];
 
     // Add template-specific directories

@@ -86,7 +86,7 @@ export async function copyTemplates(targetDir, options = {}) {
       }
       
       if (await copyFile(settingsPath, settingsDest, options)) {
-        results.copiedFiles.push('.claude/settings.json');
+        results.copiedFiles.push('.auggie/settings.json');
       }
 
       // Copy command templates
@@ -249,7 +249,7 @@ async function copySparcTemplates(templatesDir, targetDir, options, results) {
         await fs.writeFile(destPath, content);
       }
       
-      console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .claude/commands/sparc/${filename}`);
+      console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .auggie/commands/sparc/${filename}`);
       results.copiedFiles.push(join('.claude', 'commands', 'sparc', filename));
     }
 
@@ -258,8 +258,8 @@ async function copySparcTemplates(templatesDir, targetDir, options, results) {
     if (!options.dryRun) {
       await fs.writeFile(overviewPath, createSparcModesOverview());
     }
-    console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .claude/commands/sparc/sparc-modes.md`);
-    results.copiedFiles.push('.claude/commands/sparc/sparc-modes.md');
+    console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .auggie/commands/sparc/sparc-modes.md`);
+    results.copiedFiles.push('.auggie/commands/sparc/sparc-modes.md');
 
     // Copy swarm templates
     await copySwarmTemplates(templatesDir, targetDir, options, results);
@@ -292,7 +292,7 @@ async function copySwarmTemplates(templatesDir, targetDir, options, results) {
         await fs.writeFile(destPath, content);
       }
       
-      console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .claude/commands/swarm/${filename}`);
+      console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .auggie/commands/swarm/${filename}`);
       results.copiedFiles.push(join('.claude', 'commands', 'swarm', filename));
     }
   } catch (err) {
@@ -324,7 +324,7 @@ async function copyHelperScripts(templatesDir, targetDir, options, results) {
           await fs.chmod(destPath, 0o755);
         }
         
-        console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .claude/helpers/${helper}`);
+        console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .auggie/helpers/${helper}`);
         results.copiedFiles.push(join('.claude', 'helpers', helper));
       }
     }
@@ -382,15 +382,15 @@ async function createDirectoryStructure(targetDir, options) {
     'coordination/subtasks',
     'coordination/orchestration',
     '.claude',
-    '.claude/commands',
-    '.claude/logs',
+    '.auggie/commands',
+    '.auggie/logs',
     '.swarm', // For memory persistence
   ];
 
   if (options.sparc) {
     directories.push(
-      '.claude/commands/sparc',
-      '.claude/commands/swarm'
+      '.auggie/commands/sparc',
+      '.auggie/commands/swarm'
     );
   }
 

@@ -33,9 +33,9 @@ init/
 1. **Claude Code Configuration**:
 
    - `CLAUDE.md` - SPARC-enhanced project instructions
-   - `.claude/` directory structure
-   - `.claude/commands/` - Slash commands for Claude Code
-   - `.claude/logs/` - Conversation logs directory
+   - `.auggie/` directory structure
+   - `.auggie/commands/` - Slash commands for Claude Code
+   - `.auggie/logs/` - Conversation logs directory
 
 2. **Memory System**:
 
@@ -100,7 +100,7 @@ npx claude-flow init --force
 
 ## Notes
 
-- The init command detects Claude Code's `.claude/` directory structure
+- The init command detects Claude Code's `.auggie/` directory structure
 - Slash commands follow Claude Code's markdown format with YAML frontmatter
 - SPARC modes are fully integrated with Claude-Flow's orchestration system
 - All generated files include comprehensive documentation

@@ -16,8 +16,8 @@ pre_edit_checkpoint() {
         git branch "$checkpoint_branch"
         
         # Store metadata
-        mkdir -p .claude/checkpoints
-        cat > ".claude/checkpoints/$(date +%s).json" <<EOF
+        mkdir -p .auggie/checkpoints
+        cat > ".auggie/checkpoints/$(date +%s).json" <<EOF
 {
   "branch": "$checkpoint_branch",
   "file": "$file",
@@ -67,9 +67,9 @@ Automatic checkpoint created by Claude
                 git tag -a "$tag_name" -m "Checkpoint after editing $file"
                 
                 # Store metadata
-                mkdir -p .claude/checkpoints
+                mkdir -p .auggie/checkpoints
                 local diff_stats=$(git diff HEAD~1 --stat | tr '\n' ' ' | sed 's/"/\\"/g')
-                cat > ".claude/checkpoints/$(date +%s).json" <<EOF
+                cat > ".auggie/checkpoints/$(date +%s).json" <<EOF
 {
   "tag": "$tag_name",
   "file": "$file",
@@ -101,8 +101,8 @@ task_checkpoint() {
         git commit -m "🔖 Task checkpoint: $task..." --quiet || true
         
         # Store metadata
-        mkdir -p .claude/checkpoints
-        cat > ".claude/checkpoints/task-$(date +%s).json" <<EOF
+        mkdir -p .auggie/checkpoints
+        cat > ".auggie/checkpoints/task-$(date +%s).json" <<EOF
 {
   "checkpoint": "$checkpoint_name",
   "task": "$task",
@@ -118,16 +118,16 @@ EOF
 # Function to handle session end
 session_end_checkpoint() {
     local session_id="session-$(date +%Y%m%d-%H%M%S)"
-    local summary_file=".claude/checkpoints/summary-$session_id.md"
+    local summary_file=".auggie/checkpoints/summary-$session_id.md"
     
-    mkdir -p .claude/checkpoints
+    mkdir -p .auggie/checkpoints
     
     # Create summary
     cat > "$summary_file" <<EOF
 # Session Summary - $(date +'%Y-%m-%d %H:%M:%S')
 
 ## Checkpoints Created
-$(find .claude/checkpoints -name '*.json' -mtime -1 -exec basename {} \; | sort)
+$(find .auggie/checkpoints -name '*.json' -mtime -1 -exec basename {} \; | sort)
 
 ## Files Modified
 $(git diff --name-only $(git log --format=%H -n 1 --before="1 hour ago" 2>/dev/null) 2>/dev/null || echo "No files tracked")

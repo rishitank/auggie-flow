@@ -18,7 +18,7 @@ const child = spawn(process.execPath, [cliPath, ...process.argv.slice(2)], {
   stdio: 'inherit',
   env: {
     ...process.env,
-    CLAUDE_FLOW_CLI: 'true'
+    AUGGIE_FLOW_CLI: 'true'
   }
 });
 

@@ -1,5 +1,5 @@
 /**
- * Dynamic Agent Loader - Reads agent definitions from .claude/agents/ directory
+ * Dynamic Agent Loader - Reads agent definitions from .auggie/agents/ directory
  * This is the single source of truth for all agent types in the system
  */
 
@@ -52,10 +52,10 @@ class AgentLoader {
   private cacheExpiry = 60000; // 1 minute cache
 
   /**
-   * Get the .claude/agents directory path
+   * Get the .auggie/agents directory path
    */
   private getAgentsDirectory(): string {
-    // Start from current working directory and walk up to find .claude/agents
+    // Start from current working directory and walk up to find .auggie/agents
     let currentDir = process.cwd();
     
     while (currentDir !== '/') {
@@ -109,7 +109,7 @@ class AgentLoader {
   }
 
   /**
-   * Load all agent definitions from .claude/agents directory
+   * Load all agent definitions from .auggie/agents directory
    */
   private async loadAgents(): Promise<void> {
     const agentsDir = this.getAgentsDirectory();

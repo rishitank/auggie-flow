@@ -28,7 +28,7 @@ const tutorialTasks = [
   // Parallel collection of SPARC examples
   { tool: 'Grep', params: { pattern: 'sparc (run|tdd|spec)', include: '*.md' } },
   { tool: 'Glob', params: { pattern: 'examples/**/sparc-*.md' } },
-  { tool: 'Glob', params: { pattern: '.claude/commands/sparc/*.md' } },
+  { tool: 'Glob', params: { pattern: '.auggie/commands/sparc/*.md' } },
 
   // Concurrent reading of existing documentation
   { tool: 'Read', params: { file_path: 'README.md' } },

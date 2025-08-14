@@ -3,7 +3,7 @@ export async function createSwarmCommands(): Promise<void> {
   const fs = await import('fs/promises');
   const path = await import('path');
 
-  const swarmDir = '.claude/commands/swarm';
+  const swarmDir = '.auggie/commands/swarm';
 
   // Individual strategy documentation
   const swarmCommands = {

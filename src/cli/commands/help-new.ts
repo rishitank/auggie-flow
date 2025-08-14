@@ -80,7 +80,7 @@ function showMainHelp(): void {
       {
         flags: '--config <path>',
         description: 'Configuration file path',
-        defaultValue: '.claude/config.json',
+        defaultValue: '.auggie/config.json',
       },
       {
         flags: '--verbose',

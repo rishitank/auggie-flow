@@ -757,7 +757,7 @@ Claude Flow includes powerful hooks that automate coordination:
 
 ### Configuration
 
-Hooks are pre-configured in `.claude/settings.json`. Key features:
+Hooks are pre-configured in `.auggie/settings.json`. Key features:
 
 - Automatic agent assignment for different file types
 - Code formatting on save
@@ -767,7 +767,7 @@ Hooks are pre-configured in `.claude/settings.json`. Key features:
 - Intelligent caching and token reduction
 - GitHub workflow automation
 
-See `.claude/commands/` for detailed documentation on all features.
+See `.auggie/commands/` for detailed documentation on all features.
 
 ## Integration Tips
 

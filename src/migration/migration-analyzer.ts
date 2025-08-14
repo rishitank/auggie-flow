@@ -140,8 +140,8 @@ export class MigrationAnalyzer {
   private async detectConflicts(projectPath: string, analysis: MigrationAnalysis): Promise<void> {
     // Check for files that might conflict with migration
     const potentialConflicts = [
-      '.claude/commands/sparc.md',
-      '.claude/BATCHTOOLS_GUIDE.md',
+      '.auggie/commands/sparc.md',
+      '.auggie/BATCHTOOLS_GUIDE.md',
       'memory/memory-store.json',
       'coordination/config.json',
     ];

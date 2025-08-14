@@ -142,7 +142,7 @@ if (errorCount === 0) {
   console.log('2. Type / to see available commands');
   console.log('3. Use /sparc for SPARC methodology');
   console.log('4. Use /claude-flow-* for Claude Flow features');
-  console.log('\nFor help, see the documentation files in .claude/');
+  console.log('\nFor help, see the documentation files in .auggie/');
 } else {
   console.log('\n⚠️  Template deployed with errors. Please check the messages above.');
 }

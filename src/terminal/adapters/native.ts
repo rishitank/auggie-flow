@@ -57,8 +57,8 @@ class NativeTerminal implements Terminal {
         env: {
           ...process.env,
           ...shellConfig.env,
-          CLAUDE_FLOW_TERMINAL: 'true',
-          CLAUDE_FLOW_TERMINAL_ID: this.id,
+          AUGGIE_FLOW_TERMINAL: 'true',
+          AUGGIE_FLOW_TERMINAL_ID: this.id,
         },
       });
 

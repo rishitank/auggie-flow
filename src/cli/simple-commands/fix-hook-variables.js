@@ -93,7 +93,7 @@ function transformHookCommand(command, fromSyntax, toSyntax) {
       : command.includes('pre-edit')
         ? 'pre-edit-hook.sh'
         : 'generic-hook.sh';
-    return `.claude/hooks/${scriptName}`;
+    return `.auggie/hooks/${scriptName}`;
   }
 
   return command;
@@ -103,7 +103,7 @@ function transformHookCommand(command, fromSyntax, toSyntax) {
  * Create wrapper scripts for hooks
  */
 async function createWrapperScripts(commands) {
-  const hooksDir = '.claude/hooks';
+  const hooksDir = '.auggie/hooks';
   await fs.mkdir(hooksDir, { recursive: true });
 
   const wrapperScripts = new Map();
@@ -126,7 +126,7 @@ else
 fi
 `;
       await fs.writeFile(path.join(hooksDir, 'post-edit-hook.sh'), script, { mode: 0o755 });
-      wrapperScripts.set('post-edit', '.claude/hooks/post-edit-hook.sh');
+      wrapperScripts.set('post-edit', '.auggie/hooks/post-edit-hook.sh');
     }
   }
 
@@ -213,9 +213,9 @@ async function fixHookVariables(settingsPath, options = {}) {
  */
 async function findSettingsFiles() {
   const locations = [
-    '.claude/settings.json',
+    '.auggie/settings.json',
     'settings.json',
-    '.vscode/.claude/settings.json',
+    '.vscode/.auggie/settings.json',
     path.join(process.env.HOME || '', '.claude', 'settings.json'),
   ];
 
@@ -247,9 +247,9 @@ export async function fixHookVariablesCommand(args = [], flags = {}) {
   if (files.length === 0) {
     printError('No settings.json files found');
     console.log('\nSearched locations:');
-    console.log('  - .claude/settings.json');
+    console.log('  - .auggie/settings.json');
     console.log('  - settings.json');
-    console.log('  - .vscode/.claude/settings.json');
+    console.log('  - .vscode/.auggie/settings.json');
     console.log(`  - ${path.join(process.env.HOME || '', '.claude', 'settings.json')}`);
     return;
   }
@@ -308,7 +308,7 @@ async function createTestHook() {
             {
               type: 'command',
               command:
-                'cat | jq -r \'.tool_input.file_path // .tool_input.path // ""\' | xargs -I {} echo "Hook test - File: {}" >> .claude/hook-test.log',
+                'cat | jq -r \'.tool_input.file_path // .tool_input.path // ""\' | xargs -I {} echo "Hook test - File: {}" >> .auggie/hook-test.log',
             },
           ],
         },
@@ -317,14 +317,14 @@ async function createTestHook() {
   };
 
   await fs.mkdir('.claude', { recursive: true });
-  await fs.writeFile('.claude/test-settings.json', JSON.stringify(testSettings, null, 2));
+  await fs.writeFile('.auggie/test-settings.json', JSON.stringify(testSettings, null, 2));
 
-  console.log('Created test configuration at: .claude/test-settings.json');
+  console.log('Created test configuration at: .auggie/test-settings.json');
   console.log('\nTo test:');
-  console.log('  1. Copy .claude/test-settings.json to .claude/settings.json');
+  console.log('  1. Copy .auggie/test-settings.json to .auggie/settings.json');
   console.log('  2. Open Claude Code');
   console.log('  3. Create or edit any file');
-  console.log('  4. Check .claude/hook-test.log for output');
+  console.log('  4. Check .auggie/hook-test.log for output');
 }
 
 // Export command configuration
@@ -338,7 +338,7 @@ export const fixHookVariablesCommandConfig = {
   ],
   examples: [
     'claude-flow fix-hook-variables',
-    'claude-flow fix-hook-variables .claude/settings.json',
+    'claude-flow fix-hook-variables .auggie/settings.json',
     'claude-flow fix-hook-variables --syntax wrapper',
     'claude-flow fix-hook-variables --test',
   ],

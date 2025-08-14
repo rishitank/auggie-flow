@@ -92,9 +92,9 @@ claudeCommand
         env: {
           ...process.env,
           CLAUDE_INSTANCE_ID: instanceId,
-          CLAUDE_FLOW_MODE: options.mode,
-          CLAUDE_FLOW_COVERAGE: parseInt(options.coverage).toString(),
-          CLAUDE_FLOW_COMMIT: options.commit,
+          AUGGIE_FLOW_MODE: options.mode,
+          AUGGIE_FLOW_COVERAGE: parseInt(options.coverage).toString(),
+          AUGGIE_FLOW_COMMIT: options.commit,
         },
       });
 

@@ -36,8 +36,8 @@ pre_edit_checkpoint() {
         git branch "$checkpoint_branch"
         
         # Store metadata
-        mkdir -p .claude/checkpoints
-        cat > ".claude/checkpoints/$(date +%s).json" <<EOF
+        mkdir -p .auggie/checkpoints
+        cat > ".auggie/checkpoints/$(date +%s).json" <<EOF
 {
   "branch": "$checkpoint_branch",
   "file": "$file",
@@ -87,9 +87,9 @@ Automatic checkpoint created by Claude
                 git tag -a "$tag_name" -m "Checkpoint after editing $file"
                 
                 # Store metadata
-                mkdir -p .claude/checkpoints
+                mkdir -p .auggie/checkpoints
                 local diff_stats=$(git diff HEAD~1 --stat | tr '\\n' ' ' | sed 's/"/\\\\"/g')
-                cat > ".claude/checkpoints/$(date +%s).json" <<EOF
+                cat > ".auggie/checkpoints/$(date +%s).json" <<EOF
 {
   "tag": "$tag_name",
   "file": "$file",
@@ -141,8 +141,8 @@ git checkout $checkpoint_name
         fi
         
         # Store metadata
-        mkdir -p .claude/checkpoints
-        cat > ".claude/checkpoints/task-$(date +%s).json" <<EOF
+        mkdir -p .auggie/checkpoints
+        cat > ".auggie/checkpoints/task-$(date +%s).json" <<EOF
 {
   "checkpoint": "$checkpoint_name",
   "task": "$task",
@@ -159,16 +159,16 @@ EOF
 # Function to handle session end with GitHub summary
 session_end_checkpoint() {
     local session_id="session-$(date +%Y%m%d-%H%M%S)"
-    local summary_file=".claude/checkpoints/summary-$session_id.md"
+    local summary_file=".auggie/checkpoints/summary-$session_id.md"
     
-    mkdir -p .claude/checkpoints
+    mkdir -p .auggie/checkpoints
     
     # Create detailed summary
     cat > "$summary_file" <<EOF
 # Session Summary - $(date +'%Y-%m-%d %H:%M:%S')
 
 ## Checkpoints Created
-$(find .claude/checkpoints -name '*.json' -mtime -1 -exec basename {} \\; | sort)
+$(find .auggie/checkpoints -name '*.json' -mtime -1 -exec basename {} \\; | sort)
 
 ## Files Modified
 $(git diff --name-only $(git log --format=%H -n 1 --before="1 hour ago" 2>/dev/null) 2>/dev/null || echo "No files tracked")
@@ -250,13 +250,13 @@ async function createGitHubSettingsJson() {
   
   const settings = {
     env: {
-      CLAUDE_FLOW_AUTO_COMMIT: 'false',
-      CLAUDE_FLOW_AUTO_PUSH: 'false',
-      CLAUDE_FLOW_HOOKS_ENABLED: 'true',
-      CLAUDE_FLOW_TELEMETRY_ENABLED: 'true',
-      CLAUDE_FLOW_REMOTE_EXECUTION: 'true',
-      CLAUDE_FLOW_GITHUB_INTEGRATION: 'true',
-      CLAUDE_FLOW_CHECKPOINTS_ENABLED: 'true',
+      AUGGIE_FLOW_AUTO_COMMIT: 'false',
+      AUGGIE_FLOW_AUTO_PUSH: 'false',
+      AUGGIE_FLOW_HOOKS_ENABLED: 'true',
+      AUGGIE_FLOW_TELEMETRY_ENABLED: 'true',
+      AUGGIE_FLOW_REMOTE_EXECUTION: 'true',
+      AUGGIE_FLOW_GITHUB_INTEGRATION: 'true',
+      AUGGIE_FLOW_CHECKPOINTS_ENABLED: 'true',
       CREATE_GH_RELEASE: 'true'
     },
     permissions: {
@@ -297,7 +297,7 @@ async function createGitHubSettingsJson() {
         'Bash(echo *)',
         'Bash(npx claude-flow@alpha *)',
         'Bash(./claude-flow *)',
-        'Bash(./.claude/helpers/*)'
+        'Bash(./.auggie/helpers/*)'
       ],
       deny: [
         'Bash(rm -rf /)',
@@ -326,7 +326,7 @@ async function createGitHubSettingsJson() {
             },
             {
               type: 'command',
-              command: 'bash .claude/helpers/github-checkpoint-hooks.sh pre-edit "{{tool_input}}"'
+              command: 'bash .auggie/helpers/github-checkpoint-hooks.sh pre-edit "{{tool_input}}"'
             }
           ]
         }
@@ -350,7 +350,7 @@ async function createGitHubSettingsJson() {
             },
             {
               type: 'command',
-              command: 'bash .claude/helpers/github-checkpoint-hooks.sh post-edit "{{tool_input}}"'
+              command: 'bash .auggie/helpers/github-checkpoint-hooks.sh post-edit "{{tool_input}}"'
             }
           ]
         }
@@ -360,7 +360,7 @@ async function createGitHubSettingsJson() {
           hooks: [
             {
               type: 'command',
-              command: 'bash .claude/helpers/github-checkpoint-hooks.sh task "{{user_prompt}}"'
+              command: 'bash .auggie/helpers/github-checkpoint-hooks.sh task "{{user_prompt}}"'
             }
           ]
         }
@@ -374,7 +374,7 @@ async function createGitHubSettingsJson() {
             },
             {
               type: 'command',
-              command: 'bash .claude/helpers/github-checkpoint-hooks.sh session-end'
+              command: 'bash .auggie/helpers/github-checkpoint-hooks.sh session-end'
             }
           ]
         }
@@ -394,7 +394,7 @@ async function createGitHubSettingsJson() {
           hooks: [
             {
               type: 'command',
-              command: '/bin/bash -c \'echo "🔄 Auto-Compact Guidance (Context Window Full):"; echo "📋 CRITICAL: Before compacting, ensure you understand:"; echo "   • All 54 agents available in .claude/agents/ directory"; echo "   • Concurrent execution patterns from CLAUDE.md"; echo "   • Batchtools optimization for 300% performance gains"; echo "   • Swarm coordination strategies for complex tasks"; echo "⚡ Apply GOLDEN RULE: Always batch operations in single messages"; echo "✅ Auto-compact proceeding with full agent context"\''
+              command: '/bin/bash -c \'echo "🔄 Auto-Compact Guidance (Context Window Full):"; echo "📋 CRITICAL: Before compacting, ensure you understand:"; echo "   • All 54 agents available in .auggie/agents/ directory"; echo "   • Concurrent execution patterns from CLAUDE.md"; echo "   • Batchtools optimization for 300% performance gains"; echo "   • Swarm coordination strategies for complex tasks"; echo "⚡ Apply GOLDEN RULE: Always batch operations in single messages"; echo "✅ Auto-compact proceeding with full agent context"\''
             }
           ]
         }
@@ -491,7 +491,7 @@ export async function githubInitCommand(flags = {}) {
     console.log('='.repeat(60) + '\n');
     
     console.log('📋 What\'s been set up:\n');
-    console.log('  1. GitHub-specific checkpoint hooks in .claude/helpers/');
+    console.log('  1. GitHub-specific checkpoint hooks in .auggie/helpers/');
     console.log('  2. Automatic GitHub releases for checkpoints' + (ghAvailable ? ' ✅' : ' (requires gh CLI)'));
     console.log('  3. Enhanced rollback with GitHub integration');
     console.log('  4. Session summaries with GitHub releases');
@@ -504,13 +504,13 @@ export async function githubInitCommand(flags = {}) {
     
     console.log('\n📚 Checkpoint Management:\n');
     console.log('  # List all checkpoints');
-    console.log('  .claude/helpers/checkpoint-manager.sh list');
+    console.log('  .auggie/helpers/checkpoint-manager.sh list');
     console.log('');
     console.log('  # View GitHub releases');
     console.log('  gh release list');
     console.log('');
     console.log('  # Rollback to checkpoint');
-    console.log('  .claude/helpers/checkpoint-manager.sh rollback checkpoint-YYYYMMDD-HHMMSS');
+    console.log('  .auggie/helpers/checkpoint-manager.sh rollback checkpoint-YYYYMMDD-HHMMSS');
     console.log('');
     console.log('  # Download release');
     console.log('  gh release download checkpoint-YYYYMMDD-HHMMSS');

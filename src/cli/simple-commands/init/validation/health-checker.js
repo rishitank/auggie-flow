@@ -84,7 +84,7 @@ export class HealthChecker {
 
     try {
       // Check for template directories
-      const templateDirs = ['.roo/templates', '.claude/commands'];
+      const templateDirs = ['.roo/templates', '.auggie/commands'];
 
       for (const dir of templateDirs) {
         const dirPath = `${this.workingDir}/${dir}`;
@@ -331,7 +331,7 @@ export class HealthChecker {
       const config = JSON.parse(content);
 
       if (config.modes) {
-        const commandsDir = `${this.workingDir}/.claude/commands`;
+        const commandsDir = `${this.workingDir}/.auggie/commands`;
 
         try {
           const commandFiles = [];

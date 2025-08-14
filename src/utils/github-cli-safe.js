@@ -113,7 +113,7 @@ export const gh = {
  * // Safe PR creation with complex body
  * await gh.createPR({
  *   title: 'Fix: Handle special characters',
- *   body: 'This fixes issues with `backticks` and .claude/agents/ paths',
+ *   body: 'This fixes issues with `backticks` and .auggie/agents/ paths',
  *   base: 'main'
  * });
  */

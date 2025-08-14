@@ -48,8 +48,8 @@ export async function createClaudeConfig(options: InitOptions): Promise<void> {
     },
   };
 
-  await fs.writeFile('.claude/config.json', JSON.stringify(claudeConfig, null, 2));
-  console.log('  ✅ Created .claude/config.json with batch tools configuration');
+  await fs.writeFile('.auggie/config.json', JSON.stringify(claudeConfig, null, 2));
+  console.log('  ✅ Created .auggie/config.json with batch tools configuration');
 
   // Create additional configuration files
   await createBatchToolsConfig();
@@ -139,7 +139,7 @@ async function createBatchToolsConfig(): Promise<void> {
     },
   };
 
-  await fs.writeFile('.claude/configs/batch-tools.json', JSON.stringify(batchConfig, null, 2));
+  await fs.writeFile('.auggie/configs/batch-tools.json', JSON.stringify(batchConfig, null, 2));
   console.log('  ✅ Created batch tools configuration');
 }
 
@@ -233,7 +233,7 @@ async function createSwarmConfig(): Promise<void> {
     },
   };
 
-  await fs.writeFile('.claude/configs/swarm.json', JSON.stringify(swarmConfig, null, 2));
+  await fs.writeFile('.auggie/configs/swarm.json', JSON.stringify(swarmConfig, null, 2));
   console.log('  ✅ Created swarm orchestration configuration');
 }
 
@@ -304,7 +304,7 @@ async function createCoordinationConfig(): Promise<void> {
   };
 
   await fs.writeFile(
-    '.claude/configs/coordination.json',
+    '.auggie/configs/coordination.json',
     JSON.stringify(coordinationConfig, null, 2),
   );
   console.log('  ✅ Created coordination configuration');

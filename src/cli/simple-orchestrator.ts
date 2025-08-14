@@ -707,7 +707,7 @@ function startWebUI(host: string, port: number) {
     // Spawn the command
     const child = spawn('node', [path.join(rootDir, 'src/cli/simple-cli.js'), ...cmdArgs], {
       stdio: ['pipe', 'pipe', 'pipe'],
-      env: { ...process.env, CLAUDE_FLOW_WEB_MODE: 'true' },
+      env: { ...process.env, AUGGIE_FLOW_WEB_MODE: 'true' },
     });
 
     // Handle stdout

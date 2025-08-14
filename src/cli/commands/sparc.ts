@@ -485,8 +485,8 @@ async function executeClaudeWithSparc(
         ...process.env,
         CLAUDE_INSTANCE_ID: instanceId,
         CLAUDE_SPARC_MODE: 'true',
-        CLAUDE_FLOW_MEMORY_ENABLED: 'true',
-        CLAUDE_FLOW_MEMORY_NAMESPACE: flags.namespace || 'sparc',
+        AUGGIE_FLOW_MEMORY_ENABLED: 'true',
+        AUGGIE_FLOW_MEMORY_NAMESPACE: flags.namespace || 'sparc',
       },
       stdio: 'inherit',
     });

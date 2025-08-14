@@ -508,7 +508,7 @@ Enables automated preparation & cleanup, performance tracking, and coordination 
     usage: 'hook-safety <command> [options]',
     examples: [
       'hook-safety validate                           # Check for dangerous hook configurations',
-      'hook-safety validate --config ~/.claude/settings.json',
+      'hook-safety validate --config ~/.auggie/settings.json',
       'hook-safety status                             # View safety status and context',
       'hook-safety reset                              # Reset circuit breakers',
       'hook-safety safe-mode                          # Enable safe mode (skip all hooks)',

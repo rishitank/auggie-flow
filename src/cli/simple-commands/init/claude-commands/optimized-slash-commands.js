@@ -248,7 +248,7 @@ Chain operations with parallel execution at each stage:
 For detailed documentation, see: https://github.com/ruvnet/claude-code-flow/docs/batchtools.md
 `;
 
-  await fs.writeFile(`${workingDir}/.claude/commands/batchtools.md`, batchtoolsCommand, 'utf8');
+  await fs.writeFile(`${workingDir}/.auggie/commands/batchtools.md`, batchtoolsCommand, 'utf8');
   console.log('  ✓ Created slash command: /batchtools');
 
   // Performance monitoring command
@@ -346,6 +346,6 @@ Real-time performance monitoring and optimization tools for Claude-Flow operatio
 For comprehensive performance guides, see: https://github.com/ruvnet/claude-code-flow/docs/performance.md
 `;
 
-  await fs.writeFile(`${workingDir}/.claude/commands/performance.md`, performanceCommand, 'utf8');
+  await fs.writeFile(`${workingDir}/.auggie/commands/performance.md`, performanceCommand, 'utf8');
   console.log('  ✓ Created slash command: /performance');
 }

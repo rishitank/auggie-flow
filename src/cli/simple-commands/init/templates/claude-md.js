@@ -293,7 +293,7 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 
 ## Claude Code Slash Commands
 
-Claude Code slash commands are available in \`.claude/commands/\`:
+Claude Code slash commands are available in \`.auggie/commands/\`:
 
 ### Project Commands
 - \`/sparc\`: Execute SPARC methodology workflows
@@ -306,7 +306,7 @@ Claude Code slash commands are available in \`.claude/commands/\`:
 1. Type \`/\` in Claude Code to see available commands
 2. Select a command or type its name
 3. Commands are context-aware and project-specific
-4. Custom commands can be added to \`.claude/commands/\`
+4. Custom commands can be added to \`.auggie/commands/\`
 
 ## Code Style and Best Practices
 
@@ -398,8 +398,8 @@ Claude Code slash commands are available in \`.claude/commands/\`:
 ## Configuration Files
 
 ### Claude Code Integration
-- **\`.claude/commands/\`**: Claude Code slash commands for all SPARC modes
-- **\`.claude/logs/\`**: Conversation and session logs
+- **\`.auggie/commands/\`**: Claude Code slash commands for all SPARC modes
+- **\`.auggie/logs/\`**: Conversation and session logs
 
 ### SPARC Configuration
 - **\`.roomodes\`**: SPARC mode definitions and configurations (auto-generated)

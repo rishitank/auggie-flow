@@ -7,7 +7,7 @@ export function showInitHelp() {
   console.log();
   console.log('🚀 DEFAULT BEHAVIOR:');
   console.log('  claude-flow init     Initialize with Claude Flow v2.0.0 enhanced features');
-  console.log('                       Creates CLAUDE.md & .claude/commands for MCP integration');
+  console.log('                       Creates CLAUDE.md & .auggie/commands for MCP integration');
   console.log();
   console.log('Standard Options:');
   console.log('  --force, -f          Overwrite existing files (also updates .gitignore)');
@@ -62,11 +62,11 @@ export function showInitHelp() {
   console.log('  claude-flow init --list-backups             # Show available backups');
   console.log();
   console.log('What gets created:');
-  console.log('  • .claude/settings.json - Claude Code configuration with hooks');
-  console.log('  • .claude/settings.local.json - Pre-approved MCP permissions (no prompts!)');
+  console.log('  • .auggie/settings.json - Claude Code configuration with hooks');
+  console.log('  • .auggie/settings.local.json - Pre-approved MCP permissions (no prompts!)');
   console.log('  • .mcp.json - Project-scoped MCP server configuration');
   console.log('  • claude-flow.config.json - Claude Flow features and performance settings');
-  console.log('  • .claude/commands/ directory with 20+ Claude Code slash commands');
+  console.log('  • .auggie/commands/ directory with 20+ Claude Code slash commands');
   console.log('  • CLAUDE.md with project instructions (v2.0.0 enhanced by default)');
   console.log('  • memory/ directory for persistent context storage');
   console.log('  • coordination/ directory for agent orchestration');

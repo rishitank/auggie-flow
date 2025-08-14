@@ -144,8 +144,8 @@ The system uses a manifest file (`migration-manifest.json`) to define:
   "files": {
     "commands": {
       "sparc.md": {
-        "source": ".claude/commands/sparc.md",
-        "target": ".claude/commands/sparc.md",
+        "source": ".auggie/commands/sparc.md",
+        "target": ".auggie/commands/sparc.md",
         "transform": "replace",
         "priority": 1
       }
@@ -313,7 +313,7 @@ Multiple rollback options:
 
 ```bash
 # Check and fix permissions
-chmod -R u+w .claude/
+chmod -R u+w .auggie/
 claude-flow migrate --strategy selective
 ```
 
@@ -331,7 +331,7 @@ claude-flow migrate --strategy selective --preserve-custom
 claude-flow migrate validate --verbose
 
 # Check for missing files or corruption
-ls -la .claude/commands/
+ls -la .auggie/commands/
 ```
 
 #### Rollback Not Working

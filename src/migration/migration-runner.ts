@@ -323,7 +323,7 @@ export class MigrationRunner {
       for (const file of files) {
         const content = await fs.readFile(path.join(claudePath, file), 'utf-8');
         backup.files.push({
-          path: `.claude/${file}`,
+          path: `.auggie/${file}`,
           content,
           checksum: crypto.createHash('md5').update(content).digest('hex'),
         });

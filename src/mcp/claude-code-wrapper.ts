@@ -826,7 +826,7 @@ Use the appropriate tools for each phase and maintain progress in TodoWrite.`;
     console.error('🚀 Claude-Flow MCP Server (Wrapper Mode)');
     console.error('📦 Using Claude Code MCP pass-through with SPARC prompt injection');
     console.error('🔧 All SPARC tools available with enhanced AI capabilities');
-    console.error('ℹ️  To use legacy mode, set CLAUDE_FLOW_LEGACY_MCP=true');
+    console.error('ℹ️  To use legacy mode, set AUGGIE_FLOW_LEGACY_MCP=true');
     console.error('');
 
     await this.server.connect(transport);

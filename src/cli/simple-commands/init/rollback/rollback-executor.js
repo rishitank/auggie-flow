@@ -118,7 +118,7 @@ export class RollbackExecutor {
     };
 
     try {
-      const itemsToRemove = ['.roomodes', '.roo', '.claude/commands/sparc'];
+      const itemsToRemove = ['.roomodes', '.roo', '.auggie/commands/sparc'];
 
       for (const item of itemsToRemove) {
         const itemPath = `${this.workingDir}/${item}`;
@@ -162,7 +162,7 @@ export class RollbackExecutor {
     };
 
     try {
-      const commandsDir = `${this.workingDir}/.claude/commands`;
+      const commandsDir = `${this.workingDir}/.auggie/commands`;
 
       try {
         // Remove all command files

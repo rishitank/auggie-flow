@@ -109,7 +109,7 @@ npx -y claude-flow@latest init --sparc
 - Issues: https://github.com/ruvnet/claude-code-flow/issues
 `;
 
-  await fs.writeFile(`${workingDir}/.claude/commands/claude-flow-help.md`, helpCommand, 'utf8');
+  await fs.writeFile(`${workingDir}/.auggie/commands/claude-flow-help.md`, helpCommand, 'utf8');
   console.log('  ✓ Created slash command: /claude-flow-help');
 
   // Memory command
@@ -222,7 +222,7 @@ The memory system provides persistent storage for cross-session and cross-agent 
 \`\`\`
 `;
 
-  await fs.writeFile(`${workingDir}/.claude/commands/claude-flow-memory.md`, memoryCommand, 'utf8');
+  await fs.writeFile(`${workingDir}/.auggie/commands/claude-flow-memory.md`, memoryCommand, 'utf8');
   console.log('  ✓ Created slash command: /claude-flow-memory');
 
   // Swarm command
@@ -433,6 +433,6 @@ Swarms automatically use distributed memory for collaboration:
 For detailed documentation, see: https://github.com/ruvnet/claude-code-flow/docs/swarm-system.md
 `;
 
-  await fs.writeFile(`${workingDir}/.claude/commands/claude-flow-swarm.md`, swarmCommand, 'utf8');
+  await fs.writeFile(`${workingDir}/.auggie/commands/claude-flow-swarm.md`, swarmCommand, 'utf8');
   console.log('  ✓ Created slash command: /claude-flow-swarm');
 }

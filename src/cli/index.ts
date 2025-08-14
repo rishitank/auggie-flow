@@ -124,7 +124,7 @@ async function handleError(error: unknown, options?: any): Promise<void> {
   }
 
   // Show stack trace in debug mode or verbose
-  if (process.env['CLAUDE_FLOW_DEBUG'] === 'true' || options?.verbose) {
+  if (process.env['AUGGIE_FLOW_DEBUG'] === 'true' || options?.verbose) {
     console.error(chalk.gray('\nStack trace:'));
     console.error(error);
   }

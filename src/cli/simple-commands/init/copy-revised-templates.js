@@ -7,8 +7,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Source directory for revised templates (repository root .claude/commands)
-const REPO_TEMPLATES_DIR = path.join(__dirname, '../../../../.claude/commands');
+// Source directory for revised templates (repository root .auggie/commands)
+const REPO_TEMPLATES_DIR = path.join(__dirname, '../../../../.auggie/commands');
 
 /**
  * Copy revised template files from repository to target project
@@ -21,7 +21,7 @@ export async function copyRevisedTemplates(targetDir, options = {}) {
     errors: []
   };
 
-  const targetCommandsDir = path.join(targetDir, '.claude/commands');
+  const targetCommandsDir = path.join(targetDir, '.auggie/commands');
 
   try {
     // Ensure target directory exists
@@ -32,8 +32,8 @@ export async function copyRevisedTemplates(targetDir, options = {}) {
 
     // Copy additional .claude files if they exist
     const additionalFiles = [
-      { source: '../config.json', target: '.claude/config.json' },
-      { source: '../settings.json', target: '.claude/settings.json' }
+      { source: '../config.json', target: '.auggie/config.json' },
+      { source: '../settings.json', target: '.auggie/settings.json' }
     ];
 
     for (const file of additionalFiles) {
@@ -129,7 +129,7 @@ export async function copyRevisedTemplatesByCategory(targetDir, categories, opti
 
   for (const category of categories) {
     const sourceCategoryDir = path.join(REPO_TEMPLATES_DIR, category);
-    const targetCategoryDir = path.join(targetDir, '.claude/commands', category);
+    const targetCategoryDir = path.join(targetDir, '.auggie/commands', category);
 
     if (fs.existsSync(sourceCategoryDir)) {
       await fs.promises.mkdir(targetCategoryDir, { recursive: true });

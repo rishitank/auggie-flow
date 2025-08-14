@@ -6,57 +6,57 @@
   "files": {
     "commands": {
       "sparc.md": {
-        "source": ".claude/commands/sparc.md",
-        "target": ".claude/commands/sparc.md",
+        "source": ".auggie/commands/sparc.md",
+        "target": ".auggie/commands/sparc.md",
         "transform": "replace",
         "priority": 1,
         "description": "Main SPARC command with optimized prompts"
       },
       "sparc-architect.md": {
-        "source": ".claude/commands/sparc/architect.md",
-        "target": ".claude/commands/sparc/architect.md",
+        "source": ".auggie/commands/sparc/architect.md",
+        "target": ".auggie/commands/sparc/architect.md",
         "transform": "replace",
         "priority": 2,
         "description": "Architecture mode with optimization features"
       },
       "sparc-code.md": {
-        "source": ".claude/commands/sparc/code.md",
-        "target": ".claude/commands/sparc/code.md",
+        "source": ".auggie/commands/sparc/code.md",
+        "target": ".auggie/commands/sparc/code.md",
         "transform": "replace",
         "priority": 2,
         "description": "Code generation mode with best practices"
       },
       "sparc-tdd.md": {
-        "source": ".claude/commands/sparc/tdd.md",
-        "target": ".claude/commands/sparc/tdd.md",
+        "source": ".auggie/commands/sparc/tdd.md",
+        "target": ".auggie/commands/sparc/tdd.md",
         "transform": "replace",
         "priority": 2,
         "description": "Test-driven development with optimization"
       },
       "sparc-debug.md": {
-        "source": ".claude/commands/sparc/debug.md",
-        "target": ".claude/commands/sparc/debug.md",
+        "source": ".auggie/commands/sparc/debug.md",
+        "target": ".auggie/commands/sparc/debug.md",
         "transform": "replace",
         "priority": 3,
         "description": "Enhanced debugging capabilities"
       },
       "claude-flow-help.md": {
-        "source": ".claude/commands/claude-flow-help.md",
-        "target": ".claude/commands/claude-flow-help.md",
+        "source": ".auggie/commands/claude-flow-help.md",
+        "target": ".auggie/commands/claude-flow-help.md",
         "transform": "replace",
         "priority": 1,
         "description": "Comprehensive help system"
       },
       "claude-flow-memory.md": {
-        "source": ".claude/commands/claude-flow-memory.md",
-        "target": ".claude/commands/claude-flow-memory.md",
+        "source": ".auggie/commands/claude-flow-memory.md",
+        "target": ".auggie/commands/claude-flow-memory.md",
         "transform": "replace",
         "priority": 1,
         "description": "Memory management commands"
       },
       "claude-flow-swarm.md": {
-        "source": ".claude/commands/claude-flow-swarm.md",
-        "target": ".claude/commands/claude-flow-swarm.md",
+        "source": ".auggie/commands/claude-flow-swarm.md",
+        "target": ".auggie/commands/claude-flow-swarm.md",
         "transform": "replace",
         "priority": 1,
         "description": "Multi-agent coordination"
@@ -64,29 +64,29 @@
     },
     "guides": {
       "BATCHTOOLS_GUIDE.md": {
-        "source": ".claude/BATCHTOOLS_GUIDE.md",
-        "target": ".claude/BATCHTOOLS_GUIDE.md",
+        "source": ".auggie/BATCHTOOLS_GUIDE.md",
+        "target": ".auggie/BATCHTOOLS_GUIDE.md",
         "transform": "copy",
         "priority": 1,
         "description": "Comprehensive batch operations guide"
       },
       "BATCHTOOLS_BEST_PRACTICES.md": {
-        "source": ".claude/BATCHTOOLS_BEST_PRACTICES.md",
-        "target": ".claude/BATCHTOOLS_BEST_PRACTICES.md",
+        "source": ".auggie/BATCHTOOLS_BEST_PRACTICES.md",
+        "target": ".auggie/BATCHTOOLS_BEST_PRACTICES.md",
         "transform": "copy",
         "priority": 1,
         "description": "Best practices for batch operations"
       },
       "MIGRATION_GUIDE.md": {
-        "source": ".claude/MIGRATION_GUIDE.md",
-        "target": ".claude/MIGRATION_GUIDE.md",
+        "source": ".auggie/MIGRATION_GUIDE.md",
+        "target": ".auggie/MIGRATION_GUIDE.md",
         "transform": "copy",
         "priority": 2,
         "description": "Migration guidance and troubleshooting"
       },
       "PERFORMANCE_BENCHMARKS.md": {
-        "source": ".claude/PERFORMANCE_BENCHMARKS.md",
-        "target": ".claude/PERFORMANCE_BENCHMARKS.md",
+        "source": ".auggie/PERFORMANCE_BENCHMARKS.md",
+        "target": ".auggie/PERFORMANCE_BENCHMARKS.md",
         "transform": "copy",
         "priority": 2,
         "description": "Performance benchmarks and metrics"
@@ -140,14 +140,14 @@
   },
   "validation": {
     "requiredFiles": [
-      ".claude/commands/sparc.md",
-      ".claude/commands/claude-flow-help.md",
-      ".claude/BATCHTOOLS_GUIDE.md"
+      ".auggie/commands/sparc.md",
+      ".auggie/commands/claude-flow-help.md",
+      ".auggie/BATCHTOOLS_GUIDE.md"
     ],
     "requiredCommands": ["sparc", "claude-flow-help", "claude-flow-memory"],
     "optionalFiles": [
-      ".claude/PERFORMANCE_BENCHMARKS.md",
-      ".claude/MIGRATION_GUIDE.md"
+      ".auggie/PERFORMANCE_BENCHMARKS.md",
+      ".auggie/MIGRATION_GUIDE.md"
     ]
   },
   "rollback": {

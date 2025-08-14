@@ -100,8 +100,8 @@ export class PostInitValidator {
       'coordination/subtasks',
       'coordination/orchestration',
       '.claude',
-      '.claude/commands',
-      '.claude/logs',
+      '.auggie/commands',
+      '.auggie/logs',
     ];
 
     const optionalDirs = [
@@ -110,7 +110,7 @@ export class PostInitValidator {
       '.roo/workflows',
       '.roo/modes',
       '.roo/configs',
-      '.claude/commands/sparc',
+      '.auggie/commands/sparc',
     ];
 
     // Check required directories
@@ -316,7 +316,7 @@ export class PostInitValidator {
 
     for (const dir of expectedDirs) {
       try {
-        await fs.stat(`${this.workingDir}/.claude/${dir}`);
+        await fs.stat(`${this.workingDir}/.auggie/${dir}`);
         structure.dirs.push(dir);
       } catch {
         structure.valid = false;
@@ -326,7 +326,7 @@ export class PostInitValidator {
     // Check if there are any command files
     try {
       const entries = [];
-      for await (const entry of fs.readdir(`${this.workingDir}/.claude/commands`)) {
+      for await (const entry of fs.readdir(`${this.workingDir}/.auggie/commands`)) {
         if (entry.isFile && entry.name.endsWith('.js')) {
           entries.push(entry.name);
         }

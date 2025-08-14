@@ -42,14 +42,14 @@ export async function initCommand(options: InitOptions = {}) {
 
     // Success summary
     console.log('\n🎉 Project initialized successfully!');
-    console.log('   📁 Created .claude/ directory structure');
+    console.log('   📁 Created .auggie/ directory structure');
     console.log('   📋 Created comprehensive swarm command documentation');
     console.log('   🔧 Created batch tools coordination guides');
     console.log('   📖 Created detailed usage examples with orchestration');
 
     console.log('\n   Next steps:');
     console.log('   1. Run "claude-flow swarm --help" to see swarm options');
-    console.log('   2. Check .claude/commands/swarm/ for detailed documentation');
+    console.log('   2. Check .auggie/commands/swarm/ for detailed documentation');
     console.log('   3. Review batch tools guide for orchestration patterns');
     console.log('   4. Run "claude-flow help" for all available commands');
 

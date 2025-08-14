@@ -57,7 +57,7 @@ const commands = {
   },
   test: () => {
     console.log('Running template test suite...');
-    if (fs.existsSync('.claude/tests/test-harness.js')) {
+    if (fs.existsSync('.auggie/tests/test-harness.js')) {
       execSync('cd .claude && node tests/test-harness.js', { stdio: 'inherit' });
     } else {
       console.log('Test harness not found. Run "install" first.');

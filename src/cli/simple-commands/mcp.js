@@ -84,9 +84,9 @@ async function startMcpServer(subArgs, flags) {
         stdio: 'inherit',
         env: {
           ...process.env,
-          CLAUDE_FLOW_AUTO_ORCHESTRATOR: autoOrchestrator ? 'true' : 'false',
-          CLAUDE_FLOW_NEURAL_ENABLED: 'true',
-          CLAUDE_FLOW_WASM_ENABLED: 'true',
+          AUGGIE_FLOW_AUTO_ORCHESTRATOR: autoOrchestrator ? 'true' : 'false',
+          AUGGIE_FLOW_NEURAL_ENABLED: 'true',
+          AUGGIE_FLOW_WASM_ENABLED: 'true',
         },
       });
 

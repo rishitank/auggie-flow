@@ -1535,14 +1535,14 @@ const child = spawnEngine(claudeArgs, {
                 env: {
                   ...process.env,
                   CLAUDE_INSTANCE_ID: instanceId,
-                  CLAUDE_FLOW_MODE: flags.mode || 'full',
-                  CLAUDE_FLOW_COVERAGE: (flags.coverage || 80).toString(),
-                  CLAUDE_FLOW_COMMIT: flags.commit || 'phase',
+                  AUGGIE_FLOW_MODE: flags.mode || 'full',
+                  AUGGIE_FLOW_COVERAGE: (flags.coverage || 80).toString(),
+                  AUGGIE_FLOW_COMMIT: flags.commit || 'phase',
                   // Add claude-flow specific features
-                  CLAUDE_FLOW_MEMORY_ENABLED: 'true',
-                  CLAUDE_FLOW_MEMORY_NAMESPACE: 'default',
-                  CLAUDE_FLOW_COORDINATION_ENABLED: flags.parallel ? 'true' : 'false',
-                  CLAUDE_FLOW_FEATURES: 'memory,coordination,swarm',
+                  AUGGIE_FLOW_MEMORY_ENABLED: 'true',
+                  AUGGIE_FLOW_MEMORY_NAMESPACE: 'default',
+                  AUGGIE_FLOW_COORDINATION_ENABLED: flags.parallel ? 'true' : 'false',
+                  AUGGIE_FLOW_FEATURES: 'memory,coordination,swarm',
                 },
                 stdio: 'inherit',
               });

@@ -223,7 +223,7 @@ export class PreInitValidator {
       { name: 'HOME', required: false },
       { name: 'PATH', required: true },
       { name: 'PWD', required: false },
-      { name: 'CLAUDE_FLOW_DEBUG', required: false },
+      { name: 'AUGGIE_FLOW_DEBUG', required: false },
     ];
 
     for (const envVar of envVars) {

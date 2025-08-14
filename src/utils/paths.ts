@@ -15,7 +15,7 @@ export function getClaudeFlowRoot(): string {
     // Strategy 3: From npm global location
     resolve(process.execPath, '../../lib/node_modules/claude-flow'),
     // Strategy 4: From environment variable
-    process.env.CLAUDE_FLOW_ROOT || '',
+    process.env.AUGGIE_FLOW_ROOT || '',
   ];
 
   for (const path of strategies) {

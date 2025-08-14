@@ -8,9 +8,9 @@ import { existsSync, readTextFile, writeTextFile } from '../../node-compat.js';
 /**
  * Default gitignore entries for Claude Flow
  */
-const CLAUDE_FLOW_GITIGNORE_ENTRIES = `
+const AUGGIE_FLOW_GITIGNORE_ENTRIES = `
 # Claude Flow generated files
-.claude/settings.local.json
+.auggie/settings.local.json
 .mcp.json
 claude-flow.config.json
 .swarm/
@@ -84,7 +84,7 @@ export async function updateGitignore(workingDir, force = false, dryRun = false)
     if (!newContent.endsWith('\n') && newContent.length > 0) {
       newContent += '\n';
     }
-    newContent += CLAUDE_FLOW_GITIGNORE_ENTRIES;
+    newContent += AUGGIE_FLOW_GITIGNORE_ENTRIES;
 
     // Write the file
     if (!dryRun) {
@@ -131,7 +131,7 @@ export async function needsGitignoreUpdate(workingDir) {
  * @returns {string[]}
  */
 export function getGitignorePatterns() {
-  return CLAUDE_FLOW_GITIGNORE_ENTRIES.split('\n')
+  return AUGGIE_FLOW_GITIGNORE_ENTRIES.split('\n')
     .filter((line) => line.trim() && !line.startsWith('#') && !line.startsWith('!'))
     .map((line) => line.trim());
 }

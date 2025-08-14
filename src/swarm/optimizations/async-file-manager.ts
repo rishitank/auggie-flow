@@ -41,7 +41,7 @@ export class AsyncFileManager {
 
     // Use test-safe logger configuration
     const loggerConfig =
-      process.env.CLAUDE_FLOW_ENV === 'test'
+      process.env.AUGGIE_FLOW_ENV === 'test'
         ? { level: 'error' as const, format: 'json' as const, destination: 'console' as const }
         : { level: 'info' as const, format: 'json' as const, destination: 'console' as const };
 

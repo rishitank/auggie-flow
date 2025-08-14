@@ -1031,7 +1031,7 @@ echo ""
 echo "4. Monitor progress:"
 echo "   npx claude-flow swarm monitor"
 echo ""
-echo "📚 For more examples, see .claude/commands/"
+echo "📚 For more examples, see .auggie/commands/"
 `,
     'github-setup.sh': `#!/bin/bash
 # Setup GitHub integration for Claude Flow
@@ -1187,8 +1187,8 @@ pre_edit_checkpoint() {
         git branch "$checkpoint_branch"
         
         # Store metadata
-        mkdir -p .claude/checkpoints
-        cat > ".claude/checkpoints/$(date +%s).json" <<EOF
+        mkdir -p .auggie/checkpoints
+        cat > ".auggie/checkpoints/$(date +%s).json" <<EOF
 {
   "branch": "$checkpoint_branch",
   "file": "$file",
@@ -1238,9 +1238,9 @@ Automatic checkpoint created by Claude
                 git tag -a "$tag_name" -m "Checkpoint after editing $file"
                 
                 # Store metadata
-                mkdir -p .claude/checkpoints
+                mkdir -p .auggie/checkpoints
                 local diff_stats=$(git diff HEAD~1 --stat | tr '\\n' ' ' | sed 's/"/\\\\"/g')
-                cat > ".claude/checkpoints/$(date +%s).json" <<EOF
+                cat > ".auggie/checkpoints/$(date +%s).json" <<EOF
 {
   "tag": "$tag_name",
   "file": "$file",
@@ -1274,8 +1274,8 @@ task_checkpoint() {
         # No GitHub release in standard version
         
         # Store metadata
-        mkdir -p .claude/checkpoints
-        cat > ".claude/checkpoints/task-$(date +%s).json" <<EOF
+        mkdir -p .auggie/checkpoints
+        cat > ".auggie/checkpoints/task-$(date +%s).json" <<EOF
 {
   "checkpoint": "$checkpoint_name",
   "task": "$task",
@@ -1291,16 +1291,16 @@ EOF
 # Function to handle session end
 session_end_checkpoint() {
     local session_id="session-$(date +%Y%m%d-%H%M%S)"
-    local summary_file=".claude/checkpoints/summary-$session_id.md"
+    local summary_file=".auggie/checkpoints/summary-$session_id.md"
     
-    mkdir -p .claude/checkpoints
+    mkdir -p .auggie/checkpoints
     
     # Create summary
     cat > "$summary_file" <<EOF
 # Session Summary - $(date +'%Y-%m-%d %H:%M:%S')
 
 ## Checkpoints Created
-$(find .claude/checkpoints -name '*.json' -mtime -1 -exec basename {} \\; | sort)
+$(find .auggie/checkpoints -name '*.json' -mtime -1 -exec basename {} \\; | sort)
 
 ## Files Modified
 $(git diff --name-only $(git log --format=%H -n 1 --before="1 hour ago" 2>/dev/null) 2>/dev/null || echo "No files tracked")
@@ -1365,8 +1365,8 @@ BLUE='\\033[0;34m'
 NC='\\033[0m' # No Color
 
 # Configuration
-CHECKPOINT_DIR=".claude/checkpoints"
-BACKUP_DIR=".claude/backups"
+CHECKPOINT_DIR=".auggie/checkpoints"
+BACKUP_DIR=".auggie/backups"
 
 # Help function
 show_help() {
@@ -1621,8 +1621,8 @@ pre_edit_checkpoint() {
         git branch "$checkpoint_branch"
         
         # Store metadata
-        mkdir -p .claude/checkpoints
-        cat > ".claude/checkpoints/$(date +%s).json" <<EOF
+        mkdir -p .auggie/checkpoints
+        cat > ".auggie/checkpoints/$(date +%s).json" <<EOF
 {
   "branch": "$checkpoint_branch",
   "file": "$file",
@@ -1672,9 +1672,9 @@ Automatic checkpoint created by Claude
                 git tag -a "$tag_name" -m "Checkpoint after editing $file"
                 
                 # Store metadata
-                mkdir -p .claude/checkpoints
+                mkdir -p .auggie/checkpoints
                 local diff_stats=$(git diff HEAD~1 --stat | tr '\\n' ' ' | sed 's/"/\\"/g')
-                cat > ".claude/checkpoints/$(date +%s).json" <<EOF
+                cat > ".auggie/checkpoints/$(date +%s).json" <<EOF
 {
   "tag": "$tag_name",
   "file": "$file",
@@ -1706,8 +1706,8 @@ task_checkpoint() {
         git commit -m "🔖 Task checkpoint: $task..." --quiet || true
         
         # Store metadata
-        mkdir -p .claude/checkpoints
-        cat > ".claude/checkpoints/task-$(date +%s).json" <<EOF
+        mkdir -p .auggie/checkpoints
+        cat > ".auggie/checkpoints/task-$(date +%s).json" <<EOF
 {
   "checkpoint": "$checkpoint_name",
   "task": "$task",
@@ -1723,16 +1723,16 @@ EOF
 # Function to handle session end
 session_end_checkpoint() {
     local session_id="session-$(date +%Y%m%d-%H%M%S)"
-    local summary_file=".claude/checkpoints/summary-$session_id.md"
+    local summary_file=".auggie/checkpoints/summary-$session_id.md"
     
-    mkdir -p .claude/checkpoints
+    mkdir -p .auggie/checkpoints
     
     # Create summary
     cat > "$summary_file" <<EOF
 # Session Summary - $(date +'%Y-%m-%d %H:%M:%S')
 
 ## Checkpoints Created
-$(find .claude/checkpoints -name '*.json' -mtime -1 -exec basename {} \\; | sort)
+$(find .auggie/checkpoints -name '*.json' -mtime -1 -exec basename {} \\; | sort)
 
 ## Files Modified
 $(git diff --name-only $(git log --format=%H -n 1 --before="1 hour ago" 2>/dev/null) 2>/dev/null || echo "No files tracked")
@@ -1941,7 +1941,7 @@ function createEnhancedClaudeMdFallback() {
 3. Spawn agents: \`mcp__claude-flow__agent_spawn { type: "coder" }\`
 4. Orchestrate: \`mcp__claude-flow__task_orchestrate { task: "Build feature" }\`
 
-See full documentation in \`.claude/commands/\`
+See full documentation in \`.auggie/commands/\`
 `;
   }
 }
@@ -1950,12 +1950,12 @@ function createEnhancedSettingsJsonFallback() {
   return JSON.stringify(
     {
       env: {
-        CLAUDE_FLOW_AUTO_COMMIT: 'false',
-        CLAUDE_FLOW_AUTO_PUSH: 'false',
-        CLAUDE_FLOW_HOOKS_ENABLED: 'true',
-        CLAUDE_FLOW_TELEMETRY_ENABLED: 'true',
-        CLAUDE_FLOW_REMOTE_EXECUTION: 'true',
-        CLAUDE_FLOW_CHECKPOINTS_ENABLED: 'true',
+        AUGGIE_FLOW_AUTO_COMMIT: 'false',
+        AUGGIE_FLOW_AUTO_PUSH: 'false',
+        AUGGIE_FLOW_HOOKS_ENABLED: 'true',
+        AUGGIE_FLOW_TELEMETRY_ENABLED: 'true',
+        AUGGIE_FLOW_REMOTE_EXECUTION: 'true',
+        AUGGIE_FLOW_CHECKPOINTS_ENABLED: 'true',
       },
       permissions: {
         allow: [
@@ -2005,7 +2005,7 @@ function createEnhancedSettingsJsonFallback() {
               },
               {
                 type: 'command',
-                command: './.claude/helpers/standard-checkpoint-hooks.sh pre-edit "{{tool_input}}"',
+                command: './.auggie/helpers/standard-checkpoint-hooks.sh pre-edit "{{tool_input}}"',
               },
             ],
           },
@@ -2031,7 +2031,7 @@ function createEnhancedSettingsJsonFallback() {
               },
               {
                 type: 'command',
-                command: './.claude/helpers/standard-checkpoint-hooks.sh post-edit "{{tool_input}}"',
+                command: './.auggie/helpers/standard-checkpoint-hooks.sh post-edit "{{tool_input}}"',
               },
             ],
           },
@@ -2041,7 +2041,7 @@ function createEnhancedSettingsJsonFallback() {
             hooks: [
               {
                 type: 'command',
-                command: './.claude/helpers/standard-checkpoint-hooks.sh task "{{user_prompt}}"',
+                command: './.auggie/helpers/standard-checkpoint-hooks.sh task "{{user_prompt}}"',
               },
             ],
           },
@@ -2056,7 +2056,7 @@ function createEnhancedSettingsJsonFallback() {
               },
               {
                 type: 'command',
-                command: '/usr/bin/env bash -c \'if [ -f ./.claude/helpers/standard-checkpoint-hooks.sh ]; then ./.claude/helpers/standard-checkpoint-hooks.sh session-end; else echo "⚠️  Checkpoint hooks not found"; fi\'',
+                command: '/usr/bin/env bash -c \'if [ -f ./.auggie/helpers/standard-checkpoint-hooks.sh ]; then ./.auggie/helpers/standard-checkpoint-hooks.sh session-end; else echo "⚠️  Checkpoint hooks not found"; fi\'',
               },
             ],
           },

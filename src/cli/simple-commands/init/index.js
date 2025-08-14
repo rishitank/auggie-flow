@@ -345,7 +345,7 @@ export async function initCommand(subArgs, flags) {
         `  • Template type: ${initOptimized ? 'Optimized for parallel processing' : 'Standard'}`,
       );
       console.log('  • Core files: CLAUDE.md, memory-bank.md, coordination.md');
-      console.log('  • Directory structure: memory/, coordination/, .claude/');
+      console.log('  • Directory structure: memory/, coordination/, .auggie/');
       console.log('  • Local executable: ./claude-flow');
       if (initSparc) {
         console.log(
@@ -381,7 +381,7 @@ export async function initCommand(subArgs, flags) {
       console.log('  ✅ Directory structure with memory/ and coordination/');
       console.log('  ✅ Local executable at ./claude-flow');
       console.log('  ✅ Persistence database at memory/claude-flow-data.json');
-      console.log('  ✅ Agent system with 64 specialized agents in .claude/agents/');
+      console.log('  ✅ Agent system with 64 specialized agents in .auggie/agents/');
 
       if (initSparc) {
         const modeCount = selectedModes ? selectedModes.length : '20+';
@@ -877,8 +877,8 @@ async function createDirectoryStructure(workingDir, dryRun = false) {
     'coordination/subtasks',
     'coordination/orchestration',
     '.claude',
-    '.claude/commands',
-    '.claude/logs',
+    '.auggie/commands',
+    '.auggie/logs',
   ];
 
   if (!dryRun) {
@@ -932,7 +932,7 @@ async function setupMonitoring(workingDir) {
     await fs.writeFile(tokenUsageFile, JSON.stringify(initialData, null, 2));
     printSuccess('  ✓ Created token usage tracking file');
     
-    // Add telemetry configuration to .claude/settings.json if it exists
+    // Add telemetry configuration to .auggie/settings.json if it exists
     const settingsPath = path.join(workingDir, '.claude', 'settings.json');
     try {
       const settingsContent = await fs.readFile(settingsPath, 'utf8');
@@ -988,7 +988,7 @@ async function setupMonitoring(workingDir) {
 export CLAUDE_CODE_ENABLE_TELEMETRY=1
 
 # Optional: Set custom metrics path
-# export CLAUDE_METRICS_PATH="$HOME/.claude/metrics"
+# export CLAUDE_METRICS_PATH="$HOME/.auggie/metrics"
 `;
     
     const envPath = path.join(trackingDir, 'env-setup.sh');
@@ -1029,7 +1029,7 @@ async function enhancedClaudeFlowInit(flags, subArgs = []) {
     const existingFiles = [];
     const filesToCheck = [
       'CLAUDE.md',
-      '.claude/settings.json',
+      '.auggie/settings.json',
       '.mcp.json',
       'claude-flow.config.json',
     ];
@@ -1068,9 +1068,9 @@ async function enhancedClaudeFlowInit(flags, subArgs = []) {
     // Create settings.json
     if (!dryRun) {
       await fs.writeFile(`${claudeDir}/settings.json`, createEnhancedSettingsJson(), 'utf8');
-      printSuccess('✓ Created .claude/settings.json with hooks and MCP configuration');
+      printSuccess('✓ Created .auggie/settings.json with hooks and MCP configuration');
     } else {
-      console.log('[DRY RUN] Would create .claude/settings.json');
+      console.log('[DRY RUN] Would create .auggie/settings.json');
     }
 
     // Create settings.local.json with default MCP permissions
@@ -1085,10 +1085,10 @@ async function enhancedClaudeFlowInit(flags, subArgs = []) {
       await fs.writeFile(
         `${claudeDir}/settings.local.json`, JSON.stringify(settingsLocal, null, 2, 'utf8'),
       );
-      printSuccess('✓ Created .claude/settings.local.json with default MCP permissions');
+      printSuccess('✓ Created .auggie/settings.local.json with default MCP permissions');
     } else {
       console.log(
-        '[DRY RUN] Would create .claude/settings.local.json with default MCP permissions',
+        '[DRY RUN] Would create .auggie/settings.local.json with default MCP permissions',
       );
     }
 
@@ -1225,7 +1225,7 @@ ${commands.map((cmd) => `- [${cmd}](./${cmd}.md)`).join('\n')}
       'coordination/orchestration',
       '.swarm', // Add .swarm directory for shared memory
       '.hive-mind', // Add .hive-mind directory for hive-mind system
-      '.claude/checkpoints', // Add checkpoints directory for Git checkpoint system
+      '.auggie/checkpoints', // Add checkpoints directory for Git checkpoint system
     ];
 
     for (const dir of standardDirs) {
@@ -1441,24 +1441,24 @@ ${commands.map((cmd) => `- [${cmd}](./${cmd}.md)`).join('\n')}
     console.log('\n🎉 Claude Flow v2.0.0 initialization complete!');
     console.log('\n📚 Quick Start:');
     if (isClaudeCodeInstalled()) {
-      console.log('1. View available commands: ls .claude/commands/');
+      console.log('1. View available commands: ls .auggie/commands/');
       console.log('2. Start a swarm: npx claude-flow@alpha swarm "your objective" --claude');
       console.log('3. Use hive-mind: npx claude-flow@alpha hive-mind spawn "command" --claude');
       console.log('4. Use MCP tools in Claude Code for enhanced coordination');
     } else {
       console.log('1. Install Claude Code: npm install -g @anthropic-ai/claude-code');
       console.log('2. Add MCP servers (see instructions above)');
-      console.log('3. View available commands: ls .claude/commands/');
+      console.log('3. View available commands: ls .auggie/commands/');
       console.log('4. Start a swarm: npx claude-flow@alpha swarm "your objective" --claude');
       console.log('5. Use hive-mind: npx claude-flow@alpha hive-mind spawn "command" --claude');
     }
     console.log('\n💡 Tips:');
-    console.log('• Check .claude/commands/ for detailed documentation');
+    console.log('• Check .auggie/commands/ for detailed documentation');
     console.log('• Use --help with any command for options');
     console.log('• Run commands with --claude flag for best Claude Code integration');
-    console.log('• Enable GitHub integration with .claude/helpers/github-setup.sh');
+    console.log('• Enable GitHub integration with .auggie/helpers/github-setup.sh');
     console.log('• Git checkpoints are automatically enabled in settings.json');
-    console.log('• Use .claude/helpers/checkpoint-manager.sh for easy rollback');
+    console.log('• Use .auggie/helpers/checkpoint-manager.sh for easy rollback');
   } catch (err) {
     printError(`Failed to initialize Claude Flow v2.0.0: ${err.message}`);
   }

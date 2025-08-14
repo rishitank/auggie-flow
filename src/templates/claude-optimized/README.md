@@ -20,7 +20,7 @@ claude-optimized/
 ├── VERSION               # Current version (1.0.0)
 ├── CHANGELOG.md          # Version history
 ├── README.md             # This file
-└── .claude/              # Template files (created during init)
+└── .auggie/              # Template files (created during init)
     ├── commands/         # Slash commands
     │   ├── sparc/       # SPARC mode commands
     │   └── ...          # Claude Flow commands

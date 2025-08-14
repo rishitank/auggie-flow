@@ -375,7 +375,7 @@ export class HookConfigValidator {
 // Use this SAFE pattern:
 {
   "Stop": [{
-    "hooks": [{"type": "command", "command": "touch ~/.claude/needs_update"}]
+    "hooks": [{"type": "command", "command": "touch ~/.auggie/needs_update"}]
   }]
 }
 
@@ -392,7 +392,7 @@ export class HookConfigValidator {
 {
   "PostToolUse": [{
     "matcher": "Write|Edit|MultiEdit",
-    "hooks": [{"type": "command", "command": "echo 'File modified' >> ~/.claude/changes.log"}]
+    "hooks": [{"type": "command", "command": "echo 'File modified' >> ~/.auggie/changes.log"}]
   }]
 }
         `,
@@ -606,7 +606,7 @@ EXAMPLES:
   claude-flow hook-safety validate
 
   # Check specific configuration file
-  claude-flow hook-safety validate --config ~/.claude/settings.json
+  claude-flow hook-safety validate --config ~/.auggie/settings.json
 
   # View current safety status
   claude-flow hook-safety status

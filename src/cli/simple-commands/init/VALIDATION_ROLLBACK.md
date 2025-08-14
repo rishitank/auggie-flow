@@ -341,9 +341,9 @@ Test categories:
 
 ### Environment Variables
 
-- `CLAUDE_FLOW_DEBUG`: Enable debug logging
-- `CLAUDE_FLOW_BACKUP_DIR`: Custom backup directory
-- `CLAUDE_FLOW_STATE_FILE`: Custom state file location
+- `AUGGIE_FLOW_DEBUG`: Enable debug logging
+- `AUGGIE_FLOW_BACKUP_DIR`: Custom backup directory
+- `AUGGIE_FLOW_STATE_FILE`: Custom state file location
 
 ### System Requirements
 

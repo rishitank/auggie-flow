@@ -202,8 +202,8 @@ export class ClaudeFlowExecutor {
         shell: true,
         env: {
           ...process.env,
-          CLAUDE_FLOW_NON_INTERACTIVE: 'true',
-          CLAUDE_FLOW_AUTO_CONFIRM: 'true',
+          AUGGIE_FLOW_NON_INTERACTIVE: 'true',
+          AUGGIE_FLOW_AUTO_CONFIRM: 'true',
         },
       });
 

@@ -13,9 +13,9 @@ export async function copyAgentFiles(targetDir, options = {}) {
   const { force = false, dryRun = false } = options;
   
   // Path to agent files - try multiple locations
-  const packageAgentsDir = join(__dirname, '../../../../.claude/agents'); // From npm package
-  const localAgentsDir = '/workspaces/claude-code-flow/.claude/agents';   // Local development
-  const cwdAgentsDir = join(process.cwd(), '.claude/agents');              // Current working directory
+  const packageAgentsDir = join(__dirname, '../../../../.auggie/agents'); // From npm package
+  const localAgentsDir = '/workspaces/claude-code-flow/.auggie/agents';   // Local development
+  const cwdAgentsDir = join(process.cwd(), '.auggie/agents');              // Current working directory
   
   let sourceAgentsDir;
   
@@ -40,7 +40,7 @@ export async function copyAgentFiles(targetDir, options = {}) {
       }
     }
   }
-  const targetAgentsDir = join(targetDir, '.claude/agents');
+  const targetAgentsDir = join(targetDir, '.auggie/agents');
   
   console.log('📁 Copying agent system files...');
   console.log(`  📂 Source: ${sourceAgentsDir}`);
@@ -137,32 +137,32 @@ export async function copyAgentFiles(targetDir, options = {}) {
 export async function createAgentDirectories(targetDir, dryRun = false) {
   const agentDirs = [
     '.claude',
-    '.claude/agents',
-    '.claude/agents/core',
-    '.claude/agents/swarm', 
-    '.claude/agents/hive-mind',
-    '.claude/agents/consensus',
-    '.claude/agents/optimization',
-    '.claude/agents/github',
-    '.claude/agents/sparc',
-    '.claude/agents/testing',
-    '.claude/agents/testing/unit',
-    '.claude/agents/testing/validation',
-    '.claude/agents/templates',
-    '.claude/agents/analysis',
-    '.claude/agents/analysis/code-review',
-    '.claude/agents/architecture',
-    '.claude/agents/architecture/system-design',
-    '.claude/agents/data',
-    '.claude/agents/data/ml',
-    '.claude/agents/development',
-    '.claude/agents/development/backend',
-    '.claude/agents/devops',
-    '.claude/agents/devops/ci-cd',
-    '.claude/agents/documentation',
-    '.claude/agents/documentation/api-docs',
-    '.claude/agents/specialized',
-    '.claude/agents/specialized/mobile'
+    '.auggie/agents',
+    '.auggie/agents/core',
+    '.auggie/agents/swarm', 
+    '.auggie/agents/hive-mind',
+    '.auggie/agents/consensus',
+    '.auggie/agents/optimization',
+    '.auggie/agents/github',
+    '.auggie/agents/sparc',
+    '.auggie/agents/testing',
+    '.auggie/agents/testing/unit',
+    '.auggie/agents/testing/validation',
+    '.auggie/agents/templates',
+    '.auggie/agents/analysis',
+    '.auggie/agents/analysis/code-review',
+    '.auggie/agents/architecture',
+    '.auggie/agents/architecture/system-design',
+    '.auggie/agents/data',
+    '.auggie/agents/data/ml',
+    '.auggie/agents/development',
+    '.auggie/agents/development/backend',
+    '.auggie/agents/devops',
+    '.auggie/agents/devops/ci-cd',
+    '.auggie/agents/documentation',
+    '.auggie/agents/documentation/api-docs',
+    '.auggie/agents/specialized',
+    '.auggie/agents/specialized/mobile'
   ];
   
   if (dryRun) {
@@ -181,7 +181,7 @@ export async function createAgentDirectories(targetDir, dryRun = false) {
  * Validate agent system after copying
  */
 export async function validateAgentSystem(targetDir) {
-  const agentsDir = join(targetDir, '.claude/agents');
+  const agentsDir = join(targetDir, '.auggie/agents');
   
   try {
     const categories = await fs.readdir(agentsDir, { withFileTypes: true });

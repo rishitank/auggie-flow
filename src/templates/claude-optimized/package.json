@@ -22,7 +22,7 @@
     "node": ">=14.0.0"
   },
   "files": [
-    ".claude/**/*",
+    ".auggie/**/*",
     "manifest.json",
     "VERSION",
     "CHANGELOG.md",

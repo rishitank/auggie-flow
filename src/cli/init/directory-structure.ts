@@ -6,12 +6,12 @@ export async function createDirectoryStructure(): Promise<void> {
   // Define directory structure
   const directories = [
     '.claude',
-    '.claude/commands',
-    '.claude/commands/swarm',
-    '.claude/commands/sparc',
-    '.claude/logs',
-    '.claude/memory',
-    '.claude/configs',
+    '.auggie/commands',
+    '.auggie/commands/swarm',
+    '.auggie/commands/sparc',
+    '.auggie/logs',
+    '.auggie/memory',
+    '.auggie/configs',
     'memory',
     'memory/agents',
     'memory/sessions',

@@ -51,7 +51,7 @@ export const SAFE_FLAG_PATTERN = {
             {
               type: 'command',
               command:
-                'bash -c \'echo "History update needed at $(date)" > ~/.claude/needs_update && echo "📝 History update flagged. Run: claude -c -p \\"Update history.md\\""\'',
+                'bash -c \'echo "History update needed at $(date)" > ~/.auggie/needs_update && echo "📝 History update flagged. Run: claude -c -p \\"Update history.md\\""\'',
             },
           ],
         },
@@ -87,7 +87,7 @@ export const SAFE_POST_TOOL_PATTERN = {
           hooks: [
             {
               type: 'command',
-              command: "echo 'File modified: {file}' >> ~/.claude/modifications.log",
+              command: "echo 'File modified: {file}' >> ~/.auggie/modifications.log",
             },
           ],
         },
@@ -160,7 +160,7 @@ export const SAFE_BATCH_PATTERN = {
           hooks: [
             {
               type: 'command',
-              command: 'echo "$(date): Session ended" >> ~/.claude/session_log.txt',
+              command: 'echo "$(date): Session ended" >> ~/.auggie/session_log.txt',
             },
           ],
         },
@@ -171,8 +171,8 @@ export const SAFE_BATCH_PATTERN = {
     cronJob: '# Add to crontab (run every hour):\n# 0 * * * * /path/to/update-history.sh',
     updateScript: `#!/bin/bash
 # update-history.sh - Safe batch update script
-LOCK_FILE="~/.claude/update.lock"
-LOG_FILE="~/.claude/session_log.txt"
+LOCK_FILE="~/.auggie/update.lock"
+LOG_FILE="~/.auggie/session_log.txt"
 
 # Check if update is already running
 if [ -f "$LOCK_FILE" ]; then
@@ -189,7 +189,7 @@ if [ -f "$LOG_FILE" ] && [ -s "$LOG_FILE" ]; then
     claude -c -p "Update history.md with recent session data" --skip-hooks
     
     # Archive the log
-    mv "$LOG_FILE" "~/.claude/session_log_$(date +%Y%m%d_%H%M%S).txt"
+    mv "$LOG_FILE" "~/.auggie/session_log_$(date +%Y%m%d_%H%M%S).txt"
 fi
 
 # Remove lock file
@@ -219,7 +219,7 @@ export const SAFE_QUEUE_PATTERN = {
             {
               type: 'command',
               command:
-                'echo \'{"command": "update-history", "timestamp": "\'$(date -Iseconds)\'", "session": "\'$CLAUDE_SESSION_ID\'"}\' >> ~/.claude/command_queue.jsonl',
+                'echo \'{"command": "update-history", "timestamp": "\'$(date -Iseconds)\'", "session": "\'$CLAUDE_SESSION_ID\'"}\' >> ~/.auggie/command_queue.jsonl',
             },
           ],
         },
@@ -388,7 +388,7 @@ ${pattern.processor}
 \`\`\`json
 {
   "hooks": {
-    "Stop": [{"hooks": [{"type": "command", "command": "touch ~/.claude/needs_update && echo 'Run: claude -c -p \"Update history\"'"}]}]
+    "Stop": [{"hooks": [{"type": "command", "command": "touch ~/.auggie/needs_update && echo 'Run: claude -c -p \"Update history\"'"}]}]
   }
 }
 \`\`\`

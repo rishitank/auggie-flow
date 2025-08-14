@@ -10,7 +10,7 @@ I have successfully created a comprehensive optimized .claude folder template st
 
 ```
 /workspaces/claude-code-flow/src/templates/claude-optimized/
-├── .claude/                   # Complete template files
+├── .auggie/                   # Complete template files
 │   ├── commands/             # Slash commands
 │   │   ├── sparc/           # 16 SPARC mode commands
 │   │   └── 4 main commands  # Claude Flow integration
@@ -214,7 +214,7 @@ After deployment, users get:
 
 - All SPARC mode commands via `/sparc-*`
 - Claude Flow integration via `/claude-flow-*`
-- Comprehensive documentation in `.claude/`
+- Comprehensive documentation in `.auggie/`
 - Complete test suite for validation
 
 ## Technical Specifications

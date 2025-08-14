@@ -25,7 +25,7 @@ USAGE:
   claude-flow <command> --help    # Get detailed help for any command
 
 🚀 QUICK START:
-  # First time setup (creates CLAUDE.md & .claude/commands)
+  # First time setup (creates CLAUDE.md & .auggie/commands)
   npx claude-flow@alpha init
   
   # 🐝 HIVE MIND QUICK START (NEW!):
@@ -46,7 +46,7 @@ USAGE:
   hive-mind metrics        Advanced performance analytics
 
 📋 CORE COMMANDS:
-  init                     Initialize Claude Flow v2.0.0 (creates CLAUDE.md & .claude/commands)
+  init                     Initialize Claude Flow v2.0.0 (creates CLAUDE.md & .auggie/commands)
                           --monitoring enables token usage tracking
   start [--ui] [--swarm]   Start orchestration system
   swarm <objective>        Multi-agent swarm coordination
@@ -320,7 +320,7 @@ OPTIONS:
 
 WHAT claude-flow init CREATES (DEFAULT):
   📄 CLAUDE.md          AI-readable project instructions & context
-  📁 .claude/           Enterprise configuration directory containing:
+  📁 .auggie/           Enterprise configuration directory containing:
     └── commands/       Custom commands and automation scripts
     └── settings.json   Advanced configuration and hooks
     └── hooks/          Pre/post operation automation
@@ -333,7 +333,7 @@ WHAT claude-flow init CREATES (DEFAULT):
   • AI-specific instructions for better assistance
   • Integration with ruv-swarm MCP tools
   
-  .claude/commands INCLUDES:
+  .auggie/commands INCLUDES:
   • Custom project-specific commands
   • Automated workflow scripts
   • Integration hooks for Claude Code
@@ -891,7 +891,7 @@ export function getMainHelp(plain = false) {
       {
         flags: '--config <path>',
         description: 'Configuration file path',
-        defaultValue: '.claude/config.json',
+        defaultValue: '.auggie/config.json',
       },
       {
         flags: '--verbose',

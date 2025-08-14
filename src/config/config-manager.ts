@@ -125,7 +125,7 @@ const DEFAULT_CONFIG: Config = {
     enableHooks: true,
     enablePersistence: true,
     enableNeuralTraining: true,
-    configPath: '.claude/ruv-swarm-config.json',
+    configPath: '.auggie/ruv-swarm-config.json',
   },
   claude: {
     model: 'claude-3-sonnet-20240229',
@@ -398,36 +398,36 @@ export class ConfigManager {
    */
   private loadFromEnv(): void {
     // Orchestrator settings
-    const maxAgents = process.env.CLAUDE_FLOW_MAX_AGENTS;
+    const maxAgents = process.env.AUGGIE_FLOW_MAX_AGENTS;
     if (maxAgents) {
       this.config.orchestrator.maxConcurrentAgents = parseInt(maxAgents, 10);
     }
 
     // Terminal settings
-    const terminalType = process.env.CLAUDE_FLOW_TERMINAL_TYPE;
+    const terminalType = process.env.AUGGIE_FLOW_TERMINAL_TYPE;
     if (terminalType === 'vscode' || terminalType === 'native' || terminalType === 'auto') {
       this.config.terminal.type = terminalType;
     }
 
     // Memory settings
-    const memoryBackend = process.env.CLAUDE_FLOW_MEMORY_BACKEND;
+    const memoryBackend = process.env.AUGGIE_FLOW_MEMORY_BACKEND;
     if (memoryBackend === 'sqlite' || memoryBackend === 'markdown' || memoryBackend === 'hybrid') {
       this.config.memory.backend = memoryBackend;
     }
 
     // MCP settings
-    const mcpTransport = process.env.CLAUDE_FLOW_MCP_TRANSPORT;
+    const mcpTransport = process.env.AUGGIE_FLOW_MCP_TRANSPORT;
     if (mcpTransport === 'stdio' || mcpTransport === 'http' || mcpTransport === 'websocket') {
       this.config.mcp.transport = mcpTransport;
     }
 
-    const mcpPort = process.env.CLAUDE_FLOW_MCP_PORT;
+    const mcpPort = process.env.AUGGIE_FLOW_MCP_PORT;
     if (mcpPort) {
       this.config.mcp.port = parseInt(mcpPort, 10);
     }
 
     // Logging settings
-    const logLevel = process.env.CLAUDE_FLOW_LOG_LEVEL;
+    const logLevel = process.env.AUGGIE_FLOW_LOG_LEVEL;
     if (
       logLevel === 'debug' ||
       logLevel === 'info' ||
@@ -438,12 +438,12 @@ export class ConfigManager {
     }
 
     // ruv-swarm settings
-    const ruvSwarmEnabled = process.env.CLAUDE_FLOW_RUV_SWARM_ENABLED;
+    const ruvSwarmEnabled = process.env.AUGGIE_FLOW_RUV_SWARM_ENABLED;
     if (ruvSwarmEnabled === 'true' || ruvSwarmEnabled === 'false') {
       this.config.ruvSwarm.enabled = ruvSwarmEnabled === 'true';
     }
 
-    const ruvSwarmTopology = process.env.CLAUDE_FLOW_RUV_SWARM_TOPOLOGY;
+    const ruvSwarmTopology = process.env.AUGGIE_FLOW_RUV_SWARM_TOPOLOGY;
     if (
       ruvSwarmTopology === 'mesh' ||
       ruvSwarmTopology === 'hierarchical' ||
@@ -453,7 +453,7 @@ export class ConfigManager {
       this.config.ruvSwarm.defaultTopology = ruvSwarmTopology;
     }
 
-    const ruvSwarmMaxAgents = process.env.CLAUDE_FLOW_RUV_SWARM_MAX_AGENTS;
+    const ruvSwarmMaxAgents = process.env.AUGGIE_FLOW_RUV_SWARM_MAX_AGENTS;
     if (ruvSwarmMaxAgents) {
       this.config.ruvSwarm.maxAgents = parseInt(ruvSwarmMaxAgents, 10);
     }
@@ -468,32 +468,32 @@ export class ConfigManager {
       this.config.claude.apiKey = claudeApiKey;
     }
 
-    const claudeModel = process.env.CLAUDE_MODEL;
+    const claudeModel = process.env.AUGGIE_MODEL;
     if (claudeModel) {
       this.config.claude.model = claudeModel as any;
     }
 
-    const claudeTemperature = process.env.CLAUDE_TEMPERATURE;
+    const claudeTemperature = process.env.AUGGIE_TEMPERATURE;
     if (claudeTemperature) {
       this.config.claude.temperature = parseFloat(claudeTemperature);
     }
 
-    const claudeMaxTokens = process.env.CLAUDE_MAX_TOKENS;
+    const claudeMaxTokens = process.env.AUGGIE_MAX_TOKENS;
     if (claudeMaxTokens) {
       this.config.claude.maxTokens = parseInt(claudeMaxTokens, 10);
     }
 
-    const claudeTopP = process.env.CLAUDE_TOP_P;
+    const claudeTopP = process.env.AUGGIE_TOP_P;
     if (claudeTopP) {
       this.config.claude.topP = parseFloat(claudeTopP);
     }
 
-    const claudeTopK = process.env.CLAUDE_TOP_K;
+    const claudeTopK = process.env.AUGGIE_TOP_K;
     if (claudeTopK) {
       this.config.claude.topK = parseInt(claudeTopK, 10);
     }
 
-    const claudeSystemPrompt = process.env.CLAUDE_SYSTEM_PROMPT;
+    const claudeSystemPrompt = process.env.AUGGIE_SYSTEM_PROMPT;
     if (claudeSystemPrompt) {
       this.config.claude.systemPrompt = claudeSystemPrompt;
     }

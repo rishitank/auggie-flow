@@ -311,8 +311,9 @@ Begin execution now. Create all necessary GitHub workflow files and configuratio
       claudeArgs.push('--dangerously-skip-permissions');
     }
 
-    // Spawn claude process
-    const claudeProcess = spawn('claude', claudeArgs, {
+    // Spawn engine process
+    const { spawnEngine } = await import('../engine/engine-adapter.js');
+    const claudeProcess = spawnEngine(claudeArgs, {
       stdio: ['pipe', 'inherit', 'inherit'],
       shell: false,
     });

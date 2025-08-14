@@ -1,5 +1,5 @@
 /**
- * Agent Types - Dynamic loading from .claude/agents/ directory
+ * Agent Types - Dynamic loading from .auggie/agents/ directory
  * This file provides type-safe access to dynamically loaded agent definitions
  */
 
