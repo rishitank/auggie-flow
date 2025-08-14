@@ -1,13 +1,13 @@
-# Claude Flow Automation Features
+# Auggie Flow Automation Features
 
 ## Overview
 
-The Claude Flow automation system provides intelligent workflow orchestration with MLE-STAR (Machine Learning Engineering via Search and Targeted Refinement) methodology as the flagship example. This system allows you to execute complex, multi-agent workflows with Claude CLI integration for actual code execution.
+The Auggie Flow automation system provides intelligent workflow orchestration with MLE-STAR (Machine Learning Engineering via Search and Targeted Refinement) methodology as the flagship example. This system allows you to execute complex, multi-agent workflows with Claude CLI integration for actual code execution.
 
 ## Key Features
 
 - **MLE-STAR Methodology**: Complete ML engineering workflow from search to deployment
-- **Claude CLI Integration**: Spawn real Claude Code instances for actual execution
+- **Claude CLI Integration**: Spawn real Auggie Code instances for actual execution
 - **Modular Architecture**: Preserves existing swarm and hive-mind functionality
 - **Non-Interactive Mode**: Perfect for CI/CD integration
 - **Workflow Templates**: JSON-based workflow definitions with dependency management
@@ -21,10 +21,10 @@ The MLE-STAR command runs the complete Machine Learning Engineering workflow:
 
 ```bash
 # Basic MLE-STAR execution
-claude-flow automation mle-star --dataset data/train.csv --target price --claude
+auggie-flow automation mle-star --dataset data/train.csv --target price --claude
 
 # Advanced configuration
-claude-flow automation mle-star \
+auggie-flow automation mle-star \
   --dataset sales.csv \
   --target revenue \
   --output models/sales/ \
@@ -54,10 +54,10 @@ Execute any JSON/YAML workflow file:
 
 ```bash
 # Execute custom workflow
-claude-flow automation run-workflow my-workflow.json --claude --non-interactive
+auggie-flow automation run-workflow my-workflow.json --claude --non-interactive
 
 # With variable overrides
-claude-flow automation run-workflow workflow.json \
+auggie-flow automation run-workflow workflow.json \
   --claude \
   --variables '{"dataset_path": "data/custom.csv", "target_column": "sales"}' \
   --max-concurrency 5 \
@@ -80,13 +80,13 @@ All existing automation commands are preserved:
 
 ```bash
 # Auto-spawn agents based on complexity
-claude-flow automation auto-agent --task-complexity enterprise
+auggie-flow automation auto-agent --task-complexity enterprise
 
 # Smart agent spawning
-claude-flow automation smart-spawn --requirement "web-development" --max-agents 8
+auggie-flow automation smart-spawn --requirement "web-development" --max-agents 8
 
 # Workflow selection
-claude-flow automation workflow-select --project-type api --priority speed
+auggie-flow automation workflow-select --project-type api --priority speed
 ```
 
 ## Workflow Definition Format
@@ -245,8 +245,8 @@ Use `${variable_name}` syntax for dynamic values:
 
 When `--claude` flag is used:
 
-1. **Agent Spawning**: Real Claude Code instances are spawned for each agent
-2. **Coordination**: Agents use claude-flow hooks for synchronization
+1. **Agent Spawning**: Real Auggie Code instances are spawned for each agent
+2. **Coordination**: Agents use auggie-flow hooks for synchronization
 3. **Memory Sharing**: Cross-agent coordination through memory system
 4. **Actual Execution**: Real file operations and code generation
 
@@ -256,16 +256,16 @@ Each agent automatically uses:
 
 ```bash
 # Before starting work
-npx claude-flow@alpha hooks pre-task --description "task description"
+npx auggie-flow@alpha hooks pre-task --description "task description"
 
 # After each file operation  
-npx claude-flow@alpha hooks post-edit --file "filename"
+npx auggie-flow@alpha hooks post-edit --file "filename"
 
 # Store findings
-npx claude-flow@alpha memory store "agent/results" "findings"
+npx auggie-flow@alpha memory store "agent/results" "findings"
 
 # When complete
-npx claude-flow@alpha hooks post-task --task-id "task-id"
+npx auggie-flow@alpha hooks post-task --task-id "task-id"
 ```
 
 ## Non-Interactive Mode
@@ -274,7 +274,7 @@ Perfect for CI/CD integration:
 
 ```bash
 # CI/CD pipeline example
-claude-flow automation mle-star \
+auggie-flow automation mle-star \
   --dataset $DATASET_PATH \
   --target $TARGET_COLUMN \
   --claude \
@@ -334,8 +334,8 @@ claude-flow automation mle-star \
 
 The automation system preserves all existing functionality:
 
-- **Swarm Commands**: Full compatibility with `claude-flow swarm`
-- **Hive-Mind**: Complete integration with `claude-flow hive-mind`
+- **Swarm Commands**: Full compatibility with `auggie-flow swarm`
+- **Hive-Mind**: Complete integration with `auggie-flow hive-mind`
 - **Memory System**: Shared memory across all components
 - **Hooks System**: Full lifecycle management integration
 
@@ -343,7 +343,7 @@ The automation system preserves all existing functionality:
 
 ### Common Issues
 
-1. **Claude CLI Not Found**: Install Claude Code from https://claude.ai/code
+1. **Claude CLI Not Found**: Install Auggie Code from https://claude.ai/code
 2. **Workflow Validation Errors**: Check JSON syntax and required fields
 3. **Agent Spawn Failures**: Verify system resources and permissions
 4. **Timeout Issues**: Increase timeout values for complex tasks
@@ -351,7 +351,7 @@ The automation system preserves all existing functionality:
 ### Debug Mode
 
 ```bash
-claude-flow automation mle-star --verbose --claude
+auggie-flow automation mle-star --verbose --claude
 ```
 
 ### Log Analysis

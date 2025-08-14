@@ -5,7 +5,7 @@ Execute post-edit processing including formatting, validation, and memory update
 ## Usage
 
 ```bash
-npx claude-flow hook post-edit [options]
+npx auggie-flow hook post-edit [options]
 ```
 
 ## Options
@@ -21,25 +21,25 @@ npx claude-flow hook post-edit [options]
 ### Basic post-edit hook
 
 ```bash
-npx claude-flow hook post-edit --file "src/components/Button.jsx"
+npx auggie-flow hook post-edit --file "src/components/Button.jsx"
 ```
 
 ### With memory storage
 
 ```bash
-npx claude-flow hook post-edit -f "api/auth.js" --memory-key "auth/login-implementation"
+npx auggie-flow hook post-edit -f "api/auth.js" --memory-key "auth/login-implementation"
 ```
 
 ### Format and validate
 
 ```bash
-npx claude-flow hook post-edit -f "config/webpack.js" --auto-format --validate-output
+npx auggie-flow hook post-edit -f "config/webpack.js" --auto-format --validate-output
 ```
 
 ### Neural training
 
 ```bash
-npx claude-flow hook post-edit -f "utils/helpers.ts" --train-patterns --memory-key "utils/refactor"
+npx auggie-flow hook post-edit -f "utils/helpers.ts" --train-patterns --memory-key "utils/refactor"
 ```
 
 ## Features
@@ -75,7 +75,7 @@ npx claude-flow hook post-edit -f "utils/helpers.ts" --train-patterns --memory-k
 
 ## Integration
 
-This hook is automatically called by Claude Code when:
+This hook is automatically called by Auggie Code when:
 
 - After Edit tool completes
 - Following MultiEdit operations
@@ -86,7 +86,7 @@ Manual usage in agents:
 
 ```bash
 # After editing files
-npx claude-flow hook post-edit --file "path/to/edited.js" --memory-key "feature/step1"
+npx auggie-flow hook post-edit --file "path/to/edited.js" --memory-key "feature/step1"
 ```
 
 ## Output

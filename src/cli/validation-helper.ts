@@ -39,7 +39,7 @@ export class ValidationHelper {
       console.error(
         HelpFormatter.formatError(
           `'${value}' is not a valid number for ${paramName}.`,
-          commandPath || 'claude-flow',
+          commandPath || 'auggie-flow',
         ),
       );
       process.exit(1);
@@ -49,7 +49,7 @@ export class ValidationHelper {
       console.error(
         HelpFormatter.formatError(
           `${paramName} must be at least ${min}. Got: ${num}`,
-          commandPath || 'claude-flow',
+          commandPath || 'auggie-flow',
         ),
       );
       process.exit(1);
@@ -59,7 +59,7 @@ export class ValidationHelper {
       console.error(
         HelpFormatter.formatError(
           `${paramName} must be at most ${max}. Got: ${num}`,
-          commandPath || 'claude-flow',
+          commandPath || 'auggie-flow',
         ),
       );
       process.exit(1);
@@ -76,7 +76,7 @@ export class ValidationHelper {
       console.error(
         HelpFormatter.formatError(
           `Missing required parameter: ${paramName}`,
-          commandPath || 'claude-flow',
+          commandPath || 'auggie-flow',
         ),
       );
       process.exit(1);
@@ -98,7 +98,7 @@ export class ValidationHelper {
       console.error(
         HelpFormatter.formatError(
           `File not found for ${paramName}: ${path}`,
-          commandPath || 'claude-flow',
+          commandPath || 'auggie-flow',
         ),
       );
       process.exit(1);
@@ -120,7 +120,7 @@ export class ValidationHelper {
     console.error(
       HelpFormatter.formatError(
         `'${value}' is not a valid boolean for ${paramName}. Use: true, false, yes, no, 1, or 0.`,
-        commandPath || 'claude-flow',
+        commandPath || 'auggie-flow',
       ),
     );
     process.exit(1);

@@ -54,7 +54,7 @@ git checkout checkpoint-20250730-201233 -- example-file.js
 ./.claude/helpers/checkpoint-manager.sh rollback checkpoint-20250730-201233 --reset
 ```
 
-## 🚀 Using with Claude Code
+## 🚀 Using with Auggie Code
 
 ### Option 1: Simple Configuration
 ```bash
@@ -105,6 +105,6 @@ The checkpoint system is now:
 - ✅ Storing metadata
 - ✅ Tracking changes
 - ✅ Providing rollback options
-- ✅ Ready for Claude Code integration
+- ✅ Ready for Auggie Code integration
 
 Start using it to never lose work again!

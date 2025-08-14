@@ -1,10 +1,10 @@
-# Claude Flow v2.0.0 User Guide
+# Auggie Flow v2.0.0 User Guide
 
-Welcome to the comprehensive user guide for Claude Flow v2.0.0! This guide covers all the revolutionary new features and capabilities that make v2.0.0 the most advanced AI agent orchestration platform available.
+Welcome to the comprehensive user guide for Auggie Flow v2.0.0! This guide covers all the revolutionary new features and capabilities that make v2.0.0 the most advanced AI agent orchestration platform available.
 
 ## 🌟 What Makes v2.0.0 Revolutionary
 
-Claude Flow v2.0.0 isn't just an update—it's a complete reimagining of AI agent coordination:
+Auggie Flow v2.0.0 isn't just an update—it's a complete reimagining of AI agent coordination:
 
 ### 🧠 Hive Mind Intelligence
 - **Queen-Led Coordination**: Centralized intelligence with distributed execution
@@ -19,7 +19,7 @@ Claude Flow v2.0.0 isn't just an update—it's a complete reimagining of AI agen
 - **Predictive Analytics**: Proactive task management and resource allocation
 
 ### 🛠️ 87 MCP Tools
-- **Complete Integration**: Seamless Claude Code compatibility
+- **Complete Integration**: Seamless Auggie Code compatibility
 - **Intelligent Automation**: AI-powered workflow orchestration
 - **GitHub Integration**: Advanced repository management
 - **Performance Optimization**: Real-time bottleneck detection and resolution
@@ -42,29 +42,29 @@ Claude Flow v2.0.0 isn't just an update—it's a complete reimagining of AI agen
 
 ### Installation Options
 
-#### Option 1: Claude Code Integration (Recommended)
+#### Option 1: Auggie Code Integration (Recommended)
 
-Claude Flow v2.0.0 is designed to work seamlessly with Claude Code:
+Auggie Flow v2.0.0 is designed to work seamlessly with Auggie Code:
 
 ```bash
-# Install Claude Code if not already installed
+# Install Auggie Code if not already installed
 npm install -g @anthropic-ai/claude-code
 
-# Add Claude Flow as an MCP server
-claude mcp add claude-flow npx claude-flow@2.0.0 mcp start
+# Add Auggie Flow as an MCP server
+claude mcp add auggie-flow npx auggie-flow@2.0.0 mcp start
 
 # Verify installation
-claude mcp list | grep claude-flow
+claude mcp list | grep auggie-flow
 ```
 
 #### Option 2: Standalone Installation
 
 ```bash
 # Global installation for system-wide access
-npm install -g claude-flow@2.0.0
+npm install -g auggie-flow@2.0.0
 
 # Verify installation
-claude-flow --version
+auggie-flow --version
 ```
 
 #### Option 3: Development Installation
@@ -88,11 +88,11 @@ npm link
 
 #### Initialize Hive Mind System
 
-The Hive Mind is the heart of Claude Flow v2.0.0. It provides intelligent coordination and collective memory:
+The Hive Mind is the heart of Auggie Flow v2.0.0. It provides intelligent coordination and collective memory:
 
 ```bash
 # Interactive wizard for first-time setup
-claude-flow hive-mind wizard
+auggie-flow hive-mind wizard
 ```
 
 The wizard will guide you through:
@@ -109,7 +109,7 @@ For advanced users who prefer manual setup:
 
 ```bash
 # Initialize with specific parameters
-claude-flow hive-mind init \
+auggie-flow hive-mind init \
   --topology adaptive \
   --max-agents 12 \
   --neural-acceleration true \
@@ -119,9 +119,9 @@ claude-flow hive-mind init \
 
 ### Configuration Files
 
-Claude Flow v2.0.0 uses intelligent configuration management:
+Auggie Flow v2.0.0 uses intelligent configuration management:
 
-#### Main Configuration (`claude-flow.config.json`)
+#### Main Configuration (`auggie-flow.config.json`)
 
 ```json
 {
@@ -193,35 +193,35 @@ Shared intelligence that persists across sessions:
 
 ```bash
 # Check Hive Mind status
-claude-flow hive-mind status
+auggie-flow hive-mind status
 
 # View collective memory
-claude-flow hive-mind memory --show-patterns
+auggie-flow hive-mind memory --show-patterns
 
 # Analyze swarm performance
-claude-flow hive-mind analyze --timeframe 7d
+auggie-flow hive-mind analyze --timeframe 7d
 
 # Optimize coordination
-claude-flow hive-mind optimize --auto-apply
+auggie-flow hive-mind optimize --auto-apply
 ```
 
 #### Advanced Operations
 
 ```bash
 # Create custom agent constellation
-claude-flow hive-mind constellation create \
+auggie-flow hive-mind constellation create \
   --name "microservice-development" \
   --agents '["architect","backend-dev","frontend-dev","tester","devops"]' \
   --coordination-pattern hierarchical
 
 # Train coordination patterns
-claude-flow hive-mind train \
+auggie-flow hive-mind train \
   --pattern "parallel-development" \
   --data "project-logs" \
   --epochs 100
 
 # Export knowledge base
-claude-flow hive-mind export \
+auggie-flow hive-mind export \
   --format enhanced-json \
   --include-neural-weights \
   --file hive-knowledge-$(date +%Y%m%d).json
@@ -260,23 +260,23 @@ claude-flow hive-mind export \
 
 ```bash
 # View current topology
-claude-flow topology status
+auggie-flow topology status
 
 # Switch topology
-claude-flow topology switch --type mesh --preserve-agents
+auggie-flow topology switch --type mesh --preserve-agents
 
 # Optimize current topology
-claude-flow topology optimize --neural-analysis
+auggie-flow topology optimize --neural-analysis
 
 # Analyze topology performance
-claude-flow topology analyze --metrics '["throughput","latency","efficiency"]'
+auggie-flow topology analyze --metrics '["throughput","latency","efficiency"]'
 ```
 
 ## 🤖 Neural Networks and AI
 
 ### Neural Network Architecture
 
-Claude Flow v2.0.0 includes three specialized neural networks:
+Auggie Flow v2.0.0 includes three specialized neural networks:
 
 #### Coordination Network
 - **Purpose**: Optimizes agent coordination and task distribution
@@ -302,20 +302,20 @@ Claude Flow v2.0.0 includes three specialized neural networks:
 
 ```bash
 # Train coordination patterns
-claude-flow neural train coordination \
+auggie-flow neural train coordination \
   --data "swarm-logs" \
   --epochs 100 \
   --learning-rate 0.001 \
   --validation-split 0.2
 
 # Train optimization patterns
-claude-flow neural train optimization \
+auggie-flow neural train optimization \
   --data "performance-metrics" \
   --reinforcement-learning true \
   --reward-function "efficiency-improvement"
 
 # Train prediction patterns
-claude-flow neural train prediction \
+auggie-flow neural train prediction \
   --data "project-timelines" \
   --sequence-length 30 \
   --prediction-horizon 7
@@ -325,17 +325,17 @@ claude-flow neural train prediction \
 
 ```bash
 # Get coordination recommendations
-claude-flow neural predict coordination \
+auggie-flow neural predict coordination \
   --input '{"task":"build-api","agents":6,"complexity":"high"}' \
   --confidence-threshold 0.8
 
 # Analyze optimization opportunities
-claude-flow neural predict optimization \
+auggie-flow neural predict optimization \
   --input "current-performance-metrics" \
   --suggest-actions
 
 # Predict project timeline
-claude-flow neural predict timeline \
+auggie-flow neural predict timeline \
   --input "project-scope" \
   --uncertainty-quantification
 ```
@@ -344,21 +344,21 @@ claude-flow neural predict timeline \
 
 ```bash
 # List available models
-claude-flow neural models list
+auggie-flow neural models list
 
 # Load pre-trained model
-claude-flow neural models load \
+auggie-flow neural models load \
   --model-id coordination-v3.2 \
   --source "./models/coordination-enterprise.wasm"
 
 # Export trained model
-claude-flow neural models export \
+auggie-flow neural models export \
   --model-id coordination-v3.2 \
   --format wasm \
   --optimization-level 3
 
 # Compress model for deployment
-claude-flow neural models compress \
+auggie-flow neural models compress \
   --model-id coordination-v3.2 \
   --compression-ratio 0.5 \
   --preserve-accuracy 0.95
@@ -366,7 +366,7 @@ claude-flow neural models compress \
 
 ### WASM Acceleration
 
-Claude Flow v2.0.0 leverages WebAssembly SIMD for neural processing:
+Auggie Flow v2.0.0 leverages WebAssembly SIMD for neural processing:
 
 #### WASM Features
 - **SIMD Operations**: Parallel processing for matrix operations
@@ -378,14 +378,14 @@ Claude Flow v2.0.0 leverages WebAssembly SIMD for neural processing:
 
 ```bash
 # Enable WASM acceleration
-claude-flow neural wasm enable --simd-level 256
+auggie-flow neural wasm enable --simd-level 256
 
 # Benchmark WASM performance
-claude-flow neural wasm benchmark \
+auggie-flow neural wasm benchmark \
   --operations '["matrix-multiply","convolution","attention"]'
 
 # Optimize WASM modules
-claude-flow neural wasm optimize \
+auggie-flow neural wasm optimize \
   --target "coordination-v3.2" \
   --optimization-passes 3
 ```
@@ -443,31 +443,31 @@ MCP tools are designed to work together. Here are common patterns:
 **Development Workflow:**
 ```bash
 # Initialize -> Spawn -> Orchestrate -> Monitor -> Optimize
-claude-flow mcp swarm-init --topology adaptive
-claude-flow mcp agent-spawn --type architect
-claude-flow mcp task-orchestrate --task "build-app"
-claude-flow mcp swarm-monitor --live
-claude-flow mcp performance-report --optimize
+auggie-flow mcp swarm-init --topology adaptive
+auggie-flow mcp agent-spawn --type architect
+auggie-flow mcp task-orchestrate --task "build-app"
+auggie-flow mcp swarm-monitor --live
+auggie-flow mcp performance-report --optimize
 ```
 
 **Neural Training Pipeline:**
 ```bash
 # Collect -> Train -> Validate -> Deploy -> Monitor
-claude-flow mcp memory-usage --action retrieve --pattern "training-data"
-claude-flow mcp neural-train --pattern coordination --epochs 50
-claude-flow mcp neural-predict --validate --test-data "validation-set"
-claude-flow mcp model-save --model-id trained-coordination
-claude-flow mcp neural-status --monitor-performance
+auggie-flow mcp memory-usage --action retrieve --pattern "training-data"
+auggie-flow mcp neural-train --pattern coordination --epochs 50
+auggie-flow mcp neural-predict --validate --test-data "validation-set"
+auggie-flow mcp model-save --model-id trained-coordination
+auggie-flow mcp neural-status --monitor-performance
 ```
 
 **GitHub Automation:**
 ```bash
 # Analyze -> Setup -> Execute -> Monitor -> Report
-claude-flow mcp github-repo-analyze --repo "myorg/project"
-claude-flow mcp github-workflow-auto --setup ci-cd
-claude-flow mcp workflow-execute --workflow-id github-ci-cd
-claude-flow mcp github-pr-manage --auto-review
-claude-flow mcp github-metrics --generate-report
+auggie-flow mcp github-repo-analyze --repo "myorg/project"
+auggie-flow mcp github-workflow-auto --setup ci-cd
+auggie-flow mcp workflow-execute --workflow-id github-ci-cd
+auggie-flow mcp github-pr-manage --auto-review
+auggie-flow mcp github-metrics --generate-report
 ```
 
 #### Advanced Tool Usage
@@ -475,7 +475,7 @@ claude-flow mcp github-metrics --generate-report
 **Parallel Tool Execution:**
 ```bash
 # Execute multiple tools simultaneously
-claude-flow mcp parallel-execute --tools '[
+auggie-flow mcp parallel-execute --tools '[
   {"tool":"swarm-init","params":{"topology":"mesh"}},
   {"tool":"memory-backup","params":{"destination":"./backups"}},
   {"tool":"neural-train","params":{"pattern":"optimization"}}
@@ -485,7 +485,7 @@ claude-flow mcp parallel-execute --tools '[
 **Conditional Tool Chains:**
 ```bash
 # Execute tools based on conditions
-claude-flow mcp workflow-create --name "conditional-optimization" --steps '[
+auggie-flow mcp workflow-create --name "conditional-optimization" --steps '[
   {"tool":"performance-report","condition":"always"},
   {"tool":"bottleneck-analyze","condition":"performance < 0.8"},
   {"tool":"topology-optimize","condition":"bottlenecks > 2"},
@@ -505,7 +505,7 @@ claude-flow mcp workflow-create --name "conditional-optimization" --steps '[
 
 #### Performance Metrics
 
-Key metrics tracked by Claude Flow v2.0.0:
+Key metrics tracked by Auggie Flow v2.0.0:
 
 **Throughput Metrics:**
 - Tasks completed per minute
@@ -529,21 +529,21 @@ Key metrics tracked by Claude Flow v2.0.0:
 
 ```bash
 # Comprehensive performance analysis
-claude-flow performance analyze \
+auggie-flow performance analyze \
   --timeframe 30d \
   --include-neural \
   --compare-baseline \
   --generate-recommendations
 
 # Real-time performance monitoring
-claude-flow performance monitor \
+auggie-flow performance monitor \
   --live \
   --alerts-enabled \
   --optimization-threshold 0.7 \
   --auto-adjust
 
 # Performance optimization
-claude-flow performance optimize \
+auggie-flow performance optimize \
   --target "throughput" \
   --constraints "memory<8GB,cpu<80%" \
   --neural-assistance \
@@ -555,13 +555,13 @@ claude-flow performance optimize \
 #### Memory Optimization
 ```bash
 # Analyze memory usage patterns
-claude-flow memory analyze \
+auggie-flow memory analyze \
   --pattern-recognition \
   --compression-opportunities \
   --cleanup-suggestions
 
 # Optimize memory allocation
-claude-flow memory optimize \
+auggie-flow memory optimize \
   --strategy "neural-guided" \
   --compression-level "intelligent" \
   --cache-tuning "adaptive"
@@ -570,7 +570,7 @@ claude-flow memory optimize \
 #### Neural Optimization
 ```bash
 # Optimize neural network performance
-claude-flow neural optimize \
+auggie-flow neural optimize \
   --models "all" \
   --wasm-acceleration \
   --quantization-level "dynamic" \
@@ -580,7 +580,7 @@ claude-flow neural optimize \
 #### Swarm Optimization
 ```bash
 # Optimize swarm coordination
-claude-flow swarm optimize \
+auggie-flow swarm optimize \
   --topology-tuning \
   --load-balancing "neural-weighted" \
   --communication-efficiency \
@@ -593,7 +593,7 @@ claude-flow swarm optimize \
 
 #### Workflow Definition Format
 
-Claude Flow v2.0.0 supports advanced workflow definitions:
+Auggie Flow v2.0.0 supports advanced workflow definitions:
 
 ```json
 {
@@ -676,20 +676,20 @@ Claude Flow v2.0.0 supports advanced workflow definitions:
 
 ```bash
 # Create workflow from template
-claude-flow workflow create \
+auggie-flow workflow create \
   --template "enterprise-development" \
   --customize-agents \
   --neural-optimization
 
 # Execute workflow with monitoring
-claude-flow workflow execute \
+auggie-flow workflow execute \
   --workflow-id "enterprise-dev-001" \
   --parallel-execution \
   --neural-coordination \
   --real-time-monitoring
 
 # Analyze workflow performance
-claude-flow workflow analyze \
+auggie-flow workflow analyze \
   --workflow-id "enterprise-dev-001" \
   --neural-insights \
   --optimization-suggestions
@@ -697,23 +697,23 @@ claude-flow workflow analyze \
 
 ### Integration Patterns
 
-#### Claude Code Integration
+#### Auggie Code Integration
 
 ```bash
-# Setup Claude Code MCP integration
-claude mcp add claude-flow npx claude-flow@2.0.0 mcp start
+# Setup Auggie Code MCP integration
+claude mcp add auggie-flow npx auggie-flow@2.0.0 mcp start
 
-# Use Claude Flow tools within Claude Code
-# (These commands work within Claude Code interface)
-claude-flow mcp swarm-init --topology adaptive
-claude-flow mcp agent-spawn --type researcher
-claude-flow mcp task-orchestrate --task "analyze codebase"
+# Use Auggie Flow tools within Auggie Code
+# (These commands work within Auggie Code interface)
+auggie-flow mcp swarm-init --topology adaptive
+auggie-flow mcp agent-spawn --type researcher
+auggie-flow mcp task-orchestrate --task "analyze codebase"
 ```
 
 #### GitHub Actions Integration
 
 ```yaml
-name: Claude Flow CI/CD
+name: Auggie Flow CI/CD
 on:
   push:
     branches: [main]
@@ -721,32 +721,32 @@ on:
     branches: [main]
 
 jobs:
-  claude-flow-analysis:
+  auggie-flow-analysis:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       
-      - name: Setup Claude Flow
+      - name: Setup Auggie Flow
         run: |
-          npm install -g claude-flow@2.0.0
-          claude-flow hive-mind init --ci-mode
+          npm install -g auggie-flow@2.0.0
+          auggie-flow hive-mind init --ci-mode
           
       - name: Analyze Repository
         run: |
-          claude-flow mcp github-repo-analyze \
+          auggie-flow mcp github-repo-analyze \
             --repo "${{ github.repository }}" \
             --analysis-type comprehensive
             
       - name: Automated Code Review
         if: github.event_name == 'pull_request'
         run: |
-          claude-flow mcp github-code-review \
+          auggie-flow mcp github-code-review \
             --repo "${{ github.repository }}" \
             --pr ${{ github.event.number }}
             
       - name: Performance Optimization
         run: |
-          claude-flow mcp task-orchestrate \
+          auggie-flow mcp task-orchestrate \
             --task "optimize-codebase" \
             --strategy neural-guided
 ```
@@ -757,9 +757,9 @@ jobs:
 {
   "tasks": [
     {
-      "label": "Claude Flow: Initialize Hive Mind",
+      "label": "Auggie Flow: Initialize Hive Mind",
       "type": "shell",
-      "command": "claude-flow",
+      "command": "auggie-flow",
       "args": ["hive-mind", "wizard"],
       "group": "build",
       "presentation": {
@@ -768,9 +768,9 @@ jobs:
       }
     },
     {
-      "label": "Claude Flow: Optimize Project",
+      "label": "Auggie Flow: Optimize Project",
       "type": "shell",
-      "command": "claude-flow",
+      "command": "auggie-flow",
       "args": ["mcp", "task-orchestrate", "--task", "optimize-project", "--neural-assistance"],
       "group": "build"
     }
@@ -782,20 +782,20 @@ jobs:
 
 ### Built-in Diagnostics
 
-Claude Flow v2.0.0 includes comprehensive diagnostic capabilities:
+Auggie Flow v2.0.0 includes comprehensive diagnostic capabilities:
 
 #### Health Checks
 
 ```bash
 # Comprehensive system health check
-claude-flow health-check \
+auggie-flow health-check \
   --comprehensive \
   --neural-analysis \
   --performance-assessment \
   --security-scan
 
 # Specific component health
-claude-flow health-check \
+auggie-flow health-check \
   --component "hive-mind" \
   --detailed-report \
   --recommendations
@@ -805,13 +805,13 @@ claude-flow health-check \
 
 ```bash
 # Bottleneck analysis
-claude-flow diagnose bottlenecks \
+auggie-flow diagnose bottlenecks \
   --real-time-analysis \
   --neural-insights \
   --optimization-suggestions
 
 # Memory diagnostic
-claude-flow diagnose memory \
+auggie-flow diagnose memory \
   --leak-detection \
   --fragmentation-analysis \
   --optimization-opportunities
@@ -821,14 +821,14 @@ claude-flow diagnose memory \
 
 ```bash
 # Neural model health
-claude-flow neural diagnose \
+auggie-flow neural diagnose \
   --models "all" \
   --accuracy-assessment \
   --performance-metrics \
   --improvement-suggestions
 
 # Training diagnostics
-claude-flow neural diagnose training \
+auggie-flow neural diagnose training \
   --convergence-analysis \
   --loss-visualization \
   --optimization-recommendations
@@ -841,17 +841,17 @@ claude-flow neural diagnose training \
 **Issue: Slow task execution**
 ```bash
 # Diagnose and fix
-claude-flow diagnose performance --auto-fix
-claude-flow topology optimize --neural-guided
-claude-flow swarm optimize --load-balancing
+auggie-flow diagnose performance --auto-fix
+auggie-flow topology optimize --neural-guided
+auggie-flow swarm optimize --load-balancing
 ```
 
 **Issue: High memory usage**
 ```bash
 # Memory optimization
-claude-flow memory optimize --strategy aggressive
-claude-flow memory compress --intelligent-compression
-claude-flow garbage-collect --neural-guided
+auggie-flow memory optimize --strategy aggressive
+auggie-flow memory compress --intelligent-compression
+auggie-flow garbage-collect --neural-guided
 ```
 
 #### Neural Network Issues
@@ -859,17 +859,17 @@ claude-flow garbage-collect --neural-guided
 **Issue: Poor prediction accuracy**
 ```bash
 # Retrain with more data
-claude-flow neural train --additional-data "new-training-set"
-claude-flow neural validate --cross-validation
-claude-flow neural tune-hyperparameters --auto-optimization
+auggie-flow neural train --additional-data "new-training-set"
+auggie-flow neural validate --cross-validation
+auggie-flow neural tune-hyperparameters --auto-optimization
 ```
 
 **Issue: Slow neural inference**
 ```bash
 # Optimize neural processing
-claude-flow neural optimize --wasm-acceleration
-claude-flow neural compress --preserve-accuracy 0.95
-claude-flow neural quantize --dynamic-quantization
+auggie-flow neural optimize --wasm-acceleration
+auggie-flow neural compress --preserve-accuracy 0.95
+auggie-flow neural quantize --dynamic-quantization
 ```
 
 #### Coordination Issues
@@ -877,9 +877,9 @@ claude-flow neural quantize --dynamic-quantization
 **Issue: Agent coordination problems**
 ```bash
 # Reset and re-optimize coordination
-claude-flow swarm reset --preserve-memory
-claude-flow swarm init --topology adaptive
-claude-flow coordination sync --force-resync
+auggie-flow swarm reset --preserve-memory
+auggie-flow swarm init --topology adaptive
+auggie-flow coordination sync --force-resync
 ```
 
 ### Debug Mode
@@ -888,15 +888,15 @@ Enable comprehensive debugging for development:
 
 ```bash
 # Enable debug mode
-export DEBUG=claude-flow:*
+export DEBUG=auggie-flow:*
 export CLAUDE_FLOW_LOG_LEVEL=debug
 export CLAUDE_FLOW_NEURAL_DEBUG=true
 
 # Run with debug output
-claude-flow hive-mind init --debug --verbose
+auggie-flow hive-mind init --debug --verbose
 
 # Analyze debug logs
-claude-flow logs analyze \
+auggie-flow logs analyze \
   --pattern "error|warning|performance" \
   --neural-insights \
   --suggestions
@@ -934,7 +934,7 @@ claude-flow logs analyze \
 
 ```bash
 # Production configuration
-claude-flow config production \
+auggie-flow config production \
   --max-agents 50 \
   --neural-acceleration true \
   --redundancy-level high \
@@ -942,7 +942,7 @@ claude-flow config production \
   --auto-scaling enabled
 
 # Load balancing setup
-claude-flow swarm init \
+auggie-flow swarm init \
   --topology distributed \
   --load-balancing neural-weighted \
   --fault-tolerance redundant \
@@ -953,18 +953,18 @@ claude-flow swarm init \
 
 ```bash
 # Production monitoring
-claude-flow monitor setup \
+auggie-flow monitor setup \
   --real-time-alerts \
   --performance-thresholds \
   --neural-anomaly-detection \
   --automated-responses
 
 # Alert configuration
-claude-flow alerts configure \
+auggie-flow alerts configure \
   --performance-degradation 0.8 \
   --memory-usage 85% \
   --neural-accuracy 0.9 \
   --agent-failures 2
 ```
 
-This comprehensive user guide covers the full capabilities of Claude Flow v2.0.0. The system's intelligence grows with use, so the more you work with it, the better it becomes at understanding and optimizing your specific workflows and requirements.
+This comprehensive user guide covers the full capabilities of Auggie Flow v2.0.0. The system's intelligence grows with use, so the more you work with it, the better it becomes at understanding and optimizing your specific workflows and requirements.

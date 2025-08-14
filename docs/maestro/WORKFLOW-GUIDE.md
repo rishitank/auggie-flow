@@ -54,7 +54,7 @@ Transform initial feature requests into structured requirements with user storie
 #### Step 1.1: Initialize Maestro Swarm
 ```bash
 # The swarm initialization happens automatically with the first command
-npx claude-flow maestro create-spec user-authentication \
+npx auggie-flow maestro create-spec user-authentication \
   --request "Implement secure user authentication with JWT tokens"
 ```
 
@@ -124,7 +124,7 @@ Comprehensive user authentication system with JWT token-based security.
 cat docs/maestro/specs/user-authentication/requirements.md
 
 # Review workflow status
-npx claude-flow maestro status user-authentication --detailed
+npx auggie-flow maestro status user-authentication --detailed
 ```
 
 ---
@@ -142,7 +142,7 @@ Create comprehensive technical design through parallel architecture development 
 
 #### Step 2.1: Initiate Design Generation
 ```bash
-npx claude-flow maestro generate-design user-authentication
+npx auggie-flow maestro generate-design user-authentication
 ```
 
 #### Step 2.2: Parallel Design Process
@@ -240,7 +240,7 @@ CREATE TABLE users (
 cat docs/maestro/specs/user-authentication/design.md
 
 # Check consensus details
-npx claude-flow maestro status user-authentication --json | jq '.consensusHistory'
+npx auggie-flow maestro status user-authentication --json | jq '.consensusHistory'
 ```
 
 ---
@@ -258,7 +258,7 @@ Break down the technical design into actionable implementation tasks with clear 
 
 #### Step 3.1: Generate Implementation Tasks
 ```bash
-npx claude-flow maestro generate-tasks user-authentication
+npx auggie-flow maestro generate-tasks user-authentication
 ```
 
 #### Step 3.2: Task Planning Process
@@ -394,7 +394,7 @@ Task 1 → Task 2 → Task 4 → Task 5 → Task 6 → Task 11 → Task 12
 cat docs/maestro/specs/user-authentication/tasks.md
 
 # Check task dependencies
-npx claude-flow maestro status user-authentication --detailed
+npx auggie-flow maestro status user-authentication --detailed
 ```
 
 ---
@@ -413,10 +413,10 @@ Implement the planned tasks using parallel execution with native hive mind coord
 #### Step 4.1: Begin Task Implementation
 ```bash
 # Implement first task
-npx claude-flow maestro implement-task user-authentication 1
+npx auggie-flow maestro implement-task user-authentication 1
 
 # Check progress
-npx claude-flow maestro status user-authentication
+npx auggie-flow maestro status user-authentication
 ```
 
 #### Step 4.2: Parallel Implementation Process
@@ -526,22 +526,22 @@ export class PasswordService {
 #### Step 4.4: Continue Implementation
 ```bash
 # Implement multiple tasks in sequence
-npx claude-flow maestro implement-task user-authentication 2
-npx claude-flow maestro implement-task user-authentication 3
-npx claude-flow maestro implement-task user-authentication 4
+npx auggie-flow maestro implement-task user-authentication 2
+npx auggie-flow maestro implement-task user-authentication 3
+npx auggie-flow maestro implement-task user-authentication 4
 
 # Or implement specific tasks as dependencies are met
-npx claude-flow maestro implement-task user-authentication 5
-npx claude-flow maestro implement-task user-authentication 6
+npx auggie-flow maestro implement-task user-authentication 5
+npx auggie-flow maestro implement-task user-authentication 6
 ```
 
 #### Step 4.5: Monitor Progress
 ```bash
 # Check current status
-npx claude-flow maestro status user-authentication --detailed
+npx auggie-flow maestro status user-authentication --detailed
 
 # View completed tasks
-npx claude-flow maestro status user-authentication --json | jq '.completedTasks'
+npx auggie-flow maestro status user-authentication --json | jq '.completedTasks'
 ```
 
 ---
@@ -560,7 +560,7 @@ Ensure implementation quality through comprehensive review and validation.
 #### Step 5.1: Initiate Quality Review
 ```bash
 # Review all implemented tasks
-npx claude-flow maestro review-tasks user-authentication
+npx auggie-flow maestro review-tasks user-authentication
 ```
 
 #### Step 5.2: Quality Review Process
@@ -671,10 +671,10 @@ All quality standards met. Implementation is ready for deployment.
 #### Step 5.4: Address Quality Issues (if any)
 ```bash
 # If quality issues are found, implement fixes
-npx claude-flow maestro implement-task user-authentication <task-number>
+npx auggie-flow maestro implement-task user-authentication <task-number>
 
 # Re-run quality review
-npx claude-flow maestro review-tasks user-authentication
+npx auggie-flow maestro review-tasks user-authentication
 ```
 
 ---
@@ -693,7 +693,7 @@ Finalize implementation with comprehensive documentation and project closure.
 #### Step 6.1: Final Phase Approval
 ```bash
 # Approve the current phase to progress to completion
-npx claude-flow maestro approve-phase user-authentication
+npx auggie-flow maestro approve-phase user-authentication
 ```
 
 #### Step 6.2: Documentation Generation
@@ -707,10 +707,10 @@ The `steering_documenter` agent creates:
 #### Step 6.3: Project Completion
 ```bash
 # Check final status
-npx claude-flow maestro status user-authentication --detailed
+npx auggie-flow maestro status user-authentication --detailed
 
 # Generate completion report
-npx claude-flow maestro status user-authentication --json > user-authentication-completion.json
+npx auggie-flow maestro status user-authentication --json > user-authentication-completion.json
 ```
 
 ---
@@ -720,12 +720,12 @@ npx claude-flow maestro status user-authentication --json > user-authentication-
 ### Consensus Configuration
 ```bash
 # High-quality critical feature (85% consensus)
-npx claude-flow maestro create-spec critical-payment-system \
+npx auggie-flow maestro create-spec critical-payment-system \
   --consensus-threshold 0.85 \
   --max-agents 12
 
 # Fast development feature (50% consensus)
-npx claude-flow maestro create-spec quick-prototype \
+npx auggie-flow maestro create-spec quick-prototype \
   --consensus-threshold 0.5 \
   --max-agents 4 \
   --no-consensus
@@ -734,23 +734,23 @@ npx claude-flow maestro create-spec quick-prototype \
 ### Steering Document Integration
 ```bash
 # Create domain-specific guidance
-npx claude-flow maestro init-steering security \
+npx auggie-flow maestro init-steering security \
   --content "All authentication must follow OWASP guidelines"
 
-npx claude-flow maestro init-steering performance \
+npx auggie-flow maestro init-steering performance \
   --content "API response times must be < 200ms"
 ```
 
 ### Workflow Monitoring
 ```bash
 # Real-time status monitoring
-watch 'npx claude-flow maestro status user-authentication'
+watch 'npx auggie-flow maestro status user-authentication'
 
 # Performance tracking
-npx claude-flow maestro performance-report
+npx auggie-flow maestro performance-report
 
 # Agent utilization
-npx claude-flow maestro agent-stats
+npx auggie-flow maestro agent-stats
 ```
 
 ---
@@ -768,16 +768,16 @@ Cause: Network connectivity or resource constraints
 **Solutions:**
 ```bash
 # Increase timeout and add retries
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --timeout 60000 \
   --retry 3 \
   --retry-delay 5000
 
 # Check system resources
-npx claude-flow status --system-health
+npx auggie-flow status --system-health
 
 # Reset swarm state if corrupted
-npx claude-flow maestro reset-swarm
+npx auggie-flow maestro reset-swarm
 ```
 
 #### Problem: Agent Spawning Failures
@@ -789,15 +789,15 @@ Cause: Resource limits or configuration issues
 **Solutions:**
 ```bash
 # Check agent limits and adjust
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --max-agents 12 \
   --agent-timeout 45000
 
 # Validate swarm configuration
-npx claude-flow maestro validate-config
+npx auggie-flow maestro validate-config
 
 # Manual agent spawn if needed
-npx claude-flow maestro spawn-agent requirements_analyst
+npx auggie-flow maestro spawn-agent requirements_analyst
 ```
 
 ### Consensus and Coordination Issues
@@ -811,17 +811,17 @@ Minimum threshold: 66% (Byzantine fault tolerance)
 **Solutions:**
 ```bash
 # Option 1: Lower consensus threshold for rapid development
-npx claude-flow maestro generate-design my-feature \
+npx auggie-flow maestro generate-design my-feature \
   --consensus-threshold 0.5 \
   --consensus-rounds 5
 
 # Option 2: Add more context for better agreement
-npx claude-flow maestro generate-design my-feature \
+npx auggie-flow maestro generate-design my-feature \
   --additional-context "Focus on simplicity over features" \
   --design-constraints "Use existing technology stack"
 
 # Option 3: Use single architect for simple features
-npx claude-flow maestro generate-design my-feature \
+npx auggie-flow maestro generate-design my-feature \
   --single-architect \
   --no-consensus
 ```
@@ -835,13 +835,13 @@ Agent design_architect_2 not responding
 **Solutions:**
 ```bash
 # Check agent status
-npx claude-flow maestro agent-status --detailed
+npx auggie-flow maestro agent-status --detailed
 
 # Restart unresponsive agents
-npx claude-flow maestro restart-agent design_architect_2
+npx auggie-flow maestro restart-agent design_architect_2
 
 # Failover to backup agents
-npx claude-flow maestro generate-design my-feature \
+npx auggie-flow maestro generate-design my-feature \
   --failover-enabled \
   --backup-agents 1
 ```
@@ -857,18 +857,18 @@ Cannot spawn additional agents
 **Solutions:**
 ```bash
 # Check current agent utilization
-npx claude-flow maestro agent-stats
+npx auggie-flow maestro agent-stats
 
 # Wait for tasks to complete
-watch 'npx claude-flow maestro status my-feature'
+watch 'npx auggie-flow maestro status my-feature'
 
 # Increase agent limit for complex features
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --max-agents 16 \
   --scaling-enabled
 
 # Use sequential execution to reduce agent count
-npx claude-flow maestro generate-design my-feature \
+npx auggie-flow maestro generate-design my-feature \
   --strategy sequential
 ```
 
@@ -881,15 +881,15 @@ Cannot store additional steering documents
 **Solutions:**
 ```bash
 # Clear old memory entries
-npx claude-flow maestro memory-cleanup \
+npx auggie-flow maestro memory-cleanup \
   --older-than 7d
 
 # Increase memory limits
-npx claude-flow maestro config-update \
+npx auggie-flow maestro config-update \
   --memory-limit 1GB
 
 # Use external storage for large documents
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --external-storage enabled
 ```
 
@@ -904,16 +904,16 @@ Task 3 status: failed
 **Solutions:**
 ```bash
 # Check task status and dependencies
-npx claude-flow maestro status my-feature \
+npx auggie-flow maestro status my-feature \
   --show-dependencies
 
 # Retry failed tasks
-npx claude-flow maestro implement-task my-feature 3 \
+npx auggie-flow maestro implement-task my-feature 3 \
   --retry \
   --fix-issues
 
 # Skip non-critical dependencies
-npx claude-flow maestro implement-task my-feature 5 \
+npx auggie-flow maestro implement-task my-feature 5 \
   --ignore-dependencies task-3
 ```
 
@@ -926,16 +926,16 @@ Tests failing: 3/47
 **Solutions:**
 ```bash
 # Get detailed quality report
-npx claude-flow maestro review-tasks my-feature \
+npx auggie-flow maestro review-tasks my-feature \
   --detailed-report
 
 # Fix specific quality issues
-npx claude-flow maestro implement-task my-feature \
+npx auggie-flow maestro implement-task my-feature \
   --fix-quality-issues \
   --focus coverage,tests
 
 # Lower quality thresholds temporarily
-npx claude-flow maestro review-tasks my-feature \
+npx auggie-flow maestro review-tasks my-feature \
   --coverage-threshold 70 \
   --allow-test-failures 3
 ```
@@ -955,7 +955,7 @@ sudo chown -R $USER:$USER docs/maestro/
 chmod -R 755 docs/maestro/
 
 # Use alternative directory
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --specs-dir ./specs \
   --create-dirs
 ```
@@ -969,15 +969,15 @@ Maestro config incompatible with hive mind settings
 **Solutions:**
 ```bash
 # Validate and fix configuration
-npx claude-flow maestro validate-config \
+npx auggie-flow maestro validate-config \
   --fix-conflicts
 
 # Reset to default configuration
-npx claude-flow maestro reset-config \
+npx auggie-flow maestro reset-config \
   --backup-current
 
 # Use environment-specific config
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --config-profile development
 ```
 
@@ -986,12 +986,12 @@ npx claude-flow maestro create-spec my-feature \
 #### Complete Workflow Reset
 ```bash
 # When everything fails, nuclear option:
-npx claude-flow maestro emergency-reset \
+npx auggie-flow maestro emergency-reset \
   --backup-specs \
   --preserve-completed-tasks
 
 # Restore from last good state
-npx claude-flow maestro restore-state \
+npx auggie-flow maestro restore-state \
   --from-backup \
   --timestamp "2024-01-15T10:30:00Z"
 ```
@@ -999,12 +999,12 @@ npx claude-flow maestro restore-state \
 #### Data Recovery
 ```bash
 # Recover lost specs
-npx claude-flow maestro recover-specs \
+npx auggie-flow maestro recover-specs \
   --feature my-feature \
   --from-memory
 
 # Export current state for debugging
-npx claude-flow maestro export-debug-info \
+npx auggie-flow maestro export-debug-info \
   --include-logs \
   --include-agent-states
 ```
@@ -1014,32 +1014,32 @@ npx claude-flow maestro export-debug-info \
 #### Swarm Performance Tuning
 ```bash
 # Optimize for speed (less accuracy)
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --performance-mode fast \
   --consensus-threshold 0.5 \
   --parallel-aggressive
 
 # Optimize for quality (slower)
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --performance-mode quality \
   --consensus-threshold 0.85 \
   --validation-strict
 
 # Balanced mode (recommended)
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --performance-mode balanced
 ```
 
 #### Resource Management
 ```bash
 # For resource-constrained environments
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --max-agents 4 \
   --memory-limit 512MB \
   --strategy sequential
 
 # For high-performance environments
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --max-agents 16 \
   --memory-limit 2GB \
   --strategy parallel \
@@ -1055,7 +1055,7 @@ npx claude-flow maestro create-spec my-feature \
 #### Specification Creation
 ```bash
 # Create new feature specification
-npx claude-flow maestro create-spec <name> \
+npx auggie-flow maestro create-spec <name> \
   --request "<description>" \
   [--consensus-threshold 0.66] \
   [--max-agents 8] \
@@ -1063,11 +1063,11 @@ npx claude-flow maestro create-spec <name> \
   [--retry 3]
 
 # Examples:
-npx claude-flow maestro create-spec user-auth \
+npx auggie-flow maestro create-spec user-auth \
   --request "Implement JWT-based authentication" \
   --consensus-threshold 0.75
 
-npx claude-flow maestro create-spec quick-feature \
+npx auggie-flow maestro create-spec quick-feature \
   --request "Add user profile endpoint" \
   --max-agents 4 \
   --no-consensus
@@ -1076,7 +1076,7 @@ npx claude-flow maestro create-spec quick-feature \
 #### Design Generation
 ```bash
 # Generate technical design with consensus
-npx claude-flow maestro generate-design <name> \
+npx auggie-flow maestro generate-design <name> \
   [--consensus-threshold 0.66] \
   [--single-architect] \
   [--no-consensus] \
@@ -1084,10 +1084,10 @@ npx claude-flow maestro generate-design <name> \
   [--design-constraints "<constraints>"]
 
 # Examples:
-npx claude-flow maestro generate-design user-auth \
+npx auggie-flow maestro generate-design user-auth \
   --additional-context "Focus on security and scalability"
 
-npx claude-flow maestro generate-design simple-api \
+npx auggie-flow maestro generate-design simple-api \
   --single-architect \
   --no-consensus
 ```
@@ -1095,14 +1095,14 @@ npx claude-flow maestro generate-design simple-api \
 #### Task Planning
 ```bash
 # Generate implementation tasks
-npx claude-flow maestro generate-tasks <name> \
+npx auggie-flow maestro generate-tasks <name> \
   [--max-tasks 20] \
   [--complexity <simple|medium|complex>] \
   [--include-tests] \
   [--include-docs]
 
 # Examples:
-npx claude-flow maestro generate-tasks user-auth \
+npx auggie-flow maestro generate-tasks user-auth \
   --complexity complex \
   --include-tests \
   --max-tasks 25
@@ -1111,7 +1111,7 @@ npx claude-flow maestro generate-tasks user-auth \
 #### Task Implementation
 ```bash
 # Implement specific task
-npx claude-flow maestro implement-task <name> <task-number> \
+npx auggie-flow maestro implement-task <name> <task-number> \
   [--max-agents 2] \
   [--strategy <parallel|sequential>] \
   [--retry] \
@@ -1119,10 +1119,10 @@ npx claude-flow maestro implement-task <name> <task-number> \
   [--ignore-dependencies <task-ids>]
 
 # Examples:
-npx claude-flow maestro implement-task user-auth 1 \
+npx auggie-flow maestro implement-task user-auth 1 \
   --strategy parallel
 
-npx claude-flow maestro implement-task user-auth 5 \
+npx auggie-flow maestro implement-task user-auth 5 \
   --retry \
   --fix-issues
 ```
@@ -1130,14 +1130,14 @@ npx claude-flow maestro implement-task user-auth 5 \
 #### Quality Assurance
 ```bash
 # Review implementation quality
-npx claude-flow maestro review-tasks <name> \
+npx auggie-flow maestro review-tasks <name> \
   [--coverage-threshold 80] \
   [--allow-test-failures 0] \
   [--detailed-report] \
   [--fix-quality-issues]
 
 # Examples:
-npx claude-flow maestro review-tasks user-auth \
+npx auggie-flow maestro review-tasks user-auth \
   --coverage-threshold 90 \
   --detailed-report
 ```
@@ -1145,13 +1145,13 @@ npx claude-flow maestro review-tasks user-auth \
 #### Phase Management
 ```bash
 # Approve current phase and move to next
-npx claude-flow maestro approve-phase <name> \
+npx auggie-flow maestro approve-phase <name> \
   [--force] \
   [--skip-validation]
 
 # Examples:
-npx claude-flow maestro approve-phase user-auth
-npx claude-flow maestro approve-phase prototype --force
+npx auggie-flow maestro approve-phase user-auth
+npx auggie-flow maestro approve-phase prototype --force
 ```
 
 ### Status and Monitoring Commands
@@ -1159,38 +1159,38 @@ npx claude-flow maestro approve-phase prototype --force
 #### Feature Status
 ```bash
 # Check feature status
-npx claude-flow maestro status [<name>] \
+npx auggie-flow maestro status [<name>] \
   [--detailed] \
   [--json] \
   [--show-dependencies] \
   [--show-agents]
 
 # Examples:
-npx claude-flow maestro status user-auth --detailed
-npx claude-flow maestro status --json | jq '.features'
+npx auggie-flow maestro status user-auth --detailed
+npx auggie-flow maestro status --json | jq '.features'
 ```
 
 #### Agent Management
 ```bash
 # Agent status and management
-npx claude-flow maestro agent-status \
+npx auggie-flow maestro agent-status \
   [--detailed] \
   [--agent-id <id>]
 
-npx claude-flow maestro agent-stats
-npx claude-flow maestro restart-agent <agent-id>
-npx claude-flow maestro spawn-agent <agent-type>
+npx auggie-flow maestro agent-stats
+npx auggie-flow maestro restart-agent <agent-id>
+npx auggie-flow maestro spawn-agent <agent-type>
 ```
 
 #### Performance Monitoring
 ```bash
 # Performance reports
-npx claude-flow maestro performance-report \
+npx auggie-flow maestro performance-report \
   [--timeframe <24h|7d|30d>] \
   [--format <summary|detailed|json>]
 
-npx claude-flow maestro memory-usage
-npx claude-flow maestro resource-stats
+npx auggie-flow maestro memory-usage
+npx auggie-flow maestro resource-stats
 ```
 
 ### Configuration and Management
@@ -1198,40 +1198,40 @@ npx claude-flow maestro resource-stats
 #### Swarm Configuration
 ```bash
 # Configure swarm settings
-npx claude-flow maestro config-update \
+npx auggie-flow maestro config-update \
   [--memory-limit <size>] \
   [--max-agents <number>] \
   [--consensus-threshold <0.0-1.0>]
 
-npx claude-flow maestro validate-config
-npx claude-flow maestro reset-config [--backup-current]
+npx auggie-flow maestro validate-config
+npx auggie-flow maestro reset-config [--backup-current]
 ```
 
 #### Steering Documents
 ```bash
 # Manage steering documents
-npx claude-flow maestro init-steering <domain> \
+npx auggie-flow maestro init-steering <domain> \
   --content "<guidance>" \
   [--maintainer <agent-type>]
 
-npx claude-flow maestro update-steering <domain> \
+npx auggie-flow maestro update-steering <domain> \
   --content "<updated-guidance>"
 
-npx claude-flow maestro list-steering
+npx auggie-flow maestro list-steering
 ```
 
 #### Maintenance Commands
 ```bash
 # System maintenance
-npx claude-flow maestro memory-cleanup \
+npx auggie-flow maestro memory-cleanup \
   [--older-than <time>] \
   [--dry-run]
 
-npx claude-flow maestro reset-swarm \
+npx auggie-flow maestro reset-swarm \
   [--preserve-specs] \
   [--backup-first]
 
-npx claude-flow maestro emergency-reset \
+npx auggie-flow maestro emergency-reset \
   --backup-specs \
   --preserve-completed-tasks
 ```
@@ -1241,7 +1241,7 @@ npx claude-flow maestro emergency-reset \
 #### Performance Modes
 ```bash
 # Performance optimization
-npx claude-flow maestro create-spec <name> \
+npx auggie-flow maestro create-spec <name> \
   --performance-mode <fast|balanced|quality> \
   [--turbo-mode] \
   [--parallel-aggressive]
@@ -1250,22 +1250,22 @@ npx claude-flow maestro create-spec <name> \
 #### Environment Profiles
 ```bash
 # Environment-specific configurations
-npx claude-flow maestro create-spec <name> \
+npx auggie-flow maestro create-spec <name> \
   --config-profile <development|staging|production>
 ```
 
 #### Debugging and Recovery
 ```bash
 # Debug and recovery tools
-npx claude-flow maestro export-debug-info \
+npx auggie-flow maestro export-debug-info \
   --include-logs \
   --include-agent-states
 
-npx claude-flow maestro recover-specs \
+npx auggie-flow maestro recover-specs \
   --feature <name> \
   --from-memory
 
-npx claude-flow maestro restore-state \
+npx auggie-flow maestro restore-state \
   --from-backup \
   --timestamp "<ISO-timestamp>"
 ```
@@ -1300,53 +1300,53 @@ project-root/
 #### Complete Feature Development
 ```bash
 # Full workflow for a new feature
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --request "Create user dashboard with analytics"
 
-npx claude-flow maestro generate-design my-feature
-npx claude-flow maestro generate-tasks my-feature
+npx auggie-flow maestro generate-design my-feature
+npx auggie-flow maestro generate-tasks my-feature
 
 # Implement all tasks
 for i in {1..10}; do
-  npx claude-flow maestro implement-task my-feature $i
+  npx auggie-flow maestro implement-task my-feature $i
 done
 
-npx claude-flow maestro review-tasks my-feature
-npx claude-flow maestro approve-phase my-feature
+npx auggie-flow maestro review-tasks my-feature
+npx auggie-flow maestro approve-phase my-feature
 ```
 
 #### Rapid Prototyping
 ```bash
 # Fast development without consensus
-npx claude-flow maestro create-spec prototype \
+npx auggie-flow maestro create-spec prototype \
   --request "Quick API prototype" \
   --no-consensus \
   --max-agents 4 \
   --performance-mode fast
 
-npx claude-flow maestro generate-design prototype --single-architect
-npx claude-flow maestro generate-tasks prototype --complexity simple
-npx claude-flow maestro implement-task prototype 1 --strategy parallel
+npx auggie-flow maestro generate-design prototype --single-architect
+npx auggie-flow maestro generate-tasks prototype --complexity simple
+npx auggie-flow maestro implement-task prototype 1 --strategy parallel
 ```
 
 #### High-Quality Production Feature
 ```bash
 # Enterprise-grade development with full validation
-npx claude-flow maestro create-spec payment-system \
+npx auggie-flow maestro create-spec payment-system \
   --request "Secure payment processing" \
   --consensus-threshold 0.85 \
   --max-agents 12 \
   --performance-mode quality
 
-npx claude-flow maestro generate-design payment-system \
+npx auggie-flow maestro generate-design payment-system \
   --additional-context "PCI DSS compliance required"
 
-npx claude-flow maestro generate-tasks payment-system \
+npx auggie-flow maestro generate-tasks payment-system \
   --complexity complex \
   --include-tests \
   --include-docs
 
-npx claude-flow maestro review-tasks payment-system \
+npx auggie-flow maestro review-tasks payment-system \
   --coverage-threshold 95 \
   --detailed-report
 ```
@@ -1669,7 +1669,7 @@ echo "🧪 Testing complete Maestro workflow..."
 
 # Phase 1: Requirements
 echo "Phase 1: Creating specification..."
-npx claude-flow maestro create-spec $FEATURE_NAME \
+npx auggie-flow maestro create-spec $FEATURE_NAME \
   --request "Implement JWT authentication with rate limiting"
 
 if [ ! -f "$BASE_DIR/$FEATURE_NAME/requirements.md" ]; then
@@ -1687,7 +1687,7 @@ echo "✅ Phase 1 completed successfully"
 
 # Phase 2: Design
 echo "Phase 2: Generating design..."
-npx claude-flow maestro generate-design $FEATURE_NAME
+npx auggie-flow maestro generate-design $FEATURE_NAME
 
 if [ ! -f "$BASE_DIR/$FEATURE_NAME/design.md" ]; then
   echo "❌ Design file not created"
@@ -1704,7 +1704,7 @@ echo "✅ Phase 2 completed successfully"
 
 # Phase 3: Task Planning
 echo "Phase 3: Generating tasks..."
-npx claude-flow maestro generate-tasks $FEATURE_NAME
+npx auggie-flow maestro generate-tasks $FEATURE_NAME
 
 if [ ! -f "$BASE_DIR/$FEATURE_NAME/tasks.md" ]; then
   echo "❌ Tasks file not created"
@@ -1724,14 +1724,14 @@ echo "✅ Phase 3 completed successfully ($TASK_COUNT tasks created)"
 echo "Phase 4: Implementing tasks..."
 for i in {1..3}; do
   echo "Implementing task $i..."
-  npx claude-flow maestro implement-task $FEATURE_NAME $i
+  npx auggie-flow maestro implement-task $FEATURE_NAME $i
 done
 
 echo "✅ Phase 4 sample tasks completed"
 
 # Phase 5: Quality Review
 echo "Phase 5: Quality review..."
-npx claude-flow maestro review-tasks $FEATURE_NAME
+npx auggie-flow maestro review-tasks $FEATURE_NAME
 
 if [ ! -f "$BASE_DIR/$FEATURE_NAME/quality-review.md" ]; then
   echo "❌ Quality review file not created"

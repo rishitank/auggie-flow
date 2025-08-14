@@ -78,7 +78,7 @@ const results = await batchtools.execute(tasks);
 
 To use this SPARC mode, you can:
 
-1. Run directly: `npx claude-flow sparc run docs-writer "your task"`
+1. Run directly: `npx auggie-flow sparc run docs-writer "your task"`
 2. Use in workflow: Include `docs-writer` in your SPARC workflow
 3. Delegate tasks: Use `new_task` to assign work to this mode
 
@@ -86,13 +86,13 @@ To use this SPARC mode, you can:
 
 ```bash
 # Document entire API with parallel processing
-npx claude-flow sparc run docs-writer "document all REST endpoints using parallel analysis"
+npx auggie-flow sparc run docs-writer "document all REST endpoints using parallel analysis"
 
 # Generate component documentation with batch operations
-npx claude-flow sparc run docs-writer "create React component docs with parallel prop extraction"
+npx auggie-flow sparc run docs-writer "create React component docs with parallel prop extraction"
 
 # Build configuration guide with concurrent file analysis
-npx claude-flow sparc run docs-writer "document all config options using batch file reading"
+npx auggie-flow sparc run docs-writer "document all config options using batch file reading"
 ```
 
 ## Batchtools Best Practices

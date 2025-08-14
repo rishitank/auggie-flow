@@ -1,6 +1,6 @@
 # Planning Documents
 
-This directory contains planning and phase documents for Claude Flow development.
+This directory contains planning and phase documents for Auggie Flow development.
 
 ## Phase Documents
 

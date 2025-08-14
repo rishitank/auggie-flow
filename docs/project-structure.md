@@ -1,4 +1,4 @@
-# Claude Flow Project Structure
+# Auggie Flow Project Structure
 
 ## 📁 Root Directory
 
@@ -16,9 +16,9 @@ The root directory has been cleaned and organized to contain only essential file
 - **README.md** - Main project documentation
 - **LICENSE** - MIT license
 - **CHANGELOG.md** - Version history
-- **CLAUDE.md** - Claude Code integration instructions (required in root)
+- **CLAUDE.md** - Auggie Code integration instructions (required in root)
 - **cli.js** - Main CLI entry point
-- **claude-flow** - Executable wrapper script
+- **auggie-flow** - Executable wrapper script
 - **start-web-ui.js** - WebUI launcher
 
 ## 📚 Documentation Structure (docs/)
@@ -79,8 +79,8 @@ tests/
 
 - **src/** - Source code
 - **dist/** - Build output
-- **flow-2-init/** - Claude Flow v2 initialization templates
-- **.claude/** - Claude Code configuration
+- **flow-2-init/** - Auggie Flow v2 initialization templates
+- **.claude/** - Auggie Code configuration
 - **.roo/** - MCP configuration
 - **scripts/** - Utility scripts
 - **assets/** - Static assets

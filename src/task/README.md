@@ -188,7 +188,7 @@ const results = await coordinator.coordinateBatchOperations(
 
 ```bash
 # Create comprehensive task with all options
-claude-flow task create development "Implement authentication" \
+auggie-flow task create development "Implement authentication" \
   --priority 80 \
   --dependencies "task-123,task-456" \
   --dep-type finish-to-start \
@@ -205,7 +205,7 @@ claude-flow task create development "Implement authentication" \
 
 ```bash
 # List with advanced filtering and visualization
-claude-flow task list \
+auggie-flow task list \
   --status running,pending \
   --priority 70-100 \
   --tags auth,security \
@@ -221,7 +221,7 @@ claude-flow task list \
 
 ```bash
 # Detailed status with all metrics
-claude-flow task status task-789 \
+auggie-flow task status task-789 \
   --show-logs \
   --show-checkpoints \
   --show-metrics \
@@ -234,7 +234,7 @@ claude-flow task status task-789 \
 
 ```bash
 # Safe cancellation with rollback
-claude-flow task cancel task-789 \
+auggie-flow task cancel task-789 \
   --reason "Requirements changed" \
   --cascade \
   --dry-run
@@ -244,19 +244,19 @@ claude-flow task cancel task-789 \
 
 ```bash
 # Create workflow
-claude-flow task workflow create "E-commerce Platform" \
+auggie-flow task workflow create "E-commerce Platform" \
   --description "Complete development workflow" \
   --max-concurrent 8 \
   --strategy priority-based \
   --error-handling continue-on-error
 
 # Execute workflow with monitoring
-claude-flow task workflow execute workflow-123 \
+auggie-flow task workflow execute workflow-123 \
   --variables '{"environment":"staging"}' \
   --monitor
 
 # Visualize dependency graph
-claude-flow task workflow visualize workflow-123 \
+auggie-flow task workflow visualize workflow-123 \
   --format dot \
   --output workflow-graph.dot
 ```
@@ -319,9 +319,9 @@ await coordinator.coordinateSwarm(
 );
 ```
 
-## Integration with Claude Code Batch Tools
+## Integration with Auggie Code Batch Tools
 
-The task management system is designed to work seamlessly with Claude Code's batch tools:
+The task management system is designed to work seamlessly with Auggie Code's batch tools:
 
 ### TodoWrite/TodoRead
 

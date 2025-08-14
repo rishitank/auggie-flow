@@ -95,25 +95,25 @@ The coordinator emits the following events:
 
 ```bash
 # Initialize specs-driven swarm and create specification
-npx claude-flow maestro create-spec <feature-name> [options]
+npx auggie-flow maestro create-spec <feature-name> [options]
 
 # Generate design with consensus
-npx claude-flow maestro generate-design <feature-name>
+npx auggie-flow maestro generate-design <feature-name>
 
 # Generate implementation tasks
-npx claude-flow maestro generate-tasks <feature-name>
+npx auggie-flow maestro generate-tasks <feature-name>
 
 # Implement specific task
-npx claude-flow maestro implement-task <feature-name> <task-id>
+npx auggie-flow maestro implement-task <feature-name> <task-id>
 
 # Approve current phase
-npx claude-flow maestro approve-phase <feature-name>
+npx auggie-flow maestro approve-phase <feature-name>
 
 # Check workflow status
-npx claude-flow maestro status <feature-name> [--detailed] [--json]
+npx auggie-flow maestro status <feature-name> [--detailed] [--json]
 
 # Create steering document
-npx claude-flow maestro init-steering [domain] [--content <content>]
+npx auggie-flow maestro init-steering [domain] [--content <content>]
 ```
 
 ## Performance Characteristics

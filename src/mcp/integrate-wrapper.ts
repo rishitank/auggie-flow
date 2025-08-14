@@ -6,7 +6,7 @@ import { ClaudeCodeMCPWrapper } from './claude-code-wrapper.js';
 
 /**
  * Integration script that connects the Claude-Flow MCP wrapper
- * to the Claude Code MCP server
+ * to the Auggie Code MCP server
  */
 export class MCPIntegration {
   private claudeCodeClient?: Client;
@@ -18,7 +18,7 @@ export class MCPIntegration {
 
   async connectToClaudeCode(): Promise<void> {
     try {
-      // Start Claude Code MCP server process
+      // Start Auggie Code MCP server process
       const claudeCodeProcess = spawn('npx', ['-y', '@anthropic/claude-code', 'mcp'], {
         stdio: ['pipe', 'pipe', 'pipe'],
       });
@@ -30,7 +30,7 @@ export class MCPIntegration {
 
       this.claudeCodeClient = new Client(
         {
-          name: 'claude-flow-wrapper-client',
+          name: 'auggie-flow-wrapper-client',
           version: '1.0.0',
         },
         {
@@ -43,15 +43,15 @@ export class MCPIntegration {
       // Inject the client into the wrapper
       (this.wrapper as any).claudeCodeMCP = this.claudeCodeClient;
 
-      console.log('Connected to Claude Code MCP server');
+      console.log('Connected to Auggie Code MCP server');
     } catch (error) {
-      console.error('Failed to connect to Claude Code MCP:', error);
+      console.error('Failed to connect to Auggie Code MCP:', error);
       throw error;
     }
   }
 
   async start(): Promise<void> {
-    // Connect to Claude Code MCP
+    // Connect to Auggie Code MCP
     await this.connectToClaudeCode();
 
     // Start the wrapper server
@@ -59,7 +59,7 @@ export class MCPIntegration {
   }
 }
 
-// Update the wrapper to use the real Claude Code MCP client
+// Update the wrapper to use the real Auggie Code MCP client
 export function injectClaudeCodeClient(wrapper: ClaudeCodeMCPWrapper, client: Client): void {
   // Override the forwardToClaudeCode method
   (wrapper as any).forwardToClaudeCode = async function (toolName: string, args: any) {
@@ -71,7 +71,7 @@ export function injectClaudeCodeClient(wrapper: ClaudeCodeMCPWrapper, client: Cl
         content: [
           {
             type: 'text',
-            text: `Error calling Claude Code tool ${toolName}: ${error instanceof Error ? error.message : String(error)}`,
+            text: `Error calling Auggie Code tool ${toolName}: ${error instanceof Error ? error.message : String(error)}`,
           },
         ],
         isError: true,

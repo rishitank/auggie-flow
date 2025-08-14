@@ -12,8 +12,8 @@ import { glob } from 'glob';
 export class MigrationValidator {
   private requiredFiles = [
     '.auggie/commands/sparc.md',
-    '.auggie/commands/claude-flow-help.md',
-    '.auggie/commands/claude-flow-memory.md',
+    '.auggie/commands/auggie-flow-help.md',
+    '.auggie/commands/auggie-flow-memory.md',
     '.auggie/BATCHTOOLS_GUIDE.md',
     '.auggie/BATCHTOOLS_BEST_PRACTICES.md',
   ];
@@ -23,9 +23,9 @@ export class MigrationValidator {
     'sparc-architect',
     'sparc-code',
     'sparc-tdd',
-    'claude-flow-help',
-    'claude-flow-memory',
-    'claude-flow-swarm',
+    'auggie-flow-help',
+    'auggie-flow-memory',
+    'auggie-flow-swarm',
   ];
 
   async validate(projectPath: string): Promise<ValidationResult> {
@@ -291,7 +291,7 @@ export class MigrationValidator {
         // Check for script conflicts
         const scripts = packageJson.scripts || {};
         const conflictingScripts = Object.keys(scripts).filter(
-          (script) => script.startsWith('claude-flow') || script.startsWith('sparc'),
+          (script) => script.startsWith('auggie-flow') || script.startsWith('sparc'),
         );
 
         if (conflictingScripts.length > 0) {

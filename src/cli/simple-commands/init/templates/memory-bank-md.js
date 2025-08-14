@@ -6,10 +6,10 @@ export function createMinimalMemoryBankMd() {
 ## Quick Reference
 - Project uses SQLite for memory persistence
 - Memory is organized by namespaces
-- Query with \`npx claude-flow memory query <search>\`
+- Query with \`npx auggie-flow memory query <search>\`
 
 ## Storage Location
-- Database: \`./memory/claude-flow-data.json\`
+- Database: \`./memory/auggie-flow-data.json\`
 - Sessions: \`./memory/sessions/\`
 `;
 }
@@ -21,7 +21,7 @@ export function createFullMemoryBankMd() {
 The Claude-Flow memory system provides persistent storage and intelligent retrieval of information across agent sessions. It uses a hybrid approach combining SQL databases with semantic search capabilities.
 
 ## Storage Backends
-- **Primary**: JSON database (\`./memory/claude-flow-data.json\`)
+- **Primary**: JSON database (\`./memory/auggie-flow-data.json\`)
 - **Sessions**: File-based storage in \`./memory/sessions/\`
 - **Cache**: In-memory cache for frequently accessed data
 
@@ -32,18 +32,18 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 - **Replication**: Optional distributed storage support
 
 ## Commands
-- \`npx claude-flow memory query <search>\`: Search stored information
-- \`npx claude-flow memory stats\`: Show memory usage statistics
-- \`npx claude-flow memory export <file>\`: Export memory to file
-- \`npx claude-flow memory import <file>\`: Import memory from file
+- \`npx auggie-flow memory query <search>\`: Search stored information
+- \`npx auggie-flow memory stats\`: Show memory usage statistics
+- \`npx auggie-flow memory export <file>\`: Export memory to file
+- \`npx auggie-flow memory import <file>\`: Import memory from file
 
 ## Configuration
-Memory settings are configured in \`claude-flow.config.json\`:
+Memory settings are configured in \`auggie-flow.config.json\`:
 \`\`\`json
 {
   "memory": {
     "backend": "json",
-    "path": "./memory/claude-flow-data.json",
+    "path": "./memory/auggie-flow-data.json",
     "cacheSize": 1000,
     "indexing": true,
     "namespaces": ["default", "agents", "tasks", "sessions"],
@@ -86,7 +86,7 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 **🚀 Batchtools Enhancement**: This configuration includes parallel processing capabilities for memory operations, batch storage, and concurrent retrieval optimizations.
 
 ## Storage Backends (Enhanced)
-- **Primary**: JSON database (\`./memory/claude-flow-data.json\`) with parallel access
+- **Primary**: JSON database (\`./memory/auggie-flow-data.json\`) with parallel access
 - **Sessions**: File-based storage in \`./memory/sessions/\` with concurrent operations
 - **Cache**: In-memory cache with batch updates for frequently accessed data
 - **Index**: Parallel indexing system for faster search and retrieval
@@ -109,24 +109,24 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 ## Commands (Batchtools Enhanced)
 
 ### Standard Commands
-- \`npx claude-flow memory query <search>\`: Search stored information
-- \`npx claude-flow memory stats\`: Show memory usage statistics
-- \`npx claude-flow memory export <file>\`: Export memory to file
-- \`npx claude-flow memory import <file>\`: Import memory from file
+- \`npx auggie-flow memory query <search>\`: Search stored information
+- \`npx auggie-flow memory stats\`: Show memory usage statistics
+- \`npx auggie-flow memory export <file>\`: Export memory to file
+- \`npx auggie-flow memory import <file>\`: Import memory from file
 
 ### Batchtools Commands
-- \`npx claude-flow memory batch-store <entries-file>\`: Store multiple entries in parallel
-- \`npx claude-flow memory parallel-query <queries-file>\`: Execute multiple queries concurrently
-- \`npx claude-flow memory concurrent-export <namespaces>\`: Export multiple namespaces simultaneously
-- \`npx claude-flow memory batch-cleanup <retention-config>\`: Clean up multiple namespaces in parallel
+- \`npx auggie-flow memory batch-store <entries-file>\`: Store multiple entries in parallel
+- \`npx auggie-flow memory parallel-query <queries-file>\`: Execute multiple queries concurrently
+- \`npx auggie-flow memory concurrent-export <namespaces>\`: Export multiple namespaces simultaneously
+- \`npx auggie-flow memory batch-cleanup <retention-config>\`: Clean up multiple namespaces in parallel
 
 ## Configuration (Enhanced)
-Memory settings are configured in \`claude-flow.config.json\` with batchtools optimizations:
+Memory settings are configured in \`auggie-flow.config.json\` with batchtools optimizations:
 \`\`\`json
 {
   "memory": {
     "backend": "json",
-    "path": "./memory/claude-flow-data.json",
+    "path": "./memory/auggie-flow-data.json",
     "cacheSize": 5000,
     "indexing": true,
     "batchtools": {
@@ -159,25 +159,25 @@ Memory settings are configured in \`claude-flow.config.json\` with batchtools op
 ### Parallel Storage Patterns
 \`\`\`bash
 # Store SPARC workflow data in parallel
-npx claude-flow memory batch-store sparc-data.json --namespace sparc --parallel
+npx auggie-flow memory batch-store sparc-data.json --namespace sparc --parallel
 
 # Concurrent query across multiple namespaces
-npx claude-flow memory parallel-query "authentication design" --namespaces arch,impl,test
+npx auggie-flow memory parallel-query "authentication design" --namespaces arch,impl,test
 
 # Batch export with parallel compression
-npx claude-flow memory concurrent-export project-backup --compress --parallel
+npx auggie-flow memory concurrent-export project-backup --compress --parallel
 \`\`\`
 
 ### Performance Monitoring
 \`\`\`bash
 # Monitor concurrent operations
-npx claude-flow memory stats --concurrent --verbose
+npx auggie-flow memory stats --concurrent --verbose
 
 # Analyze batch operation performance
-npx claude-flow memory performance-report --batchtools
+npx auggie-flow memory performance-report --batchtools
 
 # Check parallel indexing status
-npx claude-flow memory index-status --parallel
+npx auggie-flow memory index-status --parallel
 \`\`\`
 
 ## Memory Organization (Enhanced)
@@ -245,13 +245,13 @@ npx claude-flow memory index-status --parallel
 ### Debug Commands
 \`\`\`bash
 # Check concurrent operation status
-npx claude-flow memory debug --concurrent
+npx auggie-flow memory debug --concurrent
 
 # Analyze batch operation performance
-npx claude-flow memory analyze --batchtools --verbose
+npx auggie-flow memory analyze --batchtools --verbose
 
 # Validate parallel index integrity
-npx claude-flow memory index-validate --parallel --repair
+npx auggie-flow memory index-validate --parallel --repair
 \`\`\`
 
 For more information about memory system optimization, see: https://github.com/ruvnet/claude-code-flow/docs/memory-batchtools.md

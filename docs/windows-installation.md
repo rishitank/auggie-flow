@@ -1,15 +1,15 @@
-# Windows Installation Guide for Claude Flow
+# Windows Installation Guide for Auggie Flow
 
 ## Overview
 
-Claude Flow uses SQLite for persistent storage, which requires native bindings that can be challenging to install on Windows. This guide provides multiple solutions to get Claude Flow working on Windows systems.
+Auggie Flow uses SQLite for persistent storage, which requires native bindings that can be challenging to install on Windows. This guide provides multiple solutions to get Auggie Flow working on Windows systems.
 
 ## Quick Start (Recommended)
 
-The easiest way to use Claude Flow on Windows is with the automatic fallback mode:
+The easiest way to use Auggie Flow on Windows is with the automatic fallback mode:
 
 ```bash
-npx -y claude-flow@alpha init
+npx -y auggie-flow@alpha init
 ```
 
 This will automatically use in-memory storage if SQLite fails to load. Your data won't persist between sessions, but all features will work.
@@ -39,10 +39,10 @@ Install the necessary build tools to compile native modules:
    npm config set python python3
    ```
 
-4. **Install Claude Flow locally**
+4. **Install Auggie Flow locally**
    ```bash
-   npm install claude-flow@alpha
-   npx claude-flow init
+   npm install auggie-flow@alpha
+   npx auggie-flow init
    ```
 
 ### Option 2: Pre-built Binaries
@@ -54,7 +54,7 @@ Use pre-built SQLite binaries to avoid compilation:
 npm config set build-from-source false
 
 # Install with pre-built binaries
-npm install claude-flow@alpha --build-from-source=false
+npm install auggie-flow@alpha --build-from-source=false
 ```
 
 ### Option 3: Windows Subsystem for Linux (WSL)
@@ -75,21 +75,21 @@ WSL provides a full Linux environment on Windows:
    sudo apt-get install -y nodejs
    ```
 
-3. **Use Claude Flow in WSL**
+3. **Use Auggie Flow in WSL**
    ```bash
-   npx -y claude-flow@alpha init
+   npx -y auggie-flow@alpha init
    ```
 
 ### Option 4: Docker
 
-Use Claude Flow in a containerized environment:
+Use Auggie Flow in a containerized environment:
 
 1. **Install Docker Desktop for Windows**
    - Download from: https://www.docker.com/products/docker-desktop/
 
-2. **Run Claude Flow in Docker**
+2. **Run Auggie Flow in Docker**
    ```bash
-   docker run -it node:18 npx -y claude-flow@alpha init
+   docker run -it node:18 npx -y auggie-flow@alpha init
    ```
 
 ## Troubleshooting
@@ -159,7 +159,7 @@ Set a custom path for the SQLite database:
 {
   "memory": {
     "type": "sqlite",
-    "path": "C:\\Users\\YourName\\AppData\\Local\\claude-flow\\memory.db"
+    "path": "C:\\Users\\YourName\\AppData\\Local\\auggie-flow\\memory.db"
   }
 }
 ```
@@ -187,7 +187,7 @@ Always use in-memory storage:
 
 - GitHub Issues: https://github.com/ruvnet/claude-code-flow/issues
 - Discord: [Join our community]
-- Documentation: https://claude-flow.dev/docs
+- Documentation: https://auggie-flow.dev/docs
 
 ## Summary
 
@@ -199,4 +199,4 @@ Always use in-memory storage:
 | WSL | ✅ | ⭐⭐ Medium | ⚡ Fast |
 | Docker | ✅ | ⭐⭐ Medium | 🔄 Good |
 
-Choose the method that best fits your needs. For most users, the automatic fallback mode works perfectly for trying out Claude Flow.
+Choose the method that best fits your needs. For most users, the automatic fallback mode works perfectly for trying out Auggie Flow.

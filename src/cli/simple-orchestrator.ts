@@ -219,7 +219,7 @@ function startWebUI(host: string, port: number) {
         </div>
         <div class="console-container">
             <div class="console-output scrollbar" id="output"></div>
-            <input type="text" class="console-input" id="input" placeholder="Enter claude-flow command..." autocomplete="off">
+            <input type="text" class="console-input" id="input" placeholder="Enter auggie-flow command..." autocomplete="off">
         </div>
 
         <script>
@@ -339,7 +339,7 @@ function startWebUI(host: string, port: number) {
                         appendOutput('<span class="error">' + data.data + '</span>');
                         break;
                     case 'command_complete':
-                        appendOutput('\n<span class="prompt">claude-flow> </span>');
+                        appendOutput('\n<span class="prompt">auggie-flow> </span>');
                         break;
                     case 'status':
                         updateStatus(data.data);
@@ -653,7 +653,7 @@ function startWebUI(host: string, port: number) {
 • <span class="info">clear</span> - Clear console
 • <span class="info">version</span> - Show version information
 
-<span class="warning">Note:</span> This is a web console interface for claude-flow CLI commands.
+<span class="warning">Note:</span> This is a web console interface for auggie-flow CLI commands.
 `;
       sendResponse(ws, {
         type: 'output',
@@ -799,7 +799,7 @@ function startWebUI(host: string, port: number) {
     server.on('error', (err: any) => {
       if (err.code === 'EADDRINUSE') {
         console.error(`\n❌ Port ${port} is already in use`);
-        console.log(`💡 Try a different port: claude-flow start --ui --port ${port + 1}`);
+        console.log(`💡 Try a different port: auggie-flow start --ui --port ${port + 1}`);
         console.log(`💡 Or stop the process using port ${port}: lsof -ti:${port} | xargs kill -9`);
         componentStatus.webUI = false;
         reject(err);

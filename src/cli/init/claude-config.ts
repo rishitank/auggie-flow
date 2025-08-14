@@ -10,7 +10,7 @@ export async function createClaudeConfig(options: InitOptions): Promise<void> {
     version: '1.0.71',
     project: {
       name: path.basename(process.cwd()),
-      type: 'claude-flow',
+      type: 'auggie-flow',
       created: new Date().toISOString(),
     },
     features: {
@@ -62,7 +62,7 @@ async function createBatchToolsConfig(): Promise<void> {
 
   const batchConfig = {
     version: '1.0.71',
-    description: 'Batch tools configuration for Claude Code orchestration',
+    description: 'Batch tools configuration for Auggie Code orchestration',
     tools: {
       todoWrite: {
         enabled: true,

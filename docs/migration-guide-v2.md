@@ -1,7 +1,7 @@
-# Claude Flow v2.0.0 Migration Guide
+# Auggie Flow v2.0.0 Migration Guide
 
 ## 🚀 Overview
-Claude Flow v2.0.0 introduces significant improvements and integrations with ruv-swarm. This guide helps you migrate from v1.x to v2.0.0.
+Auggie Flow v2.0.0 introduces significant improvements and integrations with ruv-swarm. This guide helps you migrate from v1.x to v2.0.0.
 
 ## 🔄 Breaking Changes
 
@@ -12,16 +12,16 @@ Claude Flow v2.0.0 introduces significant improvements and integrations with ruv
 ### 2. Command Structure Changes
 ```bash
 # Old (v1.x)
-claude-flow init
-claude-flow swarm create mesh 5
+auggie-flow init
+auggie-flow swarm create mesh 5
 
 # New (v2.0.0)
-npx claude-flow init --topology=mesh --agents=5
+npx auggie-flow init --topology=mesh --agents=5
 npx ruv-swarm init mesh 5 --claude
 ```
 
 ### 3. Configuration File Format
-- Configuration moved from `.claude-flow.json` to `.claude/settings.json`
+- Configuration moved from `.auggie-flow.json` to `.claude/settings.json`
 - New hook-based architecture for automation
 
 ## 📦 Installation
@@ -29,22 +29,22 @@ npx ruv-swarm init mesh 5 --claude
 ### Fresh Installation
 ```bash
 # Global installation
-npm install -g claude-flow@2.0.0
+npm install -g auggie-flow@2.0.0
 
 # Or use npx (recommended)
-npx claude-flow@latest init
+npx auggie-flow@latest init
 ```
 
 ### Upgrading from v1.x
 ```bash
 # Backup your configuration
-cp .claude-flow.json .claude-flow.json.backup
+cp .auggie-flow.json .auggie-flow.json.backup
 
 # Upgrade
-npm update -g claude-flow
+npm update -g auggie-flow
 
 # Migrate configuration
-npx claude-flow migrate-config
+npx auggie-flow migrate-config
 ```
 
 ## 🛠️ New Features
@@ -57,10 +57,10 @@ npx claude-flow migrate-config
 ### 2. Enhanced CLI
 ```bash
 # New wizard mode
-npx claude-flow init --wizard
+npx auggie-flow init --wizard
 
 # Preset configurations
-npx claude-flow swarm create --preset=development
+npx auggie-flow swarm create --preset=development
 ```
 
 ### 3. Automated Hooks
@@ -71,7 +71,7 @@ npx claude-flow swarm create --preset=development
 
 ## 🔧 Configuration Migration
 
-### Old Format (.claude-flow.json)
+### Old Format (.auggie-flow.json)
 ```json
 {
   "swarm": {

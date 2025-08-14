@@ -47,7 +47,7 @@ export class ViewManager {
   setupDOMContainer() {
     // Create main container
     this.containerElement =
-      document.getElementById('claude-flow-ui') || document.createElement('div');
+      document.getElementById('auggie-flow-ui') || document.createElement('div');
 
     if (!this.containerElement.id) {
       this.containerElement.id = 'auggie-flow-ui';
@@ -66,7 +66,7 @@ export class ViewManager {
     if (document.getElementById('auggie-flow-styles')) return;
 
     const styles = document.createElement('style');
-    styles.id = 'claude-flow-styles';
+    styles.id = 'auggie-flow-styles';
     styles.textContent = `
       .auggie-flow-main-container {
         width: 100%;
@@ -154,11 +154,11 @@ export class ViewManager {
           padding: 10px;
         }
         
-        .claude-flow-view {
+        .auggie-flow-view {
           padding: 10px;
         }
         
-        .claude-flow-title {
+        .auggie-flow-title {
           font-size: 20px;
         }
       }

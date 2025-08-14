@@ -33,7 +33,7 @@ export class PromptDefaultsManager {
   private environmentDefaults: Map<string, any> = new Map();
 
   constructor(configPath?: string) {
-    this.configPath = configPath || join(homedir(), '.claude-flow', 'prompt-defaults.json');
+    this.configPath = configPath || join(homedir(), '.auggie-flow', 'prompt-defaults.json');
     this.loadConfig();
     this.loadEnvironmentDefaults();
   }
@@ -220,8 +220,8 @@ export class PromptDefaultsManager {
       'select:strategy': 'auto',
 
       // Text prompts
-      'text:projectName': 'claude-flow-project',
-      'text:description': 'Claude Flow AI Project',
+      'text:projectName': 'auggie-flow-project',
+      'text:description': 'Auggie Flow AI Project',
 
       // Number prompts
       'number:maxAgents': 4,

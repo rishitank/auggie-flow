@@ -138,10 +138,10 @@ console.log(`  Template version: ${manifest.version}`);
 if (errorCount === 0) {
   console.log('\n🎉 Template deployed successfully!');
   console.log('\nNext steps:');
-  console.log('1. Open Claude Code in your project');
+  console.log('1. Open Auggie Code in your project');
   console.log('2. Type / to see available commands');
   console.log('3. Use /sparc for SPARC methodology');
-  console.log('4. Use /claude-flow-* for Claude Flow features');
+  console.log('4. Use /auggie-flow-* for Auggie Flow features');
   console.log('\nFor help, see the documentation files in .auggie/');
 } else {
   console.log('\n⚠️  Template deployed with errors. Please check the messages above.');

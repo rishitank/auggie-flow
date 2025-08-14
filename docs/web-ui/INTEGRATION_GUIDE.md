@@ -1,8 +1,8 @@
-# Claude Flow v2.0.0 Web UI Integration Guide
+# Auggie Flow v2.0.0 Web UI Integration Guide
 
 ## 🎯 Overview
 
-This guide provides comprehensive instructions for integrating all 71+ Claude Flow tools into the Web UI, ensuring complete functionality and seamless user experience.
+This guide provides comprehensive instructions for integrating all 71+ Auggie Flow tools into the Web UI, ensuring complete functionality and seamless user experience.
 
 ## 📊 Current Implementation Status
 
@@ -38,7 +38,7 @@ This guide provides comprehensive instructions for integrating all 71+ Claude Fl
 #### Current Web Server Tools (7/71+)
 ```javascript
 // Currently exposed in web-server.js
-1. claude-flow/execute
+1. auggie-flow/execute
 2. swarm/orchestrate
 3. system/health
 4. memory/manage
@@ -232,7 +232,7 @@ export class MCPToolBridge {
   async executeTool(toolName, args) {
     return new Promise((resolve, reject) => {
       const mcpProcess = spawn('npx', [
-        'claude-flow',
+        'auggie-flow',
         'mcp',
         'call',
         toolName,
@@ -587,4 +587,4 @@ async function executeBatchTools(tools) {
 
 ---
 
-This integration guide provides the complete roadmap for implementing all 71+ Claude Flow tools in the Web UI. Follow these steps systematically to ensure a robust, secure, and performant implementation.
+This integration guide provides the complete roadmap for implementing all 71+ Auggie Flow tools in the Web UI. Follow these steps systematically to ensure a robust, secure, and performant implementation.

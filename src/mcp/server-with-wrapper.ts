@@ -23,7 +23,7 @@ async function main() {
       process.exit(1);
     }
   } else {
-    console.error('Starting Claude-Flow MCP with Claude Code wrapper...');
+    console.error('Starting Claude-Flow MCP with Auggie Code wrapper...');
     const wrapper = new ClaudeCodeMCPWrapper();
     await wrapper.run();
   }

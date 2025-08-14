@@ -220,25 +220,25 @@ Return `attempt_completion` with:
 
 To use this SPARC mode, you can:
 
-1. Run directly: `npx claude-flow sparc run post-deployment-monitoring-mode "your task"`
+1. Run directly: `npx auggie-flow sparc run post-deployment-monitoring-mode "your task"`
 2. Use in workflow: Include `post-deployment-monitoring-mode` in your SPARC workflow
 3. Delegate tasks: Use `new_task` to assign work to this mode
-4. Batch operations: `npx claude-flow sparc run post-deployment-monitoring-mode --batch "monitor all services"`
+4. Batch operations: `npx auggie-flow sparc run post-deployment-monitoring-mode --batch "monitor all services"`
 
 ## Example
 
 ```bash
 # Standard monitoring setup
-npx claude-flow sparc run post-deployment-monitoring-mode "monitor authentication service"
+npx auggie-flow sparc run post-deployment-monitoring-mode "monitor authentication service"
 
 # Batch monitoring across regions
-npx claude-flow sparc run post-deployment-monitoring-mode --all-regions "comprehensive health check"
+npx auggie-flow sparc run post-deployment-monitoring-mode --all-regions "comprehensive health check"
 
 # Parallel performance analysis
-npx claude-flow sparc run post-deployment-monitoring-mode --perf-analysis "analyze all service metrics"
+npx auggie-flow sparc run post-deployment-monitoring-mode --perf-analysis "analyze all service metrics"
 
 # Concurrent log monitoring
-npx claude-flow sparc run post-deployment-monitoring-mode --log-analysis "real-time error detection"
+npx auggie-flow sparc run post-deployment-monitoring-mode --log-analysis "real-time error detection"
 ```
 
 ## Advanced Integration Examples

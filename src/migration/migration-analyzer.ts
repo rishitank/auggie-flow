@@ -16,9 +16,9 @@ export class MigrationAnalyzer {
     'sparc-architect',
     'sparc-code',
     'sparc-tdd',
-    'claude-flow-help',
-    'claude-flow-memory',
-    'claude-flow-swarm',
+    'auggie-flow-help',
+    'auggie-flow-memory',
+    'auggie-flow-swarm',
   ];
 
   async analyze(projectPath: string): Promise<MigrationAnalysis> {

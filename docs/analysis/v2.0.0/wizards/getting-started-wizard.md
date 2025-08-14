@@ -1,6 +1,6 @@
-# Claude Flow v2.0.0 - Interactive Getting Started Wizard
+# Auggie Flow v2.0.0 - Interactive Getting Started Wizard
 
-Welcome to the Claude Flow Interactive Getting Started Wizard! This guide provides a step-by-step, interactive approach to get you up and running with Claude Flow v2.0.0 in under 10 minutes.
+Welcome to the Auggie Flow Interactive Getting Started Wizard! This guide provides a step-by-step, interactive approach to get you up and running with Auggie Flow v2.0.0 in under 10 minutes.
 
 ## 🧙 Wizard Overview
 
@@ -13,7 +13,7 @@ This interactive wizard will guide you through:
 
 ## Step 1: Environment Check 🔍
 
-Let's make sure your system is ready for Claude Flow v2.0.0.
+Let's make sure your system is ready for Auggie Flow v2.0.0.
 
 ### Interactive Checklist
 
@@ -92,7 +92,7 @@ Based on your needs, select the best installation approach:
         <li>⚠️ Requires internet for each run</li>
       </ul>
       <div class="command-preview">
-        <code>npx claude-flow@2.0.0</code>
+        <code>npx auggie-flow@2.0.0</code>
       </div>
     </div>
 
@@ -106,7 +106,7 @@ Based on your needs, select the best installation approach:
         <li>⚠️ Potential version conflicts</li>
       </ul>
       <div class="command-preview">
-        <code>npm install -g claude-flow@2.0.0</code>
+        <code>npm install -g auggie-flow@2.0.0</code>
       </div>
     </div>
 
@@ -120,7 +120,7 @@ Based on your needs, select the best installation approach:
         <li>⚠️ Requires Docker installed</li>
       </ul>
       <div class="command-preview">
-        <code>docker run --rm node:20-alpine npx claude-flow@2.0.0</code>
+        <code>docker run --rm node:20-alpine npx auggie-flow@2.0.0</code>
       </div>
     </div>
   </div>
@@ -148,16 +148,16 @@ After installation, verify it worked:
 
 ```bash
 # For NPX method
-npx claude-flow@2.0.0 --version
-# Expected: Claude Flow v2.0.0
+npx auggie-flow@2.0.0 --version
+# Expected: Auggie Flow v2.0.0
 
 # For global install
-claude-flow --version
-# Expected: Claude Flow v2.0.0
+auggie-flow --version
+# Expected: Auggie Flow v2.0.0
 
 # For Docker
-docker run --rm node:20-alpine npx claude-flow@2.0.0 --version
-# Expected: Claude Flow v2.0.0
+docker run --rm node:20-alpine npx auggie-flow@2.0.0 --version
+# Expected: Auggie Flow v2.0.0
 ```
 
 ## Step 3: Create Your First Swarm 🐝
@@ -368,7 +368,7 @@ npx ruv-swarm@latest task results
 ## Step 5: Success! 🎉
 
 Congratulations! You've successfully:
-- ✅ Installed Claude Flow v2.0.0
+- ✅ Installed Auggie Flow v2.0.0
 - ✅ Created your first swarm
 - ✅ Spawned AI agents
 - ✅ Executed an orchestrated task
@@ -377,7 +377,7 @@ Congratulations! You've successfully:
 
 ```html
 <div class="wizard-step" id="step-5">
-  <h3>🎊 Welcome to Claude Flow!</h3>
+  <h3>🎊 Welcome to Auggie Flow!</h3>
   
   <div class="success-summary">
     <div class="metric-card">
@@ -446,7 +446,7 @@ Congratulations! You've successfully:
     <a href="https://github.com/ruvnet/claude-code-flow" class="community-button">
       📦 GitHub Repository
     </a>
-    <a href="https://discord.gg/claude-flow" class="community-button">
+    <a href="https://discord.gg/auggie-flow" class="community-button">
       💬 Discord Server
     </a>
     <a href="/docs" class="community-button">
@@ -495,9 +495,9 @@ async function testNode() {
 function selectMethod(method) {
   wizardState.installMethod = method;
   const commands = {
-    npx: 'npx claude-flow@2.0.0',
-    global: 'npm install -g claude-flow@2.0.0',
-    docker: 'docker run --rm node:20-alpine npx claude-flow@2.0.0'
+    npx: 'npx auggie-flow@2.0.0',
+    global: 'npm install -g auggie-flow@2.0.0',
+    docker: 'docker run --rm node:20-alpine npx auggie-flow@2.0.0'
   };
   
   document.getElementById('selected-command').textContent = commands[method];
@@ -768,4 +768,4 @@ if (wizardVariant === 'simplified') {
 
 ## Conclusion
 
-This interactive wizard transforms the Claude Flow onboarding experience from a potentially confusing process into a guided, engaging journey. By providing real-time feedback, visual cues, and copy-paste commands, new users can achieve success in under 10 minutes while building confidence in the platform's capabilities.
+This interactive wizard transforms the Auggie Flow onboarding experience from a potentially confusing process into a guided, engaging journey. By providing real-time feedback, visual cues, and copy-paste commands, new users can achieve success in under 10 minutes while building confidence in the platform's capabilities.

@@ -2,7 +2,7 @@
  * Agentic Flow Hook System Type Definitions
  * 
  * This module defines the comprehensive hook system for integrating
- * agentic-flow with Claude Flow's existing infrastructure.
+ * agentic-flow with Auggie Flow's existing infrastructure.
  */
 
 import type { HookType, HookResult } from '../../cli/commands/hook-types.js';
@@ -308,7 +308,7 @@ export type AgenticHookType =
   | NeuralHookType 
   | PerformanceHookType 
   | WorkflowHookType
-  | HookType; // Include existing Claude Flow hooks
+  | HookType; // Include existing Auggie Flow hooks
 
 export type HookHandler = (
   payload: HookPayload,

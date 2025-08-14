@@ -43,7 +43,7 @@ export class JsonPersistenceManager {
   private data: PersistenceData;
 
   constructor(dataDir: string = './memory') {
-    this.dataPath = join(dataDir, 'claude-flow-data.json');
+    this.dataPath = join(dataDir, 'auggie-flow-data.json');
     this.data = {
       agents: [],
       tasks: [],

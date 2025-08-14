@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This document outlines the technical architecture for implementing a console-style web UI for Claude Code that maintains backward compatibility with existing CLI operations while providing real-time streaming of CLI output and seamless user input handling.
+This document outlines the technical architecture for implementing a console-style web UI for Auggie Code that maintains backward compatibility with existing CLI operations while providing real-time streaming of CLI output and seamless user input handling.
 
 ## Overall System Architecture
 
@@ -119,7 +119,7 @@ interface CapturedProcess {
 
 #### CLI Integration Points
 
-1. **Wrapper Script**: Create `claude-flow-web` wrapper that:
+1. **Wrapper Script**: Create `auggie-flow-web` wrapper that:
    - Launches regular CLI with output capture
    - Starts WebSocket server
    - Manages process lifecycle
@@ -501,4 +501,4 @@ This architecture provides:
 7. **Performance Optimized**: Efficient resource usage
 8. **Backward Compatible**: Existing CLI unchanged
 
-The design ensures that claude-flow settings integration, real-time CLI streaming, and console-style web interface work together seamlessly while maintaining the robustness and functionality of the existing CLI system.
+The design ensures that auggie-flow settings integration, real-time CLI streaming, and console-style web interface work together seamlessly while maintaining the robustness and functionality of the existing CLI system.

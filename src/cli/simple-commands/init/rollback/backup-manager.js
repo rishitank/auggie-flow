@@ -16,7 +16,7 @@ function ensureDirSync(dirPath) {
 export class BackupManager {
   constructor(workingDir) {
     this.workingDir = workingDir;
-    this.backupDir = `${workingDir}/.claude-flow-backups`;
+    this.backupDir = `${workingDir}/.auggie-flow-backups`;
   }
 
   /**
@@ -311,8 +311,8 @@ export class BackupManager {
       'package.json',
       'package-lock.json',
       '.roomodes',
-      'claude-flow',
-      'memory/claude-flow-data.json',
+      'auggie-flow',
+      'memory/auggie-flow-data.json',
     ];
 
     for (const file of potentialFiles) {

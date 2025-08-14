@@ -29,7 +29,7 @@
 
 #### Automatic Checkpointing
 - Zero manual intervention required
-- Hooks into Claude Code's file operations
+- Hooks into Auggie Code's file operations
 - Creates meaningful commit messages
 - Stores metadata in `.claude/checkpoints/`
 
@@ -83,7 +83,7 @@ Created `test-checkpoint-system.sh` which validates:
 #    - Option 1: Simple (basic checkpoints)
 #    - Option 2: Advanced (GitHub integration)
 
-# 3. Start using Claude Code
+# 3. Start using Auggie Code
 # Checkpoints will be created automatically!
 ```
 
@@ -111,7 +111,7 @@ git tag -l 'checkpoint-*' | sort -r
 2. **Transparency**: See exactly what changed and when
 3. **Flexibility**: Multiple rollback strategies
 4. **Automation**: No manual Git commands needed
-5. **Integration**: Works seamlessly with Claude Code
+5. **Integration**: Works seamlessly with Auggie Code
 
 ## 📝 Notes
 

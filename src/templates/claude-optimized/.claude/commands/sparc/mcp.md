@@ -77,9 +77,9 @@ When testing integrations:
 
 ```bash
 # Test multiple endpoints concurrently
-npx claude-flow test:integration:auth & \
-npx claude-flow test:integration:data & \
-npx claude-flow test:integration:storage & \
+npx auggie-flow test:integration:auth & \
+npx auggie-flow test:integration:data & \
+npx auggie-flow test:integration:storage & \
 wait
 ```
 
@@ -155,7 +155,7 @@ parallel --jobs 4 ::: \
 
 To use this optimized SPARC mode:
 
-1. Run directly: `npx claude-flow sparc run mcp-optimized "your task"`
+1. Run directly: `npx auggie-flow sparc run mcp-optimized "your task"`
 2. Use in workflow: Include `mcp-optimized` in your SPARC workflow
 3. Delegate tasks: Use `new_task` to assign work to this mode
 
@@ -163,10 +163,10 @@ To use this optimized SPARC mode:
 
 ```bash
 # Integrate multiple services in parallel
-npx claude-flow sparc run mcp-optimized "integrate auth, payment, and notification services"
+npx auggie-flow sparc run mcp-optimized "integrate auth, payment, and notification services"
 
 # Batch API configuration
-npx claude-flow sparc run mcp-optimized "configure all external service endpoints"
+npx auggie-flow sparc run mcp-optimized "configure all external service endpoints"
 ```
 
 ## Performance Benefits

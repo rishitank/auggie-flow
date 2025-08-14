@@ -86,22 +86,22 @@ Get started with Claude-Flow in just a few commands:
 
 ```bash
 # Install and start
-npx claude-flow
+npx auggie-flow
 
 # Initialize configuration
-claude-flow config init
+auggie-flow config init
 
 # Start the orchestrator
-claude-flow start
+auggie-flow start
 
 # Create your first agent
-claude-flow agent spawn researcher --name "Research Assistant"
+auggie-flow agent spawn researcher --name "Research Assistant"
 
 # Assign a task
-claude-flow task create research "Analyze AI trends in 2024"
+auggie-flow task create research "Analyze AI trends in 2024"
 
 # Monitor progress
-claude-flow status --watch
+auggie-flow status --watch
 ```
 
 ## 📖 Documentation Structure
@@ -240,8 +240,8 @@ Powerful terminal management with:
 ### Getting Help
 - **[GitHub Issues](https://github.com/ruvnet/claude-code-flow/issues)** - Bug reports and feature requests
 - **[GitHub Discussions](https://github.com/ruvnet/claude-code-flow/discussions)** - Community Q&A
-- **[Discord](https://discord.gg/claude-flow)** - Real-time chat support
-- **[Documentation](https://claude-flow.dev/docs)** - Comprehensive guides
+- **[Discord](https://discord.gg/auggie-flow)** - Real-time chat support
+- **[Documentation](https://auggie-flow.dev/docs)** - Comprehensive guides
 
 ### Contributing
 - **[Contributing Guide](./contributing.md)** - How to contribute

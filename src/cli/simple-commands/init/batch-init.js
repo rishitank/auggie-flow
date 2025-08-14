@@ -399,7 +399,7 @@ async function initializeProject(projectPath, options = {}) {
       lastUpdated: Date.now(),
     };
     fileCreationTasks.push(
-      fs.writeFile('memory/claude-flow-data.json', JSON.stringify(initialData, null, 2)),
+      fs.writeFile('memory/auggie-flow-data.json', JSON.stringify(initialData, null, 2)),
     );
 
     // Environment configuration

@@ -15,7 +15,7 @@ export function createMigrateCommand(): Command {
   const command = new Command('migrate');
 
   command
-    .description('Migrate existing claude-flow projects to optimized prompts')
+    .description('Migrate existing auggie-flow projects to optimized prompts')
     .option('-p, --path <path>', 'Project path', '.')
     .option('-s, --strategy <type>', 'Migration strategy: full, selective, merge', 'selective')
     .option('-b, --backup <dir>', 'Backup directory', '.claude-backup')
@@ -160,9 +160,9 @@ async function showMigrationStatus(projectPath: string): Promise<void> {
   // Recommendations
   if (!analysis.hasOptimizedPrompts) {
     console.log(chalk.bold('\n💡 Recommendations:'));
-    console.log('  • Run migration analysis: claude-flow migrate analyze');
-    console.log('  • Start with dry run: claude-flow migrate --dry-run');
-    console.log('  • Use selective strategy: claude-flow migrate --strategy selective');
+    console.log('  • Run migration analysis: auggie-flow migrate analyze');
+    console.log('  • Start with dry run: auggie-flow migrate --dry-run');
+    console.log('  • Use selective strategy: auggie-flow migrate --strategy selective');
   }
 
   console.log(chalk.gray('\n' + '─'.repeat(50)));

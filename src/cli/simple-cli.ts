@@ -22,10 +22,10 @@ function printHelp() {
 🎯 ENTERPRISE FEATURES: Complete ruv-swarm integration with 27 MCP tools, neural networking, and production-ready infrastructure
 
 USAGE:
-  claude-flow <command> [options]
+  auggie-flow <command> [options]
 
 🚀 INSTALLATION & ENTERPRISE SETUP:
-  npx claude-flow@2.0.0 init --sparc  # Enterprise SPARC + ruv-swarm integration
+  npx auggie-flow@2.0.0 init --sparc  # Enterprise SPARC + ruv-swarm integration
   
   The --sparc flag creates:
   • Complete ruv-swarm integration with 27 MCP tools
@@ -72,22 +72,22 @@ USAGE:
 
 🎮 ENTERPRISE QUICK START:
   # Initialize enterprise environment
-  npx claude-flow@2.0.0 init --sparc
+  npx auggie-flow@2.0.0 init --sparc
   
   # Start enterprise orchestration with swarm intelligence
-  ./claude-flow start --ui --swarm
+  ./auggie-flow start --ui --swarm
   
   # Deploy intelligent multi-agent development workflow
-  ./claude-flow swarm "build enterprise API" --strategy development --parallel --monitor
+  ./auggie-flow swarm "build enterprise API" --strategy development --parallel --monitor
   
   # GitHub workflow automation
-  ./claude-flow github pr-manager "coordinate release with automated testing"
+  ./auggie-flow github pr-manager "coordinate release with automated testing"
   
   # Neural memory management
-  ./claude-flow memory store "architecture" "microservices with API gateway pattern"
+  ./auggie-flow memory store "architecture" "microservices with API gateway pattern"
   
   # Real-time system monitoring
-  ./claude-flow status --verbose
+  ./auggie-flow status --verbose
 
 🏢 ENTERPRISE COMMAND CATEGORIES:
   Core Intelligence:    swarm, agent, sparc, memory, neural
@@ -113,20 +113,20 @@ USAGE:
 
 🔗 INTEGRATION & COMPATIBILITY:
   • Node.js 20+ optimization for enterprise environments
-  • Complete Claude Code integration with enhanced capabilities
+  • Complete Auggie Code integration with enhanced capabilities
   • Multi-platform support (Windows, macOS, Linux)
   • Enterprise security with access control and audit logging
   • Cross-package synchronization and dependency management
 
 GET DETAILED HELP:
-  claude-flow help <command>           # Command-specific enterprise documentation
-  claude-flow <command> --help         # Alternative help syntax
+  auggie-flow help <command>           # Command-specific enterprise documentation
+  auggie-flow <command> --help         # Alternative help syntax
   
   Examples:
-    claude-flow help swarm             # Swarm intelligence coordination
-    claude-flow help github            # GitHub workflow automation
-    claude-flow help neural            # Neural network processing
-    claude-flow help enterprise        # Enterprise features and compliance
+    auggie-flow help swarm             # Swarm intelligence coordination
+    auggie-flow help github            # GitHub workflow automation
+    auggie-flow help neural            # Neural network processing
+    auggie-flow help enterprise        # Enterprise features and compliance
 
 COMMON OPTIONS:
   --verbose, -v                        Enable detailed output with performance metrics
@@ -165,7 +165,7 @@ function showHelpWithCommands() {
   for (const command of commands) {
     console.log(`  ${command.name.padEnd(12)} ${command.description}`);
   }
-  console.log('\nUse "claude-flow help <command>" for detailed usage information');
+  console.log('\nUse "auggie-flow help <command>" for detailed usage information');
 }
 
 async function main() {
@@ -510,7 +510,7 @@ async function main() {
           const accessLevel = subArgs.find((arg) => arg.includes('--access-level'));
           if (shareId) {
             printSuccess(`Sharing terminal session: ${shareId}`);
-            console.log(`🔗 Share URL: https://claude-flow.local/terminal/${shareId}/view`);
+            console.log(`🔗 Share URL: https://auggie-flow.local/terminal/${shareId}/view`);
             console.log(`🔐 Access: ${accessLevel ? accessLevel.split('=')[1] : 'read-only'}`);
             console.log('⏱️  Expires in: 2 hours');
           } else {
@@ -890,8 +890,8 @@ async function main() {
               console.log('   ✓ Setting up load balancers');
 
               console.log('\n✅ AWS deployment completed successfully');
-              console.log('   Cluster ARN: arn:aws:ecs:us-east-1:123456789012:cluster/claude-flow');
-              console.log('   API Gateway: https://api.aws.claude-flow.com');
+              console.log('   Cluster ARN: arn:aws:ecs:us-east-1:123456789012:cluster/auggie-flow');
+              console.log('   API Gateway: https://api.aws.auggie-flow.com');
               console.log('   Monitoring: https://console.aws.amazon.com/cloudwatch');
               break;
 
@@ -952,8 +952,8 @@ async function main() {
               console.log('   ✓ Setting up Application Gateway');
 
               console.log('\n✅ Azure deployment completed successfully');
-              console.log('   Resource Group: claude-flow-production');
-              console.log('   API Gateway: https://api.azure.claude-flow.com');
+              console.log('   Resource Group: auggie-flow-production');
+              console.log('   API Gateway: https://api.azure.auggie-flow.com');
               console.log('   Monitoring: https://portal.azure.com');
               break;
 
@@ -1014,8 +1014,8 @@ async function main() {
               console.log('   ✓ Setting up Cloud Load Balancing');
 
               console.log('\n✅ GCP deployment completed successfully');
-              console.log('   Project ID: claude-flow-production');
-              console.log('   API Gateway: https://api.gcp.claude-flow.com');
+              console.log('   Project ID: auggie-flow-production');
+              console.log('   API Gateway: https://api.gcp.auggie-flow.com');
               console.log('   Monitoring: https://console.cloud.google.com');
               break;
 
@@ -1068,7 +1068,7 @@ async function main() {
               console.log('   ✓ Unified monitoring deployed');
 
               console.log('\n✅ Multi-cloud deployment completed');
-              console.log('   Global endpoint: https://global.claude-flow.com');
+              console.log('   Global endpoint: https://global.auggie-flow.com');
               console.log('   Failover time: < 30 seconds');
               console.log('   Data consistency: Eventually consistent');
               break;
@@ -1117,7 +1117,7 @@ async function main() {
             case 'deploy':
               printSuccess('Deploying Claude-Flow to Kubernetes');
               console.log('⚙️  Kubernetes Deployment:');
-              console.log('   Namespace: claude-flow');
+              console.log('   Namespace: auggie-flow');
               console.log('   Replicas: 3');
               console.log('   Resources: 1Gi memory, 500m CPU per pod');
 
@@ -1131,8 +1131,8 @@ async function main() {
 
               console.log('\n✅ Kubernetes deployment completed');
               console.log('   Pods: 3/3 running');
-              console.log('   Service: claude-flow-orchestrator-service');
-              console.log('   Ingress: https://k8s.claude-flow.com');
+              console.log('   Service: auggie-flow-orchestrator-service');
+              console.log('   Ingress: https://k8s.auggie-flow.com');
               break;
 
             case 'scale':
@@ -1149,7 +1149,7 @@ async function main() {
             case 'status':
               printSuccess('Kubernetes Cluster Status');
               console.log('\n⚙️  Cluster Information:');
-              console.log('   Namespace: claude-flow');
+              console.log('   Namespace: auggie-flow');
               console.log('   Deployments: 3/3 ready');
               console.log('   Pods: 3/3 running');
               console.log('   Services: 2 active');
@@ -1252,7 +1252,7 @@ async function main() {
             console.log(`Coverage: ${flags.coverage || 80}%`);
             console.log(`Commit: ${flags.commit || 'phase'}`);
             console.log(`\nEnhanced Features:`);
-            console.log(`  - Memory Bank enabled via: npx claude-flow memory commands`);
+            console.log(`  - Memory Bank enabled via: npx auggie-flow memory commands`);
             console.log(`  - Coordination ${flags.parallel ? 'enabled' : 'disabled'}`);
             console.log(`  - Access Claude-Flow features through Bash tool`);
           } else {
@@ -1294,22 +1294,22 @@ ${flags.tools ? `- Custom tools specified: ${flags.tools}` : ''}
 
 ### Optional Orchestration Features
 
-If this task requires complex coordination, memory persistence, or multi-agent collaboration, you can use the claude-flow system:
+If this task requires complex coordination, memory persistence, or multi-agent collaboration, you can use the auggie-flow system:
 
 1. **Persistent Memory** (if needed for your task)
-   - Store project data: \`npx claude-flow memory store <key> "<value>"\`
-   - Retrieve stored data: \`npx claude-flow memory query <key>\`
-   - Export/Import memory: \`npx claude-flow memory export/import <file>\`
+   - Store project data: \`npx auggie-flow memory store <key> "<value>"\`
+   - Retrieve stored data: \`npx auggie-flow memory query <key>\`
+   - Export/Import memory: \`npx auggie-flow memory export/import <file>\`
 
 2. **Task Coordination** (if working on complex multi-part tasks)
-   - Check task status: \`npx claude-flow status\`
-   - Monitor progress: \`npx claude-flow monitor\`
-   - List active tasks: \`npx claude-flow task list\`
+   - Check task status: \`npx auggie-flow status\`
+   - Monitor progress: \`npx auggie-flow monitor\`
+   - List active tasks: \`npx auggie-flow task list\`
 
 3. **Multi-Agent Collaboration** (if task benefits from parallelization)
-   - Spawn specialized agents: \`npx claude-flow agent spawn <type> --name <name>\`
-   - Create subtasks: \`npx claude-flow task create <type> "<description>"\`
-   - Coordinate work: \`npx claude-flow task assign <task-id> <agent-id>\``;
+   - Spawn specialized agents: \`npx auggie-flow agent spawn <type> --name <name>\`
+   - Create subtasks: \`npx auggie-flow task create <type> "<description>"\`
+   - Coordinate work: \`npx auggie-flow task assign <task-id> <agent-id>\``;
 
             if (flags.parallel) {
               enhancedTask += `
@@ -1361,14 +1361,14 @@ Begin working on your task. The orchestration features are available as tools to
 
 \`\`\`bash
 # Example: Storing project-specific data
-Bash("npx claude-flow memory store project_config '{\\"name\\": \\"my-app\\", \\"version\\": \\"1.0.0\\"}'")
+Bash("npx auggie-flow memory store project_config '{\\"name\\": \\"my-app\\", \\"version\\": \\"1.0.0\\"}'")
 
 # Example: Checking for previous work
-Bash("npx claude-flow memory query previous_implementation")
+Bash("npx auggie-flow memory query previous_implementation")
 
 # Example: Creating subtasks for complex projects
-Bash("npx claude-flow task create frontend 'Build React components'")
-Bash("npx claude-flow task create backend 'Implement API endpoints'")
+Bash("npx auggie-flow task create frontend 'Build React components'")
+Bash("npx auggie-flow task create backend 'Implement API endpoints'")
 \`\`\`
 
 Remember: These are optional tools. Use them when they add value to your development process.
@@ -1420,7 +1420,7 @@ ${flags.mode === 'full' || !flags.mode ? `Full-stack development covering all as
                   AUGGIE_FLOW_MODE: flags.mode || 'full',
                   AUGGIE_FLOW_COVERAGE: (flags.coverage || 80).toString(),
                   AUGGIE_FLOW_COMMIT: flags.commit || 'phase',
-                  // Add claude-flow specific features
+                  // Add auggie-flow specific features
                   AUGGIE_FLOW_MEMORY_ENABLED: 'true',
                   AUGGIE_FLOW_MEMORY_NAMESPACE: 'default',
                   AUGGIE_FLOW_COORDINATION_ENABLED: flags.parallel ? 'true' : 'false',
@@ -1460,10 +1460,10 @@ ${flags.mode === 'full' || !flags.mode ? `Full-stack development covering all as
           console.log('Claude commands: spawn, batch');
           console.log('\nExamples:');
           console.log(
-            '  claude-flow claude spawn "implement user authentication" --research --parallel',
+            '  auggie-flow claude spawn "implement user authentication" --research --parallel',
           );
-          console.log('  claude-flow claude spawn "fix bug in payment system" --no-permissions');
-          console.log('  claude-flow claude batch workflow.json --dry-run');
+          console.log('  auggie-flow claude spawn "fix bug in payment system" --no-permissions');
+          console.log('  auggie-flow claude batch workflow.json --dry-run');
       }
       break;
 
@@ -1495,7 +1495,7 @@ ${flags.mode === 'full' || !flags.mode ? `Full-stack development covering all as
           console.log('   ✓ Setting up health checks');
           console.log('   ✓ Establishing replication');
           console.log('\n✅ HA cluster deployed successfully!');
-          console.log('   Cluster endpoint: https://claude-flow-ha.example.com');
+          console.log('   Cluster endpoint: https://auggie-flow-ha.example.com');
           break;
 
         case 'scaling':
@@ -1561,17 +1561,17 @@ ${flags.mode === 'full' || !flags.mode ? `Full-stack development covering all as
         case 'k8s':
           printSuccess('Deploying to Kubernetes...');
           console.log('☸️  Kubernetes Deployment:');
-          console.log('   Namespace: claude-flow');
+          console.log('   Namespace: auggie-flow');
           console.log('   Replicas: 3');
-          console.log('   Image: claude-flow/orchestrator:latest');
+          console.log('   Image: auggie-flow/orchestrator:latest');
           console.log('   Service Type: LoadBalancer');
 
           console.log('\n📦 Creating resources:');
-          console.log('   ✓ Created namespace/claude-flow');
-          console.log('   ✓ Created deployment/claude-flow-orchestrator');
-          console.log('   ✓ Created service/claude-flow-orchestrator-service');
-          console.log('   ✓ Created configmap/claude-flow-config');
-          console.log('   ✓ Created secret/claude-flow-secrets');
+          console.log('   ✓ Created namespace/auggie-flow');
+          console.log('   ✓ Created deployment/auggie-flow-orchestrator');
+          console.log('   ✓ Created service/auggie-flow-orchestrator-service');
+          console.log('   ✓ Created configmap/auggie-flow-config');
+          console.log('   ✓ Created secret/auggie-flow-secrets');
           console.log('\n✅ Kubernetes deployment complete');
           console.log('   Service endpoint: http://a1b2c3d4.elb.amazonaws.com');
           break;
@@ -2036,7 +2036,7 @@ ${flags.mode === 'full' || !flags.mode ? `Full-stack development covering all as
 
     default:
       printError(`Unknown command: ${command}`);
-      console.log('Run "claude-flow help" for available commands');
+      console.log('Run "auggie-flow help" for available commands');
 
       // Suggest similar commands
       const commonCommands = [
@@ -2056,7 +2056,7 @@ ${flags.mode === 'full' || !flags.mode ? `Full-stack development covering all as
 
       if (suggestions.length > 0) {
         console.log('\nDid you mean:');
-        suggestions.forEach((cmd) => console.log(`  claude-flow ${cmd}`));
+        suggestions.forEach((cmd) => console.log(`  auggie-flow ${cmd}`));
       }
 
       process.exit(1);
@@ -2146,7 +2146,7 @@ Shortcuts:
 
     config: async (key: string) => {
       try {
-        const config = JSON.parse(await fs.readFile('claude-flow.config.json', 'utf-8'));
+        const config = JSON.parse(await fs.readFile('auggie-flow.config.json', 'utf-8'));
         if (key) {
           const keys = key.split('.');
           let value = config;
@@ -2488,8 +2488,8 @@ Shortcuts:
   while (true) {
     // Show prompt
     const prompt = replState.currentSession
-      ? `claude-flow:${replState.currentSession}> `
-      : 'claude-flow> ';
+      ? `auggie-flow:${replState.currentSession}> `
+      : 'auggie-flow> ';
     await Deno.stdout.write(encoder.encode(prompt));
 
     // Read input
@@ -2507,7 +2507,7 @@ Shortcuts:
 
 // Helper functions for init command
 function createMinimalClaudeMd() {
-  return `# Claude Code Integration
+  return `# Auggie Code Integration
 
 This file provides guidance to Claude when working with this codebase.
 
@@ -2526,7 +2526,7 @@ This file provides guidance to Claude when working with this codebase.
 }
 
 function createFullClaudeMd() {
-  return `# Claude Code Integration Guide
+  return `# Auggie Code Integration Guide
 
 This document provides comprehensive guidance to Claude when working with this codebase.
 
@@ -3009,20 +3009,20 @@ SPARC is a systematic approach to software development:
 
 ## Usage with Claude-Flow
 
-Use the claude-flow SPARC commands to leverage this environment:
+Use the auggie-flow SPARC commands to leverage this environment:
 
 \`\`\`bash
 # List available modes
-claude-flow sparc modes
+auggie-flow sparc modes
 
 # Run specific mode
-claude-flow sparc run code "implement user authentication"
+auggie-flow sparc run code "implement user authentication"
 
 # Execute full TDD workflow  
-claude-flow sparc tdd "payment processing system"
+auggie-flow sparc tdd "payment processing system"
 
 # Use custom workflow
-claude-flow sparc workflow .roo/workflows/basic-tdd.json
+auggie-flow sparc workflow .roo/workflows/basic-tdd.json
 \`\`\`
 
 ## Configuration
@@ -3041,7 +3041,7 @@ For more information, see: https://github.com/ruvnet/claude-code-flow/docs/sparc
 }
 
 function createSparcClaudeMd() {
-  return `# Claude Code Configuration - SPARC Development Environment
+  return `# Auggie Code Configuration - SPARC Development Environment
 
 ## Project Overview
 This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement, Completion) methodology for systematic Test-Driven Development with AI assistance through Claude-Flow orchestration.
@@ -3049,10 +3049,10 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ## SPARC Development Commands
 
 ### Core SPARC Commands
-- \`npx claude-flow sparc modes\`: List all available SPARC development modes
-- \`npx claude-flow sparc run <mode> "<task>"\`: Execute specific SPARC mode for a task
-- \`npx claude-flow sparc tdd "<feature>"\`: Run complete TDD workflow using SPARC methodology
-- \`npx claude-flow sparc info <mode>\`: Get detailed information about a specific mode
+- \`npx auggie-flow sparc modes\`: List all available SPARC development modes
+- \`npx auggie-flow sparc run <mode> "<task>"\`: Execute specific SPARC mode for a task
+- \`npx auggie-flow sparc tdd "<feature>"\`: Run complete TDD workflow using SPARC methodology
+- \`npx auggie-flow sparc info <mode>\`: Get detailed information about a specific mode
 
 ### Standard Build Commands
 - \`npm run build\`: Build the project
@@ -3065,7 +3065,7 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ### 1. Specification Phase
 \`\`\`bash
 # Create detailed specifications and requirements
-npx claude-flow sparc run spec-pseudocode "Define user authentication requirements"
+npx auggie-flow sparc run spec-pseudocode "Define user authentication requirements"
 \`\`\`
 - Define clear functional requirements
 - Document edge cases and constraints
@@ -3075,7 +3075,7 @@ npx claude-flow sparc run spec-pseudocode "Define user authentication requiremen
 ### 2. Pseudocode Phase
 \`\`\`bash
 # Develop algorithmic logic and data flows
-npx claude-flow sparc run spec-pseudocode "Create authentication flow pseudocode"
+npx auggie-flow sparc run spec-pseudocode "Create authentication flow pseudocode"
 \`\`\`
 - Break down complex logic into steps
 - Define data structures and interfaces
@@ -3085,7 +3085,7 @@ npx claude-flow sparc run spec-pseudocode "Create authentication flow pseudocode
 ### 3. Architecture Phase
 \`\`\`bash
 # Design system architecture and component structure
-npx claude-flow sparc run architect "Design authentication service architecture"
+npx auggie-flow sparc run architect "Design authentication service architecture"
 \`\`\`
 - Create system diagrams and component relationships
 - Define API contracts and interfaces
@@ -3095,7 +3095,7 @@ npx claude-flow sparc run architect "Design authentication service architecture"
 ### 4. Refinement Phase (TDD Implementation)
 \`\`\`bash
 # Execute Test-Driven Development cycle
-npx claude-flow sparc tdd "implement user authentication system"
+npx auggie-flow sparc tdd "implement user authentication system"
 \`\`\`
 
 **TDD Cycle:**
@@ -3107,7 +3107,7 @@ npx claude-flow sparc tdd "implement user authentication system"
 ### 5. Completion Phase
 \`\`\`bash
 # Integration, documentation, and validation
-npx claude-flow sparc run integration "integrate authentication with user management"
+npx auggie-flow sparc run integration "integrate authentication with user management"
 \`\`\`
 - Integrate all components
 - Perform end-to-end testing
@@ -3150,7 +3150,7 @@ npx claude-flow sparc run integration "integrate authentication with user manage
 - Prefer composition over inheritance
 
 ### Memory and State Management
-- Use claude-flow memory system for persistent state across sessions
+- Use auggie-flow memory system for persistent state across sessions
 - Store progress and findings using namespaced keys
 - Query previous work before starting new tasks
 - Export/import memory for backup and sharing
@@ -3160,19 +3160,19 @@ npx claude-flow sparc run integration "integrate authentication with user manage
 ### Memory Commands for SPARC Development
 \`\`\`bash
 # Store project specifications
-npx claude-flow memory store spec_auth "User authentication requirements and constraints"
+npx auggie-flow memory store spec_auth "User authentication requirements and constraints"
 
 # Store architectural decisions
-npx claude-flow memory store arch_decisions "Database schema and API design choices"
+npx auggie-flow memory store arch_decisions "Database schema and API design choices"
 
 # Store test results and coverage
-npx claude-flow memory store test_coverage "Authentication module: 95% coverage, all tests passing"
+npx auggie-flow memory store test_coverage "Authentication module: 95% coverage, all tests passing"
 
 # Query previous work
-npx claude-flow memory query auth_implementation
+npx auggie-flow memory query auth_implementation
 
 # Export project memory
-npx claude-flow memory export project_backup.json
+npx auggie-flow memory export project_backup.json
 \`\`\`
 
 ### Memory Namespaces
@@ -3187,37 +3187,37 @@ npx claude-flow memory export project_backup.json
 ### Feature Development Workflow
 \`\`\`bash
 # 1. Start with specification
-npx claude-flow sparc run spec-pseudocode "User profile management feature"
+npx auggie-flow sparc run spec-pseudocode "User profile management feature"
 
 # 2. Design architecture
-npx claude-flow sparc run architect "Profile service architecture with data validation"
+npx auggie-flow sparc run architect "Profile service architecture with data validation"
 
 # 3. Implement with TDD
-npx claude-flow sparc tdd "user profile CRUD operations"
+npx auggie-flow sparc tdd "user profile CRUD operations"
 
 # 4. Security review
-npx claude-flow sparc run security-review "profile data access and validation"
+npx auggie-flow sparc run security-review "profile data access and validation"
 
 # 5. Integration testing
-npx claude-flow sparc run integration "profile service with authentication system"
+npx auggie-flow sparc run integration "profile service with authentication system"
 
 # 6. Documentation
-npx claude-flow sparc run docs-writer "profile service API documentation"
+npx auggie-flow sparc run docs-writer "profile service API documentation"
 \`\`\`
 
 ### Bug Fix Workflow
 \`\`\`bash
 # 1. Debug and analyze
-npx claude-flow sparc run debug "authentication token expiration issue"
+npx auggie-flow sparc run debug "authentication token expiration issue"
 
 # 2. Write regression tests
-npx claude-flow sparc run tdd "token refresh mechanism tests"
+npx auggie-flow sparc run tdd "token refresh mechanism tests"
 
 # 3. Implement fix
-npx claude-flow sparc run code "fix token refresh in authentication service"
+npx auggie-flow sparc run code "fix token refresh in authentication service"
 
 # 4. Security review
-npx claude-flow sparc run security-review "token handling security implications"
+npx auggie-flow sparc run security-review "token handling security implications"
 \`\`\`
 
 ## Configuration Files
@@ -3255,16 +3255,16 @@ npx claude-flow sparc run security-review "token handling security implications"
 ### Debug Commands
 \`\`\`bash
 # Check SPARC configuration
-npx claude-flow sparc modes
+npx auggie-flow sparc modes
 
 # Verify memory system
-npx claude-flow memory stats
+npx auggie-flow memory stats
 
 # Check system status
-npx claude-flow status
+npx auggie-flow status
 
 # View detailed mode information
-npx claude-flow sparc info <mode-name>
+npx auggie-flow sparc info <mode-name>
 \`\`\`
 
 ## Project Architecture

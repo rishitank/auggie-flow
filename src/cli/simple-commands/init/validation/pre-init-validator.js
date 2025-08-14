@@ -19,12 +19,12 @@ export class PreInitValidator {
 
     try {
       // Test write permission in working directory
-      const testFile = `${this.workingDir}/.claude-flow-permission-test`;
+      const testFile = `${this.workingDir}/.auggie-flow-permission-test`;
       await Deno.writeTextFile(testFile, 'test');
       await Deno.remove(testFile);
 
       // Test directory creation permission
-      const testDir = `${this.workingDir}/.claude-flow-dir-test`;
+      const testDir = `${this.workingDir}/.auggie-flow-dir-test`;
       await Deno.mkdir(testDir);
       await Deno.remove(testDir);
     } catch (error) {
@@ -103,7 +103,7 @@ export class PreInitValidator {
       'memory-bank.md',
       'coordination.md',
       '.roomodes',
-      'memory/claude-flow-data.json',
+      'memory/auggie-flow-data.json',
     ];
 
     const criticalDirs = ['.roo', '.claude', 'memory', 'coordination'];

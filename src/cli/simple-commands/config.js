@@ -43,7 +43,7 @@ export async function configCommand(subArgs, flags) {
 
 async function initConfig(subArgs, flags) {
   const force = subArgs.includes('--force') || subArgs.includes('-f');
-  const configFile = 'claude-flow.config.json';
+  const configFile = 'auggie-flow.config.json';
 
   try {
     // Check if config already exists
@@ -72,7 +72,7 @@ async function initConfig(subArgs, flags) {
       },
       memory: {
         backend: 'json',
-        path: './memory/claude-flow-data.json',
+        path: './memory/auggie-flow-data.json',
         cacheSize: 1000,
         indexing: true,
       },
@@ -91,7 +91,7 @@ async function initConfig(subArgs, flags) {
       },
       logging: {
         level: 'info',
-        file: './claude-flow.log',
+        file: './auggie-flow.log',
         maxSize: '10MB',
         maxFiles: 5,
       },
@@ -101,16 +101,16 @@ async function initConfig(subArgs, flags) {
     console.log(`✓ Created ${configFile}`);
     console.log('✓ Default settings configured');
     console.log('\nNext steps:');
-    console.log('1. Review settings: claude-flow config show');
-    console.log('2. Customize values: claude-flow config set <key> <value>');
-    console.log('3. Validate config: claude-flow config validate');
+    console.log('1. Review settings: auggie-flow config show');
+    console.log('2. Customize values: auggie-flow config set <key> <value>');
+    console.log('3. Validate config: auggie-flow config validate');
   } catch (err) {
     printError(`Failed to initialize configuration: ${err.message}`);
   }
 }
 
 async function showConfig(subArgs, flags) {
-  const configFile = 'claude-flow.config.json';
+  const configFile = 'auggie-flow.config.json';
   const format = getFlag(subArgs, '--format') || 'pretty';
 
   try {
@@ -133,26 +133,26 @@ async function showConfig(subArgs, flags) {
       console.log(`   Task Timeout: ${config.orchestrator?.taskTimeout || 300000}ms`);
       console.log('\n💾 Memory:');
       console.log(`   Backend: ${config.memory?.backend || 'json'}`);
-      console.log(`   Path: ${config.memory?.path || './memory/claude-flow-data.json'}`);
+      console.log(`   Path: ${config.memory?.path || './memory/auggie-flow-data.json'}`);
       console.log('\n🤖 Agents:');
       console.log(`   Max Agents: ${config.agents?.maxAgents || 20}`);
       console.log(`   Resource Limits: ${JSON.stringify(config.agents?.resourceLimits || {})}`);
     }
   } catch (err) {
     printError('Configuration file not found');
-    console.log('Run "claude-flow config init" to create default configuration');
+    console.log('Run "auggie-flow config init" to create default configuration');
   }
 }
 
 async function getConfigValue(subArgs, flags) {
   const key = subArgs[1];
-  const configFile = 'claude-flow.config.json';
+  const configFile = 'auggie-flow.config.json';
 
   if (!key) {
     printError('Usage: config get <key>');
     console.log('Examples:');
-    console.log('  claude-flow config get terminal.poolSize');
-    console.log('  claude-flow config get orchestrator.maxConcurrentTasks');
+    console.log('  auggie-flow config get terminal.poolSize');
+    console.log('  auggie-flow config get orchestrator.maxConcurrentTasks');
     return;
   }
 
@@ -167,20 +167,20 @@ async function getConfigValue(subArgs, flags) {
     }
   } catch (err) {
     printError('Configuration file not found');
-    console.log('Run "claude-flow config init" to create configuration');
+    console.log('Run "auggie-flow config init" to create configuration');
   }
 }
 
 async function setConfigValue(subArgs, flags) {
   const key = subArgs[1];
   const value = subArgs[2];
-  const configFile = 'claude-flow.config.json';
+  const configFile = 'auggie-flow.config.json';
 
   if (!key || value === undefined) {
     printError('Usage: config set <key> <value>');
     console.log('Examples:');
-    console.log('  claude-flow config set terminal.poolSize 15');
-    console.log('  claude-flow config set orchestrator.taskTimeout 600000');
+    console.log('  auggie-flow config set terminal.poolSize 15');
+    console.log('  auggie-flow config set orchestrator.taskTimeout 600000');
     return;
   }
 
@@ -204,7 +204,7 @@ async function setConfigValue(subArgs, flags) {
 }
 
 async function validateConfig(subArgs, flags) {
-  const configFile = 'claude-flow.config.json';
+  const configFile = 'auggie-flow.config.json';
 
   try {
     const config = await readJsonFile(configFile);
@@ -254,7 +254,7 @@ async function validateConfig(subArgs, flags) {
     }
   } catch (err) {
     printError('Configuration file not found or invalid');
-    console.log('Run "claude-flow config init" to create valid configuration');
+    console.log('Run "auggie-flow config init" to create valid configuration');
   }
 }
 
@@ -312,8 +312,8 @@ function showConfigHelp() {
   console.log('  agents.maxAgents                 Maximum number of agents');
   console.log();
   console.log('Examples:');
-  console.log('  claude-flow config init');
-  console.log('  claude-flow config set terminal.poolSize 15');
-  console.log('  claude-flow config get orchestrator.maxConcurrentTasks');
-  console.log('  claude-flow config validate');
+  console.log('  auggie-flow config init');
+  console.log('  auggie-flow config set terminal.poolSize 15');
+  console.log('  auggie-flow config get orchestrator.maxConcurrentTasks');
+  console.log('  auggie-flow config validate');
 }

@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 export class StateTracker {
   constructor(workingDir) {
     this.workingDir = workingDir;
-    this.stateFile = `${workingDir}/.claude-flow-state.json`;
+    this.stateFile = `${workingDir}/.auggie-flow-state.json`;
   }
 
   /**

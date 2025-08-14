@@ -5,7 +5,7 @@ This directory contains comprehensive troubleshooting documentation for common i
 ## 📋 Available Guides
 
 ### [NPX Cache Conflicts](./npx-cache-conflicts.md)
-**Issue**: ENOTEMPTY errors when running multiple claude-flow instances concurrently
+**Issue**: ENOTEMPTY errors when running multiple auggie-flow instances concurrently
 **Solution**: Automatic per-process cache isolation (v2.0.0-alpha.17+)
 **Symptoms**: 
 ```
@@ -38,7 +38,7 @@ npm error ENOTEMPTY: directory not empty, rename '[source]' -> '[dest]'
 
 1. **Check your version**: Ensure you're using the latest alpha release
    ```bash
-   npx claude-flow@alpha --version
+   npx auggie-flow@alpha --version
    ```
 
 2. **Clear NPX cache** (if using older versions):
@@ -49,7 +49,7 @@ npm error ENOTEMPTY: directory not empty, rename '[source]' -> '[dest]'
 
 3. **Run diagnostics**:
    ```bash
-   npx claude-flow@alpha init --dry-run
+   npx auggie-flow@alpha init --dry-run
    ```
 
 4. **Test concurrent safety** (alpha.17+):
@@ -63,7 +63,7 @@ npm error ENOTEMPTY: directory not empty, rename '[source]' -> '[dest]'
 
 If you don't find your issue here:
 
-1. **Search existing issues**: [GitHub Issues](https://github.com/ruvnet/claude-flow/issues)
+1. **Search existing issues**: [GitHub Issues](https://github.com/ruvnet/auggie-flow/issues)
 2. **Check the logs**: Look for specific error patterns in the troubleshooting guides
 3. **Create a new issue**: Include error messages and steps to reproduce
 
@@ -84,7 +84,7 @@ After applying any fixes, verify with:
 
 ```bash
 # Basic functionality
-npx claude-flow@alpha init --minimal --force
+npx auggie-flow@alpha init --minimal --force
 
 # Concurrent safety (alpha.17+)
 node test/npx-cache-fix-test.js
@@ -94,5 +94,5 @@ node test/npx-cache-fix-test.js
 
 - [Main Documentation](../README.md)
 - [CLI Reference](../cli-reference.md)
-- [GitHub Issues](https://github.com/ruvnet/claude-flow/issues)
+- [GitHub Issues](https://github.com/ruvnet/auggie-flow/issues)
 - [Alpha Release Notes](../../CHANGELOG.md)

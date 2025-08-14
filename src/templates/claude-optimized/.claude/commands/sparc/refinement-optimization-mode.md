@@ -231,7 +231,7 @@ verify_refactoring() {
 
 To use this optimized SPARC mode:
 
-1. Run directly: `npx claude-flow sparc run refinement-optimization-mode-optimized "your task"`
+1. Run directly: `npx auggie-flow sparc run refinement-optimization-mode-optimized "your task"`
 2. Use in workflow: Include `refinement-optimization-mode-optimized` in your SPARC workflow
 3. Delegate tasks: Use `new_task` to assign work to this mode
 
@@ -239,8 +239,8 @@ To use this optimized SPARC mode:
 
 ```bash
 # Optimize entire codebase
-npx claude-flow sparc run refinement-optimization-mode-optimized "optimize all modules"
+npx auggie-flow sparc run refinement-optimization-mode-optimized "optimize all modules"
 
 # Batch refactor large files
-npx claude-flow sparc run refinement-optimization-mode-optimized "break down all files over 500 lines"
+npx auggie-flow sparc run refinement-optimization-mode-optimized "break down all files over 500 lines"
 ```

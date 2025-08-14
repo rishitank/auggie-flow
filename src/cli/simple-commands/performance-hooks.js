@@ -1,6 +1,6 @@
 /**
  * Performance Tracking Hooks
- * Integrates with all Claude Flow operations to track real performance metrics
+ * Integrates with all Auggie Flow operations to track real performance metrics
  */
 
 import {

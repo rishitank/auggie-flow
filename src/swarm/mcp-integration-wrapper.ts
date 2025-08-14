@@ -9,7 +9,7 @@
 import { EventEmitter } from 'node:events';
 import { Logger } from '../core/logger.js';
 import { generateId } from '../utils/helpers.js';
-import { createClaudeFlowTools } from '../mcp/claude-flow-tools.js';
+import { createClaudeFlowTools } from '../mcp/auggie-flow-tools.js';
 import { createRuvSwarmTools } from '../mcp/ruv-swarm-tools.js';
 import type { MCPTool, MCPContext } from '../utils/types.js';
 import type { AdvancedSwarmOrchestrator } from './advanced-orchestrator.js';
@@ -96,7 +96,7 @@ export class MCPIntegrationWrapper extends EventEmitter {
     this.logger.info('Initializing MCP integration wrapper...');
 
     try {
-      // Register Claude Flow tools
+      // Register Auggie Flow tools
       if (this.config.enableClaudeFlowTools) {
         await this.registerClaudeFlowTools();
       }
@@ -419,7 +419,7 @@ export class MCPIntegrationWrapper extends EventEmitter {
   // Private methods
 
   private async registerClaudeFlowTools(): Promise<void> {
-    this.logger.info('Registering Claude Flow tools...');
+    this.logger.info('Registering Auggie Flow tools...');
     
     const claudeFlowTools = createClaudeFlowTools(this.logger);
     
@@ -443,7 +443,7 @@ export class MCPIntegrationWrapper extends EventEmitter {
       }
     }
 
-    this.logger.info(`Registered ${claudeFlowTools.length} Claude Flow tools`);
+    this.logger.info(`Registered ${claudeFlowTools.length} Auggie Flow tools`);
   }
 
   private async registerRuvSwarmTools(): Promise<void> {

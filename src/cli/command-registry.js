@@ -49,10 +49,10 @@ export const commandRegistry = new Map();
 export function registerCoreCommands() {
   commandRegistry.set('init', {
     handler: initCommand,
-    description: 'Initialize Claude Code integration files and SPARC development environment',
+    description: 'Initialize Auggie Code integration files and SPARC development environment',
     usage: 'init [--force] [--minimal] [--sparc]',
     examples: [
-      'npx claude-flow@latest init --sparc  # Recommended: Full SPARC setup',
+      'npx auggie-flow@latest init --sparc  # Recommended: Full SPARC setup',
       'init --sparc                         # Initialize with SPARC modes',
       'init --force --minimal               # Minimal setup, overwrite existing',
       'init --sparc --force                 # Force SPARC setup',
@@ -64,7 +64,7 @@ The --sparc flag creates a complete development environment:
   • Pre-configured modes: architect, code, tdd, debug, security, and more
   • Ready for TDD workflows and automated code generation
   
-First-time users should run: npx claude-flow@latest init --sparc`,
+First-time users should run: npx auggie-flow@latest init --sparc`,
   });
 
   commandRegistry.set('start', {
@@ -155,7 +155,7 @@ Benefits:
   commandRegistry.set('maestro', {
     handler: () => {
       console.log('⚠️  Maestro commands have been moved to TypeScript.');
-      console.log('Please use: npx claude-flow maestro help');
+      console.log('Please use: npx auggie-flow maestro help');
       console.log('Or import from: ./commands/maestro.js after compilation');
     },
     description: 'Maestro: Specs-Driven Development with Hive Mind Integration',
@@ -368,8 +368,8 @@ Batch operations support:
   • Configuration validation and estimation tools
   
 Use with init command:
-  claude-flow init --batch-init project1,project2,project3
-  claude-flow init --config batch-config.json --parallel`,
+  auggie-flow init --batch-init project1,project2,project3
+  auggie-flow init --config batch-config.json --parallel`,
   });
 
   commandRegistry.set('github', {
@@ -520,7 +520,7 @@ Enables automated preparation & cleanup, performance tracking, and coordination 
   • Make your system unresponsive
 
 Hook Safety commands:
-  • validate: Check Claude Code settings for dangerous patterns
+  • validate: Check Auggie Code settings for dangerous patterns
   • status: Show current safety status and execution context
   • reset: Reset circuit breakers and execution counters  
   • safe-mode: Enable/disable safe mode (skips all hooks)
@@ -531,7 +531,7 @@ SAFE ALTERNATIVES:
   • Use 'claude --skip-hooks' for manual updates
   • Create conditional execution scripts
 
-For more information: https://github.com/ruvnet/claude-flow/issues/166`,
+For more information: https://github.com/ruvnet/auggie-flow/issues/166`,
   });
 
   commandRegistry.set('migrate-hooks', migrateHooksCommandConfig);
@@ -775,8 +775,8 @@ export function showCommandHelp(name) {
     console.log(
       HelpFormatter.formatError(
         `Unknown command: ${name}`,
-        'claude-flow',
-        'claude-flow <command> [options]',
+        'auggie-flow',
+        'auggie-flow <command> [options]',
       ),
     );
     return;
@@ -790,9 +790,9 @@ export function showCommandHelp(name) {
 
   // Convert command info to standardized format
   const helpInfo = {
-    name: `claude-flow ${name}`,
+    name: `auggie-flow ${name}`,
     description: HelpFormatter.stripFormatting(command.description),
-    usage: `claude-flow ${command.usage}`,
+    usage: `auggie-flow ${command.usage}`,
   };
 
   // Parse examples
@@ -801,7 +801,7 @@ export function showCommandHelp(name) {
       if (ex.startsWith('npx')) {
         return ex;
       }
-      return `claude-flow ${ex}`;
+      return `auggie-flow ${ex}`;
     });
   }
 
@@ -851,7 +851,7 @@ export function showAllCommands() {
   }
 
   console.log();
-  console.log('Use "claude-flow help <command>" for detailed usage information');
+  console.log('Use "auggie-flow help <command>" for detailed usage information');
 }
 
 // Initialize the command registry

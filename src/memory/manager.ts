@@ -404,13 +404,13 @@ export class MemoryManager implements IMemoryManager {
   private createBackend(): IMemoryBackend {
     switch (this.config.backend) {
       case 'sqlite':
-        return new SQLiteBackend(this.config.sqlitePath || './claude-flow.db', this.logger);
+        return new SQLiteBackend(this.config.sqlitePath || './auggie-flow.db', this.logger);
       case 'markdown':
         return new MarkdownBackend(this.config.markdownDir || './memory', this.logger);
       case 'hybrid':
         // Use SQLite for structured data and Markdown for human-readable backup
         return new HybridBackend(
-          new SQLiteBackend(this.config.sqlitePath || './claude-flow.db', this.logger),
+          new SQLiteBackend(this.config.sqlitePath || './auggie-flow.db', this.logger),
           new MarkdownBackend(this.config.markdownDir || './memory', this.logger),
           this.logger,
         );

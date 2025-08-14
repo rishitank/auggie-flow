@@ -1,6 +1,6 @@
 # ruv-swarm Integration Examples
 
-This document provides comprehensive examples of integrating ruv-swarm with Claude Code for enhanced coordination and productivity.
+This document provides comprehensive examples of integrating ruv-swarm with Auggie Code for enhanced coordination and productivity.
 
 ## 🚀 Complete Full-Stack Development Example
 
@@ -471,11 +471,11 @@ mcp__claude-flow__benchmark_run({
 ## 🔗 Additional Resources
 
 - [ruv-swarm GitHub Repository](https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm)
-- [Claude Code Documentation](https://claude.ai/code)
+- [Auggie Code Documentation](https://claude.ai/code)
 - [MCP Protocol Specification](https://github.com/modelcontextprotocol/specification)
 - [Integration Examples](./examples/)
 - [Performance Benchmarks](./benchmark/)
 
 ---
 
-**Remember**: ruv-swarm coordinates, Claude Code creates! The key to success is understanding that MCP tools orchestrate and enhance Claude Code's native capabilities rather than replacing them.
+**Remember**: ruv-swarm coordinates, Auggie Code creates! The key to success is understanding that MCP tools orchestrate and enhance Auggie Code's native capabilities rather than replacing them.

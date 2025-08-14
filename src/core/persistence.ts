@@ -38,7 +38,7 @@ export class PersistenceManager {
   private dbPath: string;
 
   constructor(dataDir: string = './memory') {
-    this.dbPath = join(dataDir, 'claude-flow.db');
+    this.dbPath = join(dataDir, 'auggie-flow.db');
   }
 
   async initialize(): Promise<void> {

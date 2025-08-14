@@ -108,7 +108,7 @@ export class UnifiedTerminalIO {
 ### Launch WebUI
 ```bash
 # Start with enhanced WebUI
-claude-flow start --ui
+auggie-flow start --ui
 
 # Alternative CLI access
 node src/cli/simple-commands/start-wrapper.js --ui

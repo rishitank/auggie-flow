@@ -1,7 +1,7 @@
 // claude-md.js - CLAUDE.md templates
 
 export function createMinimalClaudeMd() {
-  return `# Claude Code Configuration
+  return `# Auggie Code Configuration
 
 ## 🚨 CRITICAL: CONCURRENT EXECUTION FOR ALL ACTIONS
 
@@ -42,7 +42,7 @@ This is a Claude-Flow AI agent orchestration system.
 }
 
 export function createFullClaudeMd() {
-  return `# Claude Code Configuration
+  return `# Auggie Code Configuration
 
 ## 🚨 CRITICAL: CONCURRENT EXECUTION FOR ALL ACTIONS
 
@@ -102,8 +102,8 @@ If ANY answer is "No", you MUST combine operations into a single message!
 - \`npm run test\`: Run the full test suite
 - \`npm run lint\`: Run ESLint and format checks
 - \`npm run typecheck\`: Run TypeScript type checking
-- \`./claude-flow start\`: Start the orchestration system
-- \`./claude-flow --help\`: Show all available commands
+- \`./auggie-flow start\`: Start the orchestration system
+- \`./auggie-flow --help\`: Show all available commands
 
 ## Code Style Preferences
 - Use ES modules (import/export) syntax, not CommonJS (require)
@@ -137,15 +137,15 @@ This is a Claude-Flow AI agent orchestration system with the following component
 - All components are event-driven for scalability
 
 ## Debugging
-- Check logs in \`./claude-flow.log\`
-- Use \`./claude-flow status\` to check system health
-- Monitor with \`./claude-flow monitor\` for real-time updates
+- Check logs in \`./auggie-flow.log\`
+- Use \`./auggie-flow status\` to check system health
+- Monitor with \`./auggie-flow monitor\` for real-time updates
 - Verbose output available with \`--verbose\` flag on most commands
 `;
 }
 
 export function createSparcClaudeMd() {
-  return `# Claude Code Configuration - SPARC Development Environment
+  return `# Auggie Code Configuration - SPARC Development Environment
 
 ## 🚨 CRITICAL: CONCURRENT EXECUTION FOR ALL ACTIONS
 
@@ -206,10 +206,10 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ## SPARC Development Commands
 
 ### Core SPARC Commands
-- \`./claude-flow sparc modes\`: List all available SPARC development modes
-- \`./claude-flow sparc run <mode> "<task>"\`: Execute specific SPARC mode for a task
-- \`./claude-flow sparc tdd "<feature>"\`: Run complete TDD workflow using SPARC methodology
-- \`./claude-flow sparc info <mode>\`: Get detailed information about a specific mode
+- \`./auggie-flow sparc modes\`: List all available SPARC development modes
+- \`./auggie-flow sparc run <mode> "<task>"\`: Execute specific SPARC mode for a task
+- \`./auggie-flow sparc tdd "<feature>"\`: Run complete TDD workflow using SPARC methodology
+- \`./auggie-flow sparc info <mode>\`: Get detailed information about a specific mode
 
 ### Standard Build Commands
 - \`npm run build\`: Build the project
@@ -222,7 +222,7 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ### 1. Specification Phase
 \`\`\`bash
 # Create detailed specifications and requirements
-./claude-flow sparc run spec-pseudocode "Define user authentication requirements"
+./auggie-flow sparc run spec-pseudocode "Define user authentication requirements"
 \`\`\`
 - Define clear functional requirements
 - Document edge cases and constraints
@@ -232,7 +232,7 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ### 2. Pseudocode Phase
 \`\`\`bash
 # Develop algorithmic logic and data flows
-./claude-flow sparc run spec-pseudocode "Create authentication flow pseudocode"
+./auggie-flow sparc run spec-pseudocode "Create authentication flow pseudocode"
 \`\`\`
 - Break down complex logic into steps
 - Define data structures and interfaces
@@ -242,7 +242,7 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ### 3. Architecture Phase
 \`\`\`bash
 # Design system architecture and component structure
-./claude-flow sparc run architect "Design authentication service architecture"
+./auggie-flow sparc run architect "Design authentication service architecture"
 \`\`\`
 - Create system diagrams and component relationships
 - Define API contracts and interfaces
@@ -252,7 +252,7 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ### 4. Refinement Phase (TDD Implementation)
 \`\`\`bash
 # Execute Test-Driven Development cycle
-./claude-flow sparc tdd "implement user authentication system"
+./auggie-flow sparc tdd "implement user authentication system"
 \`\`\`
 
 **TDD Cycle:**
@@ -264,7 +264,7 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ### 5. Completion Phase
 \`\`\`bash
 # Integration, documentation, and validation
-./claude-flow sparc run integration "integrate authentication with user management"
+./auggie-flow sparc run integration "integrate authentication with user management"
 \`\`\`
 - Integrate all components
 - Perform end-to-end testing
@@ -291,19 +291,19 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 - **\`mcp\`**: External service integration
 - **\`swarm\`**: Multi-agent coordination for complex tasks
 
-## Claude Code Slash Commands
+## Auggie Code Slash Commands
 
-Claude Code slash commands are available in \`.auggie/commands/\`:
+Auggie Code slash commands are available in \`.auggie/commands/\`:
 
 ### Project Commands
 - \`/sparc\`: Execute SPARC methodology workflows
 - \`/sparc-<mode>\`: Run specific SPARC mode (e.g., /sparc-architect)
-- \`/claude-flow-help\`: Show all Claude-Flow commands
-- \`/claude-flow-memory\`: Interact with memory system
-- \`/claude-flow-swarm\`: Coordinate multi-agent swarms
+- \`/auggie-flow-help\`: Show all Claude-Flow commands
+- \`/auggie-flow-memory\`: Interact with memory system
+- \`/auggie-flow-swarm\`: Coordinate multi-agent swarms
 
 ### Using Slash Commands
-1. Type \`/\` in Claude Code to see available commands
+1. Type \`/\` in Auggie Code to see available commands
 2. Select a command or type its name
 3. Commands are context-aware and project-specific
 4. Custom commands can be added to \`.auggie/commands/\`
@@ -325,7 +325,7 @@ Claude Code slash commands are available in \`.auggie/commands/\`:
 - Prefer composition over inheritance
 
 ### Memory and State Management
-- Use claude-flow memory system for persistent state across sessions
+- Use auggie-flow memory system for persistent state across sessions
 - Store progress and findings using namespaced keys
 - Query previous work before starting new tasks
 - Export/import memory for backup and sharing
@@ -335,19 +335,19 @@ Claude Code slash commands are available in \`.auggie/commands/\`:
 ### Memory Commands for SPARC Development
 \`\`\`bash
 # Store project specifications
-./claude-flow memory store spec_auth "User authentication requirements and constraints"
+./auggie-flow memory store spec_auth "User authentication requirements and constraints"
 
 # Store architectural decisions
-./claude-flow memory store arch_decisions "Database schema and API design choices"
+./auggie-flow memory store arch_decisions "Database schema and API design choices"
 
 # Store test results and coverage
-./claude-flow memory store test_coverage "Authentication module: 95% coverage, all tests passing"
+./auggie-flow memory store test_coverage "Authentication module: 95% coverage, all tests passing"
 
 # Query previous work
-./claude-flow memory query auth_implementation
+./auggie-flow memory query auth_implementation
 
 # Export project memory
-./claude-flow memory export project_backup.json
+./auggie-flow memory export project_backup.json
 \`\`\`
 
 ### Memory Namespaces
@@ -362,43 +362,43 @@ Claude Code slash commands are available in \`.auggie/commands/\`:
 ### Feature Development Workflow
 \`\`\`bash
 # 1. Start with specification
-./claude-flow sparc run spec-pseudocode "User profile management feature"
+./auggie-flow sparc run spec-pseudocode "User profile management feature"
 
 # 2. Design architecture
-./claude-flow sparc run architect "Profile service architecture with data validation"
+./auggie-flow sparc run architect "Profile service architecture with data validation"
 
 # 3. Implement with TDD
-./claude-flow sparc tdd "user profile CRUD operations"
+./auggie-flow sparc tdd "user profile CRUD operations"
 
 # 4. Security review
-./claude-flow sparc run security-review "profile data access and validation"
+./auggie-flow sparc run security-review "profile data access and validation"
 
 # 5. Integration testing
-./claude-flow sparc run integration "profile service with authentication system"
+./auggie-flow sparc run integration "profile service with authentication system"
 
 # 6. Documentation
-./claude-flow sparc run docs-writer "profile service API documentation"
+./auggie-flow sparc run docs-writer "profile service API documentation"
 \`\`\`
 
 ### Bug Fix Workflow
 \`\`\`bash
 # 1. Debug and analyze
-./claude-flow sparc run debug "authentication token expiration issue"
+./auggie-flow sparc run debug "authentication token expiration issue"
 
 # 2. Write regression tests
-./claude-flow sparc run tdd "token refresh mechanism tests"
+./auggie-flow sparc run tdd "token refresh mechanism tests"
 
 # 3. Implement fix
-./claude-flow sparc run code "fix token refresh in authentication service"
+./auggie-flow sparc run code "fix token refresh in authentication service"
 
 # 4. Security review
-./claude-flow sparc run security-review "token handling security implications"
+./auggie-flow sparc run security-review "token handling security implications"
 \`\`\`
 
 ## Configuration Files
 
-### Claude Code Integration
-- **\`.auggie/commands/\`**: Claude Code slash commands for all SPARC modes
+### Auggie Code Integration
+- **\`.auggie/commands/\`**: Auggie Code slash commands for all SPARC modes
 - **\`.auggie/logs/\`**: Conversation and session logs
 
 ### SPARC Configuration
@@ -408,7 +408,7 @@ Claude Code slash commands are available in \`.auggie/commands/\`:
 ### Claude-Flow Configuration
 - **\`memory/\`**: Persistent memory and session data
 - **\`coordination/\`**: Multi-agent coordination settings
-- **\`CLAUDE.md\`**: Project instructions for Claude Code
+- **\`CLAUDE.md\`**: Project instructions for Auggie Code
 
 ## Git Workflow Integration
 
@@ -435,16 +435,16 @@ Claude Code slash commands are available in \`.auggie/commands/\`:
 ### Debug Commands
 \`\`\`bash
 # Check SPARC configuration
-./claude-flow sparc modes
+./auggie-flow sparc modes
 
 # Verify memory system
-./claude-flow memory stats
+./auggie-flow memory stats
 
 # Check system status
-./claude-flow status
+./auggie-flow status
 
 # View detailed mode information
-./claude-flow sparc info <mode-name>
+./auggie-flow sparc info <mode-name>
 \`\`\`
 
 ## Project Architecture
@@ -463,7 +463,7 @@ This SPARC-enabled project follows a systematic development approach:
 - Follow the Red-Green-Refactor cycle during TDD phases
 - Document architectural decisions in memory for future reference
 - Regular security reviews for any authentication or data handling code
-- Claude Code slash commands provide quick access to SPARC modes
+- Auggie Code slash commands provide quick access to SPARC modes
 
 For more information about SPARC methodology, see: https://github.com/ruvnet/claude-code-flow/docs/sparc.md
 `;
@@ -471,7 +471,7 @@ For more information about SPARC methodology, see: https://github.com/ruvnet/cla
 
 // Create optimized SPARC CLAUDE.md with batchtools integration
 export function createOptimizedSparcClaudeMd() {
-  return `# Claude Code Configuration - SPARC Development Environment
+  return `# Auggie Code Configuration - SPARC Development Environment
 
 ## 🚨 CRITICAL: CONCURRENT EXECUTION & FILE MANAGEMENT
 
@@ -506,15 +506,15 @@ This project uses SPARC (Specification, Pseudocode, Architecture, Refinement, Co
 ## SPARC Commands
 
 ### Core Commands
-- \`npx claude-flow sparc modes\` - List available modes
-- \`npx claude-flow sparc run <mode> "<task>"\` - Execute specific mode
-- \`npx claude-flow sparc tdd "<feature>"\` - Run complete TDD workflow
-- \`npx claude-flow sparc info <mode>\` - Get mode details
+- \`npx auggie-flow sparc modes\` - List available modes
+- \`npx auggie-flow sparc run <mode> "<task>"\` - Execute specific mode
+- \`npx auggie-flow sparc tdd "<feature>"\` - Run complete TDD workflow
+- \`npx auggie-flow sparc info <mode>\` - Get mode details
 
 ### Batchtools Commands
-- \`npx claude-flow sparc batch <modes> "<task>"\` - Parallel execution
-- \`npx claude-flow sparc pipeline "<task>"\` - Full pipeline processing
-- \`npx claude-flow sparc concurrent <mode> "<tasks-file>"\` - Multi-task processing
+- \`npx auggie-flow sparc batch <modes> "<task>"\` - Parallel execution
+- \`npx auggie-flow sparc pipeline "<task>"\` - Full pipeline processing
+- \`npx auggie-flow sparc concurrent <mode> "<tasks-file>"\` - Multi-task processing
 
 ### Build Commands
 - \`npm run build\` - Build project
@@ -567,9 +567,9 @@ This project uses SPARC (Specification, Pseudocode, Architecture, Refinement, Co
 ### Migration & Planning
 \`migration-planner\`, \`swarm-init\`
 
-## 🎯 Claude Code vs MCP Tools
+## 🎯 Auggie Code vs MCP Tools
 
-### Claude Code Handles ALL:
+### Auggie Code Handles ALL:
 - File operations (Read, Write, Edit, MultiEdit, Glob, Grep)
 - Code generation and programming
 - Bash commands and system operations
@@ -588,13 +588,13 @@ This project uses SPARC (Specification, Pseudocode, Architecture, Refinement, Co
 - Swarm orchestration
 - GitHub integration
 
-**KEY**: MCP coordinates, Claude Code executes.
+**KEY**: MCP coordinates, Auggie Code executes.
 
 ## 🚀 Quick Setup
 
 \`\`\`bash
-# Add Claude Flow MCP server
-claude mcp add claude-flow npx claude-flow@alpha mcp start
+# Add Auggie Flow MCP server
+claude mcp add auggie-flow npx auggie-flow@alpha mcp start
 \`\`\`
 
 ## MCP Tool Categories
@@ -620,20 +620,20 @@ claude mcp add claude-flow npx claude-flow@alpha mcp start
 
 **1️⃣ BEFORE Work:**
 \`\`\`bash
-npx claude-flow@alpha hooks pre-task --description "[task]"
-npx claude-flow@alpha hooks session-restore --session-id "swarm-[id]"
+npx auggie-flow@alpha hooks pre-task --description "[task]"
+npx auggie-flow@alpha hooks session-restore --session-id "swarm-[id]"
 \`\`\`
 
 **2️⃣ DURING Work:**
 \`\`\`bash
-npx claude-flow@alpha hooks post-edit --file "[file]" --memory-key "swarm/[agent]/[step]"
-npx claude-flow@alpha hooks notify --message "[what was done]"
+npx auggie-flow@alpha hooks post-edit --file "[file]" --memory-key "swarm/[agent]/[step]"
+npx auggie-flow@alpha hooks notify --message "[what was done]"
 \`\`\`
 
 **3️⃣ AFTER Work:**
 \`\`\`bash
-npx claude-flow@alpha hooks post-task --task-id "[task]"
-npx claude-flow@alpha hooks session-end --export-metrics true
+npx auggie-flow@alpha hooks post-task --task-id "[task]"
+npx auggie-flow@alpha hooks session-end --export-metrics true
 \`\`\`
 
 ## 🎯 Concurrent Execution Examples
@@ -730,12 +730,12 @@ Message 4: Write "file.js"
 
 ## Support
 
-- Documentation: https://github.com/ruvnet/claude-flow
-- Issues: https://github.com/ruvnet/claude-flow/issues
+- Documentation: https://github.com/ruvnet/auggie-flow
+- Issues: https://github.com/ruvnet/auggie-flow/issues
 
 ---
 
-Remember: **Claude Flow coordinates, Claude Code creates!**
+Remember: **Auggie Flow coordinates, Auggie Code creates!**
 
 # important-instruction-reminders
 Do what has been asked; nothing more, nothing less.

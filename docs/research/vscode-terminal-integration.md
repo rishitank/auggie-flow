@@ -231,7 +231,7 @@ function getOrCreateTerminal(): vscode.Terminal {
 
 ## 9. Orchestration Patterns from External CLIs
 
-### Claude Code Flow Patterns
+### Auggie Code Flow Patterns
 
 #### 1. **Fanning Out Pattern**
 Handle large-scale operations by:
@@ -243,7 +243,7 @@ Handle large-scale operations by:
 ```bash
 # Create new branch and worktree
 pgw new-feature
-# Opens VS Code with Claude Code ready
+# Opens VS Code with Auggie Code ready
 # Work in parallel on multiple features
 ```
 
@@ -253,7 +253,7 @@ Using `.vscode/tasks.json`:
 {
   "version": "2.0.0",
   "tasks": [{
-    "label": "Run Claude Code Automatically",
+    "label": "Run Auggie Code Automatically",
     "type": "shell",
     "command": "/path/to/claude --dangerously-skip-permissions",
     "presentation": {
@@ -270,14 +270,14 @@ Using `.vscode/tasks.json`:
 
 ### Headless/Programmatic Mode
 ```bash
-# Run Claude Code programmatically
+# Run Auggie Code programmatically
 claude -p "migrate foo.py from React to Vue" --allowedTools Edit Bash
 ```
 
 ### MCP (Model Context Protocol) Integration
 - Connect multiple tools and services
 - Example: Playwright MCP server for browser testing
-- Claude Code as MCP server for nested agent workflows
+- Auggie Code as MCP server for nested agent workflows
 
 ## Implementation Recommendations for TypeScript/Deno Runtime
 

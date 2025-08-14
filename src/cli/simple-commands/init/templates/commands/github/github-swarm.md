@@ -5,7 +5,7 @@ Create a specialized swarm for GitHub repository management.
 ## Usage
 
 ```bash
-npx claude-flow github swarm [options]
+npx auggie-flow github swarm [options]
 ```
 
 ## Options
@@ -22,25 +22,25 @@ npx claude-flow github swarm [options]
 ### Basic GitHub swarm
 
 ```bash
-npx claude-flow github swarm --repository owner/repo
+npx auggie-flow github swarm --repository owner/repo
 ```
 
 ### Maintenance-focused swarm
 
 ```bash
-npx claude-flow github swarm -r owner/repo -f maintenance --issue-labels
+npx auggie-flow github swarm -r owner/repo -f maintenance --issue-labels
 ```
 
 ### Development swarm with PR automation
 
 ```bash
-npx claude-flow github swarm -r owner/repo -f development --auto-pr --code-review
+npx auggie-flow github swarm -r owner/repo -f development --auto-pr --code-review
 ```
 
 ### Full-featured triage swarm
 
 ```bash
-npx claude-flow github swarm -r owner/repo -a 8 -f triage --issue-labels --auto-pr
+npx auggie-flow github swarm -r owner/repo -a 8 -f triage --issue-labels --auto-pr
 ```
 
 ## Agent Types
@@ -101,9 +101,9 @@ npx claude-flow github swarm -r owner/repo -a 8 -f triage --issue-labels --auto-
 4. Assess documentation completeness
 5. Generate health report
 
-## Integration with Claude Code
+## Integration with Auggie Code
 
-Use in Claude Code with MCP tools:
+Use in Auggie Code with MCP tools:
 
 ```javascript
 mcp__claude-flow__github_swarm {

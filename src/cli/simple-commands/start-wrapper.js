@@ -52,7 +52,7 @@ export async function startCommand(subArgs, flags) {
         const webServer = new ClaudeCodeWebServer(port);
         await webServer.start();
 
-        printSuccess('🌐 Claude Flow Web UI is running!');
+        printSuccess('🌐 Auggie Flow Web UI is running!');
         console.log(`📍 Open your browser to: http://localhost:${port}/console`);
         console.log('   Press Ctrl+C to stop the server');
         console.log();
@@ -90,7 +90,7 @@ export async function startCommand(subArgs, flags) {
 
     if (missingDirs.length > 0) {
       printWarning('Missing required directories: ' + missingDirs.join(', '));
-      console.log('Run "claude-flow init" first to create the necessary structure');
+      console.log('Run "auggie-flow init" first to create the necessary structure');
       return;
     }
 
@@ -108,7 +108,7 @@ export async function startCommand(subArgs, flags) {
 
     // Memory system
     console.log('   ✓ Memory Bank: Ready');
-    console.log('     - Backend: JSON file (memory/claude-flow-data.json)');
+    console.log('     - Backend: JSON file (memory/auggie-flow-data.json)');
     console.log('     - Namespaces: Enabled');
 
     // Terminal pool
@@ -138,29 +138,29 @@ export async function startCommand(subArgs, flags) {
       const pid = compat.terminal.getPid();
       await compat.safeCall(async () => {
         if (compat.runtime === 'deno') {
-          await fs.writeFile('.claude-flow.pid', pid.toString(), 'utf8');
+          await fs.writeFile('.auggie-flow.pid', pid.toString(), 'utf8');
         } else {
           const fs = await import('fs/promises');
-          await fs.writeFile('.claude-flow.pid', pid.toString(), 'utf8');
+          await fs.writeFile('.auggie-flow.pid', pid.toString(), 'utf8');
         }
       });
-      console.log(`Process ID: ${pid} (saved to .claude-flow.pid)`);
+      console.log(`Process ID: ${pid} (saved to .auggie-flow.pid)`);
     } else {
       // Interactive mode
       printSuccess('Orchestration system started!');
       console.log();
       console.log('🎯 Available Actions:');
       console.log('   • Open another terminal and run:');
-      console.log('     - claude-flow agent spawn researcher');
-      console.log('     - claude-flow task create "your task"');
-      console.log('     - claude-flow sparc "build feature"');
-      console.log('     - claude-flow monitor');
+      console.log('     - auggie-flow agent spawn researcher');
+      console.log('     - auggie-flow task create "your task"');
+      console.log('     - auggie-flow sparc "build feature"');
+      console.log('     - auggie-flow monitor');
       console.log();
       console.log('   • View system status:');
-      console.log('     - claude-flow status');
+      console.log('     - auggie-flow status');
       console.log();
       console.log('   • Launch process management UI:');
-      console.log('     - claude-flow start --ui');
+      console.log('     - auggie-flow start --ui');
       console.log();
       console.log('   • Press Ctrl+C to stop the orchestrator');
       console.log();
@@ -214,10 +214,10 @@ async function cleanup() {
   try {
     await compat.safeCall(async () => {
       if (compat.runtime === 'deno') {
-        await fs.unlink('.claude-flow.pid');
+        await fs.unlink('.auggie-flow.pid');
       } else {
         const fs = await import('fs/promises');
-        await fs.unlink('.claude-flow.pid');
+        await fs.unlink('.auggie-flow.pid');
       }
     });
   } catch {
@@ -233,7 +233,7 @@ async function cleanup() {
 function showStartHelp() {
   console.log('Start the Claude-Flow orchestration system');
   console.log();
-  console.log('Usage: claude-flow start [options]');
+  console.log('Usage: auggie-flow start [options]');
   console.log();
   console.log('Options:');
   console.log('  -d, --daemon        Run as daemon in background');
@@ -244,12 +244,12 @@ function showStartHelp() {
   console.log('  -h, --help          Show this help message');
   console.log();
   console.log('Examples:');
-  console.log('  claude-flow start                    # Start in interactive mode');
-  console.log('  claude-flow start --daemon           # Start as background daemon');
-  console.log('  claude-flow start --port 8080        # Use custom server port');
-  console.log('  claude-flow start --ui               # Launch terminal-based UI');
-  console.log('  claude-flow start --web              # Launch web-based UI');
-  console.log('  claude-flow start --verbose          # Show detailed logs');
+  console.log('  auggie-flow start                    # Start in interactive mode');
+  console.log('  auggie-flow start --daemon           # Start as background daemon');
+  console.log('  auggie-flow start --port 8080        # Use custom server port');
+  console.log('  auggie-flow start --ui               # Launch terminal-based UI');
+  console.log('  auggie-flow start --web              # Launch web-based UI');
+  console.log('  auggie-flow start --verbose          # Show detailed logs');
   console.log();
   console.log('Web-based UI:');
   console.log('  The --web flag starts a web server with:');
@@ -257,7 +257,7 @@ function showStartHelp() {
   console.log('    - Real-time WebSocket communication');
   console.log('    - Mobile-responsive design');
   console.log('    - Multiple themes and customization options');
-  console.log('    - Claude Flow swarm integration');
+  console.log('    - Auggie Flow swarm integration');
   console.log();
   console.log('Terminal-based UI:');
   console.log('  The --ui flag launches an advanced multi-view interface with:');
@@ -277,9 +277,9 @@ function showStartHelp() {
   console.log('    - Tab navigation between views');
   console.log();
   console.log('Notes:');
-  console.log('  - Requires "claude-flow init" to be run first');
+  console.log('  - Requires "auggie-flow init" to be run first');
   console.log('  - Interactive mode shows real-time system status');
   console.log('  - Daemon mode runs in background (check logs)');
-  console.log('  - Use "claude-flow status" to check if running');
-  console.log('  - Use Ctrl+C or "claude-flow stop" to shutdown');
+  console.log('  - Use "auggie-flow status" to check if running');
+  console.log('  - Use Ctrl+C or "auggie-flow stop" to shutdown');
 }

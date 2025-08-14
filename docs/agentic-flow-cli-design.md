@@ -579,24 +579,24 @@ agentic-flow completion fish > ~/.config/fish/completions/agentic-flow.fish
 agentic-flow completion powershell > $PROFILE
 ```
 
-## Migration from Claude Flow
+## Migration from Auggie Flow
 
 ```bash
 # One-command migration
 curl -fsSL https://get.agentic-flow.mastra.ai/migrate | bash
 
 # Or manual migration
-agentic-flow migrate from-claude-flow [options]
+agentic-flow migrate from-auggie-flow [options]
   --backup               # Create backup
   --dry-run             # Preview changes
-  --config <file>       # Claude Flow config
+  --config <file>       # Auggie Flow config
   --output <dir>        # Output directory
 ```
 
 ## Conclusion
 
 The Agentic Flow CLI provides a comprehensive, intuitive interface that:
-1. **Maintains familiarity** for Claude Flow users
+1. **Maintains familiarity** for Auggie Flow users
 2. **Adds enterprise features** for production use
 3. **Integrates Mastra** capabilities seamlessly
 4. **Scales efficiently** for any workload

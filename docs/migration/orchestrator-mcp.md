@@ -1,10 +1,10 @@
 # Orchestrator + MCP migration notes (Auggie lane)
 
 ## What changed
-- CLI alias: auggie-flow now points to the same dispatcher as claude-flow
+- CLI alias: auggie-flow now points to the same dispatcher as auggie-flow
 - Orchestrator lifecycle stubs: `orchestrator begin | continue | end`
   - Minimal placeholders to enable workflows/scripts to stabilize during migration
-- MCP bridge: forward non-SPARC tools to an injected Claude Code MCP client when present, with a tiny 2s in-memory cache
+- MCP bridge: forward non-SPARC tools to an injected Auggie Code MCP client when present, with a tiny 2s in-memory cache
 
 ## Why
 - Stabilize CLI surface for Auggie Flow users
@@ -13,14 +13,14 @@
 
 ## Verify quickly
 1) Check alias
-   - `./auggie-flow --help` (should mirror `./claude-flow --help`)
+   - `./auggie-flow --help` (should mirror `./auggie-flow --help`)
 2) Orchestrator stubs
-   - `./claude-flow orchestrator begin`
-   - `./claude-flow orchestrator continue`
-   - `./claude-flow orchestrator end`
+   - `./auggie-flow orchestrator begin`
+   - `./auggie-flow orchestrator continue`
+   - `./auggie-flow orchestrator end`
    - Expect informative stub messages
 3) MCP pass-through (when MCP client injected)
-   - Start Claude Code MCP server and wrapper
+   - Start Auggie Code MCP server and wrapper
    - Call a tool twice; the second call should hit the tiny cache
 
 ## Notes

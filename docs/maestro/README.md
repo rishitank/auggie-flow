@@ -33,7 +33,7 @@ Specs-Driven Swarm Topology
 ### 1. Initialize Specs-Driven Swarm
 
 ```bash
-npx claude-flow maestro create-spec my-feature "Create user authentication system"
+npx auggie-flow maestro create-spec my-feature "Create user authentication system"
 ```
 
 This automatically:
@@ -44,7 +44,7 @@ This automatically:
 ### 2. Generate Design with Consensus
 
 ```bash
-npx claude-flow maestro generate-design my-feature
+npx auggie-flow maestro generate-design my-feature
 ```
 
 This uses:
@@ -55,7 +55,7 @@ This uses:
 ### 3. Plan Implementation Tasks
 
 ```bash
-npx claude-flow maestro generate-tasks my-feature
+npx auggie-flow maestro generate-tasks my-feature
 ```
 
 Uses dedicated `task_planner` agent with workflow orchestration capabilities.
@@ -63,7 +63,7 @@ Uses dedicated `task_planner` agent with workflow orchestration capabilities.
 ### 4. Execute Tasks with Swarm
 
 ```bash
-npx claude-flow maestro implement-task my-feature 1
+npx auggie-flow maestro implement-task my-feature 1
 ```
 
 Uses `implementation_coder` agents in parallel with native coordination.
@@ -177,16 +177,16 @@ const maestroConfig: MaestroSwarmConfig = {
 
 ```bash
 # Create spec with custom consensus threshold
-npx claude-flow maestro create-spec my-feature \
+npx auggie-flow maestro create-spec my-feature \
   --consensus-threshold 0.75 \
   --max-agents 10
 
 # Generate design with consensus disabled
-npx claude-flow maestro generate-design my-feature \
+npx auggie-flow maestro generate-design my-feature \
   --no-consensus
 
 # Implement task with specific agent count
-npx claude-flow maestro implement-task my-feature 1 \
+npx auggie-flow maestro implement-task my-feature 1 \
   --max-agents 1
 ```
 
@@ -218,7 +218,7 @@ Error: Swarm initialization timeout
 ```
 Solution: Check network connectivity and increase timeout:
 ```bash
-npx claude-flow maestro create-spec my-feature --timeout 60000
+npx auggie-flow maestro create-spec my-feature --timeout 60000
 ```
 
 **Consensus Failure**
@@ -227,7 +227,7 @@ Error: Consensus failed for design validation
 ```
 Solution: Lower consensus threshold or retry:
 ```bash
-npx claude-flow maestro generate-design my-feature --consensus-threshold 0.5
+npx auggie-flow maestro generate-design my-feature --consensus-threshold 0.5
 ```
 
 **Agent Spawning Errors**
@@ -236,7 +236,7 @@ Error: Maximum agent limit reached
 ```
 Solution: The swarm is at capacity. Wait for tasks to complete or increase limit:
 ```bash
-npx claude-flow maestro create-spec my-feature --max-agents 12
+npx auggie-flow maestro create-spec my-feature --max-agents 12
 ```
 
 ## Performance Monitoring
@@ -245,13 +245,13 @@ npx claude-flow maestro create-spec my-feature --max-agents 12
 
 ```bash
 # View swarm status
-npx claude-flow maestro status
+npx auggie-flow maestro status
 
 # Performance report
-npx claude-flow maestro performance-report
+npx auggie-flow maestro performance-report
 
 # Agent utilization
-npx claude-flow maestro agent-stats
+npx auggie-flow maestro agent-stats
 ```
 
 ### Expected Performance

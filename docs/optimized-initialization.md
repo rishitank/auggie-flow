@@ -8,10 +8,10 @@ The optimized initialization feature (`--sparc --force`) provides a streamlined 
 
 ```bash
 # Optimized initialization (recommended for new projects)
-npx -y claude-flow@latest init --sparc --force
+npx -y auggie-flow@latest init --sparc --force
 
 # Standard initialization (for comparison)
-npx -y claude-flow@latest init --sparc
+npx -y auggie-flow@latest init --sparc
 ```
 
 ## Benefits of Optimized Initialization
@@ -75,7 +75,7 @@ Enhanced `.claude/commands/` with:
 
 2. **Run Optimized Initialization**
    ```bash
-   npx claude-flow@latest init --sparc --force
+   npx auggie-flow@latest init --sparc --force
    ```
 
 3. **Review and Merge Customizations**
@@ -118,7 +118,7 @@ If you have custom configurations:
 1. **Existing Files Warning**
    ```bash
    # Solution: Use --force to overwrite
-   npx claude-flow@latest init --sparc --force
+   npx auggie-flow@latest init --sparc --force
    ```
 
 2. **Custom Modes Lost After Update**
@@ -128,22 +128,22 @@ If you have custom configurations:
    ```
 
 3. **Performance Not Improved**
-   - Ensure you're using the local wrapper: `./claude-flow`
+   - Ensure you're using the local wrapper: `./auggie-flow`
    - Check that optimized files were created successfully
-   - Verify Claude Code is reading the new configurations
+   - Verify Auggie Code is reading the new configurations
 
 ### Validation
 
 Run these commands to verify optimized setup:
 ```bash
 # Check SPARC modes are loaded
-./claude-flow sparc modes --verbose
+./auggie-flow sparc modes --verbose
 
 # Test a simple task
-./claude-flow sparc run code "hello world function"
+./auggie-flow sparc run code "hello world function"
 
 # Verify memory system
-./claude-flow memory stats
+./auggie-flow memory stats
 ```
 
 ## Advanced Configuration
@@ -211,8 +211,8 @@ A: Yes! Submit PRs with performance benchmarks.
 
 ## Next Steps
 
-1. Run optimized initialization: `npx -y claude-flow@latest init --sparc --force`
-2. Test with your first SPARC task: `./claude-flow sparc "your task"`
+1. Run optimized initialization: `npx -y auggie-flow@latest init --sparc --force`
+2. Test with your first SPARC task: `./auggie-flow sparc "your task"`
 3. Monitor performance improvements
 4. Share feedback for continuous improvement
 

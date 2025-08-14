@@ -372,14 +372,14 @@ export class HealthChecker {
       const content = await fs.readFile(claudePath, 'utf8');
 
       // Check if mentioned commands exist
-      const mentionedCommands = ['claude-flow sparc', 'npm run build', 'npm run test'];
+      const mentionedCommands = ['auggie-flow sparc', 'npm run build', 'npm run test'];
 
       for (const command of mentionedCommands) {
         if (content.includes(command)) {
           // Check if the command is actually available
           const parts = command.split(' ');
-          if (parts[0] === 'claude-flow') {
-            const executablePath = `${this.workingDir}/claude-flow`;
+          if (parts[0] === 'auggie-flow') {
+            const executablePath = `${this.workingDir}/auggie-flow`;
             try {
               await Deno.stat(executablePath);
             } catch {
@@ -405,7 +405,7 @@ export class HealthChecker {
 
     try {
       // Check if memory structure matches documentation
-      const memoryDataPath = `${this.workingDir}/memory/claude-flow-data.json`;
+      const memoryDataPath = `${this.workingDir}/memory/auggie-flow-data.json`;
       const data = JSON.parse(await fs.readFile(memoryDataPath, 'utf8'));
 
       // Basic structure validation

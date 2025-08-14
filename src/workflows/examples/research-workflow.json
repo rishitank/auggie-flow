@@ -160,8 +160,8 @@
     }
   ],
   "hooks": {
-    "pre-task": "npx claude-flow@alpha hooks pre-task --description \"${task.name}\" --auto-spawn-agents false",
-    "post-task": "npx claude-flow@alpha hooks post-task --task-id \"${task.id}\" --analyze-performance true"
+    "pre-task": "npx auggie-flow@alpha hooks pre-task --description \"${task.name}\" --auto-spawn-agents false",
+    "post-task": "npx auggie-flow@alpha hooks post-task --task-id \"${task.id}\" --analyze-performance true"
   },
   "settings": {
     "maxConcurrency": 4,

@@ -159,7 +159,7 @@ export class ConfigManager {
 
   private constructor() {
     this.config = this.deepClone(DEFAULT_CONFIG);
-    this.userConfigDir = path.join(os.homedir(), '.claude-flow');
+    this.userConfigDir = path.join(os.homedir(), '.auggie-flow');
   }
 
   /**
@@ -175,7 +175,7 @@ export class ConfigManager {
   /**
    * Initialize configuration from file or create default
    */
-  async init(configPath = 'claude-flow.config.json'): Promise<void> {
+  async init(configPath = 'auggie-flow.config.json'): Promise<void> {
     try {
       await this.load(configPath);
       console.log(`✅ Configuration loaded from: ${configPath}`);

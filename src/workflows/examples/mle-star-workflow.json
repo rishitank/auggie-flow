@@ -222,9 +222,9 @@
     }
   ],
   "hooks": {
-    "pre-task": "npx claude-flow@alpha hooks pre-task --description \"${task.name}\" --auto-spawn-agents false",
-    "post-task": "npx claude-flow@alpha hooks post-task --task-id \"${task.id}\" --analyze-performance true",
-    "on-error": "npx claude-flow@alpha hooks notify --message \"Error in ${task.id}: ${error.message}\" --telemetry true"
+    "pre-task": "npx auggie-flow@alpha hooks pre-task --description \"${task.name}\" --auto-spawn-agents false",
+    "post-task": "npx auggie-flow@alpha hooks post-task --task-id \"${task.id}\" --analyze-performance true",
+    "on-error": "npx auggie-flow@alpha hooks notify --message \"Error in ${task.id}: ${error.message}\" --telemetry true"
   },
   "settings": {
     "maxConcurrency": 4,

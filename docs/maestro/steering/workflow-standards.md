@@ -23,7 +23,7 @@ This steering document defines the workflow standards and operational procedures
 
 2. **Requirements Generation**
    ```bash
-   npx claude-flow maestro create-spec <feature-name> \
+   npx auggie-flow maestro create-spec <feature-name> \
      -r "Clear feature description with user value proposition"
    ```
 
@@ -58,7 +58,7 @@ This steering document defines the workflow standards and operational procedures
 #### Process
 1. **Collective Intelligence Design**
    ```bash
-   npx claude-flow maestro generate-design <feature-name>
+   npx auggie-flow maestro generate-design <feature-name>
    ```
 
 2. **Hive Mind Collaboration**
@@ -97,7 +97,7 @@ This steering document defines the workflow standards and operational procedures
 #### Process
 1. **Task Decomposition**
    ```bash
-   npx claude-flow maestro generate-tasks <feature-name>
+   npx auggie-flow maestro generate-tasks <feature-name>
    ```
 
 2. **Task Analysis**
@@ -136,7 +136,7 @@ This steering document defines the workflow standards and operational procedures
 #### Process
 1. **Task Implementation**
    ```bash
-   npx claude-flow maestro implement-task <feature-name> <task-id>
+   npx auggie-flow maestro implement-task <feature-name> <task-id>
    ```
 
 2. **Consensus Validation (when enabled)**

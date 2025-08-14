@@ -21,16 +21,16 @@ This document summarizes the fixes implemented for GitHub issue #589.
 **Testing Results**:
 ```bash
 # Store in custom namespace - WORKING ✓
-npx claude-flow memory store testkey1 "test value 1" --namespace custom-ns
+npx auggie-flow memory store testkey1 "test value 1" --namespace custom-ns
 
 # Query specific namespace - WORKING ✓
-npx claude-flow memory query test --namespace custom-ns
+npx auggie-flow memory query test --namespace custom-ns
 
 # Export specific namespace - WORKING ✓
-npx claude-flow memory export test.json --namespace custom-ns
+npx auggie-flow memory export test.json --namespace custom-ns
 
 # Clear specific namespace - WORKING ✓
-npx claude-flow memory clear --namespace custom-ns
+npx auggie-flow memory clear --namespace custom-ns
 ```
 
 ### 2. Database Fragmentation
@@ -63,16 +63,16 @@ npx claude-flow memory clear --namespace custom-ns
 3. **New CLI Command** (`memory-consolidate`):
    ```bash
    # Scan for all memory stores
-   npx claude-flow memory-consolidate scan
+   npx auggie-flow memory-consolidate scan
    
    # Create consolidation plan
-   npx claude-flow memory-consolidate plan
+   npx auggie-flow memory-consolidate plan
    
    # Execute consolidation (requires sqlite3 package)
-   npx claude-flow memory-consolidate execute --force
+   npx auggie-flow memory-consolidate execute --force
    
    # Generate report
-   npx claude-flow memory-consolidate report
+   npx auggie-flow memory-consolidate report
    ```
 
 ## Benefits
@@ -95,13 +95,13 @@ For users wanting to consolidate their fragmented databases:
 
 2. Run consolidation:
    ```bash
-   npx claude-flow memory-consolidate scan
-   npx claude-flow memory-consolidate plan
-   npx claude-flow memory-consolidate execute --force
+   npx auggie-flow memory-consolidate scan
+   npx auggie-flow memory-consolidate plan
+   npx auggie-flow memory-consolidate execute --force
    ```
 
 3. The unified database will be created at:
-   `./.claude-flow/memory/unified-memory.db`
+   `./.auggie-flow/memory/unified-memory.db`
 
 ## Technical Details
 

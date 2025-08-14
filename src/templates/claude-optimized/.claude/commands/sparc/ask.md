@@ -153,7 +153,7 @@ const processQuestion = async (userQuestion) => {
 
 To use this SPARC mode, you can:
 
-1. Run directly: `npx claude-flow sparc run ask "your task"`
+1. Run directly: `npx auggie-flow sparc run ask "your task"`
 2. Use in workflow: Include `ask` in your SPARC workflow
 3. Delegate tasks: Use `new_task` to assign work to this mode
 
@@ -161,13 +161,13 @@ To use this SPARC mode, you can:
 
 ```bash
 # Get intelligent task routing with parallel analysis
-npx claude-flow sparc run ask "how should I implement user authentication with testing?"
+npx auggie-flow sparc run ask "how should I implement user authentication with testing?"
 
 # Decompose complex project into SPARC tasks
-npx claude-flow sparc run ask "help me plan a full e-commerce platform build"
+npx auggie-flow sparc run ask "help me plan a full e-commerce platform build"
 
 # Find best mode for specific problem
-npx claude-flow sparc run ask "which mode should I use for database schema refactoring?"
+npx auggie-flow sparc run ask "which mode should I use for database schema refactoring?"
 ```
 
 ## Batchtools Best Practices for Ask Mode

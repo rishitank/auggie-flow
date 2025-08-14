@@ -1,8 +1,8 @@
-# Migrating from Claude Flow to Auggie Flow
+# Migrating from Auggie Flow to Auggie Flow
 
-This guide explains how to use Auggie Flow while preserving backward compatibility with Claude Flow commands.
+This guide explains how to use Auggie Flow while preserving backward compatibility with Auggie Flow commands.
 
-- New binary: `auggie-flow` (parallel to `claude-flow`)
+- New binary: `auggie-flow` (parallel to `auggie-flow`)
 - Engine preference: set `AUGGIE_FLOW_ENGINE=auggie` to force using Auggie CLI
 - UI and orchestration commands now reference Auggie where available
 

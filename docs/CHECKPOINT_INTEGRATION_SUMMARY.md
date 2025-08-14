@@ -50,7 +50,7 @@
 
 ## 🚀 How It Works
 
-When users run `npx claude-flow@alpha init`, they now get:
+When users run `npx auggie-flow@alpha init`, they now get:
 
 1. **Automatic Git Checkpoints**: 
    - Every file edit is automatically checkpointed
@@ -64,13 +64,13 @@ When users run `npx claude-flow@alpha init`, they now get:
    ```
 
 3. **Full Integration**: 
-   - Works seamlessly with Claude Code
+   - Works seamlessly with Auggie Code
    - No manual Git commands needed
    - Preserves all work automatically
 
 ## 📋 Usage After Init
 
-Users who initialize Claude Flow will automatically have:
+Users who initialize Auggie Flow will automatically have:
 
 1. **Checkpoint hooks enabled** in `.claude/settings.json`
 2. **Helper scripts** in `.claude/helpers/`
@@ -79,10 +79,10 @@ Users who initialize Claude Flow will automatically have:
 
 ## 🎯 Benefits
 
-- **Never lose work** during Claude Code sessions
+- **Never lose work** during Auggie Code sessions
 - **Easy rollback** to any previous state
 - **Automatic tracking** of all changes
 - **No manual Git knowledge** required
-- **Integrated with Claude Flow** workflow
+- **Integrated with Auggie Flow** workflow
 
-The checkpoint system is now a core feature of Claude Flow v2.0.0!
+The checkpoint system is now a core feature of Auggie Flow v2.0.0!

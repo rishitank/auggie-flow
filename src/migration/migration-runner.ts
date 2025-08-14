@@ -273,9 +273,9 @@ export class MigrationRunner {
       }
 
       const scripts = {
-        migrate: 'claude-flow migrate',
-        'migrate:analyze': 'claude-flow migrate analyze',
-        'migrate:rollback': 'claude-flow migrate rollback',
+        migrate: 'auggie-flow migrate',
+        'migrate:analyze': 'auggie-flow migrate analyze',
+        'migrate:rollback': 'auggie-flow migrate rollback',
       };
 
       let modified = false;
@@ -498,9 +498,9 @@ export class MigrationRunner {
           { source: 'sparc/architect.md', target: 'sparc-architect.md' },
           { source: 'sparc/code.md', target: 'sparc-code.md' },
           { source: 'sparc/tdd.md', target: 'sparc-tdd.md' },
-          { source: 'claude-flow-help.md', target: 'claude-flow-help.md' },
-          { source: 'claude-flow-memory.md', target: 'claude-flow-memory.md' },
-          { source: 'claude-flow-swarm.md', target: 'claude-flow-swarm.md' },
+          { source: 'auggie-flow-help.md', target: 'auggie-flow-help.md' },
+          { source: 'auggie-flow-memory.md', target: 'auggie-flow-memory.md' },
+          { source: 'auggie-flow-swarm.md', target: 'auggie-flow-swarm.md' },
         ],
         configurations: {},
         templates: {},
@@ -576,7 +576,7 @@ export class MigrationRunner {
     if (result.rollbackPath) {
       console.log(`\n${chalk.bold('Rollback Available:')} ${result.rollbackPath}`);
       console.log(
-        chalk.gray(`  Run "claude-flow migrate rollback -t ${result.rollbackPath}" to revert`),
+        chalk.gray(`  Run "auggie-flow migrate rollback -t ${result.rollbackPath}" to revert`),
       );
     }
 

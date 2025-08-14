@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-06-16
 
 ### Added
-- Initial release of optimized Claude Code templates
+- Initial release of optimized Auggie Code templates
 - Complete set of SPARC methodology slash commands
 - Batch tools integration for improved performance
 - Comprehensive test suite structure
@@ -17,10 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - BATCHTOOLS_BEST_PRACTICES.md - Best practices and examples
   - MIGRATION_GUIDE.md - Migration guide for existing projects
   - PERFORMANCE_BENCHMARKS.md - Performance comparison data
-- Claude Flow integration commands:
-  - claude-flow-help - Help and documentation access
-  - claude-flow-memory - Memory system interaction
-  - claude-flow-swarm - Swarm coordination
+- Auggie Flow integration commands:
+  - auggie-flow-help - Help and documentation access
+  - auggie-flow-memory - Memory system interaction
+  - auggie-flow-swarm - Swarm coordination
 - SPARC mode commands:
   - architect - System design and architecture
   - code - Clean code implementation
@@ -56,10 +56,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - End-to-end workflow support
 
 ### Technical Details
-- Compatible with Claude Code CLI
+- Compatible with Auggie Code CLI
 - Requires Node.js for test execution
 - Supports all major SPARC methodology phases
-- Integrated with Claude Flow orchestration
+- Integrated with Auggie Flow orchestration
 - Designed for maintainability and extensibility
 
 ## Version History

@@ -58,7 +58,7 @@ export async function createSparcStructureManually() {
     await fs.writeFile(`${workingDir}/.roo/README.md`, rooReadme, 'utf8');
     console.log('  ✓ Created .roo/README.md');
 
-    // Create Claude Code slash commands for SPARC modes
+    // Create Auggie Code slash commands for SPARC modes
     await createClaudeSlashCommands(workingDir);
 
     console.log('  ✅ Basic SPARC structure created successfully');

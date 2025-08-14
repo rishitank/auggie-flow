@@ -2,15 +2,15 @@
 
 ## Overview
 
-Claude Flow v2.0.0 now provides separate initialization commands for standard and GitHub-enhanced features. This allows users to choose the level of integration they need.
+Auggie Flow v2.0.0 now provides separate initialization commands for standard and GitHub-enhanced features. This allows users to choose the level of integration they need.
 
 ## Standard Init Command
 
 ### Usage
 ```bash
-npx claude-flow@alpha init
+npx auggie-flow@alpha init
 # or
-./claude-flow init
+./auggie-flow init
 ```
 
 ### Features
@@ -25,7 +25,7 @@ The standard init command provides:
 2. **Standard Permissions**
    - Git commands (add, commit, tag, branch, checkout, stash)
    - No GitHub CLI (gh) permissions
-   - Full Claude Flow functionality
+   - Full Auggie Flow functionality
 
 3. **Standard Checkpoint Hooks**
    - Uses `standard-checkpoint-hooks.sh`
@@ -54,9 +54,9 @@ The standard init command provides:
 
 ### Usage
 ```bash
-npx claude-flow@alpha github init
+npx auggie-flow@alpha github init
 # or
-./claude-flow github init
+./auggie-flow github init
 ```
 
 ### Features
@@ -74,10 +74,10 @@ The GitHub init command provides everything from standard init PLUS:
    - GitHub-specific environment variables
 
 3. **Combined Hook System**
-   - **Claude Flow Hooks**: All standard hooks for agent coordination, memory, formatting
+   - **Auggie Flow Hooks**: All standard hooks for agent coordination, memory, formatting
    - **GitHub Checkpoint Hooks**: Additional hooks for GitHub releases
    - Both hook systems run in parallel for maximum functionality
-   - Uses `github-checkpoint-hooks.sh` alongside Claude Flow hooks
+   - Uses `github-checkpoint-hooks.sh` alongside Auggie Flow hooks
 
 ### Settings Created
 ```json
@@ -105,7 +105,7 @@ The GitHub init command provides everything from standard init PLUS:
   },
   "hooks": {
     // Includes BOTH:
-    // 1. All Claude Flow hooks (pre/post command, edit, session)
+    // 1. All Auggie Flow hooks (pre/post command, edit, session)
     // 2. GitHub checkpoint hooks running alongside
   }
 }
@@ -162,7 +162,7 @@ If you initially used standard init and want GitHub features:
 
 ```bash
 # Run GitHub init with --force flag
-npx claude-flow@alpha github init --force
+npx auggie-flow@alpha github init --force
 ```
 
 This will:
@@ -176,7 +176,7 @@ If you want to remove GitHub integration:
 
 ```bash
 # Run standard init with --force flag
-npx claude-flow@alpha init --force
+npx auggie-flow@alpha init --force
 ```
 
 This will:
@@ -217,7 +217,7 @@ git init
 
 ## Summary
 
-Claude Flow v2.0.0 provides flexible initialization options:
+Auggie Flow v2.0.0 provides flexible initialization options:
 - **Standard init**: Local Git checkpoints without external dependencies
 - **GitHub init**: Enhanced checkpoints with GitHub release integration
 

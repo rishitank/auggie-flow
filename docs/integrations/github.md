@@ -1,4 +1,4 @@
-# 🐙 Claude Flow v2.0.0 GitHub Integration Guide
+# 🐙 Auggie Flow v2.0.0 GitHub Integration Guide
 
 ## 📋 Table of Contents
 1. [Overview](#overview)
@@ -14,7 +14,7 @@
 
 ## 🎯 Overview
 
-Claude Flow v2.0.0 introduces powerful GitHub integration with intelligent swarm coordination:
+Auggie Flow v2.0.0 introduces powerful GitHub integration with intelligent swarm coordination:
 - **✅ 6 Specialized Command Modes** - PR, issue, release, sync, repo management
 - **✅ Multi-Agent Coordination** - Swarm intelligence for complex workflows
 - **✅ Automated Reviews** - Intelligent code review with multiple perspectives
@@ -33,19 +33,19 @@ export GITHUB_TOKEN=ghp_your_token_here
 echo "GITHUB_TOKEN=ghp_your_token_here" >> .env
 
 # Initialize with GitHub integration
-./claude-flow init --sparc --github
+./auggie-flow init --sparc --github
 ```
 
 ### Basic Usage
 ```bash
 # Create and manage pull request
-./claude-flow github pr-manager "implement user authentication"
+./auggie-flow github pr-manager "implement user authentication"
 
 # Coordinate issue resolution
-./claude-flow github issue-solver "fix memory leak in agent spawning"
+./auggie-flow github issue-solver "fix memory leak in agent spawning"
 
 # Orchestrate release
-./claude-flow github release-coordinator "v2.1.0"
+./auggie-flow github release-coordinator "v2.1.0"
 ```
 
 ## 📝 GitHub Commands
@@ -53,25 +53,25 @@ echo "GITHUB_TOKEN=ghp_your_token_here" >> .env
 ### Command Overview
 | Command | Purpose | Example |
 |---------|---------|---------|
-| `pr-manager` | Create and manage pull requests | `./claude-flow github pr-manager "add new feature"` |
-| `issue-solver` | Analyze and resolve issues | `./claude-flow github issue-solver "bug #123"` |
-| `release-coordinator` | Orchestrate releases | `./claude-flow github release-coordinator "v2.1.0"` |
-| `sync-packages` | Cross-repository sync | `./claude-flow github sync-packages` |
-| `repo-architect` | Repository optimization | `./claude-flow github repo-architect "optimize structure"` |
-| `review-coordinator` | Multi-perspective reviews | `./claude-flow github review-coordinator "PR #456"` |
+| `pr-manager` | Create and manage pull requests | `./auggie-flow github pr-manager "add new feature"` |
+| `issue-solver` | Analyze and resolve issues | `./auggie-flow github issue-solver "bug #123"` |
+| `release-coordinator` | Orchestrate releases | `./auggie-flow github release-coordinator "v2.1.0"` |
+| `sync-packages` | Cross-repository sync | `./auggie-flow github sync-packages` |
+| `repo-architect` | Repository optimization | `./auggie-flow github repo-architect "optimize structure"` |
+| `review-coordinator` | Multi-perspective reviews | `./auggie-flow github review-coordinator "PR #456"` |
 
 ## 🔄 Pull Request Management
 
 ### Create Intelligent PR
 ```bash
 # Basic PR creation with swarm analysis
-./claude-flow github pr-manager "implement OAuth2 authentication"
+./auggie-flow github pr-manager "implement OAuth2 authentication"
 
 # With specific branch
-./claude-flow github pr-manager "add caching layer" --branch feature/caching
+./auggie-flow github pr-manager "add caching layer" --branch feature/caching
 
 # With reviewers
-./claude-flow github pr-manager "refactor database layer" \
+./auggie-flow github pr-manager "refactor database layer" \
   --reviewers user1,user2 \
   --labels enhancement,backend
 ```
@@ -87,14 +87,14 @@ The PR manager spawns specialized agents:
 ### Advanced PR Features
 ```bash
 # Create PR with comprehensive analysis
-./claude-flow github pr-manager "major refactoring" \
+./auggie-flow github pr-manager "major refactoring" \
   --analyze-impact \
   --suggest-tests \
   --update-docs \
   --assign-reviewers
 
 # Multi-repository PR coordination
-./claude-flow github pr-manager "update dependencies" \
+./auggie-flow github pr-manager "update dependencies" \
   --repos frontend,backend,shared \
   --coordinate
 ```
@@ -122,13 +122,13 @@ Review: 3 reviewers assigned
 ### Intelligent Issue Resolution
 ```bash
 # Analyze and create fix for issue
-./claude-flow github issue-solver "#123"
+./auggie-flow github issue-solver "#123"
 
 # With root cause analysis
-./claude-flow github issue-solver "#123" --deep-analysis
+./auggie-flow github issue-solver "#123" --deep-analysis
 
 # Create fix branch and PR
-./claude-flow github issue-solver "#123" --auto-fix
+./auggie-flow github issue-solver "#123" --auto-fix
 ```
 
 ### Issue Solver Workflow
@@ -141,13 +141,13 @@ Review: 3 reviewers assigned
 ### Advanced Issue Features
 ```bash
 # Batch issue processing
-./claude-flow github issue-solver \
+./auggie-flow github issue-solver \
   --labels "bug,high-priority" \
   --batch \
   --max 5
 
 # Issue triage with swarm
-./claude-flow github issue-solver --triage \
+./auggie-flow github issue-solver --triage \
   --assign-labels \
   --assign-developers \
   --estimate-effort
@@ -158,15 +158,15 @@ Review: 3 reviewers assigned
 ### Orchestrate Release
 ```bash
 # Create new release
-./claude-flow github release-coordinator "v2.1.0"
+./auggie-flow github release-coordinator "v2.1.0"
 
 # With automatic changelog
-./claude-flow github release-coordinator "v2.1.0" \
+./auggie-flow github release-coordinator "v2.1.0" \
   --generate-changelog \
   --from-tag v2.0.0
 
 # Full release pipeline
-./claude-flow github release-coordinator "v2.1.0" \
+./auggie-flow github release-coordinator "v2.1.0" \
   --run-tests \
   --build \
   --publish-npm \
@@ -202,13 +202,13 @@ Review: 3 reviewers assigned
 ### Release Configuration
 ```bash
 # Configure release settings
-./claude-flow github config release \
+./auggie-flow github config release \
   --test-command "npm test" \
   --build-command "npm run build" \
   --publish-registry "https://registry.npmjs.org"
 
 # Set up release hooks
-./claude-flow github hooks add \
+./auggie-flow github hooks add \
   --event pre-release \
   --command "./scripts/validate-release.sh"
 ```
@@ -218,14 +218,14 @@ Review: 3 reviewers assigned
 ### Optimize Repository Structure
 ```bash
 # Analyze and optimize repo
-./claude-flow github repo-architect "optimize for microservices"
+./auggie-flow github repo-architect "optimize for microservices"
 
 # Generate architecture report
-./claude-flow github repo-architect --analyze \
+./auggie-flow github repo-architect --analyze \
   --report architecture-analysis.md
 
 # Apply best practices
-./claude-flow github repo-architect --apply-standards \
+./auggie-flow github repo-architect --apply-standards \
   --eslint \
   --prettier \
   --husky \
@@ -235,7 +235,7 @@ Review: 3 reviewers assigned
 ### Repository Templates
 ```bash
 # Create from template
-./claude-flow github repo-architect \
+./auggie-flow github repo-architect \
   --template microservice \
   --name my-new-service
 
@@ -269,12 +269,12 @@ Review: 3 reviewers assigned
 ### Synchronize Dependencies
 ```bash
 # Sync package versions across repos
-./claude-flow github sync-packages \
+./auggie-flow github sync-packages \
   --repos frontend,backend,shared \
   --package react@18.2.0
 
 # Sync multiple packages
-./claude-flow github sync-packages \
+./auggie-flow github sync-packages \
   --config sync-config.json
 ```
 
@@ -304,11 +304,11 @@ Review: 3 reviewers assigned
 ### Batch Operations
 ```bash
 # Update multiple repos simultaneously
-./claude-flow github sync-packages \
+./auggie-flow github sync-packages \
   --batch update-deps.yaml
 
 # Monitor sync progress
-./claude-flow github sync-packages \
+./auggie-flow github sync-packages \
   --repos frontend,backend \
   --monitor \
   --notify-slack
@@ -319,7 +319,7 @@ Review: 3 reviewers assigned
 ### Multi-Agent GitHub Workflows
 ```bash
 # Complex PR with swarm coordination
-./claude-flow swarm "Create comprehensive PR for new feature" \
+./auggie-flow swarm "Create comprehensive PR for new feature" \
   --strategy github-pr \
   --agents 6 \
   --parallel
@@ -336,7 +336,7 @@ Review: 3 reviewers assigned
 ### Swarm-Powered Reviews
 ```bash
 # Multi-perspective code review
-./claude-flow github review-coordinator "#789" \
+./auggie-flow github review-coordinator "#789" \
   --perspectives "security,performance,architecture,testing" \
   --generate-report
 
@@ -351,12 +351,12 @@ Review: 3 reviewers assigned
 ### Automated Workflow Chains
 ```bash
 # Chain multiple GitHub operations
-./claude-flow github workflow \
+./auggie-flow github workflow \
   --chain "issue-to-release" \
   --steps "analyze-issue,create-fix,test,pr,review,merge,release"
 
 # Custom workflow definition
-./claude-flow github workflow create \
+./auggie-flow github workflow create \
   --name "security-patch" \
   --steps security-scan,fix-vulnerabilities,test,emergency-release
 ```
@@ -366,13 +366,13 @@ Review: 3 reviewers assigned
 ### 1. PR Guidelines
 ```bash
 # Configure PR template
-./claude-flow github config pr-template \
+./auggie-flow github config pr-template \
   --require-tests \
   --require-docs \
   --min-reviewers 2
 
 # Enforce standards
-./claude-flow github config enforce \
+./auggie-flow github config enforce \
   --branch-protection main \
   --require-pr-reviews \
   --dismiss-stale-reviews
@@ -381,13 +381,13 @@ Review: 3 reviewers assigned
 ### 2. Issue Management
 ```bash
 # Set up issue templates
-./claude-flow github config issue-templates \
+./auggie-flow github config issue-templates \
   --bug-report \
   --feature-request \
   --security-vulnerability
 
 # Auto-labeling rules
-./claude-flow github config auto-label \
+./auggie-flow github config auto-label \
   --rule "title:*bug* -> label:bug" \
   --rule "title:*feat* -> label:enhancement"
 ```
@@ -395,12 +395,12 @@ Review: 3 reviewers assigned
 ### 3. Release Strategy
 ```bash
 # Configure semantic versioning
-./claude-flow github config versioning \
+./auggie-flow github config versioning \
   --strategy semantic \
   --auto-bump patch
 
 # Set up release branches
-./claude-flow github config release-branches \
+./auggie-flow github config release-branches \
   --pattern "release/*" \
   --protect \
   --require-tests
@@ -409,13 +409,13 @@ Review: 3 reviewers assigned
 ### 4. Security Practices
 ```bash
 # Security scanning
-./claude-flow github security scan \
+./auggie-flow github security scan \
   --dependency-check \
   --secret-scanning \
   --code-scanning
 
 # Automated security PRs
-./claude-flow github security auto-fix \
+./auggie-flow github security auto-fix \
   --create-prs \
   --assign security-team
 ```
@@ -473,24 +473,24 @@ GITHUB_WEBHOOK_SECRET=your-secret
 ### PR Analytics
 ```bash
 # View PR metrics
-./claude-flow github analytics pr \
+./auggie-flow github analytics pr \
   --timeframe 30d \
   --metrics "time-to-merge,review-time,change-size"
 
 # Generate report
-./claude-flow github analytics report \
+./auggie-flow github analytics report \
   --output pr-metrics.md
 ```
 
 ### Activity Dashboard
 ```bash
 # Real-time GitHub activity
-./claude-flow github monitor \
+./auggie-flow github monitor \
   --events "pr,issue,release" \
   --dashboard
 
 # Export metrics
-./claude-flow github metrics export \
+./auggie-flow github metrics export \
   --format json \
   --output github-metrics.json
 ```
@@ -500,26 +500,26 @@ GITHUB_WEBHOOK_SECRET=your-secret
 ### Complete Feature Workflow
 ```bash
 # 1. Create issue
-./claude-flow github issue create \
+./auggie-flow github issue create \
   --title "Add user authentication" \
   --labels "feature,backend"
 
 # 2. Implement with swarm
-./claude-flow swarm "implement user authentication from issue #123" \
+./auggie-flow swarm "implement user authentication from issue #123" \
   --link-issue 123
 
 # 3. Create PR
-./claude-flow github pr-manager \
+./auggie-flow github pr-manager \
   --from-issue 123 \
   --auto-link
 
 # 4. Coordinate review
-./claude-flow github review-coordinator \
+./auggie-flow github review-coordinator \
   --pr-number 456 \
   --fast-track
 
 # 5. Merge and release
-./claude-flow github release-coordinator \
+./auggie-flow github release-coordinator \
   --include-pr 456 \
   --version minor
 ```
@@ -533,4 +533,4 @@ GITHUB_WEBHOOK_SECRET=your-secret
 
 ---
 
-**🎉 Claude Flow + GitHub = Intelligent Development Workflows!**
+**🎉 Auggie Flow + GitHub = Intelligent Development Workflows!**

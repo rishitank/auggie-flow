@@ -37,7 +37,7 @@ class CommandHistory {
   private historyFile: string;
 
   constructor(historyFile?: string) {
-    this.historyFile = historyFile || path.join(process.cwd(), '.claude-flow-history');
+    this.historyFile = historyFile || path.join(process.cwd(), '.auggie-flow-history');
     this.loadHistory();
   }
 
@@ -387,7 +387,7 @@ function createPrompt(context: REPLContext): string {
   const statusIcon = getConnectionStatusIcon(context.connectionStatus);
   const dir = path.basename(context.workingDirectory) || '/';
 
-  return `${statusIcon} ${chalk.cyan('claude-flow')}:${chalk.yellow(dir)}${chalk.white('> ')}`;
+  return `${statusIcon} ${chalk.cyan('auggie-flow')}:${chalk.yellow(dir)}${chalk.white('> ')}`;
 }
 
 function getConnectionStatusIcon(status: string): string {
@@ -544,12 +544,12 @@ async function connectToOrchestrator(context: REPLContext, target?: string): Pro
     } else {
       context.connectionStatus = 'disconnected';
       console.log(chalk.red('✗ Connection failed'));
-      console.log(chalk.gray('Make sure Claude-Flow is running with: npx claude-flow start'));
+      console.log(chalk.gray('Make sure Claude-Flow is running with: npx auggie-flow start'));
     }
   } catch (error) {
     context.connectionStatus = 'disconnected';
     console.log(chalk.red('✗ Connection failed'));
-    console.log(chalk.gray('Make sure Claude-Flow is running with: npx claude-flow start'));
+    console.log(chalk.gray('Make sure Claude-Flow is running with: npx auggie-flow start'));
   }
 }
 

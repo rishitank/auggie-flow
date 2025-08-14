@@ -86,16 +86,16 @@ function showHiveHelp() {
 🐝 Hive Mind - Advanced Multi-Agent Coordination
 
 USAGE:
-  claude-flow hive <objective> [options]
+  auggie-flow hive <objective> [options]
 
 DESCRIPTION:
   Hive Mind implements advanced swarm intelligence with consensus mechanisms,
   distributed decision-making, and quality-driven execution.
 
 EXAMPLES:
-  claude-flow hive "Build microservices architecture"
-  claude-flow hive "Optimize database performance" --consensus unanimous
-  claude-flow hive "Develop ML pipeline" --topology mesh --monitor
+  auggie-flow hive "Build microservices architecture"
+  auggie-flow hive "Optimize database performance" --consensus unanimous
+  auggie-flow hive "Develop ML pipeline" --topology mesh --monitor
 
 TOPOLOGIES:
   hierarchical   Queen-led hierarchy (default)

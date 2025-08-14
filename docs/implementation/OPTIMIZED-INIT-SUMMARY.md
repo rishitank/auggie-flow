@@ -113,7 +113,7 @@ This document summarizes the comprehensive documentation created for the new opt
 - Template generation errors
 - SPARC mode loading issues
 - Memory system initialization
-- Claude Code integration problems
+- Auggie Code integration problems
 - Performance issues
 
 #### [Init Command Help Updates](./src/cli/simple-commands/init/help.js)
@@ -148,14 +148,14 @@ This document summarizes the comprehensive documentation created for the new opt
 ### For New Projects
 ```bash
 # Single command for optimal setup
-npx -y claude-flow@latest init --sparc --force
+npx -y auggie-flow@latest init --sparc --force
 ```
 
 ### For Existing Projects
 ```bash
 # Backup and migrate
 cp CLAUDE.md CLAUDE.md.backup
-npx claude-flow@latest init --sparc --force
+npx auggie-flow@latest init --sparc --force
 # Review and merge customizations
 ```
 

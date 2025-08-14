@@ -1,10 +1,10 @@
-# Claude Flow Init Commands Summary
+# Auggie Flow Init Commands Summary
 
 ## Quick Reference
 
 ### Standard Init (Default)
 ```bash
-npx claude-flow@alpha init
+npx auggie-flow@alpha init
 ```
 - ✅ Local Git checkpoints
 - ✅ Automatic file edit tracking
@@ -14,7 +14,7 @@ npx claude-flow@alpha init
 
 ### GitHub-Enhanced Init
 ```bash
-npx claude-flow@alpha github init
+npx auggie-flow@alpha github init
 ```
 - ✅ Everything from standard init
 - ✅ GitHub releases for checkpoints

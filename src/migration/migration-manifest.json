@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Claude-Flow Optimized Prompts Migration",
-  "description": "Migrate existing claude-flow projects to use optimized prompts and configurations",
+  "description": "Migrate existing auggie-flow projects to use optimized prompts and configurations",
   "compatibleVersions": ["0.9.x", "1.0.x"],
   "files": {
     "commands": {
@@ -40,23 +40,23 @@
         "priority": 3,
         "description": "Enhanced debugging capabilities"
       },
-      "claude-flow-help.md": {
-        "source": ".auggie/commands/claude-flow-help.md",
-        "target": ".auggie/commands/claude-flow-help.md",
+      "auggie-flow-help.md": {
+        "source": ".auggie/commands/auggie-flow-help.md",
+        "target": ".auggie/commands/auggie-flow-help.md",
         "transform": "replace",
         "priority": 1,
         "description": "Comprehensive help system"
       },
-      "claude-flow-memory.md": {
-        "source": ".auggie/commands/claude-flow-memory.md",
-        "target": ".auggie/commands/claude-flow-memory.md",
+      "auggie-flow-memory.md": {
+        "source": ".auggie/commands/auggie-flow-memory.md",
+        "target": ".auggie/commands/auggie-flow-memory.md",
         "transform": "replace",
         "priority": 1,
         "description": "Memory management commands"
       },
-      "claude-flow-swarm.md": {
-        "source": ".auggie/commands/claude-flow-swarm.md",
-        "target": ".auggie/commands/claude-flow-swarm.md",
+      "auggie-flow-swarm.md": {
+        "source": ".auggie/commands/auggie-flow-swarm.md",
+        "target": ".auggie/commands/auggie-flow-swarm.md",
         "transform": "replace",
         "priority": 1,
         "description": "Multi-agent coordination"
@@ -141,10 +141,10 @@
   "validation": {
     "requiredFiles": [
       ".auggie/commands/sparc.md",
-      ".auggie/commands/claude-flow-help.md",
+      ".auggie/commands/auggie-flow-help.md",
       ".auggie/BATCHTOOLS_GUIDE.md"
     ],
-    "requiredCommands": ["sparc", "claude-flow-help", "claude-flow-memory"],
+    "requiredCommands": ["sparc", "auggie-flow-help", "auggie-flow-memory"],
     "optionalFiles": [
       ".auggie/PERFORMANCE_BENCHMARKS.md",
       ".auggie/MIGRATION_GUIDE.md"
@@ -159,7 +159,7 @@
   "dependencies": {
     "node": ">=14.0.0",
     "npm": ">=6.0.0",
-    "claude-flow": ">=1.0.0"
+    "auggie-flow": ">=1.0.0"
   },
   "changelog": {
     "1.0.0": [

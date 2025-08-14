@@ -1,5 +1,5 @@
 /**
- * Safe Hook Patterns - Templates for safe Claude Code hook configurations
+ * Safe Hook Patterns - Templates for safe Auggie Code hook configurations
  *
  * These patterns prevent infinite loops that could cost thousands of dollars
  * by avoiding recursive hook execution when hooks call 'claude' commands.
@@ -31,7 +31,7 @@ export const DANGEROUS_PATTERN_EXAMPLE = {
     '🚨 Creates infinite loop: Stop → claude command → Stop → claude command...',
     '💰 Can cost $3600+ per day by bypassing rate limits',
     '🚫 Makes system unresponsive',
-    '⚡ No built-in protection in Claude Code',
+    '⚡ No built-in protection in Auggie Code',
   ],
 };
 
@@ -291,7 +291,7 @@ export const ALL_SAFE_PATTERNS = [
  * Generate safe hooks documentation
  */
 export function generateSafeHooksGuide() {
-  return `# 🛡️ Safe Hook Patterns for Claude Code
+  return `# 🛡️ Safe Hook Patterns for Auggie Code
 
 ⚠️ **CRITICAL WARNING**: Stop hooks that call 'claude' commands create infinite loops that can cost thousands of dollars per day!
 
@@ -395,26 +395,26 @@ ${pattern.processor}
 
 ## 🛡️ Hook Safety Tools
 
-Use claude-flow's built-in safety tools:
+Use auggie-flow's built-in safety tools:
 
 \`\`\`bash
 # Check your configuration for dangerous patterns
-claude-flow hook-safety validate
+auggie-flow hook-safety validate
 
 # Enable safe mode (skips all hooks)
-claude-flow hook-safety safe-mode
+auggie-flow hook-safety safe-mode
 
 # Check current safety status
-claude-flow hook-safety status
+auggie-flow hook-safety status
 
 # Reset circuit breakers if triggered
-claude-flow hook-safety reset
+auggie-flow hook-safety reset
 \`\`\`
 
 ## 📚 Additional Resources
 
-- Issue #166: https://github.com/ruvnet/claude-flow/issues/166
-- Claude Code Hooks Documentation: https://docs.anthropic.com/en/docs/claude-code/hooks
+- Issue #166: https://github.com/ruvnet/auggie-flow/issues/166
+- Auggie Code Hooks Documentation: https://docs.anthropic.com/en/docs/claude-code/hooks
 - Reddit Discussion: https://www.reddit.com/r/ClaudeAI/comments/1ltvi6x/anyone_else_accidentally_create_an_infinite_loop/
 
 ---

@@ -77,7 +77,7 @@ export class ConfigValidator {
 
       // Check for required sections
       const requiredSections = [
-        '# Claude Code Configuration',
+        '# Auggie Code Configuration',
         '## Project Overview',
         '## SPARC Development Commands',
       ];
@@ -89,7 +89,7 @@ export class ConfigValidator {
       }
 
       // Check for important command patterns
-      const importantCommands = ['npx claude-flow sparc', 'npm run build', 'npm run test'];
+      const importantCommands = ['npx auggie-flow sparc', 'npm run build', 'npm run test'];
 
       for (const command of importantCommands) {
         if (!content.includes(command)) {
@@ -121,7 +121,7 @@ export class ConfigValidator {
       data: null,
     };
 
-    const memoryDataPath = `${this.workingDir}/memory/claude-flow-data.json`;
+    const memoryDataPath = `${this.workingDir}/memory/auggie-flow-data.json`;
 
     try {
       const content = await fs.readFile(memoryDataPath, 'utf8');
@@ -201,14 +201,14 @@ export class ConfigValidator {
       warnings: [],
     };
 
-    const executablePath = `${this.workingDir}/claude-flow`;
+    const executablePath = `${this.workingDir}/auggie-flow`;
 
     try {
       const stat = await fs.stat(executablePath);
 
       if (!stat.isFile) {
         result.success = false;
-        result.errors.push('claude-flow executable is not a file');
+        result.errors.push('auggie-flow executable is not a file');
         return result;
       }
 
@@ -216,7 +216,7 @@ export class ConfigValidator {
       if (Deno.build.os !== 'windows') {
         const isExecutable = (stat.mode & 0o111) !== 0;
         if (!isExecutable) {
-          result.warnings.push('claude-flow file is not executable');
+          result.warnings.push('auggie-flow file is not executable');
         }
       }
 
@@ -226,7 +226,7 @@ export class ConfigValidator {
       // Check for required elements
       if (content.includes('#!/usr/bin/env')) {
         // Script file
-        if (!content.includes('claude-flow') && !content.includes('deno run')) {
+        if (!content.includes('auggie-flow') && !content.includes('deno run')) {
           result.warnings.push('Executable script may not be properly configured');
         }
       } else {

@@ -1,4 +1,4 @@
-# Claude Code Configuration - SPARC Development Environment (Batchtools Optimized)
+# Auggie Code Configuration - SPARC Development Environment (Batchtools Optimized)
 
 ## 🚨 CRITICAL: CONCURRENT EXECUTION FOR ALL ACTIONS
 
@@ -61,15 +61,15 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ## SPARC Development Commands
 
 ### Core SPARC Commands
-- `npx claude-flow sparc modes`: List all available SPARC development modes
-- `npx claude-flow sparc run <mode> "<task>"`: Execute specific SPARC mode for a task
-- `npx claude-flow sparc tdd "<feature>"`: Run complete TDD workflow using SPARC methodology
-- `npx claude-flow sparc info <mode>`: Get detailed information about a specific mode
+- `npx auggie-flow sparc modes`: List all available SPARC development modes
+- `npx auggie-flow sparc run <mode> "<task>"`: Execute specific SPARC mode for a task
+- `npx auggie-flow sparc tdd "<feature>"`: Run complete TDD workflow using SPARC methodology
+- `npx auggie-flow sparc info <mode>`: Get detailed information about a specific mode
 
 ### Batchtools Commands (Optimized)
-- `npx claude-flow sparc batch <modes> "<task>"`: Execute multiple SPARC modes in parallel
-- `npx claude-flow sparc pipeline "<task>"`: Execute full SPARC pipeline with parallel processing
-- `npx claude-flow sparc concurrent <mode> "<tasks-file>"`: Process multiple tasks concurrently
+- `npx auggie-flow sparc batch <modes> "<task>"`: Execute multiple SPARC modes in parallel
+- `npx auggie-flow sparc pipeline "<task>"`: Execute full SPARC pipeline with parallel processing
+- `npx auggie-flow sparc concurrent <mode> "<tasks-file>"`: Process multiple tasks concurrently
 
 ### Standard Build Commands
 - `npm run build`: Build the project
@@ -82,35 +82,35 @@ This project uses the SPARC (Specification, Pseudocode, Architecture, Refinement
 ### 1. Specification Phase (Parallel Analysis)
 ```bash
 # Create detailed specifications with concurrent requirements analysis
-npx claude-flow sparc run spec-pseudocode "Define user authentication requirements" --parallel
+npx auggie-flow sparc run spec-pseudocode "Define user authentication requirements" --parallel
 ```
 **Batchtools Optimization**: Simultaneously analyze multiple requirement sources, validate constraints in parallel, and generate comprehensive specifications.
 
 ### 2. Pseudocode Phase (Concurrent Logic Design)
 ```bash
 # Develop algorithmic logic with parallel pattern analysis
-npx claude-flow sparc run spec-pseudocode "Create authentication flow pseudocode" --batch-optimize
+npx auggie-flow sparc run spec-pseudocode "Create authentication flow pseudocode" --batch-optimize
 ```
 **Batchtools Optimization**: Process multiple algorithm patterns concurrently, validate logic flows in parallel, and optimize data structures simultaneously.
 
 ### 3. Architecture Phase (Parallel Component Design)
 ```bash
 # Design system architecture with concurrent component analysis
-npx claude-flow sparc run architect "Design authentication service architecture" --parallel
+npx auggie-flow sparc run architect "Design authentication service architecture" --parallel
 ```
 **Batchtools Optimization**: Generate multiple architectural alternatives simultaneously, validate integration points in parallel, and create comprehensive documentation concurrently.
 
 ### 4. Refinement Phase (Parallel TDD Implementation)
 ```bash
 # Execute Test-Driven Development with parallel test generation
-npx claude-flow sparc tdd "implement user authentication system" --batch-tdd
+npx auggie-flow sparc tdd "implement user authentication system" --batch-tdd
 ```
 **Batchtools Optimization**: Generate multiple test scenarios simultaneously, implement and validate code in parallel, and optimize performance concurrently.
 
 ### 5. Completion Phase (Concurrent Integration)
 ```bash
 # Integration with parallel validation and documentation
-npx claude-flow sparc run integration "integrate authentication with user management" --parallel
+npx auggie-flow sparc run integration "integrate authentication with user management" --parallel
 ```
 **Batchtools Optimization**: Run integration tests in parallel, generate documentation concurrently, and validate requirements simultaneously.
 
@@ -160,7 +160,7 @@ npx claude-flow sparc run integration "integrate authentication with user manage
 - Follow the Red-Green-Refactor cycle with parallel test generation during TDD phases
 - Document architectural decisions with concurrent validation in memory
 - Regular security reviews with parallel analysis for authentication or data handling code
-- Claude Code slash commands provide quick access to batchtools-optimized SPARC modes
+- Auggie Code slash commands provide quick access to batchtools-optimized SPARC modes
 - Monitor system resources during parallel operations for optimal performance
 
 ## Available Agents (54 Total)
@@ -346,13 +346,13 @@ Before sending ANY message, ask yourself:
 
 If ANY answer is "No", you MUST combine operations into a single message!
 
-## 🚀 CRITICAL: Claude Code Does ALL Real Work
+## 🚀 CRITICAL: Auggie Code Does ALL Real Work
 
 ### 🎯 CLAUDE CODE IS THE ONLY EXECUTOR
 
-**ABSOLUTE RULE**: Claude Code performs ALL actual work:
+**ABSOLUTE RULE**: Auggie Code performs ALL actual work:
 
-### ✅ Claude Code ALWAYS Handles:
+### ✅ Auggie Code ALWAYS Handles:
 
 - 🔧 **ALL file operations** (Read, Write, Edit, MultiEdit, Glob, Grep)
 - 💻 **ALL code generation** and programming tasks
@@ -365,13 +365,13 @@ If ANY answer is "No", you MUST combine operations into a single message!
 - 🧪 **ALL testing** and validation
 - 🔧 **ALL debugging** and troubleshooting
 
-### 🧠 Claude Flow MCP Tools ONLY Handle:
+### 🧠 Auggie Flow MCP Tools ONLY Handle:
 
-- 🎯 **Coordination only** - Planning Claude Code's actions
+- 🎯 **Coordination only** - Planning Auggie Code's actions
 - 💾 **Memory management** - Storing decisions and context
-- 🤖 **Neural features** - Learning from Claude Code's work
-- 📊 **Performance tracking** - Monitoring Claude Code's efficiency
-- 🐝 **Swarm orchestration** - Coordinating multiple Claude Code instances
+- 🤖 **Neural features** - Learning from Auggie Code's work
+- 📊 **Performance tracking** - Monitoring Auggie Code's efficiency
+- 🐝 **Swarm orchestration** - Coordinating multiple Auggie Code instances
 - 🔗 **GitHub integration** - Advanced repository coordination
 
 ### 🚨 CRITICAL SEPARATION OF CONCERNS:
@@ -396,7 +396,7 @@ If ANY answer is "No", you MUST combine operations into a single message!
 
 ### ⚠️ Key Principle:
 
-**MCP tools coordinate, Claude Code executes.** Think of MCP tools as the "brain" that plans and coordinates, while Claude Code is the "hands" that do all the actual work.
+**MCP tools coordinate, Auggie Code executes.** Think of MCP tools as the "brain" that plans and coordinates, while Auggie Code is the "hands" that do all the actual work.
 
 ### 🔄 WORKFLOW EXECUTION PATTERN:
 
@@ -405,9 +405,9 @@ If ANY answer is "No", you MUST combine operations into a single message!
 1. **MCP**: `mcp__claude-flow__swarm_init` (coordination setup)
 2. **MCP**: `mcp__claude-flow__agent_spawn` (planning agents)
 3. **MCP**: `mcp__claude-flow__task_orchestrate` (task coordination)
-4. **Claude Code**: `Task` tool to spawn agents with coordination instructions
-5. **Claude Code**: `TodoWrite` with ALL todos batched (5-10+ in ONE call)
-6. **Claude Code**: `Read`, `Write`, `Edit`, `Bash` (actual work)
+4. **Auggie Code**: `Task` tool to spawn agents with coordination instructions
+5. **Auggie Code**: `TodoWrite` with ALL todos batched (5-10+ in ONE call)
+6. **Auggie Code**: `Read`, `Write`, `Edit`, `Bash` (actual work)
 7. **MCP**: `mcp__claude-flow__memory_usage` (store results)
 
 **❌ WRONG Workflow:**
@@ -415,13 +415,13 @@ If ANY answer is "No", you MUST combine operations into a single message!
 1. **MCP**: `mcp__claude-flow__terminal_execute` (DON'T DO THIS)
 2. **MCP**: File creation via MCP (DON'T DO THIS)
 3. **MCP**: Code generation via MCP (DON'T DO THIS)
-4. **Claude Code**: Sequential Task calls (DON'T DO THIS)
-5. **Claude Code**: Individual TodoWrite calls (DON'T DO THIS)
+4. **Auggie Code**: Sequential Task calls (DON'T DO THIS)
+5. **Auggie Code**: Individual TodoWrite calls (DON'T DO THIS)
 
 ### 🚨 REMEMBER:
 
 - **MCP tools** = Coordination, planning, memory, intelligence
-- **Claude Code** = All actual execution, coding, file operations
+- **Auggie Code** = All actual execution, coding, file operations
 
 ## 🚀 CRITICAL: Parallel Execution & Batch Operations
 
@@ -462,7 +462,7 @@ If you need to do X operations, they should be in 1 message, not X messages
   mcp__claude-flow__agent_spawn { type: "tester" }
   mcp__claude-flow__agent_spawn { type: "task-orchestrator" }
 
-  // Claude Code execution - ALL in parallel
+  // Auggie Code execution - ALL in parallel
   Task("You are researcher agent. MUST coordinate via hooks...")
   Task("You are coder agent. MUST coordinate via hooks...")
   Task("You are code-analyzer agent. MUST coordinate via hooks...")
@@ -521,38 +521,38 @@ Message 6: Write "package.json"
 ### 1. Add MCP Server (Stdio - No Port Needed)
 
 ```bash
-# Add Claude Flow MCP server to Claude Code using stdio
-claude mcp add claude-flow npx claude-flow@alpha mcp start
+# Add Auggie Flow MCP server to Auggie Code using stdio
+claude mcp add auggie-flow npx auggie-flow@alpha mcp start
 ```
 
-### 2. Use MCP Tools for Coordination in Claude Code
+### 2. Use MCP Tools for Coordination in Auggie Code
 
-Once configured, Claude Flow MCP tools enhance Claude Code's coordination:
+Once configured, Auggie Flow MCP tools enhance Auggie Code's coordination:
 
 **Initialize a swarm:**
 
 - Use the `mcp__claude-flow__swarm_init` tool to set up coordination topology
 - Choose: mesh, hierarchical, ring, or star
-- This creates a coordination framework for Claude Code's work
+- This creates a coordination framework for Auggie Code's work
 
 **Spawn agents:**
 
 - Use `mcp__claude-flow__agent_spawn` tool to create specialized coordinators
 - Agent types represent different thinking patterns, not actual coders
-- They help Claude Code approach problems from different angles
+- They help Auggie Code approach problems from different angles
 
 **Orchestrate tasks:**
 
 - Use `mcp__claude-flow__task_orchestrate` tool to coordinate complex workflows
-- This breaks down tasks for Claude Code to execute systematically
-- The agents don't write code - they coordinate Claude Code's actions
+- This breaks down tasks for Auggie Code to execute systematically
+- The agents don't write code - they coordinate Auggie Code's actions
 
 ## Available MCP Tools for Coordination
 
 ### Coordination Tools:
 
-- `mcp__claude-flow__swarm_init` - Set up coordination topology for Claude Code
-- `mcp__claude-flow__agent_spawn` - Create cognitive patterns to guide Claude Code
+- `mcp__claude-flow__swarm_init` - Set up coordination topology for Auggie Code
+- `mcp__claude-flow__agent_spawn` - Create cognitive patterns to guide Auggie Code
 - `mcp__claude-flow__task_orchestrate` - Break down and coordinate complex tasks
 
 ### Monitoring Tools:
@@ -588,7 +588,7 @@ Once configured, Claude Flow MCP tools enhance Claude Code's coordination:
 
 ### Research Coordination Example
 
-**Context:** Claude Code needs to research a complex topic systematically
+**Context:** Auggie Code needs to research a complex topic systematically
 
 **Step 1:** Set up research coordination
 
@@ -602,28 +602,28 @@ Once configured, Claude Flow MCP tools enhance Claude Code's coordination:
 - Parameters: `{"type": "researcher", "name": "Literature Review"}`
 - Tool: `mcp__claude-flow__agent_spawn`
 - Parameters: `{"type": "code-analyzer", "name": "Data Analysis"}`
-- Result: Different cognitive patterns for Claude Code to use
+- Result: Different cognitive patterns for Auggie Code to use
 
 **Step 3:** Coordinate research execution
 
 - Tool: `mcp__claude-flow__task_orchestrate`
 - Parameters: `{"task": "Research neural architecture search papers", "strategy": "adaptive"}`
-- Result: Claude Code systematically searches, reads, and analyzes papers
+- Result: Auggie Code systematically searches, reads, and analyzes papers
 
 **What Actually Happens:**
 
 1. The swarm sets up a coordination framework
-2. Each agent MUST use Claude Flow hooks for coordination:
-   - `npx claude-flow@alpha hooks pre-task` before starting
-   - `npx claude-flow@alpha hooks post-edit` after each file operation
-   - `npx claude-flow@alpha hooks notify` to share decisions
-3. Claude Code uses its native Read, WebSearch, and Task tools
+2. Each agent MUST use Auggie Flow hooks for coordination:
+   - `npx auggie-flow@alpha hooks pre-task` before starting
+   - `npx auggie-flow@alpha hooks post-edit` after each file operation
+   - `npx auggie-flow@alpha hooks notify` to share decisions
+3. Auggie Code uses its native Read, WebSearch, and Task tools
 4. The swarm coordinates through shared memory and hooks
-5. Results are synthesized by Claude Code with full coordination history
+5. Results are synthesized by Auggie Code with full coordination history
 
 ### Development Coordination Example
 
-**Context:** Claude Code needs to build a complex system with multiple components
+**Context:** Auggie Code needs to build a complex system with multiple components
 
 **Step 1:** Set up development coordination
 
@@ -635,13 +635,13 @@ Once configured, Claude Flow MCP tools enhance Claude Code's coordination:
 
 - Tool: `mcp__claude-flow__agent_spawn`
 - Parameters: `{"type": "system-architect", "name": "System Design"}`
-- Result: Architectural thinking pattern for Claude Code
+- Result: Architectural thinking pattern for Auggie Code
 
 **Step 3:** Coordinate implementation
 
 - Tool: `mcp__claude-flow__task_orchestrate`
 - Parameters: `{"task": "Implement user authentication with JWT", "strategy": "parallel"}`
-- Result: Claude Code implements features using its native tools
+- Result: Auggie Code implements features using its native tools
 
 **What Actually Happens:**
 
@@ -650,13 +650,13 @@ Once configured, Claude Flow MCP tools enhance Claude Code's coordination:
    - Pre-task hooks for context loading
    - Post-edit hooks for progress tracking
    - Memory storage for cross-agent coordination
-3. Claude Code uses Write, Edit, Bash tools for implementation
-4. Agents share progress through Claude Flow memory
-5. All code is written by Claude Code with full coordination
+3. Auggie Code uses Write, Edit, Bash tools for implementation
+4. Agents share progress through Auggie Flow memory
+5. All code is written by Auggie Code with full coordination
 
 ### GitHub Repository Management Example (NEW!)
 
-**Context:** Claude Code needs to manage a complex GitHub repository
+**Context:** Auggie Code needs to manage a complex GitHub repository
 
 **Step 1:** Initialize GitHub swarm
 
@@ -680,7 +680,7 @@ Once configured, Claude Flow MCP tools enhance Claude Code's coordination:
 
 ### ✅ DO:
 
-- Use MCP tools to coordinate Claude Code's approach to complex tasks
+- Use MCP tools to coordinate Auggie Code's approach to complex tasks
 - Let the swarm break down problems into manageable pieces
 - Use memory tools to maintain context across sessions
 - Monitor coordination effectiveness with status tools
@@ -689,14 +689,14 @@ Once configured, Claude Flow MCP tools enhance Claude Code's coordination:
 
 ### ❌ DON'T:
 
-- Expect agents to write code (Claude Code does all implementation)
-- Use MCP tools for file operations (use Claude Code's native tools)
-- Try to make agents execute bash commands (Claude Code handles this)
+- Expect agents to write code (Auggie Code does all implementation)
+- Use MCP tools for file operations (use Auggie Code's native tools)
+- Try to make agents execute bash commands (Auggie Code handles this)
 - Confuse coordination with execution (MCP coordinates, Claude executes)
 
 ## Memory and Persistence
 
-The swarm provides persistent memory that helps Claude Code:
+The swarm provides persistent memory that helps Auggie Code:
 
 - Remember project context across sessions
 - Track decisions and rationale
@@ -706,7 +706,7 @@ The swarm provides persistent memory that helps Claude Code:
 
 ## Performance Benefits
 
-When using Claude Flow coordination with Claude Code:
+When using Auggie Flow coordination with Auggie Code:
 
 - **84.8% SWE-Bench solve rate** - Better problem-solving through coordination
 - **32.3% token reduction** - Efficient task breakdown reduces redundancy
@@ -714,9 +714,9 @@ When using Claude Flow coordination with Claude Code:
 - **27+ neural models** - Diverse cognitive approaches
 - **GitHub automation** - Streamlined repository management
 
-## Claude Code Hooks Integration
+## Auggie Code Hooks Integration
 
-Claude Flow includes powerful hooks that automate coordination:
+Auggie Flow includes powerful hooks that automate coordination:
 
 ### Pre-Operation Hooks
 
@@ -739,7 +739,7 @@ Claude Flow includes powerful hooks that automate coordination:
 ### Session Management
 
 - **Generate summaries** at session end
-- **Persist state** across Claude Code sessions
+- **Persist state** across Auggie Code sessions
 - **Track metrics** for continuous improvement
 - **Restore previous** session context automatically
 - **Export workflows** for reuse
@@ -790,13 +790,13 @@ See `.auggie/commands/` for detailed documentation on all features.
 1. **SPAWN ALL AGENTS IN ONE BATCH** - Use multiple tool calls in a SINGLE message
 2. **EXECUTE TASKS IN PARALLEL** - Never wait for one task before starting another
 3. **USE BATCHTOOL FOR EVERYTHING** - Multiple operations = Single message with multiple tools
-4. **ALL AGENTS MUST USE COORDINATION TOOLS** - Every spawned agent MUST use claude-flow hooks and memory
+4. **ALL AGENTS MUST USE COORDINATION TOOLS** - Every spawned agent MUST use auggie-flow hooks and memory
 
 ### 🎯 AGENT COUNT CONFIGURATION
 
 **CRITICAL: Dynamic Agent Count Rules**
 
-1. **Check CLI Arguments First**: If user runs `npx claude-flow@alpha --agents 5`, use 5 agents
+1. **Check CLI Arguments First**: If user runs `npx auggie-flow@alpha --agents 5`, use 5 agents
 2. **Auto-Decide if No Args**: Without CLI args, analyze task complexity:
    - Simple tasks (1-3 components): 3-4 agents
    - Medium tasks (4-6 components): 5-7 agents
@@ -810,7 +810,7 @@ See `.auggie/commands/` for detailed documentation on all features.
 **Example Auto-Decision Logic:**
 
 ```javascript
-// If CLI args provided: npx claude-flow@alpha --agents 6
+// If CLI args provided: npx auggie-flow@alpha --agents 6
 maxAgents = CLI_ARGS.agents || determineAgentCount(task);
 
 function determineAgentCount(task) {
@@ -832,29 +832,29 @@ When you spawn an agent using the Task tool, that agent MUST:
 
 ```bash
 # Check previous work and load context
-npx claude-flow@alpha hooks pre-task --description "[agent task]" --auto-spawn-agents false
-npx claude-flow@alpha hooks session-restore --session-id "swarm-[id]" --load-memory true
+npx auggie-flow@alpha hooks pre-task --description "[agent task]" --auto-spawn-agents false
+npx auggie-flow@alpha hooks session-restore --session-id "swarm-[id]" --load-memory true
 ```
 
 **2️⃣ DURING Work (After EVERY Major Step):**
 
 ```bash
 # Store progress in memory after each file operation
-npx claude-flow@alpha hooks post-edit --file "[filepath]" --memory-key "swarm/[agent]/[step]"
+npx auggie-flow@alpha hooks post-edit --file "[filepath]" --memory-key "swarm/[agent]/[step]"
 
 # Store decisions and findings
-npx claude-flow@alpha hooks notify --message "[what was done]" --telemetry true
+npx auggie-flow@alpha hooks notify --message "[what was done]" --telemetry true
 
 # Check coordination with other agents
-npx claude-flow@alpha hooks pre-search --query "[what to check]" --cache-results true
+npx auggie-flow@alpha hooks pre-search --query "[what to check]" --cache-results true
 ```
 
 **3️⃣ AFTER Completing Work:**
 
 ```bash
 # Save all results and learnings
-npx claude-flow@alpha hooks post-task --task-id "[task]" --analyze-performance true
-npx claude-flow@alpha hooks session-end --export-metrics true --generate-summary true
+npx auggie-flow@alpha hooks post-task --task-id "[task]" --analyze-performance true
+npx auggie-flow@alpha hooks session-end --export-metrics true --generate-summary true
 ```
 
 ### 🎯 AGENT PROMPT TEMPLATE
@@ -865,10 +865,10 @@ When spawning agents, ALWAYS include these coordination instructions:
 You are the [Agent Type] agent in a coordinated swarm.
 
 MANDATORY COORDINATION:
-1. START: Run `npx claude-flow@alpha hooks pre-task --description "[your task]"`
-2. DURING: After EVERY file operation, run `npx claude-flow@alpha hooks post-edit --file "[file]" --memory-key "agent/[step]"`
-3. MEMORY: Store ALL decisions using `npx claude-flow@alpha hooks notify --message "[decision]"`
-4. END: Run `npx claude-flow@alpha hooks post-task --task-id "[task]" --analyze-performance true`
+1. START: Run `npx auggie-flow@alpha hooks pre-task --description "[your task]"`
+2. DURING: After EVERY file operation, run `npx auggie-flow@alpha hooks post-edit --file "[file]" --memory-key "agent/[step]"`
+3. MEMORY: Store ALL decisions using `npx auggie-flow@alpha hooks notify --message "[decision]"`
+4. END: Run `npx auggie-flow@alpha hooks post-task --task-id "[task]" --analyze-performance true`
 
 Your specific task: [detailed task description]
 
@@ -900,7 +900,7 @@ Message 1: [BatchTool]
   - mcp__claude-flow__agent_spawn (tester)
   - mcp__claude-flow__agent_spawn (task-orchestrator)
 
-Message 2: [BatchTool - Claude Code execution]
+Message 2: [BatchTool - Auggie Code execution]
   // Task agents with full coordination instructions
   - Task("You are researcher agent. MANDATORY: Run hooks pre-task, post-edit, post-task. Task: Research API patterns")
   - Task("You are coder agent. MANDATORY: Run hooks pre-task, post-edit, post-task. Task: Implement REST endpoints")
@@ -1093,7 +1093,7 @@ mcp__claude-flow__memory_usage
 1. **Batch Everything**: Never operate on single files when multiple are needed
 2. **Parallel First**: Always think "what can run simultaneously?"
 3. **Memory is Key**: Use memory for ALL cross-agent coordination
-4. **Monitor Progress**: Use mcp**claude-flow**swarm_monitor for real-time tracking
+4. **Monitor Progress**: Use mcp**auggie-flow**swarm_monitor for real-time tracking
 5. **Auto-Optimize**: Let hooks handle topology and agent selection
 
 ### 🎨 VISUAL SWARM STATUS
@@ -1163,9 +1163,9 @@ Message 3: TodoWrite { todos: [{ id: "3", content: "Task 3", ... }] }
 // This breaks parallel coordination!
 ```
 
-## Claude Flow v2.0.0 Features
+## Auggie Flow v2.0.0 Features
 
-Claude Flow extends the base coordination with:
+Auggie Flow extends the base coordination with:
 
 - **🔗 GitHub Integration** - Deep repository management
 - **🎯 Project Templates** - Quick-start for common projects
@@ -1176,10 +1176,10 @@ Claude Flow extends the base coordination with:
 
 ## Support
 
-- Documentation: https://github.com/ruvnet/claude-flow
-- Issues: https://github.com/ruvnet/claude-flow/issues
-- Examples: https://github.com/ruvnet/claude-flow/tree/main/examples
+- Documentation: https://github.com/ruvnet/auggie-flow
+- Issues: https://github.com/ruvnet/auggie-flow/issues
+- Examples: https://github.com/ruvnet/auggie-flow/tree/main/examples
 
 ---
 
-Remember: **Claude Flow coordinates, Claude Code creates!** Start with `mcp__claude-flow__swarm_init` to enhance your development workflow.
+Remember: **Auggie Flow coordinates, Auggie Code creates!** Start with `mcp__claude-flow__swarm_init` to enhance your development workflow.

@@ -1,14 +1,14 @@
-# Claude Flow v2.0.0 - Complete Integration Guide
+# Auggie Flow v2.0.0 - Complete Integration Guide
 
 ## 🎯 Overview
 
-This comprehensive guide covers all integration points for Claude Flow v2.0.0, including ruv-swarm MCP tools, QUDAG/DAA WASM neural networks, Claude Code MCP server configuration, and enterprise deployment strategies.
+This comprehensive guide covers all integration points for Auggie Flow v2.0.0, including ruv-swarm MCP tools, QUDAG/DAA WASM neural networks, Auggie Code MCP server configuration, and enterprise deployment strategies.
 
 ## 📋 Table of Contents
 
 1. [ruv-swarm MCP Integration](#ruv-swarm-mcp-integration)
 2. [QUDAG/DAA WASM Neural Networks](#qudag-daa-wasm-neural-networks)
-3. [Claude Code MCP Server Configuration](#claude-code-mcp-server-configuration)
+3. [Auggie Code MCP Server Configuration](#claude-code-mcp-server-configuration)
 4. [Benchmark System Setup](#benchmark-system-setup)
 5. [Enterprise Deployment](#enterprise-deployment)
 6. [Troubleshooting](#troubleshooting)
@@ -20,7 +20,7 @@ This comprehensive guide covers all integration points for Claude Flow v2.0.0, i
 ### Prerequisites
 
 - Node.js 20+ (LTS recommended)
-- Claude Code CLI with MCP support
+- Auggie Code CLI with MCP support
 - npm 9+ or equivalent package manager
 - Git for version control
 
@@ -37,10 +37,10 @@ npx ruv-swarm --version
 # Expected output: ruv-swarm v1.0.14
 ```
 
-#### 2. Configure Claude Code MCP Server
+#### 2. Configure Auggie Code MCP Server
 
 ```bash
-# Add ruv-swarm MCP server to Claude Code
+# Add ruv-swarm MCP server to Auggie Code
 claude mcp add ruv-swarm npx ruv-swarm mcp start
 
 # Verify MCP server is registered
@@ -48,11 +48,11 @@ claude mcp list
 # Should show ruv-swarm server with 87 tools available
 ```
 
-#### 3. Initialize Claude Flow Integration
+#### 3. Initialize Auggie Flow Integration
 
 ```bash
-# Initialize Claude Flow with full ruv-swarm integration
-npx claude-flow@2.0.0 init --claude --webui
+# Initialize Auggie Flow with full ruv-swarm integration
+npx auggie-flow@2.0.0 init --claude --webui
 
 # This creates:
 # ✓ .claude/ directory with MCP configuration
@@ -68,7 +68,7 @@ npx claude-flow@2.0.0 init --claude --webui
 claude mcp test ruv-swarm
 
 # Test swarm initialization
-npx claude-flow@2.0.0 coordination swarm-init --topology mesh --max-agents 6
+npx auggie-flow@2.0.0 coordination swarm-init --topology mesh --max-agents 6
 
 # Expected output:
 # ✓ Swarm initialized with mesh topology
@@ -129,24 +129,24 @@ npx claude-flow@2.0.0 coordination swarm-init --topology mesh --max-agents 6
 
 ```bash
 # Initialize hierarchical swarm for development
-npx claude-flow@2.0.0 coordination swarm-init \
+npx auggie-flow@2.0.0 coordination swarm-init \
   --topology hierarchical \
   --max-agents 8 \
   --strategy specialized
 
 # Spawn specialized agents
-npx claude-flow@2.0.0 coordination agent-spawn \
+npx auggie-flow@2.0.0 coordination agent-spawn \
   --type architect \
   --name "SystemDesigner" \
   --capabilities "system-design,database-architecture"
 
-npx claude-flow@2.0.0 coordination agent-spawn \
+npx auggie-flow@2.0.0 coordination agent-spawn \
   --type coder \
   --name "BackendDev" \
   --capabilities "node-js,rest-api,database"
 
 # Orchestrate complex task
-npx claude-flow@2.0.0 coordination task-orchestrate \
+npx auggie-flow@2.0.0 coordination task-orchestrate \
   --task "Build complete REST API with authentication" \
   --strategy parallel \
   --share-results
@@ -156,16 +156,16 @@ npx claude-flow@2.0.0 coordination task-orchestrate \
 
 ```bash
 # Train coordination patterns with real WASM
-npx claude-flow@2.0.0 neural train \
+npx auggie-flow@2.0.0 neural train \
   --pattern-type coordination \
   --training-data "./data/development-patterns.json" \
   --epochs 100
 
 # Monitor training progress
-npx claude-flow@2.0.0 neural status
+npx auggie-flow@2.0.0 neural status
 
 # Use trained patterns for predictions
-npx claude-flow@2.0.0 neural predict \
+npx auggie-flow@2.0.0 neural predict \
   --model-id coordination-model-001 \
   --input "complex microservices architecture"
 ```
@@ -174,20 +174,20 @@ npx claude-flow@2.0.0 neural predict \
 
 ```bash
 # Store project context
-npx claude-flow@2.0.0 memory usage \
+npx auggie-flow@2.0.0 memory usage \
   --action store \
   --key "project/architecture" \
   --value "microservices with event-driven patterns" \
   --namespace "development"
 
 # Search for related patterns
-npx claude-flow@2.0.0 memory search \
+npx auggie-flow@2.0.0 memory search \
   --pattern "architecture" \
   --namespace "development" \
   --limit 10
 
 # Create backup before major changes
-npx claude-flow@2.0.0 memory backup \
+npx auggie-flow@2.0.0 memory backup \
   --destination "./backups/pre-refactor-$(date +%Y%m%d)"
 ```
 
@@ -197,7 +197,7 @@ npx claude-flow@2.0.0 memory backup \
 
 ### Architecture Overview
 
-Claude Flow v2.0.0 implements real neural networks using:
+Auggie Flow v2.0.0 implements real neural networks using:
 - **QUDAG (Quantum-inspired Directed Acyclic Graphs)** - Efficient graph processing
 - **DAA (Dynamic Agent Architecture)** - Adaptive agent behavior
 - **WASM (WebAssembly)** - High-performance local execution
@@ -209,10 +209,10 @@ Claude Flow v2.0.0 implements real neural networks using:
 
 ```bash
 # The neural networks are pre-compiled into a 512KB WASM module
-# Location: node_modules/ruv-swarm/dist/neural/claude-flow-neural.wasm
+# Location: node_modules/ruv-swarm/dist/neural/auggie-flow-neural.wasm
 
 # Verify WASM module integrity
-npx claude-flow@2.0.0 neural status
+npx auggie-flow@2.0.0 neural status
 # Expected output:
 # ✓ WASM module loaded: 512KB
 # ✓ SIMD optimization: ENABLED
@@ -270,14 +270,14 @@ cat > training-data.json << EOF
 EOF
 
 # Train new neural pattern
-npx claude-flow@2.0.0 neural train \
+npx auggie-flow@2.0.0 neural train \
   --pattern-type custom \
   --training-data "./training-data.json" \
   --epochs 200 \
   --model-name "custom-coordination-v1"
 
 # Monitor training with real-time feedback
-npx claude-flow@2.0.0 neural train \
+npx auggie-flow@2.0.0 neural train \
   --pattern-type custom \
   --training-data "./training-data.json" \
   --epochs 200 \
@@ -295,22 +295,22 @@ npx claude-flow@2.0.0 neural train \
 
 ```bash
 # Save trained model
-npx claude-flow@2.0.0 model save \
+npx auggie-flow@2.0.0 model save \
   --model-id custom-coordination-v1 \
   --path "./models/coordination/"
 
 # Load existing model
-npx claude-flow@2.0.0 model load \
+npx auggie-flow@2.0.0 model load \
   --model-path "./models/coordination/custom-coordination-v1.model"
 
 # Compress model for deployment
-npx claude-flow@2.0.0 neural compress \
+npx auggie-flow@2.0.0 neural compress \
   --model-id custom-coordination-v1 \
   --ratio 0.7 \
   --output-path "./models/compressed/"
 
 # Create ensemble of models
-npx claude-flow@2.0.0 ensemble create \
+npx auggie-flow@2.0.0 ensemble create \
   --models "coord-v1,coord-v2,coord-v3" \
   --strategy voting \
   --name "coordination-ensemble"
@@ -320,7 +320,7 @@ npx claude-flow@2.0.0 ensemble create \
 
 ```bash
 # Run inference on coordination tasks
-npx claude-flow@2.0.0 inference run \
+npx auggie-flow@2.0.0 inference run \
   --model-id coordination-ensemble \
   --data '[0.1, 0.2, 0.3, 0.4, 0.5]' \
   --format json
@@ -344,7 +344,7 @@ npx claude-flow@2.0.0 inference run \
 
 ---
 
-## 🔧 Claude Code MCP Server Configuration
+## 🔧 Auggie Code MCP Server Configuration
 
 ### Complete MCP Integration Setup
 
@@ -355,10 +355,10 @@ Create or update `.claude/mcp.json`:
 ```json
 {
   "servers": {
-    "claude-flow": {
+    "auggie-flow": {
       "command": "npx",
-      "args": ["claude-flow@2.0.0", "mcp", "start", "--stdio"],
-      "description": "Claude Flow v2.0.0 MCP Server with 87 tools",
+      "args": ["auggie-flow@2.0.0", "mcp", "start", "--stdio"],
+      "description": "Auggie Flow v2.0.0 MCP Server with 87 tools",
       "capabilities": {
         "tools": true,
         "resources": true,
@@ -385,7 +385,7 @@ Create or update `.claude/mcp.json`:
 }
 ```
 
-#### 2. Claude Code Configuration
+#### 2. Auggie Code Configuration
 
 Create `.claude/settings.json`:
 
@@ -393,7 +393,7 @@ Create `.claude/settings.json`:
 {
   "mcp": {
     "enabled": true,
-    "servers": ["claude-flow", "ruv-swarm"],
+    "servers": ["auggie-flow", "ruv-swarm"],
     "batch_tools": true,
     "parallel_execution": true,
     "coordination_hooks": true
@@ -425,10 +425,10 @@ Create `.claude/settings.json`:
 
 #### 3. Command Registration
 
-Create `.claude/commands/claude-flow-commands.md`:
+Create `.claude/commands/auggie-flow-commands.md`:
 
 ```markdown
-# Claude Flow v2.0.0 Commands
+# Auggie Flow v2.0.0 Commands
 
 ## Swarm Coordination
 - `/swarm-init` - Initialize swarm topology
@@ -457,17 +457,17 @@ Create `.claude/commands/claude-flow-commands.md`:
 
 ```bash
 # Test MCP server startup
-claude mcp start claude-flow
+claude mcp start auggie-flow
 
 # Expected output:
-# ✓ MCP server started: claude-flow
+# ✓ MCP server started: auggie-flow
 # ✓ Tools loaded: 87
 # ✓ Neural networks: ACTIVE
 # ✓ Memory system: READY
 # ✓ Coordination hooks: ENABLED
 
 # Test tool availability
-claude mcp list-tools claude-flow | head -10
+claude mcp list-tools auggie-flow | head -10
 
 # Expected output:
 # mcp__claude-flow__swarm_init
@@ -487,7 +487,7 @@ claude mcp list-tools claude-flow | head -10
 # Add to .vscode/settings.json
 {
   "claude.mcp.servers": [
-    "claude-flow",
+    "auggie-flow",
     "ruv-swarm"
   ],
   "claude.coordination.enabled": true,
@@ -495,7 +495,7 @@ claude mcp list-tools claude-flow | head -10
 }
 
 # CI/CD Integration
-# Add to .github/workflows/claude-flow.yml
+# Add to .github/workflows/auggie-flow.yml
 env:
   CLAUDE_MCP_ENABLED: true
   CLAUDE_FLOW_VERSION: "2.0.0"
@@ -569,7 +569,7 @@ Create `benchmark/config/production-benchmark.json`:
 ```json
 {
   "benchmark_suite": {
-    "name": "Claude Flow v2.0.0 Production Benchmark",
+    "name": "Auggie Flow v2.0.0 Production Benchmark",
     "version": "2.0.0",
     "description": "Comprehensive performance testing suite"
   },
@@ -719,12 +719,12 @@ RUN npm run build
 
 # Set up non-root user
 RUN addgroup -g 1001 -S nodejs && \
-    adduser -S claude-flow -u 1001
-USER claude-flow
+    adduser -S auggie-flow -u 1001
+USER auggie-flow
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD npx claude-flow health-check || exit 1
+    CMD npx auggie-flow health-check || exit 1
 
 # Expose ports
 EXPOSE 3000 8080
@@ -739,7 +739,7 @@ Create `docker/docker-compose.production.yml`:
 version: '3.8'
 
 services:
-  claude-flow:
+  auggie-flow:
     build:
       context: ..
       dockerfile: docker/Dockerfile.production
@@ -792,7 +792,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./ssl:/etc/nginx/ssl
     depends_on:
-      - claude-flow
+      - auggie-flow
     restart: unless-stopped
 
 volumes:
@@ -811,25 +811,25 @@ Create `k8s/deployment.yaml`:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: claude-flow-v2
-  namespace: claude-flow
+  name: auggie-flow-v2
+  namespace: auggie-flow
   labels:
-    app: claude-flow
+    app: auggie-flow
     version: v2.0.0
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: claude-flow
+      app: auggie-flow
   template:
     metadata:
       labels:
-        app: claude-flow
+        app: auggie-flow
         version: v2.0.0
     spec:
       containers:
-      - name: claude-flow
-        image: claude-flow:2.0.0
+      - name: auggie-flow
+        image: auggie-flow:2.0.0
         ports:
         - containerPort: 3000
         - containerPort: 8080
@@ -864,26 +864,26 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 5
         volumeMounts:
-        - name: claude-flow-data
+        - name: auggie-flow-data
           mountPath: /app/data
-        - name: claude-flow-memory
+        - name: auggie-flow-memory
           mountPath: /app/memory
       volumes:
-      - name: claude-flow-data
+      - name: auggie-flow-data
         persistentVolumeClaim:
-          claimName: claude-flow-data-pvc
-      - name: claude-flow-memory
+          claimName: auggie-flow-data-pvc
+      - name: auggie-flow-memory
         persistentVolumeClaim:
-          claimName: claude-flow-memory-pvc
+          claimName: auggie-flow-memory-pvc
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: claude-flow-service
-  namespace: claude-flow
+  name: auggie-flow-service
+  namespace: auggie-flow
 spec:
   selector:
-    app: claude-flow
+    app: auggie-flow
   ports:
   - name: web
     port: 3000
@@ -911,7 +911,7 @@ Create `config/production.json`:
   },
   "mcp": {
     "servers": {
-      "claude-flow": {
+      "auggie-flow": {
         "enabled": true,
         "max_connections": 100,
         "timeout": 30000,
@@ -972,15 +972,15 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'claude-flow'
+  - job_name: 'auggie-flow'
     static_configs:
-      - targets: ['claude-flow:8080']
+      - targets: ['auggie-flow:8080']
     metrics_path: /metrics
     scrape_interval: 5s
 
   - job_name: 'ruv-swarm'
     static_configs:
-      - targets: ['claude-flow:8081']
+      - targets: ['auggie-flow:8081']
     metrics_path: /swarm/metrics
     scrape_interval: 10s
 
@@ -998,16 +998,16 @@ Create `monitoring/alerts.yml`:
 
 ```yaml
 groups:
-  - name: claude-flow-alerts
+  - name: auggie-flow-alerts
     rules:
       - alert: ClaudeFlowDown
-        expr: up{job="claude-flow"} == 0
+        expr: up{job="auggie-flow"} == 0
         for: 1m
         labels:
           severity: critical
         annotations:
-          summary: "Claude Flow instance is down"
-          description: "Claude Flow instance {{ $labels.instance }} has been down for more than 1 minute."
+          summary: "Auggie Flow instance is down"
+          description: "Auggie Flow instance {{ $labels.instance }} has been down for more than 1 minute."
 
       - alert: HighResponseTime
         expr: http_request_duration_seconds{quantile="0.95"} > 5
@@ -1053,8 +1053,8 @@ kubectl apply -f k8s/service.yaml
 kubectl apply -f k8s/ingress.yaml
 
 # Verify deployment
-kubectl get pods -n claude-flow
-kubectl logs -f deployment/claude-flow-v2 -n claude-flow
+kubectl get pods -n auggie-flow
+kubectl logs -f deployment/auggie-flow-v2 -n auggie-flow
 
 # Health check
 curl -f http://localhost:3000/health
@@ -1098,7 +1098,7 @@ netstat -tulpn | grep :8080
 
 ```bash
 # Diagnosis
-npx claude-flow@2.0.0 neural status
+npx auggie-flow@2.0.0 neural status
 
 # Common solutions
 # 1. Check WebAssembly support
@@ -1106,14 +1106,14 @@ node -e "console.log('WASM support:', typeof WebAssembly !== 'undefined')"
 
 # 2. Verify WASM module
 ls -la node_modules/ruv-swarm/dist/neural/
-file node_modules/ruv-swarm/dist/neural/claude-flow-neural.wasm
+file node_modules/ruv-swarm/dist/neural/auggie-flow-neural.wasm
 
 # 3. Reinstall with WASM support
 npm install --build-from-source ruv-swarm@1.0.14
 
 # 4. Clear neural cache
 rm -rf ./memory/neural-cache/
-npx claude-flow@2.0.0 neural train --reset-cache
+npx auggie-flow@2.0.0 neural train --reset-cache
 ```
 
 #### 3. Memory Persistence Issues
@@ -1122,7 +1122,7 @@ npx claude-flow@2.0.0 neural train --reset-cache
 
 ```bash
 # Diagnosis
-npx claude-flow@2.0.0 memory usage --action list
+npx auggie-flow@2.0.0 memory usage --action list
 ls -la ./memory/
 
 # Common solutions
@@ -1131,12 +1131,12 @@ chmod 755 ./memory/
 chown -R $USER:$USER ./memory/
 
 # 2. Verify SQLite database
-sqlite3 ./memory/claude-flow-data.json ".schema"
+sqlite3 ./memory/auggie-flow-data.json ".schema"
 
 # 3. Repair corrupted memory
-npx claude-flow@2.0.0 memory backup --emergency
-rm ./memory/claude-flow-data.json
-npx claude-flow@2.0.0 memory restore --backup-path ./backups/latest
+npx auggie-flow@2.0.0 memory backup --emergency
+rm ./memory/auggie-flow-data.json
+npx auggie-flow@2.0.0 memory restore --backup-path ./backups/latest
 
 # 4. Check disk space
 df -h .
@@ -1148,13 +1148,13 @@ df -h .
 
 ```bash
 # Diagnosis
-npx claude-flow@2.0.0 swarm status
-npx claude-flow@2.0.0 agent list
+npx auggie-flow@2.0.0 swarm status
+npx auggie-flow@2.0.0 agent list
 
 # Common solutions
 # 1. Reset swarm state
-npx claude-flow@2.0.0 swarm destroy --force
-npx claude-flow@2.0.0 swarm init --topology mesh --max-agents 8
+npx auggie-flow@2.0.0 swarm destroy --force
+npx auggie-flow@2.0.0 swarm init --topology mesh --max-agents 8
 
 # 2. Check coordination hooks
 npx ruv-swarm hook pre-task --test
@@ -1165,7 +1165,7 @@ claude mcp test ruv-swarm
 
 # 4. Clear coordination cache
 rm -rf ./memory/coordination-cache/
-npx claude-flow@2.0.0 coordination sync --force
+npx auggie-flow@2.0.0 coordination sync --force
 ```
 
 ### Performance Troubleshooting
@@ -1174,18 +1174,18 @@ npx claude-flow@2.0.0 coordination sync --force
 
 ```bash
 # Profile performance
-npx claude-flow@2.0.0 performance report --detailed
-npx claude-flow@2.0.0 bottleneck analyze --components "swarm,neural,memory"
+npx auggie-flow@2.0.0 performance report --detailed
+npx auggie-flow@2.0.0 bottleneck analyze --components "swarm,neural,memory"
 
 # Common optimizations
 # 1. Increase worker threads
 export UV_THREADPOOL_SIZE=16
 
 # 2. Optimize memory usage
-npx claude-flow@2.0.0 memory compress --ratio 0.8
+npx auggie-flow@2.0.0 memory compress --ratio 0.8
 
 # 3. Enable SIMD optimization
-npx claude-flow@2.0.0 wasm optimize --enable-simd
+npx auggie-flow@2.0.0 wasm optimize --enable-simd
 
 # 4. Tune garbage collection
 node --max-old-space-size=4096 --optimize-for-size
@@ -1195,18 +1195,18 @@ node --max-old-space-size=4096 --optimize-for-size
 
 ```bash
 # Monitor memory usage
-npx claude-flow@2.0.0 memory analytics --real-time
-npx claude-flow@2.0.0 metrics collect --components memory
+npx auggie-flow@2.0.0 memory analytics --real-time
+npx auggie-flow@2.0.0 metrics collect --components memory
 
 # Memory optimization
 # 1. Compress neural models
-npx claude-flow@2.0.0 neural compress --all-models --ratio 0.7
+npx auggie-flow@2.0.0 neural compress --all-models --ratio 0.7
 
 # 2. Clean old memory entries
-npx claude-flow@2.0.0 memory usage --action delete --older-than "7d"
+npx auggie-flow@2.0.0 memory usage --action delete --older-than "7d"
 
 # 3. Optimize coordination cache
-npx claude-flow@2.0.0 cache manage --action optimize
+npx auggie-flow@2.0.0 cache manage --action optimize
 
 # 4. Garbage collect
 node --expose-gc -e "global.gc()"
@@ -1229,7 +1229,7 @@ After completing integration, verify these performance indicators:
 
 ```bash
 # Run comprehensive validation
-npx claude-flow@2.0.0 validate integration --full
+npx auggie-flow@2.0.0 validate integration --full
 
 # Expected results:
 # ✓ MCP Integration: 87/87 tools active
@@ -1240,4 +1240,4 @@ npx claude-flow@2.0.0 validate integration --full
 # ✓ Enterprise Features: Security, monitoring, scaling
 ```
 
-This comprehensive integration guide provides all necessary information to successfully deploy and operate Claude Flow v2.0.0 in any environment, from development to enterprise production.
+This comprehensive integration guide provides all necessary information to successfully deploy and operate Auggie Flow v2.0.0 in any environment, from development to enterprise production.

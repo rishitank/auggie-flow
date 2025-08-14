@@ -5,7 +5,7 @@ Execute post-task cleanup, performance analysis, and memory storage.
 ## Usage
 
 ```bash
-npx claude-flow hook post-task [options]
+npx auggie-flow hook post-task [options]
 ```
 
 ## Options
@@ -21,25 +21,25 @@ npx claude-flow hook post-task [options]
 ### Basic post-task hook
 
 ```bash
-npx claude-flow hook post-task --task-id "auth-implementation"
+npx auggie-flow hook post-task --task-id "auth-implementation"
 ```
 
 ### With full analysis
 
 ```bash
-npx claude-flow hook post-task -t "api-refactor" --analyze-performance --generate-report
+npx auggie-flow hook post-task -t "api-refactor" --analyze-performance --generate-report
 ```
 
 ### Memory storage
 
 ```bash
-npx claude-flow hook post-task -t "bug-fix-123" --store-decisions --export-learnings
+npx auggie-flow hook post-task -t "bug-fix-123" --store-decisions --export-learnings
 ```
 
 ### Quick cleanup
 
 ```bash
-npx claude-flow hook post-task -t "minor-update" --analyze-performance false
+npx auggie-flow hook post-task -t "minor-update" --analyze-performance false
 ```
 
 ## Features
@@ -74,7 +74,7 @@ npx claude-flow hook post-task -t "minor-update" --analyze-performance false
 
 ## Integration
 
-This hook is automatically called by Claude Code when:
+This hook is automatically called by Auggie Code when:
 
 - Completing a task
 - Switching to a new task
@@ -85,7 +85,7 @@ Manual usage in agents:
 
 ```bash
 # In agent coordination
-npx claude-flow hook post-task --task-id "your-task-id" --analyze-performance true
+npx auggie-flow hook post-task --task-id "your-task-id" --analyze-performance true
 ```
 
 ## Output

@@ -1,10 +1,10 @@
-# Real Token Usage Tracking for Claude Flow
+# Real Token Usage Tracking for Auggie Flow
 
-This guide explains how to enable real token usage tracking in Claude Flow, integrating with Claude Code's monitoring capabilities.
+This guide explains how to enable real token usage tracking in Auggie Flow, integrating with Auggie Code's monitoring capabilities.
 
 ## Overview
 
-Claude Flow can now track actual token usage from Claude Code sessions instead of showing simulated data. This provides:
+Auggie Flow can now track actual token usage from Auggie Code sessions instead of showing simulated data. This provides:
 
 - Real-time token consumption metrics
 - Accurate cost calculations based on Anthropic pricing
@@ -14,7 +14,7 @@ Claude Flow can now track actual token usage from Claude Code sessions instead o
 
 ## Setup Instructions
 
-### 1. Enable Claude Code Telemetry
+### 1. Enable Auggie Code Telemetry
 
 Set the environment variable to enable OpenTelemetry monitoring:
 
@@ -26,15 +26,15 @@ Add this to your shell profile (`.bashrc`, `.zshrc`, etc.) to make it permanent.
 
 ### 2. Configure Metrics Storage
 
-Claude Flow looks for metrics in these locations (in order):
+Auggie Flow looks for metrics in these locations (in order):
 
 1. **OpenTelemetry metrics** (when `CLAUDE_CODE_ENABLE_TELEMETRY=1`)
 2. **Local metrics file**: `~/.claude/metrics/usage.json`
-3. **Project metrics**: `.claude-flow/token-usage.json`
+3. **Project metrics**: `.auggie-flow/token-usage.json`
 
 ### 3. Manual Token Tracking (Alternative)
 
-If you want to track tokens manually without OpenTelemetry, create a `.claude-flow/token-usage.json` file:
+If you want to track tokens manually without OpenTelemetry, create a `.auggie-flow/token-usage.json` file:
 
 ```json
 {
@@ -56,21 +56,21 @@ Once configured, the token usage command will show real data:
 
 ```bash
 # Basic usage
-claude-flow analysis token-usage
+auggie-flow analysis token-usage
 
 # With agent breakdown
-claude-flow analysis token-usage --breakdown
+auggie-flow analysis token-usage --breakdown
 
 # With cost analysis
-claude-flow analysis token-usage --cost-analysis
+auggie-flow analysis token-usage --cost-analysis
 
 # Filter by agent type
-claude-flow analysis token-usage --agent developer --breakdown
+auggie-flow analysis token-usage --agent developer --breakdown
 ```
 
 ## Metrics Format
 
-### Claude Code Metrics Schema
+### Auggie Code Metrics Schema
 
 The system expects metrics in this format from `~/.claude/metrics/usage.json`:
 
@@ -93,7 +93,7 @@ The system expects metrics in this format from `~/.claude/metrics/usage.json`:
 
 ### OpenTelemetry Integration
 
-When `CLAUDE_CODE_ENABLE_TELEMETRY=1` is set, Claude Code exports metrics including:
+When `CLAUDE_CODE_ENABLE_TELEMETRY=1` is set, Auggie Code exports metrics including:
 
 - `claude_code_api_request_cost` - API request costs
 - `claude_code_tokens_used` - Token consumption
@@ -105,13 +105,13 @@ When `CLAUDE_CODE_ENABLE_TELEMETRY=1` is set, Claude Code exports metrics includ
 Token costs are calculated using Anthropic's pricing:
 
 - **Claude 3 Opus**: $15/$75 per million tokens (input/output)
-- **Claude 3 Sonnet**: $3/$15 per million tokens (default for Claude Code)
+- **Claude 3 Sonnet**: $3/$15 per million tokens (default for Auggie Code)
 - **Claude 3 Haiku**: $0.25/$1.25 per million tokens
 
 ## Features
 
 ### Real-Time Analysis
-- Shows actual token consumption from your Claude Code sessions
+- Shows actual token consumption from your Auggie Code sessions
 - Breaks down usage by agent type (coordinator, developer, researcher, etc.)
 - Calculates real costs based on current Anthropic pricing
 
@@ -132,9 +132,9 @@ Token costs are calculated using Anthropic's pricing:
 If you see "Token usage is within optimal range" with 0 tokens:
 
 1. Check that `CLAUDE_CODE_ENABLE_TELEMETRY=1` is set
-2. Ensure you've run Claude Code sessions after enabling telemetry
+2. Ensure you've run Auggie Code sessions after enabling telemetry
 3. Verify metrics files exist in the expected locations
-4. Try creating a manual `.claude-flow/token-usage.json` file
+4. Try creating a manual `.auggie-flow/token-usage.json` file
 
 ### Fallback to Simulated Data
 
@@ -156,7 +156,7 @@ You'll see "(Simulated)" in the output when using fallback data.
 ## Future Enhancements
 
 Planned improvements include:
-- Direct integration with Claude Code's telemetry pipeline
+- Direct integration with Auggie Code's telemetry pipeline
 - Real-time token tracking during execution
 - Historical trend analysis and visualization
 - Budget alerts and thresholds

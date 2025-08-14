@@ -31,19 +31,19 @@ your-project/
 ├── coordination.md          # Coordination documentation
 ├── .roomodes               # SPARC mode definitions
 ├── .claude/
-│   ├── commands/           # Claude Code slash commands
+│   ├── commands/           # Auggie Code slash commands
 │   │   ├── sparc/         # SPARC-specific commands
 │   │   └── ...
 │   └── logs/              # Session logs
 ├── memory/
 │   ├── agents/           # Agent-specific memory
 │   ├── sessions/         # Session storage
-│   └── claude-flow-data.json
+│   └── auggie-flow-data.json
 ├── coordination/
 │   ├── memory_bank/      # Shared memory
 │   ├── subtasks/         # Task breakdown
 │   └── orchestration/    # Workflow coordination
-└── ./claude-flow         # Local executable wrapper
+└── ./auggie-flow         # Local executable wrapper
 ```
 
 ## Template Types
@@ -58,7 +58,7 @@ your-project/
 - Standard performance optimizations
 
 ```bash
-npx claude-flow init --sparc
+npx auggie-flow init --sparc
 ```
 
 **Generated CLAUDE.md includes:**
@@ -77,7 +77,7 @@ npx claude-flow init --sparc
 - Stricter best practices enforcement
 
 ```bash
-npx claude-flow init --sparc --force
+npx auggie-flow init --sparc --force
 ```
 
 **Enhanced features:**
@@ -96,7 +96,7 @@ npx claude-flow init --sparc --force
 - Faster initialization
 
 ```bash
-npx claude-flow init --minimal
+npx auggie-flow init --minimal
 ```
 
 **Minimal set includes:**
@@ -113,7 +113,7 @@ npx claude-flow init --minimal
 ```javascript
 // Custom template for web projects
 export function createWebDevClaudeMd() {
-  return `# Claude Code Configuration - Web Development
+  return `# Auggie Code Configuration - Web Development
 
 ## Project Type: Full-Stack Web Application
 
@@ -143,7 +143,7 @@ export function createWebDevClaudeMd() {
 #### Mobile App Template
 ```javascript
 export function createMobileAppClaudeMd() {
-  return `# Claude Code Configuration - Mobile Development
+  return `# Auggie Code Configuration - Mobile Development
 
 ## Project Type: Cross-Platform Mobile App
 
@@ -241,16 +241,16 @@ For complex projects requiring multiple configurations:
 
 ```bash
 # Initialize base structure
-npx claude-flow init --sparc --force
+npx auggie-flow init --sparc --force
 
 # Add frontend-specific configuration
-npx claude-flow template add frontend --type react
+npx auggie-flow template add frontend --type react
 
 # Add backend-specific configuration  
-npx claude-flow template add backend --type nodejs-api
+npx auggie-flow template add backend --type nodejs-api
 
 # Add mobile configuration
-npx claude-flow template add mobile --type react-native
+npx auggie-flow template add mobile --type react-native
 ```
 
 ### Template Inheritance
@@ -372,7 +372,7 @@ registerTemplate('my-custom', {
 
 ### Step 3: Use Custom Template
 ```bash
-npx claude-flow init --template my-custom --project-type web --framework react
+npx auggie-flow init --template my-custom --project-type web --framework react
 ```
 
 ## Template Validation
@@ -405,7 +405,7 @@ npx claude-flow init --template my-custom --project-type web --framework react
 describe('Template Generation', () => {
   test('generates valid CLAUDE.md', () => {
     const template = createCustomTemplate();
-    expect(template.claudeMd).toContain('# Claude Code Configuration');
+    expect(template.claudeMd).toContain('# Auggie Code Configuration');
     expect(template.claudeMd).toContain('## SPARC Development');
   });
   
@@ -426,11 +426,11 @@ Create npm packages for reusable templates:
 
 ```json
 {
-  "name": "@company/claude-flow-templates",
+  "name": "@company/auggie-flow-templates",
   "version": "1.0.0",
   "description": "Company-specific Claude-Flow templates",
   "main": "index.js",
-  "keywords": ["claude-flow", "templates", "development"],
+  "keywords": ["auggie-flow", "templates", "development"],
   "files": ["templates/", "README.md"]
 }
 ```
@@ -440,10 +440,10 @@ Contribute to the community template registry:
 
 ```bash
 # Submit template for review
-npx claude-flow template submit my-template.js
+npx auggie-flow template submit my-template.js
 
 # Install community template
-npx claude-flow template install @community/react-template
+npx auggie-flow template install @community/react-template
 ```
 
 ## Migration and Updates
@@ -460,7 +460,7 @@ When updating templates:
 ### Automated Migration
 ```bash
 # Migrate to new template version
-npx claude-flow template migrate --from 1.0 --to 2.0 --preserve-custom
+npx auggie-flow template migrate --from 1.0 --to 2.0 --preserve-custom
 ```
 
 ## Troubleshooting Templates
@@ -485,7 +485,7 @@ npx claude-flow template migrate --from 1.0 --to 2.0 --preserve-custom
 ### Debug Mode
 ```bash
 # Debug template generation
-npx claude-flow init --template custom --debug --verbose
+npx auggie-flow init --template custom --debug --verbose
 ```
 
 ## Contributing Templates

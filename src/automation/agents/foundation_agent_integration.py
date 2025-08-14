@@ -47,8 +47,8 @@ class FoundationAgentIntegration:
         )
     
     def _run_hook(self, hook_type: str, **kwargs) -> Optional[Dict]:
-        """Run claude-flow hooks for coordination"""
-        cmd = ["npx", "claude-flow@alpha", "hooks", hook_type]
+        """Run auggie-flow hooks for coordination"""
+        cmd = ["npx", "auggie-flow@alpha", "hooks", hook_type]
         
         # Add parameters
         for key, value in kwargs.items():
@@ -66,7 +66,7 @@ class FoundationAgentIntegration:
     def _store_memory(self, key: str, value: Any):
         """Store data in memory system"""
         cmd = [
-            "npx", "claude-flow@alpha", "memory", "store",
+            "npx", "auggie-flow@alpha", "memory", "store",
             key, json.dumps(value)
         ]
         subprocess.run(cmd, capture_output=True)
@@ -74,7 +74,7 @@ class FoundationAgentIntegration:
     def _query_memory(self, pattern: str) -> Optional[Dict]:
         """Query memory system"""
         cmd = [
-            "npx", "claude-flow@alpha", "memory", "query",
+            "npx", "auggie-flow@alpha", "memory", "query",
             pattern, "--namespace", "default"
         ]
         

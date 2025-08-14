@@ -1,5 +1,5 @@
 /**
- * Help text templates for Claude Flow CLI
+ * Help text templates for Auggie Flow CLI
  * Provides clear, actionable command documentation
  */
 
@@ -12,31 +12,31 @@ export const MAIN_HELP = `
 🌊 Claude-Flow v${VERSION} - Enterprise-Grade AI Agent Orchestration Platform
 
 🎯 ENTERPRISE FEATURES: Complete ruv-swarm integration with 90+ MCP tools, neural networking, and production-ready infrastructure
-🐝 NEW: Claude Code 1.0.51+ full compatibility with enhanced hooks and batch processing
+🐝 NEW: Auggie Code 1.0.51+ full compatibility with enhanced hooks and batch processing
 ⚡ ALPHA 87: Centralized version management and async/await fixes
 
 USAGE:
-  npx claude-flow@alpha <command> [options]    # Run latest alpha version
-  npx claude-flow@alpha <command> --help       # Get detailed help for any command
-  npx claude-flow@alpha --help                 # Show this help
+  npx auggie-flow@alpha <command> [options]    # Run latest alpha version
+  npx auggie-flow@alpha <command> --help       # Get detailed help for any command
+  npx auggie-flow@alpha --help                 # Show this help
   
   # After local install:
-  claude-flow <command> [options]
-  claude-flow <command> --help    # Get detailed help for any command
+  auggie-flow <command> [options]
+  auggie-flow <command> --help    # Get detailed help for any command
 
 🚀 QUICK START:
   # First time setup (creates CLAUDE.md & .auggie/commands)
-  npx claude-flow@alpha init
+  npx auggie-flow@alpha init
   
   # 🐝 HIVE MIND QUICK START (NEW!):
-  claude-flow hive-mind wizard          # Interactive setup wizard
-  claude-flow hive-mind spawn "objective"  # Create intelligent swarm
-  claude-flow hive-mind spawn "Build API" --claude  # Open Claude Code CLI
+  auggie-flow hive-mind wizard          # Interactive setup wizard
+  auggie-flow hive-mind spawn "objective"  # Create intelligent swarm
+  auggie-flow hive-mind spawn "Build API" --claude  # Open Auggie Code CLI
   
   # After setup, use without npx:
-  claude-flow start --ui --swarm         # Start with swarm intelligence UI
-  claude-flow swarm "build REST API"     # Deploy multi-agent workflow
-  claude-flow swarm "create service" --claude  # Open Claude Code CLI with swarm
+  auggie-flow start --ui --swarm         # Start with swarm intelligence UI
+  auggie-flow swarm "build REST API"     # Deploy multi-agent workflow
+  auggie-flow swarm "create service" --claude  # Open Auggie Code CLI with swarm
 
 🐝 HIVE MIND COMMANDS (NEW!):
   hive-mind wizard         🎯 Interactive setup wizard (RECOMMENDED)
@@ -46,7 +46,7 @@ USAGE:
   hive-mind metrics        Advanced performance analytics
 
 📋 CORE COMMANDS:
-  init                     Initialize Claude Flow v2.0.0 (creates CLAUDE.md & .auggie/commands)
+  init                     Initialize Auggie Flow v2.0.0 (creates CLAUDE.md & .auggie/commands)
                           --monitoring enables token usage tracking
   start [--ui] [--swarm]   Start orchestration system
   swarm <objective>        Multi-agent swarm coordination
@@ -62,7 +62,7 @@ USAGE:
   analysis <command>       Performance & token usage analytics (real tracking!)
   automation <command>     Intelligent agent & workflow management (3 commands)
   hooks <command>          Lifecycle event management (5 commands)
-  migrate-hooks            Migrate settings.json to Claude Code 1.0.51+ format
+  migrate-hooks            Migrate settings.json to Auggie Code 1.0.51+ format
   monitoring <command>     Real-time system monitoring (3 commands)
   optimization <command>   Performance & topology optimization (3 commands)
   
@@ -74,17 +74,17 @@ USAGE:
   stream-chain <workflow>  Stream-JSON chaining for multi-agent pipelines (NEW!)
 
 🔍 GET HELP:
-  npx claude-flow@alpha --help                Show this help
-  npx claude-flow@alpha <command> --help      Detailed command help
+  npx auggie-flow@alpha --help                Show this help
+  npx auggie-flow@alpha <command> --help      Detailed command help
 
 🎯 RECOMMENDED FOR NEW USERS:
-  npx claude-flow@alpha hive-mind wizard     # Start here! Interactive guided setup
-  npx claude-flow@alpha init                 # Initialize Claude Flow
-  npx claude-flow@alpha help hive-mind       # Learn about Hive Mind features
-  npx claude-flow@alpha swarm "Build API" --claude  # Quick start with Claude Code CLI
+  npx auggie-flow@alpha hive-mind wizard     # Start here! Interactive guided setup
+  npx auggie-flow@alpha init                 # Initialize Auggie Flow
+  npx auggie-flow@alpha help hive-mind       # Learn about Hive Mind features
+  npx auggie-flow@alpha swarm "Build API" --claude  # Quick start with Auggie Code CLI
 
-📚 Documentation: https://github.com/ruvnet/claude-flow
-🐝 Hive Mind Guide: https://github.com/ruvnet/claude-flow/tree/main/docs/hive-mind
+📚 Documentation: https://github.com/ruvnet/auggie-flow
+🐝 Hive Mind Guide: https://github.com/ruvnet/auggie-flow/tree/main/docs/hive-mind
 🐝 ruv-swarm: https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm
 💬 Discord Community: https://discord.agentics.org
 
@@ -96,7 +96,7 @@ export const COMMAND_HELP = {
 🧠 SWARM COMMAND - Multi-Agent AI Coordination
 
 USAGE:
-  claude-flow swarm <objective> [options]
+  auggie-flow swarm <objective> [options]
 
 DESCRIPTION:
   Deploy intelligent multi-agent swarms to accomplish complex objectives.
@@ -112,20 +112,20 @@ OPTIONS:
   --monitor            Real-time swarm monitoring
   --ui                 Interactive user interface
   --background         Run in background with progress tracking
-  --claude             Open Claude Code CLI
-  --executor           Use built-in executor instead of Claude Code
+  --claude             Open Auggie Code CLI
+  --executor           Use built-in executor instead of Auggie Code
   --analysis           Enable analysis/read-only mode (no code changes)
   --read-only          Enable read-only mode (alias for --analysis)
 
 EXAMPLES:
-  claude-flow swarm "Build a REST API with authentication"
-  claude-flow swarm "Research cloud architecture patterns" --strategy research
-  claude-flow swarm "Optimize database queries" --max-agents 3 --parallel
-  claude-flow swarm "Develop feature X" --strategy development --monitor --ui
-  claude-flow swarm "Build API" --claude  # Open Claude Code CLI
-  claude-flow swarm "Create service" --executor  # Use built-in executor
-  claude-flow swarm "Analyze codebase for security issues" --analysis
-  claude-flow swarm "Review architecture patterns" --read-only --strategy research
+  auggie-flow swarm "Build a REST API with authentication"
+  auggie-flow swarm "Research cloud architecture patterns" --strategy research
+  auggie-flow swarm "Optimize database queries" --max-agents 3 --parallel
+  auggie-flow swarm "Develop feature X" --strategy development --monitor --ui
+  auggie-flow swarm "Build API" --claude  # Open Auggie Code CLI
+  auggie-flow swarm "Create service" --executor  # Use built-in executor
+  auggie-flow swarm "Analyze codebase for security issues" --analysis
+  auggie-flow swarm "Review architecture patterns" --read-only --strategy research
 
 AGENT TYPES:
   researcher    Research with web access and data analysis
@@ -154,7 +154,7 @@ ANALYSIS MODE:
 🐙 GITHUB COMMAND - Workflow Automation
 
 USAGE:
-  claude-flow github <mode> <objective> [options]
+  auggie-flow github <mode> <objective> [options]
 
 DESCRIPTION:
   Automate GitHub workflows with 6 specialized AI-powered modes.
@@ -176,20 +176,20 @@ OPTIONS:
   --config <file>     Custom configuration file
 
 EXAMPLES:
-  claude-flow github init                                        # Initialize GitHub checkpoint hooks
-  claude-flow github pr-manager "create feature PR with tests"
-  claude-flow github gh-coordinator "setup CI/CD pipeline" --auto-approve
-  claude-flow github release-manager "prepare v2.0.0 release"
-  claude-flow github repo-architect "optimize monorepo structure"
-  claude-flow github issue-tracker "analyze and label issues"
-  claude-flow github sync-coordinator "sync versions across packages"
+  auggie-flow github init                                        # Initialize GitHub checkpoint hooks
+  auggie-flow github pr-manager "create feature PR with tests"
+  auggie-flow github gh-coordinator "setup CI/CD pipeline" --auto-approve
+  auggie-flow github release-manager "prepare v2.0.0 release"
+  auggie-flow github repo-architect "optimize monorepo structure"
+  auggie-flow github issue-tracker "analyze and label issues"
+  auggie-flow github sync-coordinator "sync versions across packages"
 `,
 
   agent: `
 🤖 AGENT COMMAND - AI Agent Management
 
 USAGE:
-  claude-flow agent <action> [options]
+  auggie-flow agent <action> [options]
 
 ACTIONS:
   spawn <type>      Create new AI agent
@@ -215,18 +215,18 @@ AGENT TYPES:
   optimizer        Performance optimization
 
 EXAMPLES:
-  claude-flow agent spawn researcher --name "DataBot"
-  claude-flow agent list --verbose
-  claude-flow agent terminate agent-123
-  claude-flow agent hierarchy create enterprise
-  claude-flow agent ecosystem status
+  auggie-flow agent spawn researcher --name "DataBot"
+  auggie-flow agent list --verbose
+  auggie-flow agent terminate agent-123
+  auggie-flow agent hierarchy create enterprise
+  auggie-flow agent ecosystem status
 `,
 
   memory: `
 💾 MEMORY COMMAND - Persistent Memory Management
 
 USAGE:
-  claude-flow memory <action> [options]
+  auggie-flow memory <action> [options]
 
 ACTIONS:
   store <key> <value>     Store data in memory
@@ -245,20 +245,20 @@ OPTIONS:
   --verbose               Detailed output
 
 EXAMPLES:
-  claude-flow memory store architecture "microservices pattern"
-  claude-flow memory get architecture
-  claude-flow memory query "API design"
-  claude-flow memory stats
-  claude-flow memory export backup.json
-  claude-flow memory cleanup --older-than 30d
+  auggie-flow memory store architecture "microservices pattern"
+  auggie-flow memory get architecture
+  auggie-flow memory query "API design"
+  auggie-flow memory stats
+  auggie-flow memory export backup.json
+  auggie-flow memory cleanup --older-than 30d
 `,
 
   sparc: `
 🚀 SPARC COMMAND - Development Mode Operations
 
 USAGE:
-  claude-flow sparc [mode] [objective]
-  claude-flow sparc <action>
+  auggie-flow sparc [mode] [objective]
+  auggie-flow sparc <action>
 
 DESCRIPTION:
   SPARC provides 17 specialized development modes for different workflows.
@@ -289,26 +289,26 @@ ACTIONS:
   run <mode>     Run specific mode
 
 EXAMPLES:
-  claude-flow sparc "design authentication system"    # Auto-select mode
-  claude-flow sparc architect "design microservices"  # Use architect mode
-  claude-flow sparc tdd "user registration feature"   # TDD workflow
-  claude-flow sparc modes                            # List all modes
-  claude-flow sparc info security                    # Mode details
+  auggie-flow sparc "design authentication system"    # Auto-select mode
+  auggie-flow sparc architect "design microservices"  # Use architect mode
+  auggie-flow sparc tdd "user registration feature"   # TDD workflow
+  auggie-flow sparc modes                            # List all modes
+  auggie-flow sparc info security                    # Mode details
 `,
 
   init: `
-🎯 INIT COMMAND - Initialize Claude Flow Environment
+🎯 INIT COMMAND - Initialize Auggie Flow Environment
 
 USAGE:
-  claude-flow init [options]
+  auggie-flow init [options]
 
 DESCRIPTION:
-  Initialize Claude Flow v2.0.0 in your project with full MCP integration.
+  Initialize Auggie Flow v2.0.0 in your project with full MCP integration.
   By default creates standard setup with local Git checkpoints.
   
   TWO INITIALIZATION MODES:
-  • claude-flow init         Standard init with local Git checkpoints
-  • claude-flow github init  GitHub-enhanced with automatic releases (NEW!)
+  • auggie-flow init         Standard init with local Git checkpoints
+  • auggie-flow github init  GitHub-enhanced with automatic releases (NEW!)
 
 OPTIONS:
   --force          Overwrite existing configuration
@@ -318,7 +318,7 @@ OPTIONS:
   --minimal        Minimal setup without examples
   --template <t>   Use specific project template
 
-WHAT claude-flow init CREATES (DEFAULT):
+WHAT auggie-flow init CREATES (DEFAULT):
   📄 CLAUDE.md          AI-readable project instructions & context
   📁 .auggie/           Enterprise configuration directory containing:
     └── commands/       Custom commands and automation scripts
@@ -336,7 +336,7 @@ WHAT claude-flow init CREATES (DEFAULT):
   .auggie/commands INCLUDES:
   • Custom project-specific commands
   • Automated workflow scripts
-  • Integration hooks for Claude Code
+  • Integration hooks for Auggie Code
   • Team collaboration tools
   
   Features enabled:
@@ -349,24 +349,24 @@ WHAT claude-flow init CREATES (DEFAULT):
   • Enterprise security features
 
 EXAMPLES:
-  npx claude-flow@alpha init              # Standard init with local checkpoints
-  npx claude-flow@alpha github init       # GitHub-enhanced init with releases
-  claude-flow init --force                # Overwrite existing configuration
-  claude-flow github init --force         # Force GitHub mode (overwrite)
-  claude-flow init --dry-run              # Preview what will be created
-  claude-flow init --monitoring           # Initialize with token tracking
-  claude-flow init --sparc                # SPARC enterprise setup
-  claude-flow init --minimal              # Basic setup only
+  npx auggie-flow@alpha init              # Standard init with local checkpoints
+  npx auggie-flow@alpha github init       # GitHub-enhanced init with releases
+  auggie-flow init --force                # Overwrite existing configuration
+  auggie-flow github init --force         # Force GitHub mode (overwrite)
+  auggie-flow init --dry-run              # Preview what will be created
+  auggie-flow init --monitoring           # Initialize with token tracking
+  auggie-flow init --sparc                # SPARC enterprise setup
+  auggie-flow init --minimal              # Basic setup only
 `,
 
   start: `
 🚀 START COMMAND - Start Orchestration System
 
 USAGE:
-  claude-flow start [options]
+  auggie-flow start [options]
 
 DESCRIPTION:
-  Start the Claude Flow orchestration system with optional UI and swarm intelligence.
+  Start the Auggie Flow orchestration system with optional UI and swarm intelligence.
 
 OPTIONS:
   --ui             Enable interactive user interface
@@ -377,18 +377,18 @@ OPTIONS:
   --config <file>  Custom configuration file
 
 EXAMPLES:
-  claude-flow start                      # Basic start
-  claude-flow start --ui --swarm         # Full UI with swarm features
-  claude-flow start --daemon             # Background daemon
-  claude-flow start --port 8080          # Custom MCP port
-  claude-flow start --config prod.json   # Production config
+  auggie-flow start                      # Basic start
+  auggie-flow start --ui --swarm         # Full UI with swarm features
+  auggie-flow start --daemon             # Background daemon
+  auggie-flow start --port 8080          # Custom MCP port
+  auggie-flow start --config prod.json   # Production config
 `,
 
   status: `
 📊 STATUS COMMAND - System Status
 
 USAGE:
-  claude-flow status [options]
+  auggie-flow status [options]
 
 DESCRIPTION:
   Show comprehensive system status including agents, tasks, and resources.
@@ -409,17 +409,17 @@ OUTPUT INCLUDES:
   • Performance metrics
 
 EXAMPLES:
-  claude-flow status                     # Basic status
-  claude-flow status --verbose           # Detailed information
-  claude-flow status --json              # Machine-readable format
-  claude-flow status --watch             # Live monitoring
+  auggie-flow status                     # Basic status
+  auggie-flow status --verbose           # Detailed information
+  auggie-flow status --json              # Machine-readable format
+  auggie-flow status --watch             # Live monitoring
 `,
 
   training: `
 🧠 TRAINING COMMAND - Neural Pattern Learning & Model Updates
 
 USAGE:
-  claude-flow training <command> [options]
+  auggie-flow training <command> [options]
 
 DESCRIPTION:
   Train neural patterns from operations, learn from outcomes, and update agent models 
@@ -446,10 +446,10 @@ MODEL UPDATE OPTIONS:
   --operation-result <res> Result from operation execution
 
 EXAMPLES:
-  claude-flow training neural-train --data recent --model task-predictor
-  claude-flow training pattern-learn --operation "file-creation" --outcome "success"
-  claude-flow training model-update --agent-type coordinator --operation-result "efficient"
-  claude-flow training neural-train --data "swarm-123" --epochs 100 --model "coordinator-predictor"
+  auggie-flow training neural-train --data recent --model task-predictor
+  auggie-flow training pattern-learn --operation "file-creation" --outcome "success"
+  auggie-flow training model-update --agent-type coordinator --operation-result "efficient"
+  auggie-flow training neural-train --data "swarm-123" --epochs 100 --model "coordinator-predictor"
 
 🎯 Neural training improves:
   • Task selection accuracy
@@ -462,7 +462,7 @@ EXAMPLES:
 🐝 COORDINATION COMMAND - Swarm & Agent Orchestration
 
 USAGE:
-  claude-flow coordination <command> [options]
+  auggie-flow coordination <command> [options]
 
 DESCRIPTION:
   Initialize swarms, spawn coordinated agents, and orchestrate task execution 
@@ -496,10 +496,10 @@ TASK-ORCHESTRATE OPTIONS:
   --share-results      Enable result sharing across swarm
 
 EXAMPLES:
-  claude-flow coordination swarm-init --topology hierarchical --max-agents 8
-  claude-flow coordination agent-spawn --type developer --name "api-dev" --swarm-id swarm-123
-  claude-flow coordination task-orchestrate --task "Build REST API" --strategy parallel --share-results
-  claude-flow coordination swarm-init --topology mesh --max-agents 12
+  auggie-flow coordination swarm-init --topology hierarchical --max-agents 8
+  auggie-flow coordination agent-spawn --type developer --name "api-dev" --swarm-id swarm-123
+  auggie-flow coordination task-orchestrate --task "Build REST API" --strategy parallel --share-results
+  auggie-flow coordination swarm-init --topology mesh --max-agents 12
 
 🎯 Coordination enables:
   • Intelligent task distribution
@@ -513,7 +513,7 @@ EXAMPLES:
 📊 ANALYSIS COMMAND - Performance & Usage Analytics
 
 USAGE:
-  claude-flow analysis <command> [options]
+  auggie-flow analysis <command> [options]
 
 DESCRIPTION:
   Detect performance bottlenecks, generate comprehensive reports, and analyze 
@@ -542,11 +542,11 @@ TOKEN USAGE OPTIONS:
   --cost-analysis      Include cost projections and optimization
 
 EXAMPLES:
-  claude-flow analysis bottleneck-detect --scope system
-  claude-flow analysis bottleneck-detect --scope agent --target coordinator-1
-  claude-flow analysis performance-report --timeframe 7d --format detailed
-  claude-flow analysis token-usage --breakdown --cost-analysis
-  claude-flow analysis bottleneck-detect --scope swarm --target swarm-123
+  auggie-flow analysis bottleneck-detect --scope system
+  auggie-flow analysis bottleneck-detect --scope agent --target coordinator-1
+  auggie-flow analysis performance-report --timeframe 7d --format detailed
+  auggie-flow analysis token-usage --breakdown --cost-analysis
+  auggie-flow analysis bottleneck-detect --scope swarm --target swarm-123
 
 🎯 Analysis helps with:
   • Performance optimization
@@ -560,7 +560,7 @@ EXAMPLES:
 🤖 AUTOMATION COMMAND - Intelligent Agent & Workflow Management
 
 USAGE:
-  claude-flow automation <command> [options]
+  auggie-flow automation <command> [options]
 
 DESCRIPTION:
   Automatically spawn optimal agents, intelligently manage workflows, and select 
@@ -588,10 +588,10 @@ WORKFLOW-SELECT OPTIONS:
                            Options: speed, quality, cost, balanced
 
 EXAMPLES:
-  claude-flow automation auto-agent --task-complexity enterprise --swarm-id swarm-123
-  claude-flow automation smart-spawn --requirement "web-development" --max-agents 8
-  claude-flow automation workflow-select --project-type api --priority speed
-  claude-flow automation auto-agent --task-complexity low
+  auggie-flow automation auto-agent --task-complexity enterprise --swarm-id swarm-123
+  auggie-flow automation smart-spawn --requirement "web-development" --max-agents 8
+  auggie-flow automation workflow-select --project-type api --priority speed
+  auggie-flow automation auto-agent --task-complexity low
 
 🎯 Automation benefits:
   • Optimal resource allocation
@@ -605,7 +605,7 @@ EXAMPLES:
 🔗 HOOKS COMMAND - Lifecycle Event Management
 
 USAGE:
-  claude-flow hooks <command> [options]
+  auggie-flow hooks <command> [options]
 
 DESCRIPTION:
   Execute lifecycle hooks before and after tasks, edits, and sessions with 
@@ -643,11 +643,11 @@ SESSION-END OPTIONS:
   --generate-summary      Create comprehensive session summary
 
 EXAMPLES:
-  claude-flow hooks pre-task --description "Build API" --task-id task-123 --agent-id agent-456
-  claude-flow hooks post-task --task-id task-123 --analyze-performance --generate-insights
-  claude-flow hooks pre-edit --file "src/api.js" --operation edit
-  claude-flow hooks post-edit --file "src/api.js" --memory-key "swarm/123/edits/timestamp"
-  claude-flow hooks session-end --export-metrics --generate-summary --swarm-id swarm-123
+  auggie-flow hooks pre-task --description "Build API" --task-id task-123 --agent-id agent-456
+  auggie-flow hooks post-task --task-id task-123 --analyze-performance --generate-insights
+  auggie-flow hooks pre-edit --file "src/api.js" --operation edit
+  auggie-flow hooks post-edit --file "src/api.js" --memory-key "swarm/123/edits/timestamp"
+  auggie-flow hooks session-end --export-metrics --generate-summary --swarm-id swarm-123
 
 🎯 Hooks enable:
   • Automated preparation & cleanup
@@ -666,9 +666,9 @@ export function getCommandHelp(command) {
 export function getStandardizedCommandHelp(command) {
   const commandConfigs = {
     agent: {
-      name: 'claude-flow agent',
+      name: 'auggie-flow agent',
       description: 'Manage individual agents',
-      usage: 'claude-flow agent <action> [options]',
+      usage: 'auggie-flow agent <action> [options]',
       commands: [
         { name: 'spawn', description: 'Create a new agent' },
         { name: 'list', description: 'List all active agents' },
@@ -710,16 +710,16 @@ export function getStandardizedCommandHelp(command) {
         },
       ],
       examples: [
-        'claude-flow agent spawn researcher --name "Research Bot"',
-        'claude-flow agent list --json',
-        'claude-flow agent terminate agent-123',
-        'claude-flow agent info agent-456 --verbose',
+        'auggie-flow agent spawn researcher --name "Research Bot"',
+        'auggie-flow agent list --json',
+        'auggie-flow agent terminate agent-123',
+        'auggie-flow agent info agent-456 --verbose',
       ],
     },
     sparc: {
-      name: 'claude-flow sparc',
+      name: 'auggie-flow sparc',
       description: 'Execute SPARC development modes',
-      usage: 'claude-flow sparc <mode> [task] [options]',
+      usage: 'auggie-flow sparc <mode> [task] [options]',
       commands: [
         { name: 'spec', description: 'Specification mode - Requirements analysis' },
         { name: 'architect', description: 'Architecture mode - System design' },
@@ -748,16 +748,16 @@ export function getStandardizedCommandHelp(command) {
         },
       ],
       examples: [
-        'claude-flow sparc spec "User authentication system"',
-        'claude-flow sparc tdd "Payment processing module"',
-        'claude-flow sparc architect "Microservices architecture"',
-        'claude-flow sparc modes',
+        'auggie-flow sparc spec "User authentication system"',
+        'auggie-flow sparc tdd "Payment processing module"',
+        'auggie-flow sparc architect "Microservices architecture"',
+        'auggie-flow sparc modes',
       ],
     },
     memory: {
-      name: 'claude-flow memory',
+      name: 'auggie-flow memory',
       description: 'Manage persistent memory operations',
-      usage: 'claude-flow memory <action> [key] [value] [options]',
+      usage: 'auggie-flow memory <action> [key] [value] [options]',
       commands: [
         { name: 'store', description: 'Store data in memory' },
         { name: 'query', description: 'Search memory by pattern' },
@@ -787,10 +787,10 @@ export function getStandardizedCommandHelp(command) {
         },
       ],
       examples: [
-        'claude-flow memory store "api_design" "REST endpoints specification"',
-        'claude-flow memory query "authentication"',
-        'claude-flow memory export backup.json',
-        'claude-flow memory list --namespace project',
+        'auggie-flow memory store "api_design" "REST endpoints specification"',
+        'auggie-flow memory query "authentication"',
+        'auggie-flow memory export backup.json',
+        'auggie-flow memory list --namespace project',
       ],
     },
   };
@@ -799,8 +799,8 @@ export function getStandardizedCommandHelp(command) {
   if (!config) {
     return HelpFormatter.formatError(
       `Unknown command: ${command}`,
-      'claude-flow',
-      'claude-flow <command> --help',
+      'auggie-flow',
+      'auggie-flow <command> --help',
     );
   }
 
@@ -815,11 +815,11 @@ export function getMainHelp(plain = false) {
 
   // Return plain standardized format when requested
   const helpInfo = {
-    name: 'claude-flow',
+    name: 'auggie-flow',
     description: 'Advanced AI agent orchestration system',
-    usage: `claude-flow <command> [<args>] [options]
-    claude-flow <command> --help
-    claude-flow --version`,
+    usage: `auggie-flow <command> [<args>] [options]
+    auggie-flow <command> --help
+    auggie-flow --version`,
     commands: [
       {
         name: 'hive-mind',
@@ -828,7 +828,7 @@ export function getMainHelp(plain = false) {
       },
       {
         name: 'init',
-        description: 'Initialize Claude Flow configuration',
+        description: 'Initialize Auggie Flow configuration',
       },
       {
         name: 'start',
@@ -919,12 +919,12 @@ export function getMainHelp(plain = false) {
       },
     ],
     examples: [
-      'npx claude-flow@alpha init',
-      'claude-flow hive-mind wizard',
-      'claude-flow swarm "Build REST API"',
-      'claude-flow agent spawn researcher --name "Research Bot"',
-      'claude-flow status --json',
-      'claude-flow memory query "API design"',
+      'npx auggie-flow@alpha init',
+      'auggie-flow hive-mind wizard',
+      'auggie-flow swarm "Build REST API"',
+      'auggie-flow agent spawn researcher --name "Research Bot"',
+      'auggie-flow status --json',
+      'auggie-flow memory query "API design"',
     ],
   };
 

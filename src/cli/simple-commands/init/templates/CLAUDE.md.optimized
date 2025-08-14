@@ -1,4 +1,4 @@
-# Claude Code Configuration - SPARC Development Environment
+# Auggie Code Configuration - SPARC Development Environment
 
 ## 🚨 CRITICAL: CONCURRENT EXECUTION & FILE MANAGEMENT
 
@@ -33,15 +33,15 @@ This project uses SPARC (Specification, Pseudocode, Architecture, Refinement, Co
 ## SPARC Commands
 
 ### Core Commands
-- `npx claude-flow sparc modes` - List available modes
-- `npx claude-flow sparc run <mode> "<task>"` - Execute specific mode
-- `npx claude-flow sparc tdd "<feature>"` - Run complete TDD workflow
-- `npx claude-flow sparc info <mode>` - Get mode details
+- `npx auggie-flow sparc modes` - List available modes
+- `npx auggie-flow sparc run <mode> "<task>"` - Execute specific mode
+- `npx auggie-flow sparc tdd "<feature>"` - Run complete TDD workflow
+- `npx auggie-flow sparc info <mode>` - Get mode details
 
 ### Batchtools Commands
-- `npx claude-flow sparc batch <modes> "<task>"` - Parallel execution
-- `npx claude-flow sparc pipeline "<task>"` - Full pipeline processing
-- `npx claude-flow sparc concurrent <mode> "<tasks-file>"` - Multi-task processing
+- `npx auggie-flow sparc batch <modes> "<task>"` - Parallel execution
+- `npx auggie-flow sparc pipeline "<task>"` - Full pipeline processing
+- `npx auggie-flow sparc concurrent <mode> "<tasks-file>"` - Multi-task processing
 
 ### Build Commands
 - `npm run build` - Build project
@@ -94,9 +94,9 @@ This project uses SPARC (Specification, Pseudocode, Architecture, Refinement, Co
 ### Migration & Planning
 `migration-planner`, `swarm-init`
 
-## 🎯 Claude Code vs MCP Tools
+## 🎯 Auggie Code vs MCP Tools
 
-### Claude Code Handles ALL:
+### Auggie Code Handles ALL:
 - File operations (Read, Write, Edit, MultiEdit, Glob, Grep)
 - Code generation and programming
 - Bash commands and system operations
@@ -115,13 +115,13 @@ This project uses SPARC (Specification, Pseudocode, Architecture, Refinement, Co
 - Swarm orchestration
 - GitHub integration
 
-**KEY**: MCP coordinates, Claude Code executes.
+**KEY**: MCP coordinates, Auggie Code executes.
 
 ## 🚀 Quick Setup
 
 ```bash
-# Add Claude Flow MCP server
-claude mcp add claude-flow npx claude-flow@alpha mcp start
+# Add Auggie Flow MCP server
+claude mcp add auggie-flow npx auggie-flow@alpha mcp start
 ```
 
 ## MCP Tool Categories
@@ -147,20 +147,20 @@ claude mcp add claude-flow npx claude-flow@alpha mcp start
 
 **1️⃣ BEFORE Work:**
 ```bash
-npx claude-flow@alpha hooks pre-task --description "[task]"
-npx claude-flow@alpha hooks session-restore --session-id "swarm-[id]"
+npx auggie-flow@alpha hooks pre-task --description "[task]"
+npx auggie-flow@alpha hooks session-restore --session-id "swarm-[id]"
 ```
 
 **2️⃣ DURING Work:**
 ```bash
-npx claude-flow@alpha hooks post-edit --file "[file]" --memory-key "swarm/[agent]/[step]"
-npx claude-flow@alpha hooks notify --message "[what was done]"
+npx auggie-flow@alpha hooks post-edit --file "[file]" --memory-key "swarm/[agent]/[step]"
+npx auggie-flow@alpha hooks notify --message "[what was done]"
 ```
 
 **3️⃣ AFTER Work:**
 ```bash
-npx claude-flow@alpha hooks post-task --task-id "[task]"
-npx claude-flow@alpha hooks session-end --export-metrics true
+npx auggie-flow@alpha hooks post-task --task-id "[task]"
+npx auggie-flow@alpha hooks session-end --export-metrics true
 ```
 
 ## 🎯 Concurrent Execution Examples
@@ -257,9 +257,9 @@ Message 4: Write "file.js"
 
 ## Support
 
-- Documentation: https://github.com/ruvnet/claude-flow
-- Issues: https://github.com/ruvnet/claude-flow/issues
+- Documentation: https://github.com/ruvnet/auggie-flow
+- Issues: https://github.com/ruvnet/auggie-flow/issues
 
 ---
 
-Remember: **Claude Flow coordinates, Claude Code creates!**
+Remember: **Auggie Flow coordinates, Auggie Code creates!**

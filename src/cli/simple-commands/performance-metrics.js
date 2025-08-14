@@ -9,7 +9,7 @@ import os from 'os';
 import { performance } from 'perf_hooks';
 
 // Metrics storage path
-const METRICS_DIR = path.join(process.cwd(), '.claude-flow', 'metrics');
+const METRICS_DIR = path.join(process.cwd(), '.auggie-flow', 'metrics');
 const PERFORMANCE_FILE = path.join(METRICS_DIR, 'performance.json');
 const AGENT_METRICS_FILE = path.join(METRICS_DIR, 'agent-metrics.json');
 const TASK_METRICS_FILE = path.join(METRICS_DIR, 'task-metrics.json');
@@ -491,7 +491,7 @@ function generateHTMLReport(report) {
   return `<!DOCTYPE html>
 <html>
 <head>
-  <title>Claude Flow Performance Report - ${new Date().toISOString()}</title>
+  <title>Auggie Flow Performance Report - ${new Date().toISOString()}</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
     .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
@@ -510,7 +510,7 @@ function generateHTMLReport(report) {
 </head>
 <body>
   <div class="container">
-    <h1>Claude Flow Performance Report</h1>
+    <h1>Auggie Flow Performance Report</h1>
     <p>Generated: ${new Date().toISOString()} | Timeframe: ${report.timeframe}</p>
     
     <h2>Summary Metrics</h2>

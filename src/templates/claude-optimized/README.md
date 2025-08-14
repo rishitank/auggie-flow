@@ -1,6 +1,6 @@
 # Claude Optimized Template
 
-This directory contains the optimized Claude Code template with SPARC methodology support and batch tools integration.
+This directory contains the optimized Auggie Code template with SPARC methodology support and batch tools integration.
 
 ## Overview
 
@@ -10,7 +10,7 @@ The optimized template provides:
 - **Improved performance** with batch operations
 - **Complete SPARC methodology** support
 - **Comprehensive test suite** for validation
-- **Claude Flow integration** for orchestration
+- **Auggie Flow integration** for orchestration
 
 ## Structure
 
@@ -23,7 +23,7 @@ claude-optimized/
 └── .auggie/              # Template files (created during init)
     ├── commands/         # Slash commands
     │   ├── sparc/       # SPARC mode commands
-    │   └── ...          # Claude Flow commands
+    │   └── ...          # Auggie Flow commands
     ├── tests/           # Test suite
     │   ├── unit/        # Unit tests
     │   ├── integration/ # Integration tests
@@ -36,7 +36,7 @@ claude-optimized/
 
 ## Installation
 
-The template is automatically installed when initializing a new Claude Flow project. To manually install:
+The template is automatically installed when initializing a new Auggie Flow project. To manually install:
 
 1. Copy all files listed in `manifest.json` to your project's `.claude` directory
 2. Create the directory structure as specified
@@ -54,7 +54,7 @@ The template is automatically installed when initializing a new Claude Flow proj
 
 ### Commands
 
-- Main commands for Claude Flow integration
+- Main commands for Auggie Flow integration
 - 15 SPARC methodology mode commands
 - Each command is optimized for minimal token usage
 
@@ -84,11 +84,11 @@ The `manifest.json` file contains:
 
 ## Usage
 
-After installation, the commands are available in Claude Code:
+After installation, the commands are available in Auggie Code:
 
 - Type `/` to see all available commands
 - Use `/sparc` for SPARC methodology
-- Use `/claude-flow-*` for Claude Flow features
+- Use `/auggie-flow-*` for Auggie Flow features
 
 ## Performance Improvements
 
@@ -112,7 +112,7 @@ To update the templates:
 
 ## Requirements
 
-- Claude Code CLI installed
+- Auggie Code CLI installed
 - Node.js for test execution
 - Read/write permissions in project directory
 
@@ -122,4 +122,4 @@ For issues or questions:
 
 - Check the documentation files
 - Run the test suite for validation
-- Refer to Claude Flow documentation
+- Refer to Auggie Flow documentation

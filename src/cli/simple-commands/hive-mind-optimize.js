@@ -23,7 +23,7 @@ function showOptimizeHelp() {
 ${chalk.yellow('🔧 Hive Mind Database Optimization')}
 
 ${chalk.bold('USAGE:')}
-  claude-flow hive-mind-optimize [options]
+  auggie-flow hive-mind-optimize [options]
 
 ${chalk.bold('OPTIONS:')}
   --auto              Run optimization without prompts
@@ -38,16 +38,16 @@ ${chalk.bold('OPTIONS:')}
 
 ${chalk.bold('EXAMPLES:')}
   ${chalk.gray('# Interactive optimization')}
-  claude-flow hive-mind-optimize
+  auggie-flow hive-mind-optimize
 
   ${chalk.gray('# Auto-optimize with all features')}
-  claude-flow hive-mind-optimize --auto --vacuum --clean-memory --archive-tasks
+  auggie-flow hive-mind-optimize --auto --vacuum --clean-memory --archive-tasks
 
   ${chalk.gray('# Generate report only')}
-  claude-flow hive-mind-optimize --report
+  auggie-flow hive-mind-optimize --report
 
   ${chalk.gray('# Custom retention periods')}
-  claude-flow hive-mind-optimize --clean-memory --memory-days 60 --task-days 14
+  auggie-flow hive-mind-optimize --clean-memory --memory-days 60 --task-days 14
 
 ${chalk.bold('FEATURES:')}
   ${chalk.cyan('🚀')} Performance indexes for faster queries
@@ -81,7 +81,7 @@ export async function hiveMindOptimizeCommand(args, flags) {
 
   if (!existsSync(dbPath)) {
     console.error(chalk.red('Error: Hive Mind database not found'));
-    console.log('Run "claude-flow hive-mind init" first');
+    console.log('Run "auggie-flow hive-mind init" first');
     exit(1);
   }
 
@@ -270,9 +270,9 @@ async function runOptimization(dbPath, options) {
 
   // Show tips
   console.log(chalk.bold('💡 Tips:'));
-  console.log('  • Monitor performance with: claude-flow hive-mind metrics');
-  console.log('  • Schedule regular maintenance: claude-flow hive-mind-optimize --auto');
-  console.log('  • Check swarm status: claude-flow hive-mind status');
+  console.log('  • Monitor performance with: auggie-flow hive-mind metrics');
+  console.log('  • Schedule regular maintenance: auggie-flow hive-mind-optimize --auto');
+  console.log('  • Check swarm status: auggie-flow hive-mind status');
 }
 
 /**
@@ -309,7 +309,7 @@ async function generateReport(dbPath) {
     console.log(chalk.green('  ✓ Database is fully optimized'));
   } else {
     console.log(chalk.yellow(`  ⚠ Can be upgraded from v${report.schemaVersion} to v1.5`));
-    console.log(chalk.gray('    Run: claude-flow hive-mind-optimize'));
+    console.log(chalk.gray('    Run: auggie-flow hive-mind-optimize'));
   }
 
   // Check for large tables

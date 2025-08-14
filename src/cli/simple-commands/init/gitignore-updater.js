@@ -1,21 +1,21 @@
 /**
- * GitIgnore updater for Claude Flow initialization
- * Ensures Claude Flow generated files are properly ignored
+ * GitIgnore updater for Auggie Flow initialization
+ * Ensures Auggie Flow generated files are properly ignored
  */
 
 import { existsSync, readTextFile, writeTextFile } from '../../node-compat.js';
 
 /**
- * Default gitignore entries for Claude Flow
+ * Default gitignore entries for Auggie Flow
  */
 const AUGGIE_FLOW_GITIGNORE_ENTRIES = `
-# Claude Flow generated files
+# Auggie Flow generated files
 .auggie/settings.local.json
 .mcp.json
-claude-flow.config.json
+auggie-flow.config.json
 .swarm/
 .hive-mind/
-memory/claude-flow-data.json
+memory/auggie-flow-data.json
 memory/sessions/*
 !memory/sessions/README.md
 memory/agents/*
@@ -29,14 +29,14 @@ coordination/orchestration/*
 *.sqlite
 *.sqlite-journal
 *.sqlite-wal
-claude-flow
-claude-flow.bat
-claude-flow.ps1
+auggie-flow
+auggie-flow.bat
+auggie-flow.ps1
 hive-mind-prompt-*.txt
 `;
 
 /**
- * Update or create .gitignore with Claude Flow entries
+ * Update or create .gitignore with Auggie Flow entries
  * @param {string} workingDir - The working directory
  * @param {boolean} force - Whether to force update even if entries exist
  * @param {boolean} dryRun - Whether to run in dry-run mode
@@ -55,19 +55,19 @@ export async function updateGitignore(workingDir, force = false, dryRun = false)
       gitignoreContent = await readTextFile(gitignorePath);
     }
 
-    // Check if Claude Flow section already exists
-    const claudeFlowMarker = '# Claude Flow generated files';
+    // Check if Auggie Flow section already exists
+    const claudeFlowMarker = '# Auggie Flow generated files';
     if (gitignoreContent.includes(claudeFlowMarker) && !force) {
       return {
         success: true,
-        message: '.gitignore already contains Claude Flow entries',
+        message: '.gitignore already contains Auggie Flow entries',
       };
     }
 
     // Prepare the new content
     let newContent = gitignoreContent;
 
-    // Remove existing Claude Flow section if force updating
+    // Remove existing Auggie Flow section if force updating
     if (force && gitignoreContent.includes(claudeFlowMarker)) {
       const startIndex = gitignoreContent.indexOf(claudeFlowMarker);
       const endIndex = gitignoreContent.indexOf('\n# ', startIndex + 1);
@@ -75,12 +75,12 @@ export async function updateGitignore(workingDir, force = false, dryRun = false)
         newContent =
           gitignoreContent.substring(0, startIndex) + gitignoreContent.substring(endIndex);
       } else {
-        // Claude Flow section is at the end
+        // Auggie Flow section is at the end
         newContent = gitignoreContent.substring(0, startIndex);
       }
     }
 
-    // Add Claude Flow entries
+    // Add Auggie Flow entries
     if (!newContent.endsWith('\n') && newContent.length > 0) {
       newContent += '\n';
     }
@@ -95,8 +95,8 @@ export async function updateGitignore(workingDir, force = false, dryRun = false)
       success: true,
       message: fileExists
         ? (dryRun ? '[DRY RUN] Would update' : 'Updated') +
-          ' existing .gitignore with Claude Flow entries'
-        : (dryRun ? '[DRY RUN] Would create' : 'Created') + ' .gitignore with Claude Flow entries',
+          ' existing .gitignore with Auggie Flow entries'
+        : (dryRun ? '[DRY RUN] Would create' : 'Created') + ' .gitignore with Auggie Flow entries',
     };
   } catch (error) {
     return {
@@ -120,7 +120,7 @@ export async function needsGitignoreUpdate(workingDir) {
 
   try {
     const content = await readTextFile(gitignorePath);
-    return !content.includes('# Claude Flow generated files');
+    return !content.includes('# Auggie Flow generated files');
   } catch {
     return true;
   }

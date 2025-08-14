@@ -468,10 +468,10 @@ Quality Metrics:
 #### Performance Alerts
 ```bash
 # Set up monitoring alerts
-./claude-flow monitor set-alert response-time --threshold 15s
-./claude-flow monitor set-alert quality-score --threshold 80
-./claude-flow monitor set-alert token-usage --threshold 5000
-./claude-flow monitor set-alert error-rate --threshold 5%
+./auggie-flow monitor set-alert response-time --threshold 15s
+./auggie-flow monitor set-alert quality-score --threshold 80
+./auggie-flow monitor set-alert token-usage --threshold 5000
+./auggie-flow monitor set-alert error-rate --threshold 5%
 ```
 
 ### Continuous Improvement
@@ -479,18 +479,18 @@ Quality Metrics:
 #### A/B Testing Framework
 ```bash
 # Test new optimizations
-./claude-flow experiment create prompt-optimization-v2
-./claude-flow experiment assign 50% standard 50% optimized
-./claude-flow experiment monitor --duration 7d
-./claude-flow experiment analyze --metrics "response-time,quality,tokens"
+./auggie-flow experiment create prompt-optimization-v2
+./auggie-flow experiment assign 50% standard 50% optimized
+./auggie-flow experiment monitor --duration 7d
+./auggie-flow experiment analyze --metrics "response-time,quality,tokens"
 ```
 
 #### Performance Regression Detection
 ```bash
 # Automated performance testing
-./claude-flow test performance --baseline v1.0 --compare current
-./claude-flow benchmark run --tasks standard-suite --iterations 100
-./claude-flow performance report --format detailed
+./auggie-flow test performance --baseline v1.0 --compare current
+./auggie-flow benchmark run --tasks standard-suite --iterations 100
+./auggie-flow performance report --format detailed
 ```
 
 ## Recommendations

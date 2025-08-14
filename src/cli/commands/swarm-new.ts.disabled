@@ -15,10 +15,10 @@ import { spawn, execSync } from 'child_process';
 import * as readline from 'readline';
 
 async function launchClaudeCodeWithSwarm(objective: string, options: any): Promise<void> {
-  console.log('\n🤖 Launching Claude Code with swarm configuration...\n');
+  console.log('\n🤖 Launching Auggie Code with swarm configuration...\n');
   
   // Build the swarm prompt with interactive approval if requested
-  let swarmPrompt = `You are orchestrating a Claude Flow Swarm with advanced MCP tool coordination.
+  let swarmPrompt = `You are orchestrating a Auggie Flow Swarm with advanced MCP tool coordination.
 
 🎯 OBJECTIVE: ${objective}
 
@@ -475,7 +475,7 @@ export async function swarmAction(ctx: CommandContext) {
   const isJsonOutput = options.outputFormat === 'json';
   const isNonInteractive = isJsonOutput || options.noInteractive;
   
-  // For JSON output, force executor mode since Claude Code doesn't return structured JSON
+  // For JSON output, force executor mode since Auggie Code doesn't return structured JSON
   if (isJsonOutput && !options.executor) {
     options.executor = true;
     options.claude = false;
@@ -492,7 +492,7 @@ export async function swarmAction(ctx: CommandContext) {
     return;
   }
   
-  // If claude flag is set (or not executor flag), launch Claude Code with swarm prompt
+  // If claude flag is set (or not executor flag), launch Auggie Code with swarm prompt
   if (options.claude || !options.executor) {
     await launchClaudeCodeWithSwarm(objective, options);
     return;
@@ -616,7 +616,7 @@ export async function swarmAction(ctx: CommandContext) {
     await memory.initialize();
     
     // Create a directory for this swarm run
-    const swarmDir = `.claude-flow/swarm-runs/${swarmId}`;
+    const swarmDir = `.auggie-flow/swarm-runs/${swarmId}`;
     await fs.mkdir(swarmDir, { recursive: true });
 
     // Create objective
@@ -779,7 +779,7 @@ export async function swarmAction(ctx: CommandContext) {
       // Background mode requested - launch in background
       console.log(`\n🌙 Launching swarm in background mode...`);
       console.log(`📁 Results will be saved to: ${swarmDir}`);
-      console.log(`📊 Monitor progress: claude-flow swarm status ${swarmId}`);
+      console.log(`📊 Monitor progress: auggie-flow swarm status ${swarmId}`);
       
       // Save initial state for background monitoring
       await fs.writeFile(`${swarmDir}/background.json`, JSON.stringify({
@@ -793,7 +793,7 @@ export async function swarmAction(ctx: CommandContext) {
       // Use the swarm-background script
       const scriptPath = new URL(import.meta.url).pathname;
       const projectRoot = scriptPath.substring(0, scriptPath.indexOf('/src/'));
-      const bgScriptPath = `${projectRoot}/bin/claude-flow-swarm-background`;
+      const bgScriptPath = `${projectRoot}/bin/auggie-flow-swarm-background`;
       
       const bgCommand = new Deno.Command(bgScriptPath, {
         args: [objective, ...buildBackgroundArgs(options)],
@@ -881,7 +881,7 @@ function parseSwarmOptions(flags: any) {
     ui: flags.ui || false,
     dryRun: flags.dryRun || flags['dry-run'] || flags.d || false,
     
-    // Claude Code options
+    // Auggie Code options
     claude: flags.claude || false,
     executor: flags.executor || false,
     
@@ -1482,17 +1482,17 @@ function showDryRunConfiguration(swarmId: string, objective: string, options: an
 
 function showSwarmHelp(): void {
   console.log(`
-🐝 Claude Flow Advanced Swarm System
+🐝 Auggie Flow Advanced Swarm System
 
 USAGE:
-  claude-flow swarm <objective> [options]
+  auggie-flow swarm <objective> [options]
 
 EXAMPLES:
-  claude-flow swarm "Build a REST API" --strategy development
-  claude-flow swarm "Research cloud architecture" --strategy research --ui
-  claude-flow swarm "Analyze data trends" --strategy analysis --parallel
-  claude-flow swarm "Optimize performance" --distributed --monitor
-  claude-flow swarm "Create GitHub issues for bugs" --interactive --reviewer @username
+  auggie-flow swarm "Build a REST API" --strategy development
+  auggie-flow swarm "Research cloud architecture" --strategy research --ui
+  auggie-flow swarm "Analyze data trends" --strategy analysis --parallel
+  auggie-flow swarm "Optimize performance" --distributed --monitor
+  auggie-flow swarm "Create GitHub issues for bugs" --interactive --reviewer @username
 
 STRATEGIES:
   auto           Automatically determine best approach (default)
@@ -1551,7 +1551,7 @@ ADVANCED OPTIONS:
   --fault-tolerance <strategy>   Fault tolerance approach
   --quality-threshold <n>        Quality threshold (0-1)
 
-For more information, see: https://github.com/ruvnet/claude-flow
+For more information, see: https://github.com/ruvnet/auggie-flow
 `);
 }
 

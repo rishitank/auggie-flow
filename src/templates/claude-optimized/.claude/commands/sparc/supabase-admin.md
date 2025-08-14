@@ -146,16 +146,16 @@ wait
 
 ```bash
 # 1. Parallel schema creation
-npx claude-flow sparc run supabase-admin-optimized "create all tables"
+npx auggie-flow sparc run supabase-admin-optimized "create all tables"
 
 # 2. Concurrent RLS implementation
-npx claude-flow sparc run supabase-admin-optimized "apply all RLS policies"
+npx auggie-flow sparc run supabase-admin-optimized "apply all RLS policies"
 
 # 3. Batch index creation
-npx claude-flow sparc run supabase-admin-optimized "optimize with indexes"
+npx auggie-flow sparc run supabase-admin-optimized "optimize with indexes"
 
 # 4. Parallel function deployment
-npx claude-flow sparc run supabase-admin-optimized "deploy all functions"
+npx auggie-flow sparc run supabase-admin-optimized "deploy all functions"
 ```
 
 ### Monitoring and Maintenance:
@@ -225,7 +225,7 @@ COMMIT;
 
 To use this optimized SPARC mode:
 
-1. Run directly: `npx claude-flow sparc run supabase-admin-optimized "your task"`
+1. Run directly: `npx auggie-flow sparc run supabase-admin-optimized "your task"`
 2. Use in workflow: Include `supabase-admin-optimized` in your SPARC workflow
 3. Delegate tasks: Use `new_task` to assign work to this mode
 
@@ -233,8 +233,8 @@ To use this optimized SPARC mode:
 
 ```bash
 # Set up complete database schema with optimization
-npx claude-flow sparc run supabase-admin-optimized "implement complete e-commerce database"
+npx auggie-flow sparc run supabase-admin-optimized "implement complete e-commerce database"
 
 # Batch security implementation
-npx claude-flow sparc run supabase-admin-optimized "apply RLS to all tables"
+npx auggie-flow sparc run supabase-admin-optimized "apply RLS to all tables"
 ```

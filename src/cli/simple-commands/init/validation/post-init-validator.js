@@ -21,10 +21,10 @@ export class PostInitValidator {
       { path: 'CLAUDE.md', minSize: 100 },
       { path: 'memory-bank.md', minSize: 50 },
       { path: 'coordination.md', minSize: 50 },
-      { path: 'memory/claude-flow-data.json', minSize: 10 },
+      { path: 'memory/auggie-flow-data.json', minSize: 10 },
       { path: 'memory/agents/README.md', minSize: 10 },
       { path: 'memory/sessions/README.md', minSize: 10 },
-      { path: 'claude-flow', minSize: 50, executable: true },
+      { path: 'auggie-flow', minSize: 50, executable: true },
     ];
 
     for (const file of expectedFiles) {
@@ -212,7 +212,7 @@ export class PostInitValidator {
       { path: 'CLAUDE.md', type: 'file', requiredMode: 0o644 },
       { path: 'memory-bank.md', type: 'file', requiredMode: 0o644 },
       { path: 'coordination.md', type: 'file', requiredMode: 0o644 },
-      { path: 'claude-flow', type: 'file', requiredMode: 0o755 },
+      { path: 'auggie-flow', type: 'file', requiredMode: 0o755 },
       { path: 'memory', type: 'dir', requiredMode: 0o755 },
       { path: 'coordination', type: 'dir', requiredMode: 0o755 },
       { path: '.claude', type: 'dir', requiredMode: 0o755 },
@@ -262,7 +262,7 @@ export class PostInitValidator {
     };
 
     const expectedDirs = ['agents', 'sessions'];
-    const expectedFiles = ['claude-flow-data.json', 'agents/README.md', 'sessions/README.md'];
+    const expectedFiles = ['auggie-flow-data.json', 'agents/README.md', 'sessions/README.md'];
 
     for (const dir of expectedDirs) {
       try {

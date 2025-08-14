@@ -15,11 +15,11 @@ When a hive-mind swarm is spawned, a SIGINT handler is registered to:
 - Provide clear instructions for resuming the session
 - Clean up any running processes gracefully
 
-### 2. Claude Code Process Management
+### 2. Auggie Code Process Management
 
-When Claude Code instances are spawned with `--claude` flag:
+When Auggie Code instances are spawned with `--claude` flag:
 - Child process PIDs are tracked in the session
-- SIGINT handler terminates Claude Code processes gracefully
+- SIGINT handler terminates Auggie Code processes gracefully
 - Session is paused with checkpoint data including Claude PID
 - Child PIDs are removed from session tracking on exit
 
@@ -51,7 +51,7 @@ const checkpointData = {
 ✓ Session paused successfully
 
 To resume this session, run:
-  claude-flow hive-mind resume session-1234567890-abc123
+  auggie-flow hive-mind resume session-1234567890-abc123
 ```
 
 ### Process Tracking
@@ -64,10 +64,10 @@ To resume this session, run:
 ### Basic Usage
 ```bash
 # Start a hive-mind session
-$ claude-flow hive-mind spawn "Build a REST API"
+$ auggie-flow hive-mind spawn "Build a REST API"
 ✓ Swarm is ready for coordination
 💡 To pause: Press Ctrl+C to safely pause and resume later
-💡 To resume: claude-flow hive-mind resume session-123
+💡 To resume: auggie-flow hive-mind resume session-123
 
 # Press Ctrl+C
 ^C
@@ -75,22 +75,22 @@ $ claude-flow hive-mind spawn "Build a REST API"
 ✓ Session paused successfully
 
 To resume this session, run:
-  claude-flow hive-mind resume session-123
+  auggie-flow hive-mind resume session-123
 ```
 
-### With Claude Code Integration
+### With Auggie Code Integration
 ```bash
-# Start with Claude Code
-$ claude-flow hive-mind spawn "Research AI trends" --claude
-✓ Claude Code launched with Hive Mind coordination
+# Start with Auggie Code
+$ auggie-flow hive-mind spawn "Research AI trends" --claude
+✓ Auggie Code launched with Hive Mind coordination
 
 # Press Ctrl+C
 ^C
-⏸️  Pausing session and terminating Claude Code...
+⏸️  Pausing session and terminating Auggie Code...
 ✓ Session paused successfully
 
 To resume this session, run:
-  claude-flow hive-mind resume session-123
+  auggie-flow hive-mind resume session-123
 ```
 
 ## Technical Implementation
@@ -118,7 +118,7 @@ To resume this session, run:
 Test coverage includes:
 1. Basic SIGINT handling during spawn
 2. Checkpoint creation verification
-3. Claude Code process termination
+3. Auggie Code process termination
 4. Session state verification in database
 5. Resume functionality after pause
 

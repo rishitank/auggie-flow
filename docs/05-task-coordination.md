@@ -11,13 +11,13 @@ Information gathering and analysis tasks for knowledge acquisition.
 **Basic Research Task:**
 ```bash
 # Simple research task
-claude-flow task create research "Analyze competitor AI development tools" \
+auggie-flow task create research "Analyze competitor AI development tools" \
   --priority high \
   --estimated-duration 2h \
   --required-capabilities "web-research,analysis"
 
 # Comprehensive research with parameters
-claude-flow task create research "Market analysis for AI development platforms" \
+auggie-flow task create research "Market analysis for AI development platforms" \
   --scope "global" \
   --depth "comprehensive" \
   --sources "academic,industry,competitor" \
@@ -57,14 +57,14 @@ Code development and technical implementation tasks.
 **Basic Implementation:**
 ```bash
 # API development task
-claude-flow task create implementation "Develop user authentication API" \
+auggie-flow task create implementation "Develop user authentication API" \
   --language "python" \
   --framework "fastapi" \
   --testing-required true \
   --dependencies "database-design,security-requirements"
 
 # Frontend implementation
-claude-flow task create implementation "Build responsive dashboard UI" \
+auggie-flow task create implementation "Build responsive dashboard UI" \
   --tech-stack "react,typescript,tailwind" \
   --features "real-time-updates,mobile-responsive,accessibility" \
   --testing "unit,integration,e2e"
@@ -73,7 +73,7 @@ claude-flow task create implementation "Build responsive dashboard UI" \
 **Complex Implementation with Subtasks:**
 ```bash
 # Microservices platform
-claude-flow task create implementation "Build e-commerce microservices platform" \
+auggie-flow task create implementation "Build e-commerce microservices platform" \
   --architecture "microservices" \
   --subtasks "user-service,product-service,order-service,payment-service" \
   --tech-stack "nodejs,postgresql,redis,docker,kubernetes" \
@@ -118,14 +118,14 @@ Data analysis, pattern recognition, and insights generation.
 **Data Analysis:**
 ```bash
 # User behavior analysis
-claude-flow task create analysis "Analyze user behavior patterns" \
+auggie-flow task create analysis "Analyze user behavior patterns" \
   --data-source "user-logs-2024.csv" \
   --analysis-type "behavioral,predictive" \
   --output-format "dashboard,report" \
   --tools "pandas,matplotlib,seaborn,jupyter"
 
 # Performance analysis
-claude-flow task create analysis "System performance optimization analysis" \
+auggie-flow task create analysis "System performance optimization analysis" \
   --metrics "response-time,throughput,resource-usage,error-rates" \
   --baseline "current-performance.json" \
   --target-improvement "30%" \
@@ -162,14 +162,14 @@ Planning, orchestration, and project management tasks.
 **Project Coordination:**
 ```bash
 # Project planning
-claude-flow task create coordination "Plan Q2 product development roadmap" \
+auggie-flow task create coordination "Plan Q2 product development roadmap" \
   --timeline "3-months" \
   --stakeholders "engineering,product,design,marketing" \
   --deliverables "roadmap,resource-plan,milestone-schedule" \
   --methodology "agile"
 
 # Team coordination
-claude-flow task create coordination "Coordinate multi-team sprint execution" \
+auggie-flow task create coordination "Coordinate multi-team sprint execution" \
   --teams "frontend,backend,qa,devops" \
   --sprint-duration "2-weeks" \
   --synchronization-points "daily-standup,weekly-review,retrospective"
@@ -215,29 +215,29 @@ Claude-Flow supports 5 priority levels with sophisticated scheduling algorithms.
 **Priority Configuration:**
 ```bash
 # Critical priority (level 1) - immediate execution
-claude-flow task create implementation "Fix security vulnerability CVE-2024-001" \
+auggie-flow task create implementation "Fix security vulnerability CVE-2024-001" \
   --priority critical \
   --max-delay 2h \
   --interrupt-lower-priority
 
 # High priority (level 2) - preferential scheduling
-claude-flow task create research "Customer requirements for Q1 release" \
+auggie-flow task create research "Customer requirements for Q1 release" \
   --priority high \
   --deadline "2024-12-31T23:59:59Z" \
   --escalation-policy "auto-escalate"
 
 # Normal priority (level 3) - default scheduling
-claude-flow task create analysis "Monthly performance metrics analysis" \
+auggie-flow task create analysis "Monthly performance metrics analysis" \
   --priority normal \
   --schedule-after "first-week-of-month"
 
 # Low priority (level 4) - scheduled during low-load
-claude-flow task create documentation "Update API documentation" \
+auggie-flow task create documentation "Update API documentation" \
   --priority low \
   --execute-during "low-usage-hours"
 
 # Background priority (level 5) - opportunistic execution
-claude-flow task create maintenance "Clean up old log files and temporary data" \
+auggie-flow task create maintenance "Clean up old log files and temporary data" \
   --priority background \
   --execute-when "system-idle" \
   --resource-limit "minimal"
@@ -248,19 +248,19 @@ claude-flow task create maintenance "Clean up old log files and temporary data" 
 **Time-Based Scheduling:**
 ```bash
 # Schedule for specific time
-claude-flow task create research "Weekly market analysis report" \
+auggie-flow task create research "Weekly market analysis report" \
   --schedule "every-monday-09:00" \
   --timezone "America/New_York" \
   --recurrence "weekly"
 
 # Delayed execution
-claude-flow task create deployment "Deploy to production environment" \
+auggie-flow task create deployment "Deploy to production environment" \
   --delay 24h \
   --dependencies "testing-complete,security-review-approved" \
   --confirmation-required
 
 # Deadline-driven scheduling
-claude-flow task create analysis "Quarterly business review analysis" \
+auggie-flow task create analysis "Quarterly business review analysis" \
   --deadline "2024-12-20T17:00:00Z" \
   --notify-before "2h,24h,1w" \
   --auto-prioritize-near-deadline
@@ -269,13 +269,13 @@ claude-flow task create analysis "Quarterly business review analysis" \
 **Resource-Based Scheduling:**
 ```bash
 # Schedule based on resource availability
-claude-flow task create implementation "Heavy computation task" \
+auggie-flow task create implementation "Heavy computation task" \
   --require-resources "cpu:8-cores,memory:16GB,gpu:1" \
   --schedule-when-available \
   --max-wait-time "4h"
 
 # Load-balanced scheduling
-claude-flow task create analysis "Large dataset processing" \
+auggie-flow task create analysis "Large dataset processing" \
   --distribute-load \
   --parallel-subtasks 4 \
   --load-balance-strategy "capability-based"
@@ -288,15 +288,15 @@ claude-flow task create analysis "Large dataset processing" \
 **Linear Dependencies:**
 ```bash
 # Single dependency
-claude-flow task create implementation "Develop frontend components" \
+auggie-flow task create implementation "Develop frontend components" \
   --dependencies "api-specification-complete"
 
 # Multiple dependencies
-claude-flow task create deployment "Deploy to production" \
+auggie-flow task create deployment "Deploy to production" \
   --dependencies "frontend-complete,backend-complete,testing-complete,security-audit-passed"
 
 # Dependency with conditions
-claude-flow task create integration "Integrate payment system" \
+auggie-flow task create integration "Integrate payment system" \
   --dependencies "payment-provider-approval:status=approved,security-review:score>=95"
 ```
 
@@ -305,26 +305,26 @@ claude-flow task create integration "Integrate payment system" \
 **Dependency Chain Creation:**
 ```bash
 # Create dependency chain with IDs
-claude-flow task create research "Market research" --id market-research-001
-claude-flow task create analysis "Analyze research findings" --id analysis-001 \
+auggie-flow task create research "Market research" --id market-research-001
+auggie-flow task create analysis "Analyze research findings" --id analysis-001 \
   --dependencies "market-research-001"
-claude-flow task create implementation "Develop product features" --id implementation-001 \
+auggie-flow task create implementation "Develop product features" --id implementation-001 \
   --dependencies "analysis-001"
-claude-flow task create coordination "Launch planning" --id launch-planning-001 \
+auggie-flow task create coordination "Launch planning" --id launch-planning-001 \
   --dependencies "implementation-001"
 
 # Visualize dependency graph
-claude-flow task dependencies --graph --output dependency-graph.png --format svg
+auggie-flow task dependencies --graph --output dependency-graph.png --format svg
 ```
 
 **Parallel Dependencies:**
 ```bash
 # Parallel execution with synchronization points
-claude-flow task create implementation "Backend API development" --id backend-api
-claude-flow task create implementation "Frontend UI development" --id frontend-ui
-claude-flow task create implementation "Database schema design" --id database-schema
+auggie-flow task create implementation "Backend API development" --id backend-api
+auggie-flow task create implementation "Frontend UI development" --id frontend-ui
+auggie-flow task create implementation "Database schema design" --id database-schema
 
-claude-flow task create integration "System integration testing" \
+auggie-flow task create integration "System integration testing" \
   --dependencies "backend-api,frontend-ui,database-schema" \
   --parallel-until-sync true
 ```
@@ -366,15 +366,15 @@ claude-flow task create integration "System integration testing" \
 **Basic Development Workflow:**
 ```bash
 # Create workflow from file
-claude-flow task workflow create --file simple-dev-workflow.json --name "Standard Development Process"
+auggie-flow task workflow create --file simple-dev-workflow.json --name "Standard Development Process"
 
 # Monitor workflow execution
-claude-flow task workflow status <workflow-id> --detailed
+auggie-flow task workflow status <workflow-id> --detailed
 
 # Control workflow execution
-claude-flow task workflow pause <workflow-id> --reason "awaiting-stakeholder-approval"
-claude-flow task workflow resume <workflow-id>
-claude-flow task workflow abort <workflow-id> --save-progress
+auggie-flow task workflow pause <workflow-id> --reason "awaiting-stakeholder-approval"
+auggie-flow task workflow resume <workflow-id>
+auggie-flow task workflow abort <workflow-id> --save-progress
 ```
 
 **simple-dev-workflow.json:**
@@ -678,7 +678,7 @@ claude-flow task workflow abort <workflow-id> --save-progress
 **Event-Driven Workflow Setup:**
 ```bash
 # Set up event-driven CI/CD pipeline
-claude-flow workflow event-driven create "ci-cd-pipeline" \
+auggie-flow workflow event-driven create "ci-cd-pipeline" \
   --triggers "git-push,pr-created,tag-released,schedule:daily" \
   --handlers event-handlers.json \
   --conditions workflow-conditions.json
@@ -736,13 +736,13 @@ claude-flow workflow event-driven create "ci-cd-pipeline" \
 **Template Definition:**
 ```bash
 # Create reusable template
-claude-flow workflow template create "microservice-development" \
+auggie-flow workflow template create "microservice-development" \
   --description "Standard microservice development workflow" \
   --parameters "service-name,tech-stack,deployment-target" \
   --file microservice-template.json
 
 # Publish to template registry
-claude-flow workflow template publish "microservice-development" \
+auggie-flow workflow template publish "microservice-development" \
   --registry "company-templates" \
   --version "2.1.0" \
   --tags "microservice,development,standard"
@@ -813,16 +813,16 @@ claude-flow workflow template publish "microservice-development" \
 **Generate Workflow from Template:**
 ```bash
 # Use template with parameters
-claude-flow workflow generate \
+auggie-flow workflow generate \
   --template "microservice-development" \
   --parameters "service_name:user-service,tech_stack:python,deployment_target:kubernetes" \
   --name "User Service Development"
 
 # Interactive template usage
-claude-flow workflow generate-interactive "microservice-development"
+auggie-flow workflow generate-interactive "microservice-development"
 
 # Customize template before generation
-claude-flow workflow customize-template "microservice-development" \
+auggie-flow workflow customize-template "microservice-development" \
   --modifications template-modifications.json \
   --output custom-workflow.json
 ```
@@ -834,15 +834,15 @@ claude-flow workflow customize-template "microservice-development" \
 **Comprehensive Task Monitoring:**
 ```bash
 # Monitor all tasks with live dashboard
-claude-flow task monitor --all --dashboard --refresh 2s
+auggie-flow task monitor --all --dashboard --refresh 2s
 
 # Monitor specific workflow
-claude-flow task workflow monitor <workflow-id> \
+auggie-flow task workflow monitor <workflow-id> \
   --metrics "progress,performance,resources" \
   --alerts "delays,failures,bottlenecks"
 
 # Monitor by criteria
-claude-flow task monitor \
+auggie-flow task monitor \
   --type implementation \
   --status "running,pending" \
   --priority "high,critical" \
@@ -852,18 +852,18 @@ claude-flow task monitor \
 **Performance Analytics:**
 ```bash
 # Task performance analysis
-claude-flow task analytics performance \
+auggie-flow task analytics performance \
   --time-range "30d" \
   --metrics "completion-time,resource-usage,success-rate" \
   --group-by "type,priority,agent"
 
 # Bottleneck analysis
-claude-flow task analytics bottlenecks \
+auggie-flow task analytics bottlenecks \
   --workflow-id <workflow-id> \
   --recommendations true
 
 # Productivity metrics
-claude-flow task analytics productivity \
+auggie-flow task analytics productivity \
   --agents "all" \
   --period "weekly" \
   --trending true
@@ -874,25 +874,25 @@ claude-flow task analytics productivity \
 **Individual Task Control:**
 ```bash
 # Pause task with reason
-claude-flow task pause <task-id> \
+auggie-flow task pause <task-id> \
   --reason "awaiting-external-dependency" \
   --estimated-delay "2h"
 
 # Resume paused task
-claude-flow task resume <task-id> \
+auggie-flow task resume <task-id> \
   --priority-adjustment "+1"
 
 # Reschedule task
-claude-flow task reschedule <task-id> \
+auggie-flow task reschedule <task-id> \
   --new-time "2024-12-20T14:00:00Z" \
   --reason "resource-conflict"
 
 # Change task priority
-claude-flow task priority <task-id> --priority critical \
+auggie-flow task priority <task-id> --priority critical \
   --justification "customer-critical-issue"
 
 # Reassign task
-claude-flow task reassign <task-id> \
+auggie-flow task reassign <task-id> \
   --from "agent-1" \
   --to "agent-2" \
   --transfer-context true
@@ -901,18 +901,18 @@ claude-flow task reassign <task-id> \
 **Batch Operations:**
 ```bash
 # Batch pause by criteria
-claude-flow task batch-pause \
+auggie-flow task batch-pause \
   --type "research" \
   --assigned-to "researcher-team" \
   --reason "team-meeting"
 
 # Batch priority update
-claude-flow task batch-update \
+auggie-flow task batch-update \
   --filter "status:pending,created_after:2024-12-01" \
   --set "priority:high,deadline:2024-12-25"
 
 # Bulk reassignment
-claude-flow task bulk-reassign \
+auggie-flow task bulk-reassign \
   --from-agent "overloaded-agent" \
   --to-agents "backup-agent-1,backup-agent-2" \
   --strategy "load-balance"
@@ -925,17 +925,17 @@ claude-flow task bulk-reassign \
 **Task Queue Optimization:**
 ```bash
 # Analyze queue performance
-claude-flow task queue-analysis \
+auggie-flow task queue-analysis \
   --metrics "wait-time,throughput,utilization" \
   --recommendations true
 
 # Optimize task distribution
-claude-flow task optimize-distribution \
+auggie-flow task optimize-distribution \
   --algorithm "capability-weighted" \
   --consider-agent-performance true
 
 # Resource-aware scheduling
-claude-flow task schedule-optimize \
+auggie-flow task schedule-optimize \
   --consider-resources "cpu,memory,network" \
   --prediction-model "ml-based"
 ```
@@ -943,17 +943,17 @@ claude-flow task schedule-optimize \
 **Agent Workload Balancing:**
 ```bash
 # Monitor agent workload
-claude-flow agent workload-monitor \
+auggie-flow agent workload-monitor \
   --real-time true \
   --alert-thresholds "overload:>90%,idle:<10%"
 
 # Rebalance workload
-claude-flow task rebalance \
+auggie-flow task rebalance \
   --strategy "even-distribution" \
   --preserve-specialization true
 
 # Predictive load balancing
-claude-flow task predictive-balance \
+auggie-flow task predictive-balance \
   --forecast-horizon "4h" \
   --optimization-goal "minimize-completion-time"
 ```

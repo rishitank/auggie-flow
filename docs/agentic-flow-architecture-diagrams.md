@@ -35,14 +35,14 @@ graph TB
     end
     
     subgraph "Integration Layer"
-        CFB[Claude Flow Bridge]
+        CFB[Auggie Flow Bridge]
         MCA[MCP Adapter]
         HMA[Hive Mind Adapter]
         EXT[External APIs]
     end
     
     subgraph "Infrastructure"
-        CF[Claude Flow]
+        CF[Auggie Flow]
         MCP[MCP Server]
         HM[Hive Mind]
         DB[(Databases)]
@@ -356,7 +356,7 @@ graph LR
         TM[Task Manager]
     end
     
-    subgraph "Claude Flow Integration"
+    subgraph "Auggie Flow Integration"
         CFB[Bridge]
         CFO[Orchestrator]
         CFT[Terminal Manager]
@@ -557,7 +557,7 @@ These architectural diagrams provide a comprehensive visual representation of th
 5. **Learning & Knowledge**: Collective intelligence mechanisms
 6. **Communication Stack**: Protocol layers for agent interaction
 7. **Decision Making**: Multi-strategy reasoning process
-8. **Integration Points**: How Agentic-Flow connects with Claude Flow ecosystem
+8. **Integration Points**: How Agentic-Flow connects with Auggie Flow ecosystem
 9. **Deployment**: Production architecture for scalability
 10. **State Transitions**: Agent lifecycle and behavior states
 11. **Performance Monitoring**: Observability and metrics collection

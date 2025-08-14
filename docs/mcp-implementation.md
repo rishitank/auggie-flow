@@ -134,7 +134,7 @@ Manages tool registration, validation, and execution.
 - Error handling and reporting
 - Execution context injection
 
-### 7. Claude-Flow Tools (`src/mcp/claude-flow-tools.ts`)
+### 7. Claude-Flow Tools (`src/mcp/auggie-flow-tools.ts`)
 
 Complete set of tools exposing Claude-Flow functionality.
 
@@ -249,7 +249,7 @@ Complete set of tools exposing Claude-Flow functionality.
 
 ```bash
 # Via CLI
-claude-flow mcp-call agents/spawn '{"type": "researcher", "name": "Research Assistant"}'
+auggie-flow mcp-call agents/spawn '{"type": "researcher", "name": "Research Assistant"}'
 
 # Via HTTP
 curl -X POST http://localhost:3000/rpc \
@@ -431,17 +431,17 @@ The test suite includes:
 
 ```bash
 # Start MCP server
-claude-flow start --mcp-transport stdio
+auggie-flow start --mcp-transport stdio
 
 # Client connection
-echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{...}}' | claude-flow mcp
+echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{...}}' | auggie-flow mcp
 ```
 
 ### HTTP Mode (Web API)
 
 ```bash
 # Start HTTP server
-claude-flow start --mcp-transport http --port 3000
+auggie-flow start --mcp-transport http --port 3000
 
 # Client connection
 curl -X POST http://localhost:3000/rpc -H "Content-Type: application/json" -d '{...}'
@@ -514,7 +514,7 @@ curl http://localhost:3000/rpc -d '{"jsonrpc":"2.0","id":1,"method":"system/metr
 
 ```bash
 # Enable debug logging
-claude-flow start --log-level debug --mcp-transport http
+auggie-flow start --log-level debug --mcp-transport http
 ```
 
 ### Health Monitoring
@@ -526,7 +526,7 @@ watch -n 5 'curl -s http://localhost:3000/rpc -d "{\"jsonrpc\":\"2.0\",\"id\":1,
 
 ## Contributing
 
-1. **Add new tools** in `src/mcp/claude-flow-tools.ts`
+1. **Add new tools** in `src/mcp/auggie-flow-tools.ts`
 2. **Extend transports** by implementing `ITransport`
 3. **Add authentication methods** in `src/mcp/auth.ts`
 4. **Write comprehensive tests** for all new features

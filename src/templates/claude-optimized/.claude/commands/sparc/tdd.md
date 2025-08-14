@@ -137,14 +137,14 @@ Write failing tests first. Implement only enough code to pass. Refactor after gr
 
 To use this SPARC mode, you can:
 
-1. Run directly: `npx claude-flow sparc run tdd "your task"`
+1. Run directly: `npx auggie-flow sparc run tdd "your task"`
 2. Use in workflow: Include `tdd` in your SPARC workflow
 3. Delegate tasks: Use `new_task` to assign work to this mode
 
 ## Example
 
 ```bash
-npx claude-flow sparc run tdd "implement user authentication"
+npx auggie-flow sparc run tdd "implement user authentication"
 ```
 
 ## Batchtools TDD Examples

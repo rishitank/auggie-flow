@@ -1,6 +1,6 @@
 /**
- * Claude Flow SPARC Executor
- * Executes tasks using the full claude-flow SPARC system in non-interactive mode
+ * Auggie Flow SPARC Executor
+ * Executes tasks using the full auggie-flow SPARC system in non-interactive mode
  */
 
 import type { TaskDefinition, AgentState, TaskResult } from './types.js';
@@ -42,7 +42,7 @@ export class ClaudeFlowExecutor {
     agent: AgentState,
     targetDir?: string,
   ): Promise<TaskResult> {
-    this.logger.info('Executing task with Claude Flow SPARC', {
+    this.logger.info('Executing task with Auggie Flow SPARC', {
       taskId: task.id.id,
       taskName: task.name,
       agentType: agent.type,
@@ -83,7 +83,7 @@ export class ClaudeFlowExecutor {
         error: result.error,
       };
     } catch (error) {
-      this.logger.error('Failed to execute Claude Flow SPARC command', {
+      this.logger.error('Failed to execute Auggie Flow SPARC command', {
         error: error instanceof Error ? error.message : String(error),
         taskId: task.id.id,
       });

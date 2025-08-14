@@ -1,5 +1,5 @@
 ---
-name: claude-flow-swarm
+name: auggie-flow-swarm
 description: Coordinate multi-agent swarms with batchtools optimization for complex tasks
 ---
 
@@ -11,17 +11,17 @@ Swarm mode with batchtools enables massively parallel multi-agent coordination f
 
 ```bash
 # Traditional single swarm
-npx claude-flow swarm "your complex task" --strategy <type> [options]
+npx auggie-flow swarm "your complex task" --strategy <type> [options]
 
 # Batch swarm operations
-npx claude-flow swarm batch --tasks "frontend:dev,backend:dev,database:architect" --parallel
+npx auggie-flow swarm batch --tasks "frontend:dev,backend:dev,database:architect" --parallel
 ```
 
 ## Parallel Strategy Execution
 
 ```bash
 # Execute multiple strategies concurrently
-npx claude-flow swarm multi-strategy --config '{
+npx auggie-flow swarm multi-strategy --config '{
   "frontend": { "strategy": "development", "agents": 3 },
   "backend": { "strategy": "development", "agents": 4 },
   "testing": { "strategy": "testing", "agents": 2 },
@@ -57,7 +57,7 @@ npx claude-flow swarm multi-strategy --config '{
 
 ```bash
 # Develop multiple microservices concurrently
-npx claude-flow swarm batch-dev --services '{
+npx auggie-flow swarm batch-dev --services '{
   "auth-service": { "agents": 3, "priority": "high" },
   "user-service": { "agents": 2, "priority": "medium" },
   "order-service": { "agents": 3, "priority": "high" },
@@ -69,7 +69,7 @@ npx claude-flow swarm batch-dev --services '{
 
 ```bash
 # Parallel research across multiple domains
-npx claude-flow swarm batch-research --topics '{
+npx auggie-flow swarm batch-research --topics '{
   "market-analysis": { "sources": ["web", "apis", "databases"] },
   "competitor-research": { "sources": ["web", "reports"] },
   "technology-trends": { "sources": ["papers", "blogs", "news"] }
@@ -80,7 +80,7 @@ npx claude-flow swarm batch-research --topics '{
 
 ```bash
 # Execute comprehensive parallel testing
-npx claude-flow swarm batch-test --suites '{
+npx auggie-flow swarm batch-test --suites '{
   "unit": { "parallel": 10, "shards": 5 },
   "integration": { "parallel": 5, "environments": ["dev", "staging"] },
   "e2e": { "parallel": 3, "browsers": ["chrome", "firefox", "safari"] },
@@ -94,7 +94,7 @@ npx claude-flow swarm batch-test --suites '{
 
 ```bash
 # Create development pipeline with parallel stages
-npx claude-flow swarm pipeline --config '{
+npx auggie-flow swarm pipeline --config '{
   "stages": [
     { "name": "design", "parallel": ["api", "database", "ui"] },
     { "name": "implement", "parallel": ["services", "controllers", "models"] },
@@ -108,7 +108,7 @@ npx claude-flow swarm pipeline --config '{
 
 ```bash
 # Parallel data analysis pipeline
-npx claude-flow swarm analyze-pipeline --stages '{
+npx auggie-flow swarm analyze-pipeline --stages '{
   "collect": { "parallel": 5, "sources": ["logs", "metrics", "events"] },
   "process": { "parallel": 3, "operations": ["clean", "transform", "enrich"] },
   "analyze": { "parallel": 4, "methods": ["statistical", "ml", "pattern"] },
@@ -122,7 +122,7 @@ npx claude-flow swarm analyze-pipeline --stages '{
 
 ```bash
 # Deploy across regions in parallel
-npx claude-flow swarm deploy-multi --regions '{
+npx auggie-flow swarm deploy-multi --regions '{
   "us-east": { "services": 10, "priority": 1 },
   "eu-west": { "services": 10, "priority": 1 },
   "asia-pac": { "services": 10, "priority": 2 }
@@ -133,7 +133,7 @@ npx claude-flow swarm deploy-multi --regions '{
 
 ```bash
 # Coordinate distributed model training
-npx claude-flow swarm federated-train --nodes 20 --parallel --aggregate-method "secure"
+npx auggie-flow swarm federated-train --nodes 20 --parallel --aggregate-method "secure"
 ```
 
 ## Advanced Monitoring & Control
@@ -142,7 +142,7 @@ npx claude-flow swarm federated-train --nodes 20 --parallel --aggregate-method "
 
 ```bash
 # Monitor all swarm operations
-npx claude-flow swarm monitor-batch --metrics '{
+npx auggie-flow swarm monitor-batch --metrics '{
   "performance": ["latency", "throughput", "cpu", "memory"],
   "progress": ["tasks", "completions", "failures"],
   "agents": ["active", "idle", "failed"]
@@ -153,7 +153,7 @@ npx claude-flow swarm monitor-batch --metrics '{
 
 ```bash
 # Auto-scale based on load
-npx claude-flow swarm auto-manage --rules '{
+npx auggie-flow swarm auto-manage --rules '{
   "scale-up": { "cpu": ">80%", "queue": ">100" },
   "scale-down": { "cpu": "<20%", "queue": "<10" },
   "rebalance": { "interval": "5m" }
@@ -166,7 +166,7 @@ npx claude-flow swarm auto-manage --rules '{
 
 ```bash
 # Intelligent work distribution
-npx claude-flow swarm distribute --algorithm "weighted" --factors '{
+npx auggie-flow swarm distribute --algorithm "weighted" --factors '{
   "agent-capacity": 0.4,
   "task-complexity": 0.3,
   "priority": 0.3
@@ -177,7 +177,7 @@ npx claude-flow swarm distribute --algorithm "weighted" --factors '{
 
 ```bash
 # Resilient batch execution
-npx claude-flow swarm batch-execute --resilient '{
+npx auggie-flow swarm batch-execute --resilient '{
   "retry": { "max": 3, "backoff": "exponential" },
   "timeout": { "task": "5m", "total": "1h" },
   "circuit-breaker": { "threshold": 5, "reset": "30s" }
@@ -190,7 +190,7 @@ npx claude-flow swarm batch-execute --resilient '{
 
 ```bash
 # Enable intelligent caching
-npx claude-flow swarm batch --cache '{
+npx auggie-flow swarm batch --cache '{
   "results": { "ttl": "1h", "size": "1GB" },
   "artifacts": { "ttl": "24h", "size": "10GB" },
   "models": { "ttl": "7d", "persistent": true }
@@ -201,7 +201,7 @@ npx claude-flow swarm batch --cache '{
 
 ```bash
 # Optimize network communication
-npx claude-flow swarm optimize-network --compression "gzip" --batching 100 --keepalive
+npx auggie-flow swarm optimize-network --compression "gzip" --batching 100 --keepalive
 ```
 
 ## Complex Workflow Examples
@@ -210,7 +210,7 @@ npx claude-flow swarm optimize-network --compression "gzip" --batching 100 --kee
 
 ```bash
 # Orchestrate complete application development
-npx claude-flow swarm full-stack --project "e-commerce" --parallel-components '{
+npx auggie-flow swarm full-stack --project "e-commerce" --parallel-components '{
   "frontend": { "framework": "react", "agents": 3 },
   "backend": { "framework": "node", "agents": 4 },
   "mobile": { "platforms": ["ios", "android"], "agents": 4 },
@@ -224,7 +224,7 @@ npx claude-flow swarm full-stack --project "e-commerce" --parallel-components '{
 
 ```bash
 # Massive parallel data processing
-npx claude-flow swarm data-pipeline --config '{
+npx auggie-flow swarm data-pipeline --config '{
   "ingestion": { "parallel": 10, "sources": 50 },
   "transformation": { "parallel": 20, "operations": 15 },
   "validation": { "parallel": 5, "rules": 100 },
@@ -236,7 +236,7 @@ npx claude-flow swarm data-pipeline --config '{
 
 ```bash
 # Comprehensive security analysis
-npx claude-flow swarm security-audit --parallel-scans '{
+npx auggie-flow swarm security-audit --parallel-scans '{
   "code": { "tools": ["sast", "dependencies"], "agents": 5 },
   "infrastructure": { "tools": ["network", "config"], "agents": 3 },
   "runtime": { "tools": ["dast", "fuzzing"], "agents": 4 },

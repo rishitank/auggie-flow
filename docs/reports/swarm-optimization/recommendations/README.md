@@ -2,7 +2,7 @@
 
 ## 📚 Document Index
 
-This directory contains comprehensive optimization recommendations for the Claude Code Flow swarm system based on extensive benchmark analysis.
+This directory contains comprehensive optimization recommendations for the Auggie Code Flow swarm system based on extensive benchmark analysis.
 
 ### 📊 Core Documents
 

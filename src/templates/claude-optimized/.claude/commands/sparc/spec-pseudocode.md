@@ -128,7 +128,7 @@ const pseudocodeTask = [
 
 To use this SPARC mode, you can:
 
-1. Run directly: `npx claude-flow sparc run spec-pseudocode "your task"`
+1. Run directly: `npx auggie-flow sparc run spec-pseudocode "your task"`
 2. Use in workflow: Include `spec-pseudocode` in your SPARC workflow
 3. Delegate tasks: Use `new_task` to assign work to this mode
 
@@ -136,13 +136,13 @@ To use this SPARC mode, you can:
 
 ```bash
 # Generate comprehensive system specs with parallel analysis
-npx claude-flow sparc run spec-pseudocode "create full system specification using parallel codebase analysis"
+npx auggie-flow sparc run spec-pseudocode "create full system specification using parallel codebase analysis"
 
 # Build API specifications with concurrent pattern matching
-npx claude-flow sparc run spec-pseudocode "generate REST API specs with batch endpoint analysis"
+npx auggie-flow sparc run spec-pseudocode "generate REST API specs with batch endpoint analysis"
 
 # Create data model specifications with parallel schema extraction
-npx claude-flow sparc run spec-pseudocode "document database architecture using concurrent model analysis"
+npx auggie-flow sparc run spec-pseudocode "document database architecture using concurrent model analysis"
 ```
 
 ## Batchtools Best Practices

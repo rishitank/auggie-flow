@@ -10,9 +10,9 @@ import { existsSync } from '../cli/node-compat.js';
 export class UnifiedMemoryManager {
   constructor(options = {}) {
     this.config = {
-      primaryStore: './.claude-flow/memory/unified-memory.db',
+      primaryStore: './.auggie-flow/memory/unified-memory.db',
       fallbackStore: './memory/memory-store.json',
-      configPath: './.claude-flow/memory-config.json',
+      configPath: './.auggie-flow/memory-config.json',
       ...options
     };
     

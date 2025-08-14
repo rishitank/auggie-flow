@@ -73,7 +73,7 @@ const result = await manager.copyPrompts();
 ### Installation
 
 ```bash
-npm install -g @claude-flow/prompt-copier
+npm install -g @auggie-flow/prompt-copier
 ```
 
 ### Basic Commands

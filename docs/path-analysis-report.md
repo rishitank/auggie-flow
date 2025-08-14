@@ -17,9 +17,9 @@ const targetPath = targetDir ? (targetDir.startsWith('/') ? targetDir : `/worksp
 
 **Line 2170**
 ```typescript
-claudeFlowPath: '/workspaces/claude-code-flow/bin/claude-flow',
+claudeFlowPath: '/workspaces/claude-code-flow/bin/auggie-flow',
 ```
-- **Context**: Claude Flow executor initialization
+- **Context**: Auggie Flow executor initialization
 - **Issue**: Hardcoded binary path
 - **Fix**: Use dynamic path resolution or configuration
 
@@ -39,13 +39,13 @@ workDir = targetDir.startsWith('/') ? targetDir : `/workspaces/claude-code-flow/
 - **Issue**: Hardcoded base path
 - **Fix**: Use configurable base path
 
-### 2. `/workspaces/ruv-FANN/claude-code-flow/claude-code-flow/src/swarm/claude-flow-executor.ts`
+### 2. `/workspaces/ruv-FANN/claude-code-flow/claude-code-flow/src/swarm/auggie-flow-executor.ts`
 
 **Line 31**
 ```typescript
-this.claudeFlowPath = config.claudeFlowPath || '/workspaces/claude-code-flow/bin/claude-flow';
+this.claudeFlowPath = config.claudeFlowPath || '/workspaces/claude-code-flow/bin/auggie-flow';
 ```
-- **Context**: Default Claude Flow binary path
+- **Context**: Default Auggie Flow binary path
 - **Issue**: Hardcoded fallback path
 - **Fix**: Use path resolution relative to package root
 
@@ -67,7 +67,7 @@ const examplePath = '/workspaces/claude-code-flow/examples/development-workflow.
 - **Issue**: Hardcoded test resource path
 - **Fix**: Use relative path resolution
 
-### 4. `/workspaces/ruv-FANN/claude-code-flow/claude-code-flow/memory/claude-flow-data.json`
+### 4. `/workspaces/ruv-FANN/claude-code-flow/claude-code-flow/memory/auggie-flow-data.json`
 
 Multiple occurrences in JSON data:
 - Line 63: `"output_file": "/workspaces/claude-code-flow/dist/cli/init/swarm-commands.js"`
@@ -96,7 +96,7 @@ export const getBasePath = () => {
 };
 
 export const getClaudeFlowBinPath = () => {
-  return path.join(getBasePath(), 'bin', 'claude-flow');
+  return path.join(getBasePath(), 'bin', 'auggie-flow');
 };
 
 export const resolveTargetPath = (targetDir: string) => {
@@ -109,6 +109,6 @@ export const resolveTargetPath = (targetDir: string) => {
 4. Update tests to use relative paths
 
 ## Priority
-- **High**: Source code files (coordinator.ts, claude-flow-executor.ts)
+- **High**: Source code files (coordinator.ts, auggie-flow-executor.ts)
 - **Medium**: Test files
 - **Low**: Data/memory files (can be regenerated)

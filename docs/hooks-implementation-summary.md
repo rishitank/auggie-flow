@@ -1,7 +1,7 @@
 # Hooks Implementation Summary
 
 ## Overview
-Successfully implemented a comprehensive hooks system for Claude Flow that integrates with ruv-swarm for agent coordination.
+Successfully implemented a comprehensive hooks system for Auggie Flow that integrates with ruv-swarm for agent coordination.
 
 ## Implementation Details
 
@@ -117,7 +117,7 @@ claude hook memory-sync --namespace "project-state" --direction push --target "s
 
 ## Integration Points
 
-1. **Claude Code Native Tools**: Hooks enhance but don't replace Claude's file operations
+1. **Auggie Code Native Tools**: Hooks enhance but don't replace Claude's file operations
 2. **ruv-swarm Coordination**: All hooks delegate to ruv-swarm for execution
 3. **Memory Persistence**: Hooks enable cross-session state management
 4. **Performance Tracking**: Automatic metrics collection and analysis

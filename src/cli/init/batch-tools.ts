@@ -8,7 +8,7 @@ export async function createBatchToolsGuide(): Promise<void> {
   const batchToolsGuide = `# Batch Tools Coordination Guide
 
 ## Overview
-This guide explains how to use Claude Code's batch tools effectively for swarm orchestration and parallel task execution.
+This guide explains how to use Auggie Code's batch tools effectively for swarm orchestration and parallel task execution.
 
 ## Core Batch Tools
 

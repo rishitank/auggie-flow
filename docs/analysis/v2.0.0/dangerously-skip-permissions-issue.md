@@ -2,7 +2,7 @@
 
 ## Issue Summary
 
-The `--dangerously-skip-permissions` flag in Claude Flow v1 doesn't fully resolve interactive UI requirements in certain environments, particularly VS Code integrated terminal, causing "manual UI agreement needed" errors.
+The `--dangerously-skip-permissions` flag in Auggie Flow v1 doesn't fully resolve interactive UI requirements in certain environments, particularly VS Code integrated terminal, causing "manual UI agreement needed" errors.
 
 ## Root Cause Analysis
 
@@ -26,9 +26,9 @@ The `--dangerously-skip-permissions` flag only bypasses permission prompts but d
 
 ```bash
 # Current workaround attempts
-claude-flow init --dangerously-skip-permissions  # Still fails in VS Code
-claude-flow init --force --yes  # Inconsistent behavior
-claude-flow init < /dev/null  # Breaks on some operations
+auggie-flow init --dangerously-skip-permissions  # Still fails in VS Code
+auggie-flow init --force --yes  # Inconsistent behavior
+auggie-flow init < /dev/null  # Breaks on some operations
 ```
 
 ## Proposed Solution for v2.0.0
@@ -116,24 +116,24 @@ interface ExecutionEnvironment {
 
 ```bash
 # Old (v1) - Often failed
-npx claude-flow init --dangerously-skip-permissions
+npx auggie-flow init --dangerously-skip-permissions
 
 # New (v2) - Just works
-npx claude-flow@2.0.0 init
+npx auggie-flow@2.0.0 init
 ```
 
 ### For CI/CD
 
 ```yaml
 # Automatic CI detection, no flags needed
-- run: npx claude-flow@2.0.0 init
+- run: npx auggie-flow@2.0.0 init
 ```
 
 ### For Docker
 
 ```dockerfile
 # Automatic Docker detection
-RUN npx claude-flow@2.0.0 init
+RUN npx auggie-flow@2.0.0 init
 ```
 
 ## Success Metrics
@@ -145,4 +145,4 @@ RUN npx claude-flow@2.0.0 init
 
 ## Conclusion
 
-The v2.0.0 environment handling improvements transform Claude Flow from a tool that requires manual configuration in non-interactive environments to one that "just works" everywhere. This significantly improves the developer experience and reduces friction in adoption.
+The v2.0.0 environment handling improvements transform Auggie Flow from a tool that requires manual configuration in non-interactive environments to one that "just works" everywhere. This significantly improves the developer experience and reduces friction in adoption.

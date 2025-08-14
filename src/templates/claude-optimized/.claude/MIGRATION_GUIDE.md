@@ -78,27 +78,27 @@ The new batchtools-optimized SPARC prompts represent a significant evolution in 
 # Check Node.js version (v16+ required)
 node --version
 
-# Install or update claude-flow
-npm install -g claude-flow@latest
+# Install or update auggie-flow
+npm install -g auggie-flow@latest
 
 # Install batchtools (if using external orchestration)
 npm install -g batchtool
 
 # Verify installation
-npx claude-flow --version
+npx auggie-flow --version
 ```
 
 ### Compatibility Checks
 
 ```bash
 # Check SPARC configuration
-npx claude-flow sparc modes
+npx auggie-flow sparc modes
 
 # Verify memory system
-npx claude-flow memory stats
+npx auggie-flow memory stats
 
 # Test batch capabilities
-npx claude-flow sparc run code "test batch operations" --non-interactive
+npx auggie-flow sparc run code "test batch operations" --non-interactive
 ```
 
 ### Backup Procedures
@@ -110,7 +110,7 @@ cp -r .roo .roo.backup-$(date +%Y%m%d)
 cp .roomodes .roomodes.backup-$(date +%Y%m%d)
 
 # 2. Export memory state
-npx claude-flow memory export pre-migration-backup.json
+npx auggie-flow memory export pre-migration-backup.json
 
 # 3. Git commit current state
 git add -A
@@ -161,18 +161,18 @@ git tag pre-batchtools-migration
 
 ```bash
 # Old approach - sequential operations
-npx claude-flow sparc run architect "design user service"
+npx auggie-flow sparc run architect "design user service"
 # Wait...
-npx claude-flow sparc run architect "design auth service"
+npx auggie-flow sparc run architect "design auth service"
 # Wait...
-npx claude-flow sparc run architect "design API gateway"
+npx auggie-flow sparc run architect "design API gateway"
 ```
 
 **After (Parallel):**
 
 ```bash
 # New approach - parallel architecture design
-npx claude-flow sparc run architect "design complete microservices architecture with user, auth, and gateway services"
+npx auggie-flow sparc run architect "design complete microservices architecture with user, auth, and gateway services"
 
 # The optimized prompt will:
 # 1. Analyze all services concurrently
@@ -257,16 +257,16 @@ const results = await batchtools.parallel([runUnitTests(), runIntegrationTests()
 
 ```bash
 # Generate each file one by one
-npx claude-flow sparc run code "create user controller"
-npx claude-flow sparc run code "create user service"
-npx claude-flow sparc run code "create user repository"
+npx auggie-flow sparc run code "create user controller"
+npx auggie-flow sparc run code "create user service"
+npx auggie-flow sparc run code "create user repository"
 ```
 
 **After (Parallel):**
 
 ```bash
 # Generate entire feature in one command
-npx claude-flow sparc run code "implement complete user management with controller, service, repository, and tests"
+npx auggie-flow sparc run code "implement complete user management with controller, service, repository, and tests"
 
 # Batchtools will create all files simultaneously:
 # - /src/controllers/user.controller.ts
@@ -349,10 +349,10 @@ await batchtools.createFiles([
 
 ```bash
 # Old
-npx claude-flow sparc run code "create user API"
+npx auggie-flow sparc run code "create user API"
 
 # New with options
-npx claude-flow sparc run code "create user API" --non-interactive --parallel --batch-size=10
+npx auggie-flow sparc run code "create user API" --non-interactive --parallel --batch-size=10
 ```
 
 ### Deprecated Features and Replacements
@@ -488,7 +488,7 @@ fi
 
 # Check 2: Test parallel execution
 echo -n "Testing parallel execution capability... "
-if npx claude-flow sparc run code "test parallel" --non-interactive --dry-run 2>&1 | grep -q "parallel"; then
+if npx auggie-flow sparc run code "test parallel" --non-interactive --dry-run 2>&1 | grep -q "parallel"; then
     echo "✅"
 else
     echo "❌ Parallel execution not working"
@@ -497,7 +497,7 @@ fi
 
 # Check 3: Verify memory system
 echo -n "Checking memory system compatibility... "
-if npx claude-flow memory stats > /dev/null 2>&1; then
+if npx auggie-flow memory stats > /dev/null 2>&1; then
     echo "✅"
 else
     echo "❌ Memory system issues"
@@ -506,7 +506,7 @@ fi
 
 # Check 4: Performance benchmark
 echo "Running performance benchmark..."
-time npx claude-flow sparc run code "create test component" --non-interactive > /dev/null 2>&1
+time npx auggie-flow sparc run code "create test component" --non-interactive > /dev/null 2>&1
 echo "✅ Benchmark complete"
 
 echo "✅ All validation checks passed!"
@@ -533,7 +533,7 @@ git checkout pre-batchtools-migration
 
 # Restore memory
 if [ -f "pre-migration-backup.json" ]; then
-    npx claude-flow memory import pre-migration-backup.json
+    npx auggie-flow memory import pre-migration-backup.json
 fi
 
 echo "✅ Rollback complete"
@@ -549,9 +549,9 @@ echo "✅ Rollback complete"
 
 ```bash
 # Test each mode with batch operations
-npx claude-flow sparc run architect "test batch architecture" --non-interactive
-npx claude-flow sparc run tdd "test parallel testing" --non-interactive
-npx claude-flow sparc run code "test concurrent generation" --non-interactive
+npx auggie-flow sparc run architect "test batch architecture" --non-interactive
+npx auggie-flow sparc run tdd "test parallel testing" --non-interactive
+npx auggie-flow sparc run code "test concurrent generation" --non-interactive
 ```
 
 **2. Performance Tests:**
@@ -559,17 +559,17 @@ npx claude-flow sparc run code "test concurrent generation" --non-interactive
 ```bash
 # Benchmark old vs new
 echo "Testing old method..."
-time npx claude-flow sparc run code "create user CRUD" --legacy
+time npx auggie-flow sparc run code "create user CRUD" --legacy
 
 echo "Testing new method..."
-time npx claude-flow sparc run code "create user CRUD" --non-interactive
+time npx auggie-flow sparc run code "create user CRUD" --non-interactive
 ```
 
 **3. Integration Tests:**
 
 ```bash
 # Test full workflow
-npx claude-flow sparc tdd "implement complete feature with batchtools"
+npx auggie-flow sparc tdd "implement complete feature with batchtools"
 ```
 
 ### Performance Testing Procedures
@@ -583,18 +583,18 @@ const { execSync } = require('child_process');
 const tests = [
   {
     name: 'CRUD Generation',
-    old: 'npx claude-flow sparc run code "create user CRUD" --legacy',
-    new: 'npx claude-flow sparc run code "create user CRUD with all operations"',
+    old: 'npx auggie-flow sparc run code "create user CRUD" --legacy',
+    new: 'npx auggie-flow sparc run code "create user CRUD with all operations"',
   },
   {
     name: 'Test Suite Creation',
-    old: 'npx claude-flow sparc run tdd "create auth tests" --legacy',
-    new: 'npx claude-flow sparc run tdd "create complete auth test suite"',
+    old: 'npx auggie-flow sparc run tdd "create auth tests" --legacy',
+    new: 'npx auggie-flow sparc run tdd "create complete auth test suite"',
   },
   {
     name: 'Architecture Design',
-    old: 'npx claude-flow sparc run architect "design microservices" --legacy',
-    new: 'npx claude-flow sparc run architect "design complete microservices architecture"',
+    old: 'npx auggie-flow sparc run architect "design microservices" --legacy',
+    new: 'npx auggie-flow sparc run architect "design complete microservices architecture"',
   },
 ];
 
@@ -753,11 +753,11 @@ async function generateTestsBatch(features) {
 ```bash
 # Parallel prototype development
 batchtool orchestrate --prototypes \
-  --idea-1 "npx claude-flow sparc run code 'social feed prototype'" \
-  --idea-2 "npx claude-flow sparc run code 'marketplace prototype'" \
-  --idea-3 "npx claude-flow sparc run code 'subscription prototype'" \
-  --test-all "npx claude-flow sparc run tdd 'test all prototypes'" \
-  --compare "npx claude-flow sparc run architect 'analyze best approach'"
+  --idea-1 "npx auggie-flow sparc run code 'social feed prototype'" \
+  --idea-2 "npx auggie-flow sparc run code 'marketplace prototype'" \
+  --idea-3 "npx auggie-flow sparc run code 'subscription prototype'" \
+  --test-all "npx auggie-flow sparc run tdd 'test all prototypes'" \
+  --compare "npx auggie-flow sparc run architect 'analyze best approach'"
 ```
 
 ### Best Practices from Case Studies
@@ -794,13 +794,13 @@ batchtool orchestrate --prototypes \
 
 ```bash
 # Check current version
-npx claude-flow --version
+npx auggie-flow --version
 
 # List all modes
-npx claude-flow sparc modes
+npx auggie-flow sparc modes
 
 # Run with batchtools
-npx claude-flow sparc run <mode> "<task>" --non-interactive
+npx auggie-flow sparc run <mode> "<task>" --non-interactive
 
 # Validate migration
 ./validate-migration.sh

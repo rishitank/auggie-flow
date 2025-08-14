@@ -1,4 +1,4 @@
-# Claude Flow Agent System Documentation
+# Auggie Flow Agent System Documentation
 
 ## Table of Contents
 
@@ -8,13 +8,13 @@
 4. [Invoking Agents via Prompts](#invoking-agents-via-prompts)
 5. [Agent Orchestration Best Practices](#agent-orchestration-best-practices)
 6. [Example Workflows](#example-workflows)
-7. [Integration with claude-flow init](#integration-with-claude-flow-init)
+7. [Integration with auggie-flow init](#integration-with-auggie-flow-init)
 8. [Advanced Features](#advanced-features)
 9. [Troubleshooting](#troubleshooting)
 
 ## Introduction
 
-The Claude Flow agent system provides a powerful framework for creating and managing specialized AI agents that work together to accomplish complex tasks. This system leverages Model Context Protocol (MCP) tools for seamless integration and coordination.
+The Auggie Flow agent system provides a powerful framework for creating and managing specialized AI agents that work together to accomplish complex tasks. This system leverages Model Context Protocol (MCP) tools for seamless integration and coordination.
 
 ### Key Features
 
@@ -157,7 +157,7 @@ agentManager.registerTemplate('custom-analyzer', customTemplate);
 
 ### Using MCP Tools
 
-The Claude Flow system integrates with Model Context Protocol (MCP) tools for agent management:
+The Auggie Flow system integrates with Model Context Protocol (MCP) tools for agent management:
 
 #### 1. Initialize Swarm
 
@@ -230,17 +230,17 @@ Claude: Setting up research team for healthcare AI analysis.
 
 ```bash
 # Basic agent spawn
-claude-flow agent spawn researcher --name "Market Researcher"
+auggie-flow agent spawn researcher --name "Market Researcher"
 
 # Advanced spawn with configuration
-claude-flow agent spawn coder \
+auggie-flow agent spawn coder \
   --name "Full-Stack Developer" \
   --capabilities "frontend,backend,database" \
   --max-tasks 5 \
   --memory-limit 1GB
 
 # Spawn with custom template
-claude-flow agent spawn custom-analyzer \
+auggie-flow agent spawn custom-analyzer \
   --template ./templates/analyzer.json \
   --start
 ```
@@ -447,24 +447,24 @@ mcp__claude-flow__automation_setup {
 }
 ```
 
-## Integration with claude-flow init
+## Integration with auggie-flow init
 
 ### Automatic Agent Setup
 
-When initializing a new Claude Flow project, agents can be automatically configured:
+When initializing a new Auggie Flow project, agents can be automatically configured:
 
 ```bash
 # Initialize with agent templates
-claude-flow init --with-agents
+auggie-flow init --with-agents
 
 # Custom agent configuration
-claude-flow init --agents-config ./my-agents.json
+auggie-flow init --agents-config ./my-agents.json
 ```
 
 ### Project Templates with Agents
 
 ```json
-// .claude-flow/project-template.json
+// .auggie-flow/project-template.json
 {
   "name": "Full-Stack Project",
   "agents": {
@@ -490,7 +490,7 @@ claude-flow init --agents-config ./my-agents.json
 ### Hook Integration
 
 ```javascript
-// .claude-flow/hooks/pre-task.js
+// .auggie-flow/hooks/pre-task.js
 module.exports = async (context) => {
   // Automatically spawn agents based on task type
   if (context.task.type === 'development' && !context.agents.length) {
@@ -498,7 +498,7 @@ module.exports = async (context) => {
   }
 };
 
-// .claude-flow/hooks/post-command.js
+// .auggie-flow/hooks/post-command.js
 module.exports = async (context) => {
   // Scale agents based on workload
   if (context.metrics.queueLength > 10) {
@@ -610,13 +610,13 @@ mcp__claude-flow__pipeline_create {
 
 ```bash
 # Check agent health
-claude-flow agent health <agent-id>
+auggie-flow agent health <agent-id>
 
 # View agent logs
-claude-flow agent logs <agent-id> --tail 100
+auggie-flow agent logs <agent-id> --tail 100
 
 # Restart unresponsive agent
-claude-flow agent restart <agent-id> --force
+auggie-flow agent restart <agent-id> --force
 ```
 
 #### 2. Memory Issues
@@ -659,20 +659,20 @@ mcp__claude-flow__topology_optimize {
 ```bash
 # Enable debug logging
 export CLAUDE_FLOW_DEBUG=true
-claude-flow agent spawn researcher --debug
+auggie-flow agent spawn researcher --debug
 
 # Trace agent execution
-claude-flow agent trace <agent-id> --verbose
+auggie-flow agent trace <agent-id> --verbose
 ```
 
 ### Health Monitoring Dashboard
 
 ```bash
 # Start monitoring dashboard
-claude-flow agent monitor --dashboard --port 8080
+auggie-flow agent monitor --dashboard --port 8080
 
 # CLI monitoring
-claude-flow agent monitor --all --metrics all --refresh 5s
+auggie-flow agent monitor --all --metrics all --refresh 5s
 ```
 
 ## Best Practices Summary
@@ -687,6 +687,6 @@ claude-flow agent monitor --all --metrics all --refresh 5s
 
 ## Conclusion
 
-The Claude Flow agent system provides a powerful foundation for building complex, multi-agent AI workflows. By following these guidelines and best practices, you can create efficient, scalable, and maintainable agent-based solutions.
+The Auggie Flow agent system provides a powerful foundation for building complex, multi-agent AI workflows. By following these guidelines and best practices, you can create efficient, scalable, and maintainable agent-based solutions.
 
-For more information and updates, visit the [Claude Flow GitHub repository](https://github.com/ruvnet/claude-code-flow).
+For more information and updates, visit the [Auggie Flow GitHub repository](https://github.com/ruvnet/claude-code-flow).

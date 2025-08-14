@@ -522,7 +522,7 @@ export class ConfigManager {
    */
   private getUserConfigDir(): string {
     const home = homedir();
-    return join(home, '.claude-flow');
+    return join(home, '.auggie-flow');
   }
 
   /**

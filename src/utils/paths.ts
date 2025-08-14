@@ -13,7 +13,7 @@ export function getClaudeFlowRoot(): string {
     // Strategy 2: From process.cwd()
     process.cwd(),
     // Strategy 3: From npm global location
-    resolve(process.execPath, '../../lib/node_modules/claude-flow'),
+    resolve(process.execPath, '../../lib/node_modules/auggie-flow'),
     // Strategy 4: From environment variable
     process.env.AUGGIE_FLOW_ROOT || '',
   ];
@@ -24,7 +24,7 @@ export function getClaudeFlowRoot(): string {
         const pkgPath = join(path, 'package.json');
         const pkgContent = readFileSync(pkgPath, 'utf-8');
         const pkg = JSON.parse(pkgContent);
-        if (pkg.name === 'claude-flow') {
+        if (pkg.name === 'auggie-flow') {
           return path;
         }
       } catch {
@@ -38,7 +38,7 @@ export function getClaudeFlowRoot(): string {
 }
 
 export function getClaudeFlowBin(): string {
-  return join(getClaudeFlowRoot(), 'bin', 'claude-flow');
+  return join(getClaudeFlowRoot(), 'bin', 'auggie-flow');
 }
 
 export function resolveProjectPath(relativePath: string): string {

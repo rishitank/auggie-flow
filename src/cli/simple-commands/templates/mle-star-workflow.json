@@ -275,7 +275,7 @@
   "metadata": {
     "methodology": "MLE-STAR",
     "version": "2.0.0",
-    "created_by": "Claude Flow Automation",
+    "created_by": "Auggie Flow Automation",
     "tags": ["machine_learning", "automation", "mle_star", "ensemble", "optimization"],
     "description_detailed": "This workflow implements the MLE-STAR (Machine Learning Engineering via Search and Targeted Refinement) methodology. It starts with web search to find state-of-the-art approaches, builds a foundation model, performs ablation analysis to identify high-impact components, then deeply refines those components before creating intelligent ensembles and comprehensive validation.",
     "success_criteria": [

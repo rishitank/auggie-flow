@@ -1,15 +1,15 @@
-// slash-commands.js - Create Claude Code slash commands
+// slash-commands.js - Create Auggie Code slash commands
 
 import { createSparcSlashCommand, createMainSparcCommand } from './sparc-commands.js';
-import { createClaudeFlowCommands } from './claude-flow-commands.js';
+import { createClaudeFlowCommands } from './auggie-flow-commands.js';
 import { copyTemplates } from '../template-copier.js';
 import { promises as fs } from 'fs';
 import { join } from 'path';
 
-// Create Claude Code slash commands for SPARC modes
+// Create Auggie Code slash commands for SPARC modes
 export async function createClaudeSlashCommands(workingDir) {
   try {
-    console.log('\n📝 Creating Claude Code slash commands...');
+    console.log('\n📝 Creating Auggie Code slash commands...');
 
     // Use template copier for SPARC slash commands
     const slashCommandOptions = {
@@ -48,7 +48,7 @@ export async function createClaudeSlashCommands(workingDir) {
       }
     }
 
-    // Create claude-flow specific commands
+    // Create auggie-flow specific commands
     await createClaudeFlowCommands(workingDir);
   } catch (err) {
     // Legacy slash command creation - silently skip if it fails

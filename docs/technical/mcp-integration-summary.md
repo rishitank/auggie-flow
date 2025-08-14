@@ -97,7 +97,7 @@ The ruv-swarm MCP integration has been successfully implemented and tested. Here
 # Using ruv-swarm directly
 npx ruv-swarm init mesh 5 --claude
 
-# Using MCP tools (when integrated with Claude Code)
+# Using MCP tools (when integrated with Auggie Code)
 mcp__claude-flow__swarm_init {"topology": "mesh", "maxAgents": 5, "strategy": "balanced"}
 ```
 
@@ -187,7 +187,7 @@ npx ruv-swarm diagnose wasm
 
 ## 🏁 CONCLUSION
 
-The ruv-swarm MCP integration is **FULLY FUNCTIONAL** and ready for production use with Claude Code. All 25 MCP tools are available, core swarm functionality works, neural networks are active, and WASM integration is operational.
+The ruv-swarm MCP integration is **FULLY FUNCTIONAL** and ready for production use with Auggie Code. All 25 MCP tools are available, core swarm functionality works, neural networks are active, and WASM integration is operational.
 
 **INTEGRATION STATUS: ✅ COMPLETE AND FUNCTIONAL**
 

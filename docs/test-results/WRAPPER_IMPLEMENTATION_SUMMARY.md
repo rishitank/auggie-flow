@@ -2,13 +2,13 @@
 
 ## What Was Built
 
-I've successfully implemented a new MCP wrapper architecture that replaces the templated approach with a dynamic wrapper around Claude Code's MCP tools. Here's what was created:
+I've successfully implemented a new MCP wrapper architecture that replaces the templated approach with a dynamic wrapper around Auggie Code's MCP tools. Here's what was created:
 
 ### 1. Core Wrapper Implementation
 **File:** `src/mcp/claude-code-wrapper.ts`
 - Main wrapper class that intercepts SPARC tool calls
 - Automatically injects SPARC methodology prompts
-- Forwards enhanced requests to Claude Code MCP tools
+- Forwards enhanced requests to Auggie Code MCP tools
 - Handles all 17 SPARC modes + meta tools (list, swarm, swarm_status)
 
 ### 2. SPARC Mode Loader
@@ -19,16 +19,16 @@ I've successfully implemented a new MCP wrapper architecture that replaces the t
 
 ### 3. Integration Script
 **File:** `src/mcp/integrate-wrapper.ts`
-- Connects wrapper to actual Claude Code MCP server
+- Connects wrapper to actual Auggie Code MCP server
 - Manages client-server communication
 - Handles tool forwarding
 
 ### 4. Launcher Scripts
-- `claude-flow-mcp-wrapper` - Executable wrapper launcher
+- `auggie-flow-mcp-wrapper` - Executable wrapper launcher
 - `src/mcp/server-wrapper-mode.ts` - Dual-mode server supporting both wrapper and direct modes
 
 ### 5. Configuration
-**File:** `claude-flow-wrapper.mcp.json`
+**File:** `auggie-flow-wrapper.mcp.json`
 - Defines tool mappings and prompt injection settings
 - Configures pass-through behavior
 - Lists all available SPARC tools
@@ -53,7 +53,7 @@ sparc_coder → Template matching → Generate file content → Write file
 
 ### After (Wrapper-based):
 ```
-sparc_coder → Inject SPARC prompt → Forward to Claude Code Task → AI generates solution
+sparc_coder → Inject SPARC prompt → Forward to Auggie Code Task → AI generates solution
 ```
 
 ## Key Benefits
@@ -62,7 +62,7 @@ sparc_coder → Inject SPARC prompt → Forward to Claude Code Task → AI gener
 2. **Real AI Intelligence**: Uses Claude's actual capabilities instead of templates
 3. **Automatic Enhancement**: SPARC methodology injected without manual prompting
 4. **Simplified Maintenance**: No need to update templates for new patterns
-5. **Tool Pass-Through**: Direct access to all Claude Code tools
+5. **Tool Pass-Through**: Direct access to all Auggie Code tools
 
 ## Usage
 
@@ -72,7 +72,7 @@ sparc_coder → Inject SPARC prompt → Forward to Claude Code Task → AI gener
 npm run mcp:wrapper
 
 # Or use executable
-./claude-flow-mcp-wrapper
+./auggie-flow-mcp-wrapper
 
 # Or enable wrapper mode in existing server
 CLAUDE_FLOW_WRAPPER_MODE=true npm run mcp
@@ -85,7 +85,7 @@ sparc_coder({
   task: "Create a REST API for user management"
 })
 
-// But now it sends an enhanced prompt to Claude Code:
+// But now it sends an enhanced prompt to Auggie Code:
 // - SPARC methodology framework
 // - Mode-specific tools and best practices
 // - Usage patterns and examples
@@ -149,4 +149,4 @@ This will:
 
 ## Next Steps
 
-The wrapper is ready to use and provides a cleaner, more maintainable approach than the template system. It leverages Claude Code's actual AI capabilities while adding SPARC methodology automatically.
+The wrapper is ready to use and provides a cleaner, more maintainable approach than the template system. It leverages Auggie Code's actual AI capabilities while adding SPARC methodology automatically.

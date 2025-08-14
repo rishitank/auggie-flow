@@ -1,5 +1,5 @@
 /**
- * ruv-swarm MCP tools wrapper for Claude Code integration
+ * ruv-swarm MCP tools wrapper for Auggie Code integration
  *
  * This module provides MCP tools that integrate with the external ruv-swarm
  * package to enable advanced swarm coordination and neural capabilities.
@@ -87,7 +87,7 @@ async function executeRuvSwarmCommand(
 }
 
 /**
- * Create ruv-swarm MCP tools for Claude Code integration
+ * Create ruv-swarm MCP tools for Auggie Code integration
  *
  * These tools provide access to the full ruv-swarm functionality including:
  * - Swarm initialization and management
@@ -590,7 +590,7 @@ export async function initializeRuvSwarmIntegration(
 ): Promise<RuvSwarmResponse> {
   const context: RuvSwarmToolContext = {
     workingDirectory,
-    sessionId: `claude-flow-${Date.now()}`,
+    sessionId: `auggie-flow-${Date.now()}`,
   };
 
   logger?.info('Initializing ruv-swarm integration', { workingDirectory });

@@ -14,14 +14,14 @@ When running `npx ruv-swarm mcp start`, you may encounter:
 - This is a non-critical error that doesn't affect functionality
 
 ### Workaround
-Use claude-flow's integrated MCP server instead:
+Use auggie-flow's integrated MCP server instead:
 
 ```bash
-# Option 1: Use claude-flow MCP server (recommended)
-npx claude-flow@alpha mcp start
+# Option 1: Use auggie-flow MCP server (recommended)
+npx auggie-flow@alpha mcp start
 
-# Option 2: Configure claude-flow with MCP integration
-claude mcp add claude-flow npx claude-flow@alpha mcp start
+# Option 2: Configure auggie-flow with MCP integration
+claude mcp add auggie-flow npx auggie-flow@alpha mcp start
 ```
 
 ### Fix Status

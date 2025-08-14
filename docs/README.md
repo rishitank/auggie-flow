@@ -1,12 +1,12 @@
-# 📚 Claude Flow v2.0.0 Documentation
+# 📚 Auggie Flow v2.0.0 Documentation
 
-Welcome to the comprehensive documentation for Claude Flow v2.0.0 - Intelligent AI Agent Coordination Platform!
+Welcome to the comprehensive documentation for Auggie Flow v2.0.0 - Intelligent AI Agent Coordination Platform!
 
 ## 🚀 Getting Started
 
 ### Quick Links
 - **[Quick Start Guide](./quick-start.md)** - Get up and running in minutes
-- **[Claude Code Integration](./claude-code-setup.md)** - MCP configuration guide
+- **[Auggie Code Integration](./claude-code-setup.md)** - MCP configuration guide
 - **[CLI Reference](./cli-reference.md)** - Complete command reference
 
 ## 👑 Hive Mind System (NEW!)
@@ -47,7 +47,7 @@ Welcome to the comprehensive documentation for Claude Flow v2.0.0 - Intelligent 
 ## 🔗 Integration Guides
 
 ### External Models & Services
-- **[Claude Code with Open Models](./wiki/claude-code-open-models-tutorial.md)** - Use GPT-OSS and Qwen3-Coder with Claude Code
+- **[Auggie Code with Open Models](./wiki/claude-code-open-models-tutorial.md)** - Use GPT-OSS and Qwen3-Coder with Auggie Code
 
 ## 📊 Reports & Analysis
 
@@ -89,7 +89,7 @@ Welcome to the comprehensive documentation for Claude Flow v2.0.0 - Intelligent 
 
 ### v2.0.0 Highlights
 - **Hive Mind System**: Queen-led swarm intelligence with collective memory
-- **87 MCP Tools**: Complete integration with Claude Code
+- **87 MCP Tools**: Complete integration with Auggie Code
 - **Neural Networks**: Real WASM neural processing with training
 - **Performance**: 2.8-4.4x speed improvements, 32.3% token reduction
 - **Enterprise Ready**: Security, monitoring, and production features

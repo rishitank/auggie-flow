@@ -1,4 +1,4 @@
-// init/index.js - Initialize Claude Code integration files
+// init/index.js - Initialize Auggie Code integration files
 import { printSuccess, printError, printWarning, exit } from '../../utils.js';
 import { existsSync } from 'fs';
 import process from 'process';
@@ -73,7 +73,7 @@ import {
 import { createAgentsReadme, createSessionsReadme } from './templates/readme-files.js';
 
 /**
- * Check if Claude Code CLI is installed
+ * Check if Auggie Code CLI is installed
  */
 function isClaudeCodeInstalled() {
   try {
@@ -85,16 +85,16 @@ function isClaudeCodeInstalled() {
 }
 
 /**
- * Set up MCP servers in Claude Code
+ * Set up MCP servers in Auggie Code
  */
 async function setupMcpServers(dryRun = false) {
-  console.log('\n🔌 Setting up MCP servers for Claude Code...');
+  console.log('\n🔌 Setting up MCP servers for Auggie Code...');
 
   const servers = [
     {
-      name: 'claude-flow',
-      command: 'npx claude-flow@alpha mcp start',
-      description: 'Claude Flow MCP server with swarm orchestration (alpha)',
+      name: 'auggie-flow',
+      command: 'npx auggie-flow@alpha mcp start',
+      description: 'Auggie Flow MCP server with swarm orchestration (alpha)',
     },
     {
       name: 'ruv-swarm',
@@ -137,7 +137,7 @@ export async function initCommand(subArgs, flags) {
     return;
   }
 
-  // Default to enhanced Claude Flow v2 init
+  // Default to enhanced Auggie Flow v2 init
   // Use --basic flag for old behavior
   if (!flags.basic && !flags.minimal && !flags.sparc) {
     return await enhancedClaudeFlowInit(flags, subArgs);
@@ -192,7 +192,7 @@ export async function initCommand(subArgs, flags) {
   }
 
   try {
-    printSuccess('Initializing Claude Code integration files...');
+    printSuccess('Initializing Auggie Code integration files...');
 
     // Check if files already exist in the working directory
     const files = ['CLAUDE.md', 'memory-bank.md', 'coordination.md'];
@@ -263,11 +263,11 @@ export async function initCommand(subArgs, flags) {
 
     // Memory README files and persistence database are created by template copier
 
-    // Create local claude-flow executable wrapper
+    // Create local auggie-flow executable wrapper
     if (!initDryRun) {
       await createLocalExecutable(workingDir);
     } else {
-      console.log('  [DRY RUN] Would create local claude-flow executable wrapper');
+      console.log('  [DRY RUN] Would create local auggie-flow executable wrapper');
     }
 
     // SPARC initialization
@@ -346,10 +346,10 @@ export async function initCommand(subArgs, flags) {
       );
       console.log('  • Core files: CLAUDE.md, memory-bank.md, coordination.md');
       console.log('  • Directory structure: memory/, coordination/, .auggie/');
-      console.log('  • Local executable: ./claude-flow');
+      console.log('  • Local executable: ./auggie-flow');
       if (initSparc) {
         console.log(
-          `  • Claude Code slash commands: ${selectedModes ? selectedModes.length : 'All'} SPARC mode commands`,
+          `  • Auggie Code slash commands: ${selectedModes ? selectedModes.length : 'All'} SPARC mode commands`,
         );
         console.log('  • SPARC environment with all development modes');
       }
@@ -359,7 +359,7 @@ export async function initCommand(subArgs, flags) {
       }
       console.log('\n🚀 To proceed with initialization, run the same command without --dry-run');
     } else {
-      printSuccess('🎉 Claude Code integration files initialized successfully!');
+      printSuccess('🎉 Auggie Code integration files initialized successfully!');
 
       if (initOptimized) {
         console.log('\n⚡ Batchtools Optimization Enabled!');
@@ -379,33 +379,33 @@ export async function initCommand(subArgs, flags) {
         `  ✅ coordination.md (${initOptimized ? 'Enhanced with batchtools' : 'Standard coordination'})`,
       );
       console.log('  ✅ Directory structure with memory/ and coordination/');
-      console.log('  ✅ Local executable at ./claude-flow');
-      console.log('  ✅ Persistence database at memory/claude-flow-data.json');
+      console.log('  ✅ Local executable at ./auggie-flow');
+      console.log('  ✅ Persistence database at memory/auggie-flow-data.json');
       console.log('  ✅ Agent system with 64 specialized agents in .auggie/agents/');
 
       if (initSparc) {
         const modeCount = selectedModes ? selectedModes.length : '20+';
-        console.log(`  ✅ Claude Code slash commands (${modeCount} SPARC modes)`);
+        console.log(`  ✅ Auggie Code slash commands (${modeCount} SPARC modes)`);
         console.log('  ✅ Complete SPARC development environment');
       }
 
       console.log('\n🚀 Next steps:');
       console.log('1. Review and customize the generated files for your project');
-      console.log("2. Run './claude-flow start' to begin the orchestration system");
-      console.log("3. Use './claude-flow' instead of 'npx claude-flow' for all commands");
+      console.log("2. Run './auggie-flow start' to begin the orchestration system");
+      console.log("3. Use './auggie-flow' instead of 'npx auggie-flow' for all commands");
       console.log("4. Use 'claude --dangerously-skip-permissions' for unattended operation");
 
       if (initSparc) {
         console.log(
-          '5. Use Claude Code slash commands: /sparc, /sparc-architect, /sparc-tdd, etc.',
+          '5. Use Auggie Code slash commands: /sparc, /sparc-architect, /sparc-tdd, etc.',
         );
-        console.log("6. Explore SPARC modes with './claude-flow sparc modes'");
-        console.log('7. Try TDD workflow with \'./claude-flow sparc tdd "your task"\'');
+        console.log("6. Explore SPARC modes with './auggie-flow sparc modes'");
+        console.log('7. Try TDD workflow with \'./auggie-flow sparc tdd "your task"\'');
 
         if (initOptimized) {
           console.log('8. Use batchtools commands: /batchtools, /performance for optimization');
           console.log('9. Enable parallel processing with --parallel flags');
-          console.log("10. Monitor performance with './claude-flow performance monitor'");
+          console.log("10. Monitor performance with './auggie-flow performance monitor'");
         }
       }
 
@@ -422,9 +422,9 @@ export async function initCommand(subArgs, flags) {
       }
 
       console.log('\n💡 Tips:');
-      console.log("  • Type '/' in Claude Code to see all available slash commands");
-      console.log("  • Use './claude-flow status' to check system health");
-      console.log("  • Store important context with './claude-flow memory store'");
+      console.log("  • Type '/' in Auggie Code to see all available slash commands");
+      console.log("  • Use './auggie-flow status' to check system health");
+      console.log("  • Store important context with './auggie-flow memory store'");
 
       if (initOptimized) {
         console.log('  • Use --parallel flags for concurrent operations');
@@ -432,9 +432,9 @@ export async function initCommand(subArgs, flags) {
         console.log('  • Monitor performance with real-time metrics');
       }
 
-      // Check for Claude Code and set up MCP servers (always enabled by default)
+      // Check for Auggie Code and set up MCP servers (always enabled by default)
       if (!initDryRun && isClaudeCodeInstalled()) {
-        console.log('\n🔍 Claude Code CLI detected!');
+        console.log('\n🔍 Auggie Code CLI detected!');
         const skipMcp = subArgs && subArgs.includes && subArgs.includes('--skip-mcp');
 
         if (!skipMcp) {
@@ -443,10 +443,10 @@ export async function initCommand(subArgs, flags) {
           console.log('  ℹ️  Skipping MCP setup (--skip-mcp flag used)');
         }
       } else if (!initDryRun && !isClaudeCodeInstalled()) {
-        console.log('\n⚠️  Claude Code CLI not detected!');
+        console.log('\n⚠️  Auggie Code CLI not detected!');
         console.log('  📥 Install with: npm install -g @anthropic-ai/claude-code');
         console.log('  📋 Then add MCP servers manually with:');
-        console.log('     claude mcp add claude-flow claude-flow mcp start');
+        console.log('     claude mcp add auggie-flow auggie-flow mcp start');
         console.log('     claude mcp add ruv-swarm npx ruv-swarm mcp start');
       }
     }
@@ -892,7 +892,7 @@ async function setupMemorySystem(workingDir, dryRun = false) {
   if (!dryRun) {
     const initialData = { agents: [], tasks: [], lastUpdated: Date.now() };
     await fs.writeFile(
-      `${workingDir}/memory/claude-flow-data.json`, JSON.stringify(initialData, null, 2), 'utf8'
+      `${workingDir}/memory/auggie-flow-data.json`, JSON.stringify(initialData, null, 2), 'utf8'
     );
 
     await fs.writeFile(`${workingDir}/memory/agents/README.md`, createAgentsReadme(), 'utf8');
@@ -915,8 +915,8 @@ async function setupMonitoring(workingDir) {
   const path = await import('path');
   
   try {
-    // Create .claude-flow directory for tracking data
-    const trackingDir = path.join(workingDir, '.claude-flow');
+    // Create .auggie-flow directory for tracking data
+    const trackingDir = path.join(workingDir, '.auggie-flow');
     await fs.mkdir(trackingDir, { recursive: true });
     
     // Create initial token usage file
@@ -943,7 +943,7 @@ async function setupMonitoring(workingDir) {
       if (!settings.hooks['post-task']) settings.hooks['post-task'] = [];
       
       // Add token tracking hook
-      const tokenTrackingHook = 'npx claude-flow@alpha internal track-tokens --session-id {{session_id}} --tokens {{token_usage}}';
+      const tokenTrackingHook = 'npx auggie-flow@alpha internal track-tokens --session-id {{session_id}} --tokens {{token_usage}}';
       if (!settings.hooks['post-task'].includes(tokenTrackingHook)) {
         settings.hooks['post-task'].push(tokenTrackingHook);
       }
@@ -961,7 +961,7 @@ async function setupMonitoring(workingDir) {
         claudeCode: {
           env: 'AUGGIE_CODE_ENABLE_TELEMETRY',
           value: '1',
-          description: 'Enable Claude Code OpenTelemetry metrics'
+          description: 'Enable Auggie Code OpenTelemetry metrics'
         }
       },
       tracking: {
@@ -971,7 +971,7 @@ async function setupMonitoring(workingDir) {
         sessions: true
       },
       storage: {
-        location: '.claude-flow/token-usage.json',
+        location: '.auggie-flow/token-usage.json',
         format: 'json',
         rotation: 'monthly'
       }
@@ -983,7 +983,7 @@ async function setupMonitoring(workingDir) {
     
     // Create shell profile snippet for environment variable
     const envSnippet = `
-# Claude Flow Token Tracking
+# Auggie Flow Token Tracking
 # Add this to your shell profile (.bashrc, .zshrc, etc.)
 export AUGGIE_CODE_ENABLE_TELEMETRY=1
 
@@ -995,11 +995,11 @@ export AUGGIE_CODE_ENABLE_TELEMETRY=1
     await fs.writeFile(envPath, envSnippet.trim());
     printSuccess('  ✓ Created environment setup script');
     
-    console.log('\n  📋 To enable Claude Code telemetry:');
+    console.log('\n  📋 To enable Auggie Code telemetry:');
     console.log('     1. Add to your shell profile: export AUGGIE_CODE_ENABLE_TELEMETRY=1');
-    console.log('     2. Or run: source .claude-flow/env-setup.sh');
-    console.log('\n  💡 Token usage will be tracked in .claude-flow/token-usage.json');
-    console.log('     Run: claude-flow analysis token-usage --breakdown --cost-analysis');
+    console.log('     2. Or run: source .auggie-flow/env-setup.sh');
+    console.log('\n  💡 Token usage will be tracked in .auggie-flow/token-usage.json');
+    console.log('     Run: auggie-flow analysis token-usage --breakdown --cost-analysis');
     
   } catch (err) {
     printError(`  Failed to setup monitoring: ${err.message}`);
@@ -1007,10 +1007,10 @@ export AUGGIE_CODE_ENABLE_TELEMETRY=1
 }
 
 /**
- * Enhanced Claude Flow v2.0.0 initialization
+ * Enhanced Auggie Flow v2.0.0 initialization
  */
 async function enhancedClaudeFlowInit(flags, subArgs = []) {
-  console.log('🚀 Initializing Claude Flow v2.0.0 with enhanced features...');
+  console.log('🚀 Initializing Auggie Flow v2.0.0 with enhanced features...');
 
   const workingDir = process.cwd();
   const force = flags.force || flags.f;
@@ -1031,7 +1031,7 @@ async function enhancedClaudeFlowInit(flags, subArgs = []) {
       'CLAUDE.md',
       '.auggie/settings.json',
       '.mcp.json',
-      'claude-flow.config.json',
+      'auggie-flow.config.json',
     ];
 
     for (const file of filesToCheck) {
@@ -1049,9 +1049,9 @@ async function enhancedClaudeFlowInit(flags, subArgs = []) {
     // Create CLAUDE.md
     if (!dryRun) {
       await fs.writeFile(`${workingDir}/CLAUDE.md`, createOptimizedSparcClaudeMd(), 'utf8');
-      printSuccess('✓ Created CLAUDE.md (Claude Flow v2.0.0 - Optimized)');
+      printSuccess('✓ Created CLAUDE.md (Auggie Flow v2.0.0 - Optimized)');
     } else {
-      console.log('[DRY RUN] Would create CLAUDE.md (Claude Flow v2.0.0 - Optimized)');
+      console.log('[DRY RUN] Would create CLAUDE.md (Auggie Flow v2.0.0 - Optimized)');
     }
 
     // Create .claude directory structure
@@ -1095,9 +1095,9 @@ async function enhancedClaudeFlowInit(flags, subArgs = []) {
     // Create .mcp.json at project root for MCP server configuration
     const mcpConfig = {
       mcpServers: {
-        'claude-flow': {
+        'auggie-flow': {
           command: 'npx',
-          args: ['claude-flow@alpha', 'mcp', 'start'],
+          args: ['auggie-flow@alpha', 'mcp', 'start'],
           type: 'stdio',
         },
         'ruv-swarm': {
@@ -1115,7 +1115,7 @@ async function enhancedClaudeFlowInit(flags, subArgs = []) {
       console.log('[DRY RUN] Would create .mcp.json at project root for MCP server configuration');
     }
 
-    // Create claude-flow.config.json for Claude Flow specific settings
+    // Create auggie-flow.config.json for Auggie Flow specific settings
     const claudeFlowConfig = {
       features: {
         autoTopologySelection: true,
@@ -1139,11 +1139,11 @@ async function enhancedClaudeFlowInit(flags, subArgs = []) {
 
     if (!dryRun) {
       await fs.writeFile(
-        `${workingDir}/claude-flow.config.json`, JSON.stringify(claudeFlowConfig, null, 2, 'utf8'),
+        `${workingDir}/auggie-flow.config.json`, JSON.stringify(claudeFlowConfig, null, 2, 'utf8'),
       );
-      printSuccess('✓ Created claude-flow.config.json for Claude Flow settings');
+      printSuccess('✓ Created auggie-flow.config.json for Auggie Flow settings');
     } else {
-      console.log('[DRY RUN] Would create claude-flow.config.json for Claude Flow settings');
+      console.log('[DRY RUN] Would create auggie-flow.config.json for Auggie Flow settings');
     }
 
     // Create command documentation
@@ -1156,7 +1156,7 @@ async function enhancedClaudeFlowInit(flags, subArgs = []) {
         // Create category README
         const categoryReadme = `# ${category.charAt(0).toUpperCase() + category.slice(1)} Commands
 
-Commands for ${category} operations in Claude Flow.
+Commands for ${category} operations in Auggie Flow.
 
 ## Available Commands
 
@@ -1182,14 +1182,14 @@ ${commands.map((cmd) => `- [${cmd}](./${cmd}.md)`).join('\n')}
     if (!dryRun) {
       // Unix wrapper - now uses universal ES module compatible wrapper
       const unixWrapper = createWrapperScript('unix');
-      await fs.writeFile(`${workingDir}/claude-flow`, unixWrapper, 'utf8');
-      await fs.chmod(`${workingDir}/claude-flow`, 0o755);
+      await fs.writeFile(`${workingDir}/auggie-flow`, unixWrapper, 'utf8');
+      await fs.chmod(`${workingDir}/auggie-flow`, 0o755);
 
       // Windows wrapper
-      await fs.writeFile(`${workingDir}/claude-flow.bat`, createWrapperScript('windows', 'utf8'));
+      await fs.writeFile(`${workingDir}/auggie-flow.bat`, createWrapperScript('windows', 'utf8'));
 
       // PowerShell wrapper
-      await fs.writeFile(`${workingDir}/claude-flow.ps1`, createWrapperScript('powershell', 'utf8'));
+      await fs.writeFile(`${workingDir}/auggie-flow.ps1`, createWrapperScript('powershell', 'utf8'));
 
       printSuccess('✓ Created platform-specific wrapper scripts');
     } else {
@@ -1240,7 +1240,7 @@ ${commands.map((cmd) => `- [${cmd}](./${cmd}.md)`).join('\n')}
       // Initialize memory system
       const initialData = { agents: [], tasks: [], lastUpdated: Date.now() };
       await fs.writeFile(
-        `${workingDir}/memory/claude-flow-data.json`, JSON.stringify(initialData, null, 2, 'utf8'),
+        `${workingDir}/memory/auggie-flow-data.json`, JSON.stringify(initialData, null, 2, 'utf8'),
       );
 
       // Create README files
@@ -1259,7 +1259,7 @@ ${commands.map((cmd) => `- [${cmd}](./${cmd}.md)`).join('\n')}
         if (memoryStore.isUsingFallback()) {
           printSuccess('✓ Initialized memory system (in-memory fallback for npx compatibility)');
           console.log(
-            '  💡 For persistent storage, install locally: npm install claude-flow@alpha',
+            '  💡 For persistent storage, install locally: npm install auggie-flow@alpha',
           );
         } else {
           printSuccess('✓ Initialized memory database (.swarm/memory.db)');
@@ -1350,7 +1350,7 @@ ${commands.map((cmd) => `- [${cmd}](./${cmd}.md)`).join('\n')}
       }
     }
 
-    // Update .gitignore with Claude Flow entries
+    // Update .gitignore with Auggie Flow entries
     const gitignoreResult = await updateGitignore(workingDir, force, dryRun);
     if (gitignoreResult.success) {
       if (!dryRun) {
@@ -1381,13 +1381,13 @@ ${commands.map((cmd) => `- [${cmd}](./${cmd}.md)`).join('\n')}
 
     // Create Claude slash commands for SPARC
     if (sparcInitialized && !dryRun) {
-      console.log('\n📝 Creating Claude Code slash commands...');
+      console.log('\n📝 Creating Auggie Code slash commands...');
       await createClaudeSlashCommands(workingDir);
     }
 
-    // Check for Claude Code and set up MCP servers (always enabled by default)
+    // Check for Auggie Code and set up MCP servers (always enabled by default)
     if (!dryRun && isClaudeCodeInstalled()) {
-      console.log('\n🔍 Claude Code CLI detected!');
+      console.log('\n🔍 Auggie Code CLI detected!');
       const skipMcp =
         (options && options['skip-mcp']) ||
         (subArgs && subArgs.includes && subArgs.includes('--skip-mcp'));
@@ -1397,16 +1397,16 @@ ${commands.map((cmd) => `- [${cmd}](./${cmd}.md)`).join('\n')}
       } else {
         console.log('  ℹ️  Skipping MCP setup (--skip-mcp flag used)');
         console.log('\n  📋 To add MCP servers manually:');
-        console.log('     claude mcp add claude-flow npx claude-flow@alpha mcp start');
+        console.log('     claude mcp add auggie-flow npx auggie-flow@alpha mcp start');
         console.log('     claude mcp add ruv-swarm npx ruv-swarm@latest mcp start');
         console.log('\n  💡 MCP servers are defined in .mcp.json (project scope)');
       }
     } else if (!dryRun && !isClaudeCodeInstalled()) {
-      console.log('\n⚠️  Claude Code CLI not detected!');
-      console.log('\n  📥 To install Claude Code:');
+      console.log('\n⚠️  Auggie Code CLI not detected!');
+      console.log('\n  📥 To install Auggie Code:');
       console.log('     npm install -g @anthropic-ai/claude-code');
       console.log('\n  📋 After installing, add MCP servers:');
-      console.log('     claude mcp add claude-flow npx claude-flow@alpha mcp start');
+      console.log('     claude mcp add auggie-flow npx auggie-flow@alpha mcp start');
       console.log('     claude mcp add ruv-swarm npx ruv-swarm@latest mcp start');
       console.log('\n  💡 MCP servers are defined in .mcp.json (project scope)');
     }
@@ -1438,28 +1438,28 @@ ${commands.map((cmd) => `- [${cmd}](./${cmd}.md)`).join('\n')}
     }
     
     // Final instructions
-    console.log('\n🎉 Claude Flow v2.0.0 initialization complete!');
+    console.log('\n🎉 Auggie Flow v2.0.0 initialization complete!');
     console.log('\n📚 Quick Start:');
     if (isClaudeCodeInstalled()) {
       console.log('1. View available commands: ls .auggie/commands/');
-      console.log('2. Start a swarm: npx claude-flow@alpha swarm "your objective" --claude');
-      console.log('3. Use hive-mind: npx claude-flow@alpha hive-mind spawn "command" --claude');
-      console.log('4. Use MCP tools in Claude Code for enhanced coordination');
+      console.log('2. Start a swarm: npx auggie-flow@alpha swarm "your objective" --claude');
+      console.log('3. Use hive-mind: npx auggie-flow@alpha hive-mind spawn "command" --claude');
+      console.log('4. Use MCP tools in Auggie Code for enhanced coordination');
     } else {
-      console.log('1. Install Claude Code: npm install -g @anthropic-ai/claude-code');
+      console.log('1. Install Auggie Code: npm install -g @anthropic-ai/claude-code');
       console.log('2. Add MCP servers (see instructions above)');
       console.log('3. View available commands: ls .auggie/commands/');
-      console.log('4. Start a swarm: npx claude-flow@alpha swarm "your objective" --claude');
-      console.log('5. Use hive-mind: npx claude-flow@alpha hive-mind spawn "command" --claude');
+      console.log('4. Start a swarm: npx auggie-flow@alpha swarm "your objective" --claude');
+      console.log('5. Use hive-mind: npx auggie-flow@alpha hive-mind spawn "command" --claude');
     }
     console.log('\n💡 Tips:');
     console.log('• Check .auggie/commands/ for detailed documentation');
     console.log('• Use --help with any command for options');
-    console.log('• Run commands with --claude flag for best Claude Code integration');
+    console.log('• Run commands with --claude flag for best Auggie Code integration');
     console.log('• Enable GitHub integration with .auggie/helpers/github-setup.sh');
     console.log('• Git checkpoints are automatically enabled in settings.json');
     console.log('• Use .auggie/helpers/checkpoint-manager.sh for easy rollback');
   } catch (err) {
-    printError(`Failed to initialize Claude Flow v2.0.0: ${err.message}`);
+    printError(`Failed to initialize Auggie Flow v2.0.0: ${err.message}`);
   }
 }

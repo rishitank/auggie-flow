@@ -1,18 +1,18 @@
-// optimized-slash-commands.js - Create batchtools-optimized Claude Code slash commands
+// optimized-slash-commands.js - Create batchtools-optimized Auggie Code slash commands
 
 import {
   createOptimizedSparcSlashCommand,
   createOptimizedMainSparcCommand,
 } from './optimized-sparc-commands.js';
-import { createOptimizedClaudeFlowCommands } from './optimized-claude-flow-commands.js';
+import { createOptimizedClaudeFlowCommands } from './optimized-auggie-flow-commands.js';
 import { copyTemplates } from '../template-copier.js';
 import { promises as fs } from 'fs';
 import { join } from 'path';
 
-// Create batchtools-optimized Claude Code slash commands for SPARC modes
+// Create batchtools-optimized Auggie Code slash commands for SPARC modes
 export async function createOptimizedClaudeSlashCommands(workingDir, selectedModes = null) {
   try {
-    console.log('\n🚀 Creating batchtools-optimized Claude Code slash commands...');
+    console.log('\n🚀 Creating batchtools-optimized Auggie Code slash commands...');
 
     // Use template copier with optimized flag
     const optimizedOptions = {
@@ -65,7 +65,7 @@ export async function createOptimizedClaudeSlashCommands(workingDir, selectedMod
       }
     }
 
-    // Create claude-flow specific commands with batchtools optimization
+    // Create auggie-flow specific commands with batchtools optimization
     await createOptimizedClaudeFlowCommands(workingDir);
 
     // Create batchtools-specific commands
@@ -73,7 +73,7 @@ export async function createOptimizedClaudeSlashCommands(workingDir, selectedMod
 
     console.log('  💡 All commands include parallel processing and performance optimizations');
   } catch (err) {
-    console.log(`  ⚠️  Could not create optimized Claude Code slash commands: ${err.message}`);
+    console.log(`  ⚠️  Could not create optimized Auggie Code slash commands: ${err.message}`);
   }
 }
 
@@ -224,25 +224,25 @@ Chain operations with parallel execution at each stage:
 ### Full SPARC Pipeline with Batchtools
 \`\`\`bash
 # Execute complete SPARC workflow with parallel processing
-./claude-flow sparc pipeline "authentication system" --batch-optimize
+./auggie-flow sparc pipeline "authentication system" --batch-optimize
 
 # Run multiple SPARC modes concurrently
-./claude-flow sparc batch architect,code,tdd "user management" --parallel
+./auggie-flow sparc batch architect,code,tdd "user management" --parallel
 
 # Concurrent project analysis
-./claude-flow sparc concurrent-analyze project-requirements.json --parallel
+./auggie-flow sparc concurrent-analyze project-requirements.json --parallel
 \`\`\`
 
 ### Performance Monitoring
 \`\`\`bash
 # Monitor batch operation performance
-./claude-flow batchtools monitor --real-time
+./auggie-flow batchtools monitor --real-time
 
 # Analyze parallel processing metrics
-./claude-flow batchtools analyze --performance --detailed
+./auggie-flow batchtools analyze --performance --detailed
 
 # Check system resource utilization
-./claude-flow batchtools resources --concurrent --verbose
+./auggie-flow batchtools resources --concurrent --verbose
 \`\`\`
 
 For detailed documentation, see: https://github.com/ruvnet/claude-code-flow/docs/batchtools.md
@@ -280,25 +280,25 @@ Real-time performance monitoring and optimization tools for Claude-Flow operatio
 ### Real-time Monitoring
 \`\`\`bash
 # Monitor all system performance
-./claude-flow performance monitor --real-time --all
+./auggie-flow performance monitor --real-time --all
 
 # Focus on parallel operations
-./claude-flow performance monitor --parallel --batchtools
+./auggie-flow performance monitor --parallel --batchtools
 
 # Monitor specific components
-./claude-flow performance monitor --focus sparc --concurrent
+./auggie-flow performance monitor --focus sparc --concurrent
 \`\`\`
 
 ### Performance Analysis
 \`\`\`bash
 # Generate performance report
-./claude-flow performance report --detailed --timeframe 24h
+./auggie-flow performance report --detailed --timeframe 24h
 
 # Analyze batch operation efficiency
-./claude-flow performance analyze --batchtools --optimization
+./auggie-flow performance analyze --batchtools --optimization
 
 # Compare performance across different modes
-./claude-flow performance compare --modes architect,code,tdd
+./auggie-flow performance compare --modes architect,code,tdd
 \`\`\`
 
 ## Optimization Recommendations

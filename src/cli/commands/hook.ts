@@ -233,7 +233,7 @@ export const hookCommand = {
 // Show help for hook commands
 function showHookHelp(): void {
   console.log(`
-Claude Flow Hook Commands
+Auggie Flow Hook Commands
 ========================
 
 Available hooks:

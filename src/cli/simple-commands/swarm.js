@@ -146,28 +146,28 @@ async function basicSwarmNew(args, flags) {
 
 function showSwarmHelp() {
   console.log(`
-🐝 Claude Flow Advanced Swarm System
+🐝 Auggie Flow Advanced Swarm System
 
 USAGE:
-  claude-flow swarm <objective> [options]
+  auggie-flow swarm <objective> [options]
 
 EXAMPLES:
-  claude-flow swarm "Build a REST API with authentication"
-  claude-flow swarm "Research cloud architecture patterns" --strategy research
-  claude-flow swarm "Analyze database performance" --max-agents 3 --parallel
-  claude-flow swarm "Develop user registration feature" --mode distributed
-  claude-flow swarm "Optimize React app performance" --strategy optimization
-  claude-flow swarm "Create microservice" --executor  # Use built-in executor
-  claude-flow swarm "Build API" --claude  # Open Claude Code CLI
-  claude-flow swarm "Build API endpoints" --output-format json  # Get JSON output
-  claude-flow swarm "Research AI trends" --output-format json --output-file results.json
+  auggie-flow swarm "Build a REST API with authentication"
+  auggie-flow swarm "Research cloud architecture patterns" --strategy research
+  auggie-flow swarm "Analyze database performance" --max-agents 3 --parallel
+  auggie-flow swarm "Develop user registration feature" --mode distributed
+  auggie-flow swarm "Optimize React app performance" --strategy optimization
+  auggie-flow swarm "Create microservice" --executor  # Use built-in executor
+  auggie-flow swarm "Build API" --claude  # Open Auggie Code CLI
+  auggie-flow swarm "Build API endpoints" --output-format json  # Get JSON output
+  auggie-flow swarm "Research AI trends" --output-format json --output-file results.json
 
 DEFAULT BEHAVIOR:
-  Swarm attempts to open Claude Code CLI with comprehensive MCP tool instructions
+  Swarm attempts to open Auggie Code CLI with comprehensive MCP tool instructions
   including memory coordination, agent management, and task orchestration.
 
   If Claude CLI is not available:
-  • Use --claude flag to open Claude Code CLI
+  • Use --claude flag to open Auggie Code CLI
   • Use --executor flag to run with the built-in executor
 
 STRATEGIES:
@@ -214,8 +214,8 @@ OPTIONS:
   --encryption               Enable encryption
   --verbose                  Enable detailed logging
   --dry-run                  Show configuration without executing
-  --executor                 Use built-in executor instead of Claude Code
-  --claude                   Open Claude Code CLI
+  --executor                 Use built-in executor instead of Auggie Code
+  --claude                   Open Auggie Code CLI
   --output-format <format>   Output format: json, text (default: text)
   --output-file <path>       Save output to file instead of stdout
   --no-interactive           Run in non-interactive mode (auto-enabled with --output-format json)
@@ -271,7 +271,7 @@ export async function swarmCommand(args, flags) {
       // Quick health check for Docker/K8s
       console.log(JSON.stringify({
         status: 'healthy',
-        service: 'claude-flow-swarm',
+        service: 'auggie-flow-swarm',
         version: process.env.npm_package_version || '2.0.0',
         timestamp: new Date().toISOString()
       }));
@@ -325,7 +325,7 @@ export async function swarmCommand(args, flags) {
         level: 'info',
         message: args.join(' '),
         timestamp: new Date().toISOString(),
-        service: 'claude-flow-swarm'
+        service: 'auggie-flow-swarm'
       }));
     };
 
@@ -334,7 +334,7 @@ export async function swarmCommand(args, flags) {
         level: 'error',
         message: args.join(' '),
         timestamp: new Date().toISOString(),
-        service: 'claude-flow-swarm'
+        service: 'auggie-flow-swarm'
       }));
     };
   }
@@ -354,7 +354,7 @@ export async function swarmCommand(args, flags) {
   if (flags && flags.executor) {
     // Continue with the old swarm executor implementation below
   } else {
-    // Default behavior: spawn Claude Code with comprehensive swarm MCP instructions
+    // Default behavior: spawn Auggie Code with comprehensive swarm MCP instructions
     try {
       const { execSync, spawn } = await import('child_process');
 
@@ -372,7 +372,7 @@ export async function swarmCommand(args, flags) {
         flags.sparc !== false && (strategy === 'development' || strategy === 'auto');
 
       // Build the complete swarm prompt before checking for claude
-      const swarmPrompt = `You are orchestrating a Claude Flow Swarm with advanced MCP tool coordination.
+      const swarmPrompt = `You are orchestrating a Auggie Flow Swarm with advanced MCP tool coordination.
 
 🎯 OBJECTIVE: ${objective}
 
@@ -768,16 +768,16 @@ Start by spawning a coordinator agent and creating the initial task structure. U
 
 The swarm should be self-documenting - use memory_store to save all important information, decisions, and results throughout the execution.`;
 
-      // If --claude flag is used, force Claude Code even if CLI not available
+      // If --claude flag is used, force Auggie Code even if CLI not available
       if (flags && flags.claude) {
         // --claude flag means interactive mode, so don't apply non-interactive
-        console.log('🐝 Launching Claude Flow Swarm System...');
+        console.log('🐝 Launching Auggie Flow Swarm System...');
         console.log(`📋 Objective: ${objective}`);
         console.log(`🎯 Strategy: ${strategy}`);
         console.log(`🏗️  Mode: ${mode}`);
         console.log(`🤖 Max Agents: ${maxAgents}\n`);
 
-        console.log('🚀 Launching Claude Code with Swarm Coordination');
+        console.log('🚀 Launching Auggie Code with Swarm Coordination');
         console.log('─'.repeat(60));
 
         // Pass the prompt directly as an argument to claude
@@ -797,7 +797,7 @@ The swarm should be self-documenting - use memory_store to save all important in
           shell: false,
         });
 
-        console.log('\n✓ Claude Code launched with swarm coordination prompt!');
+        console.log('\n✓ Auggie Code launched with swarm coordination prompt!');
         console.log('  The swarm coordinator will orchestrate all agent tasks');
         console.log('  Use MCP tools for coordination and memory sharing');
 
@@ -833,10 +833,10 @@ The swarm should be self-documenting - use memory_store to save all important in
         // Handle spawn errors (e.g., claude not found)
         claudeProcess.on('error', (err) => {
           if (err.code === 'ENOENT') {
-            console.error('\n❌ Claude Code CLI not found. Please install Claude Code:');
+            console.error('\n❌ Auggie Code CLI not found. Please install Auggie Code:');
             console.error('   https://claude.ai/download');
           } else {
-            console.error('\n❌ Failed to launch Claude Code:', err.message);
+            console.error('\n❌ Failed to launch Auggie Code:', err.message);
           }
           process.exit(1);
         });
@@ -857,18 +857,18 @@ The swarm should be self-documenting - use memory_store to save all important in
         claudeAvailable = true;
       } catch {
         if (!isNonInteractive) {
-          console.log('⚠️  Claude Code CLI not found in PATH');
+          console.log('⚠️  Auggie Code CLI not found in PATH');
           console.log('Install it with: npm install -g @anthropic-ai/claude-code');
-          console.log('Or use --claude flag to open Claude Code CLI');
-          console.log('\nWould spawn Claude Code with swarm objective:');
+          console.log('Or use --claude flag to open Auggie Code CLI');
+          console.log('\nWould spawn Auggie Code with swarm objective:');
           console.log(`📋 Objective: ${objective}`);
           console.log('\nOptions:');
-          console.log('  • Use --executor flag for built-in executor: claude-flow swarm "objective" --executor');
-          console.log('  • Use --claude flag to open Claude Code CLI: claude-flow swarm "objective" --claude');
+          console.log('  • Use --executor flag for built-in executor: auggie-flow swarm "objective" --executor');
+          console.log('  • Use --claude flag to open Auggie Code CLI: auggie-flow swarm "objective" --claude');
         } else {
           // In non-interactive mode, output JSON error
           console.error(JSON.stringify({
-            error: 'Claude Code CLI not found',
+            error: 'Auggie Code CLI not found',
             message: 'Install with: npm install -g @anthropic-ai/claude-code',
             fallback: 'Use --executor flag for built-in executor'
           }));
@@ -878,7 +878,7 @@ The swarm should be self-documenting - use memory_store to save all important in
 
       // Claude is available, use it to run swarm
       if (!isNonInteractive) {
-        console.log('🐝 Launching Claude Flow Swarm System...');
+        console.log('🐝 Launching Auggie Flow Swarm System...');
         console.log(`📋 Objective: ${objective}`);
         console.log(`🎯 Strategy: ${flags.strategy || 'auto'}`);
         console.log(`🏗️  Mode: ${flags.mode || 'centralized'}`);
@@ -922,8 +922,8 @@ The swarm should be self-documenting - use memory_store to save all important in
       });
 
       if (!isNonInteractive) {
-        console.log('✓ Claude Code launched with swarm coordination prompt!');
-        console.log('\n🚀 The swarm coordination instructions have been injected into Claude Code');
+        console.log('✓ Auggie Code launched with swarm coordination prompt!');
+        console.log('\n🚀 The swarm coordination instructions have been injected into Auggie Code');
         console.log('   The prompt includes:');
         console.log('   • Strategy-specific guidance for', strategy);
         console.log('   • Coordination patterns for', mode, 'mode');
@@ -933,13 +933,13 @@ The swarm should be self-documenting - use memory_store to save all important in
 
       // Handle process events
       claudeProcess.on('error', (err) => {
-        console.error('❌ Failed to launch Claude Code:', err.message);
+        console.error('❌ Failed to launch Auggie Code:', err.message);
       });
 
       // Don't wait for completion - let it run
       return;
     } catch (error) {
-      console.error('❌ Failed to spawn Claude Code:', error.message);
+      console.error('❌ Failed to spawn Auggie Code:', error.message);
       console.log('\nFalling back to built-in executor...');
       // Fall through to executor implementation
     }
@@ -1019,7 +1019,7 @@ await swarmCommand(args, flags);
 
       // Use the bash script for true background execution
       const binDir = new URL('../../../bin/', import.meta.url).pathname;
-      const bgScriptPath = `${binDir}claude-flow-swarm-bg`;
+      const bgScriptPath = `${binDir}auggie-flow-swarm-bg`;
 
       try {
         // Check if the background script exists
@@ -1075,7 +1075,7 @@ exit 0
 
         console.log(`\n✅ Swarm launched in background!`);
         console.log(`📄 Logs: tail -f ${logFile}`);
-        console.log(`📊 Status: claude-flow swarm status ${swarmId}`);
+        console.log(`📊 Status: auggie-flow swarm status ${swarmId}`);
         console.log(`\nThe swarm will continue running independently.`);
 
         // Exit immediately
@@ -1090,10 +1090,10 @@ exit 0
 
     const objective = (args || []).join(' ').trim();
 
-    // Get the claude-flow-swarm-bg script path
+    // Get the auggie-flow-swarm-bg script path
     const bgScriptPath = path.join(
       path.dirname(new URL(import.meta.url).pathname),
-      '../../../bin/claude-flow-swarm-bg',
+      '../../../bin/auggie-flow-swarm-bg',
     );
 
     // Check if background script exists
@@ -1122,10 +1122,10 @@ exit 0
       // Fallback to simple message
       console.log(`🐝 Background mode requested`);
       console.log(`📋 Objective: ${objective}`);
-      console.log(`\n⚠️  Background execution requires the claude-flow-swarm-bg script.`);
+      console.log(`\n⚠️  Background execution requires the auggie-flow-swarm-bg script.`);
       console.log(`\nFor true background execution, use:`);
       console.log(
-        `  nohup claude-flow swarm "${objective}" ${Object.entries(flags)
+        `  nohup auggie-flow swarm "${objective}" ${Object.entries(flags)
           .filter(([k, v]) => k !== 'background' && v)
           .map(([k, v]) => `--${k}${v !== true ? ` ${v}` : ''}`)
           .join(' ')} > swarm.log 2>&1 &`,
@@ -1298,7 +1298,7 @@ exit 0
           console.log(`✅ Swarm initialized with ID: ${swarmId}`);
           console.log('\n⚠️  Note: Advanced swarm features require Claude or local installation.');
           console.log('Install Claude: https://claude.ai/code');
-          console.log('Or install locally: npm install -g claude-flow@latest');
+          console.log('Or install locally: npm install -g auggie-flow@latest');
           console.log('\nThe swarm system would coordinate the following:');
           console.log('1. Agent spawning and task distribution');
           console.log('2. Parallel execution of subtasks');
@@ -1427,7 +1427,7 @@ Begin execution now. Create all necessary files and provide a complete, working 
         console.log(`✅ Swarm initialized with ID: ${swarmId}`);
         console.log('\n⚠️  Note: Advanced swarm features require Claude or local installation.');
         console.log('Install Claude: https://claude.ai/code');
-        console.log('Or install locally: npm install -g claude-flow@latest');
+        console.log('Or install locally: npm install -g auggie-flow@latest');
         console.log('\nThe swarm system would coordinate the following:');
         console.log('1. Agent spawning and task distribution');
         console.log('2. Parallel execution of subtasks');
@@ -1443,16 +1443,16 @@ Begin execution now. Create all necessary files and provide a complete, working 
 
     // Fallback to comprehensive help if there's an import error
     console.log(`
-🐝 Claude Flow Advanced Swarm System
+🐝 Auggie Flow Advanced Swarm System
 
 USAGE:
-  claude-flow swarm <objective> [options]
+  auggie-flow swarm <objective> [options]
 
 EXAMPLES:
-  claude-flow swarm "Build a REST API" --strategy development
-  claude-flow swarm "Research cloud architecture" --strategy research --ui
-  claude-flow swarm "Analyze data trends" --strategy analysis --parallel
-  claude-flow swarm "Optimize performance" --distributed --monitor
+  auggie-flow swarm "Build a REST API" --strategy development
+  auggie-flow swarm "Research cloud architecture" --strategy research --ui
+  auggie-flow swarm "Analyze data trends" --strategy analysis --parallel
+  auggie-flow swarm "Optimize performance" --distributed --monitor
 
 STRATEGIES:
   auto           Automatically determine best approach (default)
@@ -1498,8 +1498,8 @@ OPTIONS:
   --encryption               Enable encryption
   --verbose                  Enable detailed logging
   --dry-run                  Show configuration without executing
-  --executor                 Use built-in executor instead of Claude Code
-  --claude                   Open Claude Code CLI
+  --executor                 Use built-in executor instead of Auggie Code
+  --claude                   Open Auggie Code CLI
   --output-format <format>   Output format: json, text (default: text)
   --output-file <path>       Save output to file instead of stdout
   --no-interactive           Run in non-interactive mode (auto-enabled with --output-format json)
@@ -1610,7 +1610,7 @@ app.post('/api/v1/items', (req, res) => {
 // Start server
 app.listen(port, () => {
   console.log(\`REST API server running on port \${port}\`);
-  console.log('Created by Claude Flow Swarm');
+  console.log('Created by Auggie Flow Swarm');
 });
 
 module.exports = app;
@@ -1623,15 +1623,15 @@ module.exports = app;
     const packageJson = {
       name: 'rest-api',
       version: '1.0.0',
-      description: 'REST API created by Claude Flow Swarm',
+      description: 'REST API created by Auggie Flow Swarm',
       main: 'server.js',
       scripts: {
         start: 'node server.js',
         dev: 'nodemon server.js',
         test: 'jest',
       },
-      keywords: ['rest', 'api', 'swarm', 'claude-flow'],
-      author: 'Claude Flow Swarm',
+      keywords: ['rest', 'api', 'swarm', 'auggie-flow'],
+      author: 'Auggie Flow Swarm',
       license: 'MIT',
       dependencies: {
         express: '^4.18.2',
@@ -1657,7 +1657,7 @@ module.exports = app;
     // Create README
     const readme = `# REST API
 
-This REST API was created by the Claude Flow Swarm system.
+This REST API was created by the Auggie Flow Swarm system.
 
 ## Swarm Details
 - Swarm ID: ${swarmId}
@@ -1685,7 +1685,7 @@ npm start
 - \`POST /api/v1/items\` - Create new item
 
 ---
-Created by Claude Flow Swarm
+Created by Auggie Flow Swarm
 `;
 
     await fs.promises.writeFile(path.join(apiDir, 'README.md'), readme);
@@ -1698,7 +1698,7 @@ Created by Claude Flow Swarm
     // Create generic application
     console.log(`\n🏗️  Creating application...`);
 
-    const appCode = `// Application created by Claude Flow Swarm
+    const appCode = `// Application created by Auggie Flow Swarm
 // Objective: ${objective}
 // Swarm ID: ${swarmId}
 
@@ -1716,7 +1716,7 @@ main();
     const packageJson = {
       name: 'swarm-app',
       version: '1.0.0',
-      description: `Application created by Claude Flow Swarm: ${objective}`,
+      description: `Application created by Auggie Flow Swarm: ${objective}`,
       main: 'app.js',
       scripts: {
         start: 'node app.js',

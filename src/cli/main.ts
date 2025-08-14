@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 
 async function main() {
-  const cli = new CLI('claude-flow', 'Advanced AI Agent Orchestration System');
+  const cli = new CLI('auggie-flow', 'Advanced AI Agent Orchestration System');
 
   // Setup all commands
   setupCommands(cli);

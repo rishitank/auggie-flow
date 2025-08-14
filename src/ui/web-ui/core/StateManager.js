@@ -63,7 +63,7 @@ export class StateManager {
         try {
           const fs = await import('fs');
           const path = await import('path');
-          const stateFile = path.join(process.cwd(), '.claude-flow-state.json');
+          const stateFile = path.join(process.cwd(), '.auggie-flow-state.json');
 
           if (fs.existsSync(stateFile)) {
             const data = fs.readFileSync(stateFile, 'utf8');
@@ -169,7 +169,7 @@ export class StateManager {
         try {
           const fs = await import('fs');
           const path = await import('path');
-          const stateFile = path.join(process.cwd(), '.claude-flow-state.json');
+          const stateFile = path.join(process.cwd(), '.auggie-flow-state.json');
 
           fs.writeFileSync(stateFile, JSON.stringify(stateData, null, 2));
         } catch (error) {

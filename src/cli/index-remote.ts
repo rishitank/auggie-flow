@@ -21,10 +21,10 @@ function printHelp() {
 🧠 Claude-Flow v${VERSION} - Advanced AI Agent Orchestration System
 
 USAGE:
-  claude-flow [COMMAND] [OPTIONS]
+  auggie-flow [COMMAND] [OPTIONS]
 
 COMMANDS:
-  init                  Initialize Claude Code integration files
+  init                  Initialize Auggie Code integration files
   start                 Start the orchestration system
   agent                 Manage agents (spawn, list, terminate, info)
   task                  Manage tasks (create, list, status, cancel, workflow)
@@ -45,12 +45,12 @@ OPTIONS:
   --help                Show help for any command
 
 EXAMPLES:
-  claude-flow init                    # Initialize Claude Code integration
-  claude-flow start                   # Start orchestration system
-  claude-flow agent spawn researcher  # Spawn a research agent
-  claude-flow task create research "Analyze authentication patterns"
-  claude-flow memory store key "value"
-  claude-flow status                  # Check system status
+  auggie-flow init                    # Initialize Auggie Code integration
+  auggie-flow start                   # Start orchestration system
+  auggie-flow agent spawn researcher  # Spawn a research agent
+  auggie-flow task create research "Analyze authentication patterns"
+  auggie-flow memory store key "value"
+  auggie-flow status                  # Check system status
 
 For more info: https://github.com/ruvnet/claude-code-flow
 `);
@@ -87,27 +87,27 @@ async function main() {
       break;
 
     case 'init':
-      printSuccess('Initializing Claude Code integration files...');
+      printSuccess('Initializing Auggie Code integration files...');
       console.log('📝 This command would create:');
-      console.log('   - CLAUDE.md (Claude Code configuration)');
+      console.log('   - CLAUDE.md (Auggie Code configuration)');
       console.log('   - memory-bank.md (Memory system documentation)');
       console.log('   - coordination.md (Agent coordination documentation)');
       console.log('   - Memory folder structure');
       console.log('\n💡 To run locally, clone the repo and use:');
       console.log('   git clone https://github.com/ruvnet/claude-code-flow.git');
       console.log('   cd claude-code-flow');
-      console.log('   npm install -g claude-flow');
-      console.log('   claude-flow init');
+      console.log('   npm install -g auggie-flow');
+      console.log('   auggie-flow init');
       break;
 
     case 'install':
       console.log(chalk.blue('📦 Installing Claude-Flow...'));
       console.log('\nRun these commands to install:');
       console.log(chalk.gray('  # Using npm (recommended)'));
-      console.log('  npm install -g claude-flow');
+      console.log('  npm install -g auggie-flow');
       console.log('');
       console.log(chalk.gray('  # Or using Deno'));
-      console.log('  deno install --allow-all --name claude-flow \\');
+      console.log('  deno install --allow-all --name auggie-flow \\');
       console.log(
         '    https://raw.githubusercontent.com/ruvnet/claude-code-flow/main/src/cli/index.ts',
       );
@@ -121,9 +121,9 @@ async function main() {
     default:
       printWarning(`Command '${command}' requires local installation.`);
       console.log('\n📥 To use all features, install Claude-Flow:');
-      console.log('   npm install -g claude-flow');
+      console.log('   npm install -g auggie-flow');
       console.log('\n🌐 Or run directly with Deno:');
-      console.log('   deno install --allow-all --name claude-flow \\');
+      console.log('   deno install --allow-all --name auggie-flow \\');
       console.log(
         '     https://raw.githubusercontent.com/ruvnet/claude-code-flow/main/src/cli/index.ts',
       );

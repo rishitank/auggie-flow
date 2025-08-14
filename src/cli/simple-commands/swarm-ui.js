@@ -30,7 +30,7 @@ class SwarmUI {
     // Create blessed screen
     this.screen = blessed.screen({
       smartCSR: true,
-      title: 'Claude Flow - Swarm Control Center',
+      title: 'Auggie Flow - Swarm Control Center',
     });
 
     this.createLayout();
@@ -65,7 +65,7 @@ class SwarmUI {
       left: 0,
       width: '100%',
       height: 3,
-      content: '{center}🐝 Claude Flow Swarm Control Center{/center}',
+      content: '{center}🐝 Auggie Flow Swarm Control Center{/center}',
       tags: true,
       style: {
         fg: 'white',
@@ -634,7 +634,7 @@ class SwarmUI {
       );
     } else {
       // Unix-like systems: Use ps and grep
-      exec('ps aux | grep "claude-flow swarm" | grep -v grep', (error, stdout) => {
+      exec('ps aux | grep "auggie-flow swarm" | grep -v grep', (error, stdout) => {
         if (!error && stdout) {
           const lines = stdout.split('\n').filter((line) => line.trim());
           lines.forEach((line) => {

@@ -261,7 +261,7 @@ async function createGitHubSettingsJson() {
     },
     permissions: {
       allow: [
-        'Bash(npx claude-flow *)',
+        'Bash(npx auggie-flow *)',
         'Bash(npm run lint)',
         'Bash(npm run test:*)',
         'Bash(npm test *)',
@@ -295,8 +295,8 @@ async function createGitHubSettingsJson() {
         'Bash(cd *)',
         'Bash(cat *)',
         'Bash(echo *)',
-        'Bash(npx claude-flow@alpha *)',
-        'Bash(./claude-flow *)',
+        'Bash(npx auggie-flow@alpha *)',
+        'Bash(./auggie-flow *)',
         'Bash(./.auggie/helpers/*)'
       ],
       deny: [
@@ -313,7 +313,7 @@ async function createGitHubSettingsJson() {
           hooks: [
             {
               type: 'command',
-              command: 'cat | jq -r \'.tool_input.command // empty\' | tr \'\\n\' \'\\0\' | xargs -0 -I {} npx claude-flow@alpha hooks pre-command --command \'{}\' --validate-safety true --prepare-resources true'
+              command: 'cat | jq -r \'.tool_input.command // empty\' | tr \'\\n\' \'\\0\' | xargs -0 -I {} npx auggie-flow@alpha hooks pre-command --command \'{}\' --validate-safety true --prepare-resources true'
             }
           ]
         },
@@ -322,7 +322,7 @@ async function createGitHubSettingsJson() {
           hooks: [
             {
               type: 'command',
-              command: 'cat | jq -r \'.tool_input.file_path // .tool_input.path // empty\' | tr \'\\n\' \'\\0\' | xargs -0 -I {} npx claude-flow@alpha hooks pre-edit --file \'{}\' --auto-assign-agents true --load-context true'
+              command: 'cat | jq -r \'.tool_input.file_path // .tool_input.path // empty\' | tr \'\\n\' \'\\0\' | xargs -0 -I {} npx auggie-flow@alpha hooks pre-edit --file \'{}\' --auto-assign-agents true --load-context true'
             },
             {
               type: 'command',
@@ -337,7 +337,7 @@ async function createGitHubSettingsJson() {
           hooks: [
             {
               type: 'command',
-              command: 'cat | jq -r \'.tool_input.command // empty\' | tr \'\\n\' \'\\0\' | xargs -0 -I {} npx claude-flow@alpha hooks post-command --command \'{}\' --track-metrics true --store-results true'
+              command: 'cat | jq -r \'.tool_input.command // empty\' | tr \'\\n\' \'\\0\' | xargs -0 -I {} npx auggie-flow@alpha hooks post-command --command \'{}\' --track-metrics true --store-results true'
             }
           ]
         },
@@ -346,7 +346,7 @@ async function createGitHubSettingsJson() {
           hooks: [
             {
               type: 'command',
-              command: 'cat | jq -r \'.tool_input.file_path // .tool_input.path // empty\' | tr \'\\n\' \'\\0\' | xargs -0 -I {} npx claude-flow@alpha hooks post-edit --file \'{}\' --format true --update-memory true'
+              command: 'cat | jq -r \'.tool_input.file_path // .tool_input.path // empty\' | tr \'\\n\' \'\\0\' | xargs -0 -I {} npx auggie-flow@alpha hooks post-edit --file \'{}\' --format true --update-memory true'
             },
             {
               type: 'command',
@@ -370,7 +370,7 @@ async function createGitHubSettingsJson() {
           hooks: [
             {
               type: 'command',
-              command: 'npx claude-flow@alpha hooks session-end --generate-summary true --persist-state true --export-metrics true'
+              command: 'npx auggie-flow@alpha hooks session-end --generate-summary true --persist-state true --export-metrics true'
             },
             {
               type: 'command',
@@ -401,7 +401,7 @@ async function createGitHubSettingsJson() {
       ]
     },
     includeCoAuthoredBy: true,
-    enabledMcpjsonServers: ['claude-flow', 'ruv-swarm']
+    enabledMcpjsonServers: ['auggie-flow', 'ruv-swarm']
   };
   
   await writeFile(settingsPath, JSON.stringify(settings, null, 2));
@@ -464,7 +464,7 @@ export async function githubInitCommand(flags = {}) {
     ).catch(() => {
       // Fallback content if template not found
       return `#!/bin/bash
-# Checkpoint manager for Claude Flow
+# Checkpoint manager for Auggie Flow
 # Use github-checkpoint-hooks.sh for checkpoint operations
 `;
     });
