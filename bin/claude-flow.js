@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Claude-Flow Cross-Platform Dispatcher
+ * Auggie-Flow Cross-Platform Dispatcher
  * Detects and uses the best available runtime
  */
 
@@ -123,18 +123,18 @@ async function main() {
 }
 
 function showFallbackHelp() {
-  console.log(`🧠 Claude-Flow v${VERSION} - Advanced AI Agent Orchestration System`);
+  console.log(`🧠 Auggie-Flow v${VERSION} - Advanced Multi-Agent Orchestration System`);
   console.log('');
   console.log('⚠️  No compatible runtime found.');
   console.log('');
   console.log('To install and run:');
   console.log('  1. Install tsx: npm install -g tsx');
-  console.log('  2. Run: claude-flow <command>');
+  console.log('  2. Run: auggie-flow <command>');
   console.log('');
   console.log('Or use directly:');
   console.log('  node src/cli/simple-cli.js <command>');
   console.log('');
-  console.log('Documentation: https://github.com/ruvnet/claude-code-flow');
+  console.log('Documentation: https://github.com/augmentcode/auggie-flow');
 }
 
 main();
