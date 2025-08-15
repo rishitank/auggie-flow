@@ -1,6 +1,9 @@
 name: CI/CD Pipeline
 # CI tweak: trigger run after removing lockfile regen and using npm ci --legacy-peer-deps
 
+permissions:
+  contents: read
+  actions: read
 
 on:
   push:
@@ -36,8 +39,6 @@ jobs:
           cache: 'npm'
 
 
-      - name: Regenerate lockfile (align with package.json)
-        run: npm install --package-lock-only --legacy-peer-deps --no-audit --no-fund
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
@@ -82,8 +83,6 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: Regenerate lockfile (align with package.json)
-        run: npm install --package-lock-only --legacy-peer-deps --no-audit --no-fund
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
