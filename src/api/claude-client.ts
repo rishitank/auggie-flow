@@ -180,17 +180,17 @@ export class ClaudeAPIClient extends EventEmitter {
     if (process.env.ANTHROPIC_API_KEY) {
       config.apiKey = process.env.ANTHROPIC_API_KEY;
     }
-    if (process.env.CLAUDE_API_URL) {
-      config.apiUrl = process.env.CLAUDE_API_URL;
+    if (process.env.AUGGIE_API_URL) {
+      config.apiUrl = process.env.AUGGIE_API_URL;
     }
-    if (process.env.CLAUDE_MODEL) {
-      config.model = process.env.CLAUDE_MODEL as ClaudeModel;
+    if (process.env.AUGGIE_MODEL) {
+      config.model = process.env.AUGGIE_MODEL as ClaudeModel;
     }
-    if (process.env.CLAUDE_TEMPERATURE) {
-      config.temperature = parseFloat(process.env.CLAUDE_TEMPERATURE);
+    if (process.env.AUGGIE_TEMPERATURE) {
+      config.temperature = parseFloat(process.env.AUGGIE_TEMPERATURE);
     }
-    if (process.env.CLAUDE_MAX_TOKENS) {
-      config.maxTokens = parseInt(process.env.CLAUDE_MAX_TOKENS, 10);
+    if (process.env.AUGGIE_MAX_TOKENS) {
+      config.maxTokens = parseInt(process.env.AUGGIE_MAX_TOKENS, 10);
     }
 
     // Load from config manager if available

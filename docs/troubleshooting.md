@@ -1,4 +1,4 @@
-# 🔧 Claude Flow v2.0.0 Troubleshooting Guide
+# 🔧 Auggie Flow v2.0.0 Troubleshooting Guide
 
 ## 🚨 Current Known Issues
 
@@ -19,7 +19,7 @@ npm run build
 **✅ IMMEDIATE SOLUTION**: Use NPX version (fully functional)
 ```bash
 # Instead of local build, use NPX
-npx claude-flow@2.0.0 <command>
+npx auggie-flow@2.0.0 <command>
 ```
 
 **Development Status**: Active fixes in progress (80% import issues resolved)
@@ -40,15 +40,15 @@ npm test
 **✅ SOLUTION**: NPX version has been thoroughly tested
 ```bash
 # Use NPX for reliable functionality
-npx claude-flow@2.0.0 status
-npx claude-flow@2.0.0 swarm "test objective"
+npx auggie-flow@2.0.0 status
+npx auggie-flow@2.0.0 swarm "test objective"
 ```
 
 ---
 
 ### ✅ FIXED: NPX Cache Conflicts (v2.0.0-alpha.17+)
 
-**Previous Issue**: ENOTEMPTY errors when running multiple claude-flow instances concurrently
+**Previous Issue**: ENOTEMPTY errors when running multiple auggie-flow instances concurrently
 
 **Symptoms (FIXED)**:
 ```bash
@@ -82,7 +82,7 @@ node test/npx-isolation-integration-test.js
 
 **Solution**: Use latest NPX version
 ```bash
-npx claude-flow@2.0.0 swarm "your objective"
+npx auggie-flow@2.0.0 swarm "your objective"
 ```
 
 ---
@@ -93,22 +93,22 @@ npx claude-flow@2.0.0 swarm "your objective"
 
 ```bash
 # Verify NPX availability and version
-npx claude-flow@2.0.0 --version
+npx auggie-flow@2.0.0 --version
 
 # System status check
-npx claude-flow@2.0.0 status
+npx auggie-flow@2.0.0 status
 
 # Test basic functionality
-npx claude-flow@2.0.0 --help
+npx auggie-flow@2.0.0 --help
 
 # Validate swarm functionality
-npx claude-flow@2.0.0 swarm "test basic functionality" --max-agents 2 --timeout 1
+npx auggie-flow@2.0.0 swarm "test basic functionality" --max-agents 2 --timeout 1
 ```
 
 ### Expected Healthy Output
 
 ```bash
-$ npx claude-flow@2.0.0 status
+$ npx auggie-flow@2.0.0 status
 ✅ Claude-Flow System Status:
 🟡 Not Running (orchestrator not started)
 🤖 Agents: 0 active
@@ -118,8 +118,8 @@ $ npx claude-flow@2.0.0 status
 🌐 MCP Server: Stopped
 
 💡 Quick Actions:
-   Run "claude-flow start" to begin orchestration
-   Run "claude-flow agent spawn researcher" to create an agent
+   Run "auggie-flow start" to begin orchestration
+   Run "auggie-flow agent spawn researcher" to create an agent
 ```
 
 ---
@@ -145,8 +145,8 @@ npm install -g npm@latest
 npx clear-npx-cache
 
 # Alternative: Install globally first
-npm install -g claude-flow@2.0.0
-claude-flow --version
+npm install -g auggie-flow@2.0.0
+auggie-flow --version
 ```
 
 ### Permission Issues
@@ -159,7 +159,7 @@ Error: EACCES: permission denied
 **Solutions**:
 ```bash
 # Use NPX (recommended - no global installation)
-npx claude-flow@2.0.0 <command>
+npx auggie-flow@2.0.0 <command>
 
 # Or fix npm permissions (if using global install)
 sudo chown -R $(whoami) ~/.npm
@@ -206,28 +206,28 @@ npm install
 **Diagnostic Steps**:
 ```bash
 # 1. Check basic functionality
-npx claude-flow@2.0.0 status
+npx auggie-flow@2.0.0 status
 
 # 2. Try minimal swarm
-npx claude-flow@2.0.0 swarm "test" --max-agents 1 --timeout 1
+npx auggie-flow@2.0.0 swarm "test" --max-agents 1 --timeout 1
 
 # 3. Check verbose output
-npx claude-flow@2.0.0 swarm "test" --verbose
+npx auggie-flow@2.0.0 swarm "test" --verbose
 
 # 4. Try different strategy
-npx claude-flow@2.0.0 swarm "test" --strategy research
+npx auggie-flow@2.0.0 swarm "test" --strategy research
 ```
 
 **Common Solutions**:
 ```bash
 # Use simpler configuration
-npx claude-flow@2.0.0 swarm "simple objective" --max-agents 2
+npx auggie-flow@2.0.0 swarm "simple objective" --max-agents 2
 
 # Increase timeout for complex tasks
-npx claude-flow@2.0.0 swarm "complex task" --timeout 30
+npx auggie-flow@2.0.0 swarm "complex task" --timeout 30
 
 # Use centralized mode for reliability
-npx claude-flow@2.0.0 swarm "task" --mode centralized
+npx auggie-flow@2.0.0 swarm "task" --mode centralized
 ```
 
 ### Agent Spawning Issues
@@ -237,25 +237,25 @@ npx claude-flow@2.0.0 swarm "task" --mode centralized
 **Diagnostic**:
 ```bash
 # Check agent list
-npx claude-flow@2.0.0 agent list
+npx auggie-flow@2.0.0 agent list
 
 # Try spawning single agent
-npx claude-flow@2.0.0 agent spawn researcher "Test Agent"
+npx auggie-flow@2.0.0 agent spawn researcher "Test Agent"
 
 # Check memory usage
-npx claude-flow@2.0.0 memory search "agent"
+npx auggie-flow@2.0.0 memory search "agent"
 ```
 
 **Solutions**:
 ```bash
 # Reduce concurrent agents
-npx claude-flow@2.0.0 swarm "task" --max-agents 3
+npx auggie-flow@2.0.0 swarm "task" --max-agents 3
 
 # Use specific agent types
-npx claude-flow@2.0.0 swarm "task" --strategy development
+npx auggie-flow@2.0.0 swarm "task" --strategy development
 
 # Clear memory if needed
-npx claude-flow@2.0.0 memory search "." --limit 100
+npx auggie-flow@2.0.0 memory search "." --limit 100
 ```
 
 ### Task Timeout Issues
@@ -265,17 +265,17 @@ npx claude-flow@2.0.0 memory search "." --limit 100
 **Solutions**:
 ```bash
 # Increase task timeout
-npx claude-flow@2.0.0 swarm "task" --timeout 60
+npx auggie-flow@2.0.0 swarm "task" --timeout 60
 
 # Use background mode
-npx claude-flow@2.0.0 swarm "long task" --background
+npx auggie-flow@2.0.0 swarm "long task" --background
 
 # Monitor progress
-npx claude-flow@2.0.0 swarm "task" --monitor
+npx auggie-flow@2.0.0 swarm "task" --monitor
 
 # Break into smaller tasks
-npx claude-flow@2.0.0 swarm "phase 1: setup" --max-agents 2
-npx claude-flow@2.0.0 swarm "phase 2: implementation" --max-agents 3
+npx auggie-flow@2.0.0 swarm "phase 1: setup" --max-agents 2
+npx auggie-flow@2.0.0 swarm "phase 2: implementation" --max-agents 3
 ```
 
 ---
@@ -292,13 +292,13 @@ Unknown mode: <mode-name>
 **Solutions**:
 ```bash
 # List available modes
-npx claude-flow@2.0.0 sparc modes
+npx auggie-flow@2.0.0 sparc modes
 
 # Get mode information
-npx claude-flow@2.0.0 sparc info <mode-name>
+npx auggie-flow@2.0.0 sparc info <mode-name>
 
 # Use auto-detection
-npx claude-flow@2.0.0 sparc "describe your objective"
+npx auggie-flow@2.0.0 sparc "describe your objective"
 ```
 
 ### Mode Execution Failures
@@ -308,13 +308,13 @@ npx claude-flow@2.0.0 sparc "describe your objective"
 **Diagnostic**:
 ```bash
 # Try with verbose output
-npx claude-flow@2.0.0 sparc <mode> "objective" --verbose
+npx auggie-flow@2.0.0 sparc <mode> "objective" --verbose
 
 # Use simpler objective
-npx claude-flow@2.0.0 sparc code "create hello world function"
+npx auggie-flow@2.0.0 sparc code "create hello world function"
 
 # Check system status
-npx claude-flow@2.0.0 status
+npx auggie-flow@2.0.0 status
 ```
 
 ---
@@ -328,16 +328,16 @@ npx claude-flow@2.0.0 status
 **Solutions**:
 ```bash
 # Use centralized coordination
-npx claude-flow@2.0.0 swarm "task" --mode centralized
+npx auggie-flow@2.0.0 swarm "task" --mode centralized
 
 # Reduce agent count
-npx claude-flow@2.0.0 swarm "task" --max-agents 3
+npx auggie-flow@2.0.0 swarm "task" --max-agents 3
 
 # Check memory system
-npx claude-flow@2.0.0 memory search "coordination"
+npx auggie-flow@2.0.0 memory search "coordination"
 
 # Use verbose monitoring
-npx claude-flow@2.0.0 swarm "task" --monitor --verbose
+npx auggie-flow@2.0.0 swarm "task" --monitor --verbose
 ```
 
 ### Memory Issues
@@ -347,26 +347,26 @@ npx claude-flow@2.0.0 swarm "task" --monitor --verbose
 **Diagnostic**:
 ```bash
 # Check memory status
-npx claude-flow@2.0.0 memory search "." --limit 10
+npx auggie-flow@2.0.0 memory search "." --limit 10
 
 # List memory partitions
-npx claude-flow@2.0.0 memory list
+npx auggie-flow@2.0.0 memory list
 
 # Test memory operations
-npx claude-flow@2.0.0 memory store "test" "value"
-npx claude-flow@2.0.0 memory get "test"
+npx auggie-flow@2.0.0 memory store "test" "value"
+npx auggie-flow@2.0.0 memory get "test"
 ```
 
 **Solutions**:
 ```bash
 # Use memory namespaces
-npx claude-flow@2.0.0 swarm "task" --memory-namespace clean
+npx auggie-flow@2.0.0 swarm "task" --memory-namespace clean
 
 # Clear specific entries
-npx claude-flow@2.0.0 memory delete "problematic-key"
+npx auggie-flow@2.0.0 memory delete "problematic-key"
 
 # Restart with fresh memory
-npx claude-flow@2.0.0 init --sparc --force
+npx auggie-flow@2.0.0 init --sparc --force
 ```
 
 ---
@@ -419,19 +419,19 @@ gh issue list --limit 5
 **Optimization**:
 ```bash
 # Enable parallel execution
-npx claude-flow@2.0.0 swarm "task" --parallel
+npx auggie-flow@2.0.0 swarm "task" --parallel
 
 # Reduce agent count
-npx claude-flow@2.0.0 swarm "task" --max-agents 3
+npx auggie-flow@2.0.0 swarm "task" --max-agents 3
 
 # Use appropriate strategy
-npx claude-flow@2.0.0 swarm "task" --strategy development
+npx auggie-flow@2.0.0 swarm "task" --strategy development
 
 # Monitor performance
-npx claude-flow@2.0.0 swarm "task" --monitor
+npx auggie-flow@2.0.0 swarm "task" --monitor
 
 # Use background mode for long tasks
-npx claude-flow@2.0.0 swarm "task" --background
+npx auggie-flow@2.0.0 swarm "task" --background
 ```
 
 ### Memory Usage Issues
@@ -441,16 +441,16 @@ npx claude-flow@2.0.0 swarm "task" --background
 **Solutions**:
 ```bash
 # Limit memory namespace
-npx claude-flow@2.0.0 swarm "task" --memory-namespace limited
+npx auggie-flow@2.0.0 swarm "task" --memory-namespace limited
 
 # Reduce concurrent agents
-npx claude-flow@2.0.0 swarm "task" --max-agents 2
+npx auggie-flow@2.0.0 swarm "task" --max-agents 2
 
 # Use simpler coordination
-npx claude-flow@2.0.0 swarm "task" --mode centralized
+npx auggie-flow@2.0.0 swarm "task" --mode centralized
 
 # Monitor memory usage
-npx claude-flow@2.0.0 monitor --metrics
+npx auggie-flow@2.0.0 monitor --metrics
 ```
 
 ---
@@ -510,7 +510,7 @@ powershell
 wsl
 
 # NPX command in Windows
-npx.cmd claude-flow@2.0.0 --help
+npx.cmd auggie-flow@2.0.0 --help
 ```
 
 #### macOS Issues
@@ -545,16 +545,16 @@ sudo apt-get install -y nodejs
 **Solutions**:
 ```bash
 # Use NPX (safer, no global installation)
-npx claude-flow@2.0.0 <command>
+npx auggie-flow@2.0.0 <command>
 
 # Check file permissions
-ls -la claude-flow
+ls -la auggie-flow
 
 # Fix permissions if needed
-chmod +x claude-flow
+chmod +x auggie-flow
 
 # Run without elevated privileges
-npx claude-flow@2.0.0 --help  # No sudo needed
+npx auggie-flow@2.0.0 --help  # No sudo needed
 ```
 
 ### Network Security
@@ -571,8 +571,8 @@ npm config set https-proxy http://proxy.company.com:8080
 npm config set registry https://registry.npmjs.org/
 
 # Download package manually
-npm pack claude-flow@2.0.0
-tar -xzf claude-flow-2.0.0.tgz
+npm pack auggie-flow@2.0.0
+tar -xzf auggie-flow-2.0.0.tgz
 ```
 
 ---
@@ -586,10 +586,10 @@ tar -xzf claude-flow-2.0.0.tgz
 **Solutions**:
 ```bash
 # Try basic init
-npx claude-flow@2.0.0 init --minimal
+npx auggie-flow@2.0.0 init --minimal
 
 # Force reinitialize
-npx claude-flow@2.0.0 init --sparc --force
+npx auggie-flow@2.0.0 init --sparc --force
 
 # Check directory permissions
 ls -la .
@@ -610,7 +610,7 @@ cat .claude/settings.json
 cp .claude/settings.json .claude/settings.json.backup
 
 # Reinitialize configuration
-npx claude-flow@2.0.0 init --sparc --force
+npx auggie-flow@2.0.0 init --sparc --force
 
 # Manual config check
 cat .claude/settings.json | jq .  # Validate JSON
@@ -640,14 +640,14 @@ node --version  # Should be 20+
 npm --version   # Should be 9+
 
 # 4. Test basic NPX functionality
-npx claude-flow@2.0.0 --version
+npx auggie-flow@2.0.0 --version
 
 # 5. Reinitialize project
-npx claude-flow@2.0.0 init --sparc
+npx auggie-flow@2.0.0 init --sparc
 
 # 6. Test basic operations
-npx claude-flow@2.0.0 status
-npx claude-flow@2.0.0 swarm "test recovery" --max-agents 1
+npx auggie-flow@2.0.0 status
+npx auggie-flow@2.0.0 swarm "test recovery" --max-agents 1
 ```
 
 ### Data Recovery
@@ -674,10 +674,10 @@ jq '.swarmStatus' swarm-runs/swarm_<id>/status.json
 
 Before seeking help, run through this checklist:
 
-1. ✅ **Version Check**: `npx claude-flow@2.0.0 --version`
-2. ✅ **Basic Functionality**: `npx claude-flow@2.0.0 --help`
-3. ✅ **System Status**: `npx claude-flow@2.0.0 status`
-4. ✅ **Simple Test**: `npx claude-flow@2.0.0 swarm "test" --max-agents 1`
+1. ✅ **Version Check**: `npx auggie-flow@2.0.0 --version`
+2. ✅ **Basic Functionality**: `npx auggie-flow@2.0.0 --help`
+3. ✅ **System Status**: `npx auggie-flow@2.0.0 status`
+4. ✅ **Simple Test**: `npx auggie-flow@2.0.0 swarm "test" --max-agents 1`
 5. ✅ **Environment**: `node --version` (should be 20+)
 
 ### Collecting Debug Information
@@ -687,11 +687,11 @@ Before seeking help, run through this checklist:
 echo "Node: $(node --version)"
 echo "NPM: $(npm --version)"
 echo "OS: $(uname -a)"
-echo "Claude Flow: $(npx claude-flow@2.0.0 --version)"
+echo "Auggie Flow: $(npx auggie-flow@2.0.0 --version)"
 
 # Test basic operations
-npx claude-flow@2.0.0 status > debug-status.txt 2>&1
-npx claude-flow@2.0.0 swarm "debug test" --verbose > debug-swarm.txt 2>&1
+npx auggie-flow@2.0.0 status > debug-status.txt 2>&1
+npx auggie-flow@2.0.0 swarm "debug test" --verbose > debug-swarm.txt 2>&1
 
 # Configuration state
 ls -la .claude/ > debug-config.txt 2>&1
@@ -712,7 +712,7 @@ cat .claude/settings.json >> debug-config.txt 2>&1
 
 3. **Community Resources**:
    - ruv-swarm documentation: https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm
-   - NPM package: https://www.npmjs.com/package/claude-flow/v/alpha
+   - NPM package: https://www.npmjs.com/package/auggie-flow/v/alpha
 
 ---
 
@@ -722,16 +722,16 @@ cat .claude/settings.json >> debug-config.txt 2>&1
 
 ```bash
 # Monitor swarm performance
-npx claude-flow@2.0.0 swarm "task" --monitor --verbose
+npx auggie-flow@2.0.0 swarm "task" --monitor --verbose
 
 # Check system resources during execution
-npx claude-flow@2.0.0 monitor --realtime --metrics
+npx auggie-flow@2.0.0 monitor --realtime --metrics
 
 # Track memory usage
-npx claude-flow@2.0.0 status --detailed
+npx auggie-flow@2.0.0 status --detailed
 
 # Performance benchmarking
-time npx claude-flow@2.0.0 swarm "benchmark task" --max-agents 3
+time npx auggie-flow@2.0.0 swarm "benchmark task" --max-agents 3
 ```
 
 ### Performance Baselines (NPX)

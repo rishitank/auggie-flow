@@ -1,4 +1,4 @@
-# Claude Flow Alpha 58 - Verification Report
+# Auggie Flow Alpha 58 - Verification Report
 
 ## Version Update Status ✅
 - **Package Version**: Successfully updated to 2.0.0-alpha.58
@@ -45,7 +45,7 @@
 - Hive-mind specific tests: No dedicated tests found
 
 ### Integration Testing
-- CLI commands functional via `./bin/claude-flow`
+- CLI commands functional via `./bin/auggie-flow`
 - Hive-mind wizard runs but shows database schema warning
 - Core functionality operational
 

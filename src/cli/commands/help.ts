@@ -31,24 +31,24 @@ const HELP_TOPICS = [
     tutorial: [
       'Welcome to Claude-Flow! This tutorial will get you started.',
       '1. First, initialize a configuration file:',
-      '   claude-flow config init',
+      '   auggie-flow config init',
       '',
       '2. Start the orchestration system:',
-      '   claude-flow start',
+      '   auggie-flow start',
       '',
       '3. In another terminal, spawn your first agent:',
-      '   claude-flow agent spawn researcher --name "My Research Agent"',
+      '   auggie-flow agent spawn researcher --name "My Research Agent"',
       '',
       '4. Create a task for the agent:',
-      '   claude-flow task create research "Find information about AI trends"',
+      '   auggie-flow task create research "Find information about AI trends"',
       '',
       '5. Monitor progress:',
-      '   claude-flow status',
+      '   auggie-flow status',
       '',
       'You can also use the interactive REPL mode:',
-      '   claude-flow repl',
+      '   auggie-flow repl',
       '',
-      'For more help, try: claude-flow help <topic>',
+      'For more help, try: auggie-flow help <topic>',
     ],
     related: ['agents', 'tasks', 'configuration'],
   },
@@ -59,23 +59,23 @@ const HELP_TOPICS = [
     examples: [
       {
         description: 'Spawn a research agent',
-        command: 'claude-flow agent spawn researcher --name "Research Assistant"',
+        command: 'auggie-flow agent spawn researcher --name "Research Assistant"',
         explanation:
           'Creates a new research agent with specialized capabilities for information gathering',
       },
       {
         description: 'List all active agents',
-        command: 'claude-flow agent list',
+        command: 'auggie-flow agent list',
         explanation: 'Shows all currently running agents with their status and task counts',
       },
       {
         description: 'Get detailed agent information',
-        command: 'claude-flow agent info agent-001',
+        command: 'auggie-flow agent info agent-001',
         explanation: 'Displays comprehensive information about a specific agent',
       },
       {
         description: 'Terminate an agent',
-        command: 'claude-flow agent terminate agent-001',
+        command: 'auggie-flow agent terminate agent-001',
         explanation: 'Safely shuts down an agent and reassigns its tasks',
       },
     ],
@@ -97,7 +97,7 @@ const HELP_TOPICS = [
       'Best Practices:',
       '• Use descriptive names for your agents',
       '• Match agent types to your workflow needs',
-      '• Monitor agent performance with "claude-flow status"',
+      '• Monitor agent performance with "auggie-flow status"',
       '• Terminate idle agents to free resources',
     ],
     related: ['tasks', 'workflows', 'coordination'],
@@ -109,28 +109,28 @@ const HELP_TOPICS = [
     examples: [
       {
         description: 'Create a research task',
-        command: 'claude-flow task create research "Find papers on quantum computing" --priority 5',
+        command: 'auggie-flow task create research "Find papers on quantum computing" --priority 5',
         explanation: 'Creates a high-priority research task with specific instructions',
       },
       {
         description: 'Create a task with dependencies',
         command:
-          'claude-flow task create analysis "Analyze research results" --dependencies task-001',
+          'auggie-flow task create analysis "Analyze research results" --dependencies task-001',
         explanation: 'Creates a task that waits for task-001 to complete before starting',
       },
       {
         description: 'Assign task to specific agent',
-        command: 'claude-flow task create implementation "Write API client" --assign agent-003',
+        command: 'auggie-flow task create implementation "Write API client" --assign agent-003',
         explanation: 'Directly assigns a task to a specific agent',
       },
       {
         description: 'Monitor task progress',
-        command: 'claude-flow task status task-001',
+        command: 'auggie-flow task status task-001',
         explanation: 'Shows detailed status and progress information for a task',
       },
       {
         description: 'Cancel a running task',
-        command: 'claude-flow task cancel task-001 --reason "Requirements changed"',
+        command: 'auggie-flow task cancel task-001 --reason "Requirements changed"',
         explanation: 'Stops a task and provides a reason for cancellation',
       },
     ],
@@ -168,28 +168,28 @@ const HELP_TOPICS = [
     examples: [
       {
         description: 'Spawn Claude with web research capabilities',
-        command: 'claude-flow claude spawn "implement user authentication" --research --parallel',
+        command: 'auggie-flow claude spawn "implement user authentication" --research --parallel',
         explanation:
           'Creates a Claude instance with WebFetchTool and BatchTool for parallel web research',
       },
       {
         description: 'Spawn Claude without permission prompts',
-        command: 'claude-flow claude spawn "fix payment bug" --no-permissions',
+        command: 'auggie-flow claude spawn "fix payment bug" --no-permissions',
         explanation: 'Runs Claude with --dangerously-skip-permissions flag to avoid interruptions',
       },
       {
         description: 'Spawn Claude with custom tools',
-        command: 'claude-flow claude spawn "analyze codebase" --tools "View,Edit,GrepTool,LS"',
+        command: 'auggie-flow claude spawn "analyze codebase" --tools "View,Edit,GrepTool,LS"',
         explanation: 'Specifies exactly which tools Claude can use for the task',
       },
       {
         description: 'Spawn Claude with test coverage target',
-        command: 'claude-flow claude spawn "write unit tests" --coverage 95 --commit feature',
+        command: 'auggie-flow claude spawn "write unit tests" --coverage 95 --commit feature',
         explanation: 'Sets test coverage goal to 95% and commits after each feature',
       },
       {
         description: 'Dry run to preview command',
-        command: 'claude-flow claude spawn "build API" --mode backend-only --dry-run',
+        command: 'auggie-flow claude spawn "build API" --mode backend-only --dry-run',
         explanation: 'Shows what would be executed without actually running Claude',
       },
     ],
@@ -209,10 +209,10 @@ const HELP_TOPICS = [
       '• --dry-run, -d: Preview what would be executed',
       '',
       'Environment Variables Set:',
-      '• CLAUDE_INSTANCE_ID: Unique identifier for the Claude instance',
-      '• CLAUDE_FLOW_MODE: Development mode setting',
-      '• CLAUDE_FLOW_COVERAGE: Target test coverage percentage',
-      '• CLAUDE_FLOW_COMMIT: Commit frequency setting',
+      '• AUGGIE_INSTANCE_ID: Unique identifier for the Claude instance',
+      '• AUGGIE_FLOW_MODE: Development mode setting',
+      '• AUGGIE_FLOW_COVERAGE: Target test coverage percentage',
+      '• AUGGIE_FLOW_COMMIT: Commit frequency setting',
       '',
       'Common Use Cases:',
       '• Full-stack development: --mode full --parallel',
@@ -230,27 +230,27 @@ const HELP_TOPICS = [
     examples: [
       {
         description: 'Run a workflow from file',
-        command: 'claude-flow workflow run research-pipeline.json --watch',
+        command: 'auggie-flow workflow run research-pipeline.json --watch',
         explanation: 'Executes a workflow definition and monitors progress in real-time',
       },
       {
         description: 'Validate workflow before running',
-        command: 'claude-flow workflow validate my-workflow.json --strict',
+        command: 'auggie-flow workflow validate my-workflow.json --strict',
         explanation: 'Checks workflow syntax and dependencies without executing',
       },
       {
         description: 'Generate workflow template',
-        command: 'claude-flow workflow template research --output research-workflow.json',
+        command: 'auggie-flow workflow template research --output research-workflow.json',
         explanation: 'Creates a pre-configured workflow template for research tasks',
       },
       {
         description: 'Monitor running workflows',
-        command: 'claude-flow workflow list --all',
+        command: 'auggie-flow workflow list --all',
         explanation: 'Shows all workflows including completed ones',
       },
       {
         description: 'Stop a running workflow',
-        command: 'claude-flow workflow stop workflow-001 --force',
+        command: 'auggie-flow workflow stop workflow-001 --force',
         explanation: 'Immediately stops all tasks in a workflow',
       },
     ],
@@ -304,27 +304,27 @@ const HELP_TOPICS = [
     examples: [
       {
         description: 'Initialize default configuration',
-        command: 'claude-flow config init --template development',
+        command: 'auggie-flow config init --template development',
         explanation: 'Creates a configuration file optimized for development',
       },
       {
         description: 'View current configuration',
-        command: 'claude-flow config show --diff',
+        command: 'auggie-flow config show --diff',
         explanation: 'Shows only settings that differ from defaults',
       },
       {
         description: 'Update a setting',
-        command: 'claude-flow config set orchestrator.maxConcurrentAgents 20',
+        command: 'auggie-flow config set orchestrator.maxConcurrentAgents 20',
         explanation: 'Changes the maximum number of concurrent agents',
       },
       {
         description: 'Save configuration profile',
-        command: 'claude-flow config profile save production',
+        command: 'auggie-flow config profile save production',
         explanation: 'Saves current settings as a named profile',
       },
       {
         description: 'Load configuration profile',
-        command: 'claude-flow config profile load development',
+        command: 'auggie-flow config profile load development',
         explanation: 'Switches to a previously saved configuration profile',
       },
     ],
@@ -352,14 +352,14 @@ const HELP_TOPICS = [
       '  - port: Network port for HTTP transport',
       '',
       'Configuration Files:',
-      '• Global: ~/.claude-flow/config.json',
-      '• Project: ./claude-flow.config.json',
-      '• Profiles: ~/.claude-flow/profiles/',
+      '• Global: ~/.auggie-flow/config.json',
+      '• Project: ./auggie-flow.config.json',
+      '• Profiles: ~/.auggie-flow/profiles/',
       '',
       'Environment Variables:',
-      '• CLAUDE_FLOW_LOG_LEVEL: Override log level',
-      '• CLAUDE_FLOW_MAX_AGENTS: Override agent limit',
-      '• CLAUDE_FLOW_MCP_PORT: Override MCP port',
+      '• AUGGIE_FLOW_LOG_LEVEL: Override log level',
+      '• AUGGIE_FLOW_MAX_AGENTS: Override agent limit',
+      '• AUGGIE_FLOW_MCP_PORT: Override MCP port',
     ],
     related: ['profiles', 'environment', 'troubleshooting'],
   },
@@ -370,22 +370,22 @@ const HELP_TOPICS = [
     examples: [
       {
         description: 'Check system status',
-        command: 'claude-flow status --watch',
+        command: 'auggie-flow status --watch',
         explanation: 'Continuously monitors system health and updates every few seconds',
       },
       {
         description: 'Start monitoring dashboard',
-        command: 'claude-flow monitor --interval 5',
+        command: 'auggie-flow monitor --interval 5',
         explanation: 'Opens a live dashboard with real-time metrics and graphs',
       },
       {
         description: 'View component-specific status',
-        command: 'claude-flow status --component orchestrator',
+        command: 'auggie-flow status --component orchestrator',
         explanation: 'Shows detailed status for a specific system component',
       },
       {
         description: 'Monitor in compact mode',
-        command: 'claude-flow monitor --compact --no-graphs',
+        command: 'auggie-flow monitor --compact --no-graphs',
         explanation: 'Simplified monitoring view without visual graphs',
       },
     ],
@@ -427,27 +427,27 @@ const HELP_TOPICS = [
       {
         description: 'Save current session',
         command:
-          'claude-flow session save "Development Session" --description "Working on API integration"',
+          'auggie-flow session save "Development Session" --description "Working on API integration"',
         explanation: 'Saves all current agents, tasks, and memory state',
       },
       {
         description: 'List saved sessions',
-        command: 'claude-flow session list',
+        command: 'auggie-flow session list',
         explanation: 'Shows all saved sessions with creation dates and metadata',
       },
       {
         description: 'Restore a session',
-        command: 'claude-flow session restore session-001 --merge',
+        command: 'auggie-flow session restore session-001 --merge',
         explanation: 'Restores session state, merging with current state',
       },
       {
         description: 'Export session to file',
-        command: 'claude-flow session export session-001 backup.json --include-memory',
+        command: 'auggie-flow session export session-001 backup.json --include-memory',
         explanation: 'Creates a portable backup including agent memory',
       },
       {
         description: 'Clean up old sessions',
-        command: 'claude-flow session clean --older-than 30 --dry-run',
+        command: 'auggie-flow session clean --older-than 30 --dry-run',
         explanation: 'Shows what sessions would be deleted (older than 30 days)',
       },
     ],
@@ -489,17 +489,17 @@ const HELP_TOPICS = [
     examples: [
       {
         description: 'Start REPL mode',
-        command: 'claude-flow repl',
+        command: 'auggie-flow repl',
         explanation: 'Opens interactive command line with tab completion',
       },
       {
         description: 'REPL with custom history file',
-        command: 'claude-flow repl --history-file .my-history',
+        command: 'auggie-flow repl --history-file .my-history',
         explanation: 'Uses a specific file for command history',
       },
       {
         description: 'Skip welcome banner',
-        command: 'claude-flow repl --no-banner',
+        command: 'auggie-flow repl --no-banner',
         explanation: 'Starts REPL in minimal mode',
       },
     ],
@@ -537,22 +537,22 @@ const HELP_TOPICS = [
     examples: [
       {
         description: 'Check system health',
-        command: 'claude-flow status --component all',
+        command: 'auggie-flow status --component all',
         explanation: 'Comprehensive health check of all components',
       },
       {
         description: 'Enable debug logging',
-        command: 'claude-flow start --log-level debug',
+        command: 'auggie-flow start --log-level debug',
         explanation: 'Start with verbose logging for debugging',
       },
       {
         description: 'Validate configuration',
-        command: 'claude-flow config validate claude-flow.config.json --strict',
+        command: 'auggie-flow config validate auggie-flow.config.json --strict',
         explanation: 'Check configuration file for errors',
       },
       {
         description: 'Reset to defaults',
-        command: 'claude-flow config reset --confirm',
+        command: 'auggie-flow config reset --confirm',
         explanation: 'Restore default configuration settings',
       },
     ],
@@ -561,7 +561,7 @@ const HELP_TOPICS = [
       '',
       'Connection Issues:',
       '• Problem: "Connection refused" errors',
-      '• Solution: Ensure Claude-Flow is started with "claude-flow start"',
+      '• Solution: Ensure Claude-Flow is started with "auggie-flow start"',
       '• Check: MCP transport settings match between client and server',
       '',
       'Agent Issues:',
@@ -585,10 +585,10 @@ const HELP_TOPICS = [
       '• Check: Environment variable overrides',
       '',
       'Debug Commands:',
-      '• claude-flow status: System health check',
-      '• claude-flow config validate: Configuration check',
-      '• claude-flow --verbose: Enable detailed logging',
-      '• claude-flow monitor: Real-time diagnostics',
+      '• auggie-flow status: System health check',
+      '• auggie-flow config validate: Configuration check',
+      '• auggie-flow --verbose: Enable detailed logging',
+      '• auggie-flow monitor: Real-time diagnostics',
     ],
     related: ['monitoring', 'configuration', 'debugging'],
   },
@@ -596,11 +596,11 @@ const HELP_TOPICS = [
 
 function showMainHelp(): void {
   const mainHelp: CommandInfo = {
-    name: 'claude-flow',
+    name: 'auggie-flow',
     description: 'Advanced AI agent orchestration system',
-    usage: `claude-flow <command> [<args>] [options]
-    claude-flow <command> --help
-    claude-flow --version`,
+    usage: `auggie-flow <command> [<args>] [options]
+    auggie-flow <command> --help
+    auggie-flow --version`,
     commands: [
       {
         name: 'hive-mind',
@@ -608,7 +608,7 @@ function showMainHelp(): void {
       },
       {
         name: 'init',
-        description: 'Initialize Claude Flow configuration',
+        description: 'Initialize Auggie Flow configuration',
       },
       {
         name: 'start',
@@ -655,7 +655,7 @@ function showMainHelp(): void {
       {
         flags: '--config <path>',
         description: 'Configuration file path',
-        defaultValue: '.claude/config.json',
+        defaultValue: '.auggie/config.json',
       },
       {
         flags: '--verbose',
@@ -679,10 +679,10 @@ function showMainHelp(): void {
       },
     ],
     examples: [
-      'claude-flow init --sparc',
-      'claude-flow hive-mind wizard',
-      'claude-flow swarm "Build REST API"',
-      'claude-flow status --json',
+      'auggie-flow init --sparc',
+      'auggie-flow hive-mind wizard',
+      'auggie-flow swarm "Build REST API"',
+      'auggie-flow status --json',
     ],
   };
 
@@ -697,8 +697,8 @@ function showCommandHelp(command: string): void {
     console.error(
       HelpFormatter.formatError(
         `Unknown command: ${command}`,
-        'claude-flow help',
-        'claude-flow help [command]',
+        'auggie-flow help',
+        'auggie-flow help [command]',
       ),
     );
   }
@@ -707,9 +707,9 @@ function showCommandHelp(command: string): void {
 function getCommandHelp(command: string): CommandInfo | null {
   const commandHelpMap: Record<string, CommandInfo> = {
     'hive-mind': {
-      name: 'claude-flow hive-mind',
+      name: 'auggie-flow hive-mind',
       description: 'Manage hive mind swarm intelligence',
-      usage: 'claude-flow hive-mind <subcommand> [options]',
+      usage: 'auggie-flow hive-mind <subcommand> [options]',
       commands: [
         { name: 'init', description: 'Initialize hive mind system' },
         { name: 'spawn', description: 'Create intelligent swarm with objective' },
@@ -746,15 +746,15 @@ function getCommandHelp(command: string): CommandInfo | null {
         },
       ],
       examples: [
-        'claude-flow hive-mind spawn "Build REST API" --queen-type strategic',
-        'claude-flow hive-mind status --json',
-        'claude-flow hive-mind stop swarm-123',
+        'auggie-flow hive-mind spawn "Build REST API" --queen-type strategic',
+        'auggie-flow hive-mind status --json',
+        'auggie-flow hive-mind stop swarm-123',
       ],
     },
     agent: {
-      name: 'claude-flow agent',
+      name: 'auggie-flow agent',
       description: 'Manage individual agents',
-      usage: 'claude-flow agent <action> [options]',
+      usage: 'auggie-flow agent <action> [options]',
       commands: [
         { name: 'spawn', description: 'Create a new agent' },
         { name: 'list', description: 'List all active agents' },
@@ -781,9 +781,9 @@ function getCommandHelp(command: string): CommandInfo | null {
         },
       ],
       examples: [
-        'claude-flow agent spawn researcher --name "Research Bot"',
-        'claude-flow agent list --json',
-        'claude-flow agent terminate agent-123',
+        'auggie-flow agent spawn researcher --name "Research Bot"',
+        'auggie-flow agent list --json',
+        'auggie-flow agent terminate agent-123',
       ],
     },
   };
@@ -807,7 +807,7 @@ function showAllTopics(): void {
   console.log(table.toString());
 
   console.log();
-  console.log(chalk.gray('Use "claude-flow help <topic>" for detailed information.'));
+  console.log(chalk.gray('Use "auggie-flow help <topic>" for detailed information.'));
 }
 
 async function showTopicHelp(topicName: string, options: any): Promise<void> {
@@ -829,7 +829,7 @@ async function showTopicHelp(topicName: string, options: any): Promise<void> {
         console.log(chalk.cyan(`  ${suggestion.name}`));
       }
     } else {
-      console.log(chalk.gray('Use "claude-flow help --all" to see all topics.'));
+      console.log(chalk.gray('Use "auggie-flow help --all" to see all topics.'));
     }
     return;
   }
@@ -843,7 +843,7 @@ async function showTopicHelp(topicName: string, options: any): Promise<void> {
     console.log(chalk.yellow.bold('Tutorial:'));
     console.log('─'.repeat(20));
     for (const line of topic.tutorial) {
-      if (line.trim().startsWith('claude-flow')) {
+      if (line.trim().startsWith('auggie-flow')) {
         console.log(chalk.cyan(`  ${line}`));
       } else if (line.trim() === '') {
         console.log();
@@ -906,7 +906,7 @@ async function showTopicHelp(topicName: string, options: any): Promise<void> {
     console.log(chalk.yellow.bold('Related Topics:'));
     console.log('─'.repeat(20));
     for (const related of topic.related) {
-      console.log(chalk.cyan(`  claude-flow help ${related}`));
+      console.log(chalk.cyan(`  auggie-flow help ${related}`));
     }
     console.log();
   }

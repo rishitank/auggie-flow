@@ -121,13 +121,13 @@ Store memories with rich metadata:
 
 ```bash
 # Simple memory storage
-claude-flow memory store \
+auggie-flow memory store \
   --category "research" \
   --content "Claude-3 shows significant improvements in reasoning capabilities" \
   --tags "ai,claude,reasoning"
 
 # Advanced storage with metadata
-claude-flow memory store \
+auggie-flow memory store \
   --category "implementation" \
   --content "Implemented OAuth2 authentication with PKCE flow" \
   --tags "auth,oauth,security" \
@@ -138,7 +138,7 @@ claude-flow memory store \
 **Programmatic API:**
 
 ```typescript
-import { MemoryManager } from 'claude-flow';
+import { MemoryManager } from 'auggie-flow';
 
 const memory = new MemoryManager(config);
 
@@ -164,17 +164,17 @@ Multiple retrieval methods for different use cases:
 
 ```bash
 # Retrieve by ID
-claude-flow memory get memory_1704123456789
+auggie-flow memory get memory_1704123456789
 
 # Query by criteria
-claude-flow memory query \
+auggie-flow memory query \
   --category research \
   --tags "ai,claude" \
   --since "2024-01-01" \
   --limit 10
 
 # Semantic search
-claude-flow memory search \
+auggie-flow memory search \
   --text "machine learning optimization techniques" \
   --similarity-threshold 0.7 \
   --limit 5
@@ -276,10 +276,10 @@ Automatic embedding generation for all stored content:
 
 ```bash
 # Generate embeddings for existing memories
-claude-flow memory embed --regenerate --batch-size 50
+auggie-flow memory embed --regenerate --batch-size 50
 
 # Check embedding status
-claude-flow memory stats --embeddings
+auggie-flow memory stats --embeddings
 ```
 
 ### Similarity Search Examples
@@ -356,22 +356,22 @@ Organize memories into isolated namespaces:
 
 ```bash
 # List namespaces
-claude-flow memory namespace list
+auggie-flow memory namespace list
 
 # Create namespace
-claude-flow memory namespace create research-2024 \
+auggie-flow memory namespace create research-2024 \
   --description "Research memories for 2024" \
   --quota-items 20000 \
   --quota-size 200
 
 # Set permissions
-claude-flow memory namespace permissions research-2024 \
+auggie-flow memory namespace permissions research-2024 \
   --read "research-team" \
   --write "senior-researchers" \
   --admin "research-lead"
 
 # Query specific namespace
-claude-flow memory query --namespace research-2024 --category findings
+auggie-flow memory query --namespace research-2024 --category findings
 ```
 
 ## Conflict Resolution
@@ -470,16 +470,16 @@ Intelligent caching for optimal performance:
 
 ```bash
 # View cache statistics
-claude-flow memory cache stats
+auggie-flow memory cache stats
 
 # Clear cache
-claude-flow memory cache clear --layer l1
+auggie-flow memory cache clear --layer l1
 
 # Optimize cache
-claude-flow memory cache optimize
+auggie-flow memory cache optimize
 
 # Preload cache
-claude-flow memory cache preload --category research --namespace project-alpha
+auggie-flow memory cache preload --category research --namespace project-alpha
 ```
 
 ## Full-Text Search
@@ -513,13 +513,13 @@ Powerful full-text search capabilities:
 
 ```bash
 # Basic text search
-claude-flow memory search --text "machine learning algorithms"
+auggie-flow memory search --text "machine learning algorithms"
 
 # Advanced search with operators
-claude-flow memory search --text "neural AND network NOT simple" --fuzzy
+auggie-flow memory search --text "neural AND network NOT simple" --fuzzy
 
 # Search with filters
-claude-flow memory search \
+auggie-flow memory search \
   --text "optimization techniques" \
   --category "implementation" \
   --tags "performance" \
@@ -562,16 +562,16 @@ Comprehensive analytics and insights:
 
 ```bash
 # Memory usage statistics
-claude-flow memory stats
+auggie-flow memory stats
 
 # Detailed analytics
-claude-flow memory analytics \
+auggie-flow memory analytics \
   --breakdown category,namespace \
   --timerange "last-30-days" \
   --format json
 
 # Growth analysis
-claude-flow memory growth \
+auggie-flow memory growth \
   --period daily \
   --start "2024-01-01" \
   --metrics items,size,categories
@@ -608,25 +608,25 @@ console.log({
 
 ```bash
 # Export memories
-claude-flow memory export backup.json \
+auggie-flow memory export backup.json \
   --format json \
   --include-vectors \
   --compress
 
 # Export specific data
-claude-flow memory export research-backup.json \
+auggie-flow memory export research-backup.json \
   --category research \
   --namespace project-alpha \
   --since "2024-01-01"
 
 # Import memories
-claude-flow memory import backup.json \
+auggie-flow memory import backup.json \
   --format json \
   --merge-strategy "update" \
   --validate
 
 # Restore from backup
-claude-flow memory restore backup.json \
+auggie-flow memory restore backup.json \
   --namespace project-alpha \
   --overwrite
 ```
@@ -635,14 +635,14 @@ claude-flow memory restore backup.json \
 
 ```bash
 # Migrate from SQLite to Markdown
-claude-flow memory migrate \
+auggie-flow memory migrate \
   --from sqlite \
   --to markdown \
   --preserve-ids \
   --include-vectors
 
 # Validate migration
-claude-flow memory migrate-verify \
+auggie-flow memory migrate-verify \
   --source ./data/memory.db \
   --target ./data/memory-docs
 ```
@@ -761,16 +761,16 @@ Common issues and solutions:
 
 ```bash
 # Check memory system health
-claude-flow memory health
+auggie-flow memory health
 
 # Repair corrupted data
-claude-flow memory repair --fix-checksums --rebuild-indexes
+auggie-flow memory repair --fix-checksums --rebuild-indexes
 
 # Optimize performance
-claude-flow memory optimize --vacuum --reindex
+auggie-flow memory optimize --vacuum --reindex
 
 # Debug query performance
-claude-flow memory debug-query --explain --profile
+auggie-flow memory debug-query --explain --profile
 ```
 
 This comprehensive memory system guide covers all aspects of Claude-Flow's advanced memory capabilities, from basic storage to sophisticated semantic search and collaborative memory management.

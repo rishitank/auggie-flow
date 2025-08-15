@@ -5,7 +5,7 @@ Execute post-command processing including output analysis and state updates.
 ## Usage
 
 ```bash
-npx claude-flow hook post-command [options]
+npx auggie-flow hook post-command [options]
 ```
 
 ## Options
@@ -21,25 +21,25 @@ npx claude-flow hook post-command [options]
 ### Basic post-command hook
 
 ```bash
-npx claude-flow hook post-command --command "npm test" --exit-code 0
+npx auggie-flow hook post-command --command "npm test" --exit-code 0
 ```
 
 ### With output analysis
 
 ```bash
-npx claude-flow hook post-command -c "git status" -e 0 --analyze-output
+npx auggie-flow hook post-command -c "git status" -e 0 --analyze-output
 ```
 
 ### Cache update
 
 ```bash
-npx claude-flow hook post-command -c "npm list" -e 0 --update-cache
+npx auggie-flow hook post-command -c "npm list" -e 0 --update-cache
 ```
 
 ### Performance tracking
 
 ```bash
-npx claude-flow hook post-command -c "build.sh" -e 0 --track-metrics
+npx auggie-flow hook post-command -c "build.sh" -e 0 --track-metrics
 ```
 
 ## Features
@@ -74,7 +74,7 @@ npx claude-flow hook post-command -c "build.sh" -e 0 --track-metrics
 
 ## Integration
 
-This hook is automatically called by Claude Code when:
+This hook is automatically called by Auggie Code when:
 
 - After Bash tool execution
 - Following shell commands
@@ -85,7 +85,7 @@ Manual usage in agents:
 
 ```bash
 # After running commands
-npx claude-flow hook post-command --command "npm build" --exit-code 0 --analyze-output
+npx auggie-flow hook post-command --command "npm build" --exit-code 0 --analyze-output
 ```
 
 ## Output

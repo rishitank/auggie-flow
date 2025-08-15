@@ -116,10 +116,10 @@ const GITHUB_MODES = {
 
 function showGitHubHelp() {
   console.log(`
-🐙 Claude Flow GitHub Workflow Automation
+🐙 Auggie Flow GitHub Workflow Automation
 
 USAGE:
-  claude-flow github <mode> <objective> [options]
+  auggie-flow github <mode> <objective> [options]
 
 GITHUB AUTOMATION MODES:
 `);
@@ -130,12 +130,12 @@ GITHUB AUTOMATION MODES:
 
   console.log(`
 EXAMPLES:
-  claude-flow github pr-manager "create feature PR with automated testing"
-  claude-flow github gh-coordinator "setup CI/CD pipeline" --auto-approve
-  claude-flow github release-manager "prepare v2.0.0 release"
-  claude-flow github repo-architect "optimize repository structure"
-  claude-flow github issue-tracker "analyze project roadmap issues"
-  claude-flow github sync-coordinator "sync package versions across repos"
+  auggie-flow github pr-manager "create feature PR with automated testing"
+  auggie-flow github gh-coordinator "setup CI/CD pipeline" --auto-approve
+  auggie-flow github release-manager "prepare v2.0.0 release"
+  auggie-flow github repo-architect "optimize repository structure"
+  auggie-flow github issue-tracker "analyze project roadmap issues"
+  auggie-flow github sync-coordinator "sync package versions across repos"
 
 OPTIONS:
   --auto-approve             Auto-approve Claude permissions
@@ -311,8 +311,9 @@ Begin execution now. Create all necessary GitHub workflow files and configuratio
       claudeArgs.push('--dangerously-skip-permissions');
     }
 
-    // Spawn claude process
-    const claudeProcess = spawn('claude', claudeArgs, {
+    // Spawn engine process
+    const { spawnEngine } = await import('../engine/engine-adapter.js');
+    const claudeProcess = spawnEngine(claudeArgs, {
       stdio: ['pipe', 'inherit', 'inherit'],
       shell: false,
     });

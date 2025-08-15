@@ -122,7 +122,7 @@ module.exports = app;
     const packageJson = {
       name: 'api-project',
       version: '1.0.0',
-      description: 'API created by Claude Flow Swarm',
+      description: 'API created by Auggie Flow Swarm',
       main: 'server.js',
       scripts: {
         start: 'node server.js',

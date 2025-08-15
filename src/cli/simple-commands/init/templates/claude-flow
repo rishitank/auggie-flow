@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * Claude Flow CLI - AI-Driven Development Toolkit
+ * Auggie Flow CLI - AI-Driven Development Toolkit
  * 
- * This is the main entry point for the Claude Flow command-line interface.
- * It provides powerful AI coordination capabilities for Claude Code.
+ * This is the main entry point for the Auggie Flow command-line interface.
+ * It provides powerful AI coordination capabilities for Auggie Code.
  */
 
 const { spawn } = require('child_process');
@@ -18,7 +18,7 @@ const child = spawn(process.execPath, [cliPath, ...process.argv.slice(2)], {
   stdio: 'inherit',
   env: {
     ...process.env,
-    CLAUDE_FLOW_CLI: 'true'
+    AUGGIE_FLOW_CLI: 'true'
   }
 });
 
@@ -29,6 +29,6 @@ child.on('exit', (code) => {
 
 // Handle errors
 child.on('error', (err) => {
-  console.error('Failed to start Claude Flow:', err);
+  console.error('Failed to start Auggie Flow:', err);
   process.exit(1);
 });

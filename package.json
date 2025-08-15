@@ -1,10 +1,10 @@
 {
-  "name": "claude-flow",
+  "name": "auggie-flow",
   "version": "2.0.0-alpha.88",
   "description": "Enterprise-grade AI agent orchestration with ruv-swarm integration (Alpha Release)",
   "main": "cli.mjs",
   "bin": {
-    "claude-flow": "bin/claude-flow.js"
+    "auggie-flow": "bin/auggie-flow.js"
   },
   "scripts": {
     "preinstall": "node -e \"if(process.platform === 'win32' && process.env.npm_config_user_agent && process.env.npm_config_user_agent.includes('npm')) { console.warn('⚠️  Warning: On Windows, it is recommended to use pnpm to install this package to avoid potential native dependency build issues.'); console.warn('💡 Try: pnpm install or pnpx claude-flow@alpha'); }\"",
@@ -15,8 +15,8 @@
     "build:esm": "tsc",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:ts": "npm run build:esm && npm run build:cjs",
-    "build:binary": "pkg dist/cli/main.js --targets node20-linux-x64,node20-macos-x64,node20-win-x64 --output bin/claude-flow",
-    "build:simple": "npm run build:ts && pkg dist/cli/simple-cli.js --output bin/claude-flow-simple",
+    "build:binary": "pkg dist/cli/main.js --targets node20-linux-x64,node20-macos-x64,node20-win-x64 --output bin/auggie-flow",
+    "build:simple": "npm run build:ts && pkg dist/cli/simple-cli.js --output bin/auggie-flow-simple",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "tsc --noEmit --watch",
     "dev:build": "tsc --watch",
@@ -43,7 +43,9 @@
     "test:swarm": "NODE_OPTIONS='--experimental-vm-modules' jest src/__tests__/e2e/swarm-coordination.test.ts",
     "test:benchmark": "NODE_OPTIONS='--experimental-vm-modules' jest src/__tests__/performance/benchmark.test.ts",
     "lint": "eslint src --ext .ts --max-warnings 0",
+    "lint:core": "eslint src/cli src/cli/engine src/swarm --ext .ts --max-warnings 0",
     "format": "prettier --write 'src/**/*.{ts,js,json}'",
+    "format:check": "prettier --check 'src/**/*.{ts,js,json}'",
     "diagnostics": "node -e \"import('./dist/monitoring/diagnostics.js').then(m => m.DiagnosticManager.quickDiagnostic().then(console.log))\"",
     "health-check": "node -e \"import('./dist/monitoring/health-check.js').then(m => new m.HealthCheckManager().performHealthCheck().then(console.log))\"",
     "postinstall": "node scripts/install-arm64.js",
@@ -58,7 +60,7 @@
     "start": "node server.js"
   },
   "keywords": [
-    "claude",
+    "auggie",
     "ai",
     "agent",
     "orchestration",
@@ -81,30 +83,30 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruvnet/claude-code-flow.git"
+    "url": "git+https://github.com/augmentcode/auggie-flow.git"
   },
   "bugs": {
-    "url": "https://github.com/ruvnet/claude-code-flow/issues"
+    "url": "https://github.com/augmentcode/auggie-flow/issues"
   },
-  "homepage": "https://github.com/ruvnet/claude-code-flow#readme",
+  "homepage": "https://github.com/augmentcode/auggie-flow#readme",
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=9.0.0"
   },
   "files": [
     "cli.js",
-    "bin/claude-flow.js",
-    "bin/claude-flow",
-    "bin/claude-flow-dev",
-    "bin/claude-flow-pkg.js",
-    "bin/claude-flow-swarm",
-    "bin/claude-flow-swarm-background",
-    "bin/claude-flow-swarm-bg",
-    "bin/claude-flow-swarm-monitor",
-    "bin/claude-flow-swarm-ui",
+    "bin/auggie-flow.js",
+    "bin/auggie-flow",
+    "bin/auggie-flow-dev",
+    "bin/auggie-flow-pkg.js",
+    "bin/auggie-flow-swarm",
+    "bin/auggie-flow-swarm-background",
+    "bin/auggie-flow-swarm-bg",
+    "bin/auggie-flow-swarm-monitor",
+    "bin/auggie-flow-swarm-ui",
     "dist/",
     "src/",
-    ".claude/",
+    ".auggie/",
     "docker-test/",
     "scripts/",
     "README.md",
@@ -154,8 +156,8 @@
     "@types/node": "^20.19.7",
     "@types/uuid": "^10.0.0",
     "@types/ws": "^8.5.10",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
     "@vercel/ncc": "^0.38.3",
     "babel-jest": "^29.7.0",
     "eslint": "^8.57.1",
@@ -168,8 +170,7 @@
     "supertest": "^7.1.4",
     "ts-jest": "^29.4.0",
     "tsx": "^4.6.2",
-    "typescript": "^5.3.3",
-    "typescript-eslint": "^8.37.0"
+    "typescript": "^5.5.4"
   },
   "pkg": {
     "targets": [

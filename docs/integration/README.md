@@ -1,18 +1,18 @@
-# Claude Flow v2.0.0 - Integration Documentation
+# Auggie Flow v2.0.0 - Integration Documentation
 
 ## 🎯 Overview
 
-This directory contains comprehensive integration guides and technical documentation for Claude Flow v2.0.0, covering all aspects of ruv-swarm integration, neural networks, MCP tools, and enterprise deployment.
+This directory contains comprehensive integration guides and technical documentation for Auggie Flow v2.0.0, covering all aspects of ruv-swarm integration, neural networks, MCP tools, and enterprise deployment.
 
 ## 📋 Documentation Index
 
 ### 🚀 Core Integration Guides
 
-#### [Complete Integration Guide](./claude-flow-v2-integration-guide.md)
+#### [Complete Integration Guide](./auggie-flow-v2-integration-guide.md)
 Comprehensive setup and configuration guide covering:
 - ruv-swarm MCP integration (87 tools)
 - QUDAG/DAA WASM neural networks
-- Claude Code MCP server configuration
+- Auggie Code MCP server configuration
 - Benchmark system setup and usage
 - Enterprise deployment strategies
 - Performance validation and metrics
@@ -51,30 +51,30 @@ Comprehensive problem-solving resource:
 
 ### Basic Integration
 ```bash
-# Install and initialize Claude Flow v2.0.0
-npm install -g claude-flow@2.0.0
-npx claude-flow@2.0.0 init --claude --webui
+# Install and initialize Auggie Flow v2.0.0
+npm install -g auggie-flow@2.0.0
+npx auggie-flow@2.0.0 init --claude --webui
 
 # Add ruv-swarm MCP server
 claude mcp add ruv-swarm npx ruv-swarm mcp start
 
 # Initialize swarm coordination
-npx claude-flow@2.0.0 coordination swarm-init --topology mesh --max-agents 8
+npx auggie-flow@2.0.0 coordination swarm-init --topology mesh --max-agents 8
 ```
 
 ### Verification Commands
 ```bash
 # Check system health
-npx claude-flow@2.0.0 health-check --comprehensive
+npx auggie-flow@2.0.0 health-check --comprehensive
 
 # Verify MCP integration
 claude mcp list-tools ruv-swarm | wc -l  # Should show 87 tools
 
 # Test neural networks
-npx claude-flow@2.0.0 neural status --detailed
+npx auggie-flow@2.0.0 neural status --detailed
 
 # Start WebUI
-npx claude-flow@2.0.0 start --ui --port 3000
+npx auggie-flow@2.0.0 start --ui --port 3000
 ```
 
 ---
@@ -115,7 +115,7 @@ npx claude-flow@2.0.0 start --ui --port 3000
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    Claude Code Integration                      │
+│                    Auggie Code Integration                      │
 ├─────────────────────────────────────────────────────────────────┤
 │  MCP Tools (87) │ Web Interface │ Neural Processing            │
 ├─────────────────────────────────────────────────────────────────┤
@@ -132,7 +132,7 @@ npx claude-flow@2.0.0 start --ui --port 3000
 ```
 
 ### Component Interaction Flow
-1. **Claude Code** initiates tasks using native tools
+1. **Auggie Code** initiates tasks using native tools
 2. **MCP Layer** coordinates with ruv-swarm for complex workflows
 3. **Swarm Coordinator** spawns and manages specialized agents
 4. **Neural Networks** provide intelligent decision-making
@@ -168,16 +168,16 @@ npx claude-flow@2.0.0 start --ui --port 3000
 ### Prerequisites
 - Node.js 20+ (LTS recommended)
 - npm 9+ or equivalent package manager
-- Claude Code CLI with MCP support
+- Auggie Code CLI with MCP support
 - Git for version control
 - Docker (optional, for containerized deployment)
 
 ### Installation Process
-1. **Install Claude Flow**: `npm install -g claude-flow@2.0.0`
-2. **Initialize Integration**: `npx claude-flow@2.0.0 init --claude --webui`
+1. **Install Auggie Flow**: `npm install -g auggie-flow@2.0.0`
+2. **Initialize Integration**: `npx auggie-flow@2.0.0 init --claude --webui`
 3. **Configure MCP**: `claude mcp add ruv-swarm npx ruv-swarm mcp start`
-4. **Verify Setup**: `npx claude-flow@2.0.0 health-check --comprehensive`
-5. **Start Coordination**: `npx claude-flow@2.0.0 start --ui`
+4. **Verify Setup**: `npx auggie-flow@2.0.0 health-check --comprehensive`
+5. **Start Coordination**: `npx auggie-flow@2.0.0 start --ui`
 
 ### First Steps
 1. **Initialize Swarm**: Create your first coordination topology
@@ -191,7 +191,7 @@ npx claude-flow@2.0.0 start --ui --port 3000
 ## 📖 Learning Path
 
 ### Beginner (First Week)
-1. Read [Complete Integration Guide](./claude-flow-v2-integration-guide.md)
+1. Read [Complete Integration Guide](./auggie-flow-v2-integration-guide.md)
 2. Follow quick setup commands
 3. Explore basic swarm coordination
 4. Try simple neural training
@@ -252,7 +252,7 @@ npx claude-flow@2.0.0 start --ui --port 3000
 
 ### External Resources
 - [ruv-swarm Repository](https://github.com/ruvnet/ruv-FANN) - Neural network foundation
-- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code) - Claude Code CLI
+- [Auggie Code Documentation](https://docs.anthropic.com/en/docs/claude-code) - Auggie Code CLI
 - [MCP Protocol](https://spec.modelcontextprotocol.io/) - Model Context Protocol
 
 ### Community
@@ -281,4 +281,4 @@ After completing integration, you should achieve:
 - Memory compression: >60%
 - System uptime: >99.5%
 
-This integration documentation provides everything needed to successfully deploy and operate Claude Flow v2.0.0 in any environment, from development to enterprise production.
+This integration documentation provides everything needed to successfully deploy and operate Auggie Flow v2.0.0 in any environment, from development to enterprise production.

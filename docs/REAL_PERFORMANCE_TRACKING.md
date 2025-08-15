@@ -1,6 +1,6 @@
-# Real Performance Tracking in Claude Flow
+# Real Performance Tracking in Auggie Flow
 
-As of v2.0.0-alpha.80, Claude Flow now includes **real performance tracking** for all analysis commands. All metrics are collected from actual system operations, not simulated data.
+As of v2.0.0-alpha.80, Auggie Flow now includes **real performance tracking** for all analysis commands. All metrics are collected from actual system operations, not simulated data.
 
 ## Overview
 
@@ -16,14 +16,14 @@ The performance tracking system monitors:
 ### Automatic Tracking
 
 Performance metrics are automatically collected whenever you:
-- Execute any Claude Flow command
+- Execute any Auggie Flow command
 - Spawn agents
 - Run swarm operations
 - Perform analysis tasks
 
 ### Data Storage
 
-Metrics are stored in `.claude-flow/metrics/`:
+Metrics are stored in `.auggie-flow/metrics/`:
 - `performance.json` - Overall performance statistics
 - `agent-metrics.json` - Per-agent type performance data
 - `task-metrics.json` - Individual task execution history
@@ -37,16 +37,16 @@ Generate comprehensive performance reports showing real metrics:
 
 ```bash
 # Basic performance summary (last 24 hours)
-claude-flow analysis performance-report
+auggie-flow analysis performance-report
 
 # Detailed report for the last week
-claude-flow analysis performance-report --timeframe 7d --format detailed
+auggie-flow analysis performance-report --timeframe 7d --format detailed
 
 # Export as JSON for further analysis
-claude-flow analysis performance-report --format json
+auggie-flow analysis performance-report --format json
 
 # Export as HTML for viewing in browser
-claude-flow analysis performance-report --format html
+auggie-flow analysis performance-report --format html
 ```
 
 **What's Tracked:**
@@ -64,16 +64,16 @@ Identify real performance bottlenecks in your system:
 
 ```bash
 # System-wide bottleneck analysis
-claude-flow analysis bottleneck-detect
+auggie-flow analysis bottleneck-detect
 
 # Agent-specific analysis
-claude-flow analysis bottleneck-detect --scope agent --target coordinator
+auggie-flow analysis bottleneck-detect --scope agent --target coordinator
 
 # Memory bottleneck detection
-claude-flow analysis bottleneck-detect --scope memory
+auggie-flow analysis bottleneck-detect --scope memory
 
 # Task performance analysis
-claude-flow analysis bottleneck-detect --scope task
+auggie-flow analysis bottleneck-detect --scope task
 ```
 
 **What's Detected:**
@@ -89,13 +89,13 @@ Token usage tracking was already implemented with real data in alpha.80:
 
 ```bash
 # Basic token usage
-claude-flow analysis token-usage
+auggie-flow analysis token-usage
 
 # With breakdown by agent type
-claude-flow analysis token-usage --breakdown
+auggie-flow analysis token-usage --breakdown
 
 # With cost analysis
-claude-flow analysis token-usage --breakdown --cost-analysis
+auggie-flow analysis token-usage --breakdown --cost-analysis
 ```
 
 ## Metrics Collection Details
@@ -153,7 +153,7 @@ Based on real metrics, the system provides:
 
 If you see no metrics:
 1. Ensure you've run some commands first
-2. Check `.claude-flow/metrics/` directory exists
+2. Check `.auggie-flow/metrics/` directory exists
 3. Verify write permissions
 
 ### Inaccurate Metrics
@@ -175,7 +175,7 @@ The tracking system has minimal overhead:
 For programmatic access to metrics:
 
 ```javascript
-import { getPerformanceReport, getBottleneckAnalysis } from 'claude-flow/metrics';
+import { getPerformanceReport, getBottleneckAnalysis } from 'auggie-flow/metrics';
 
 // Get performance data
 const report = await getPerformanceReport('7d');
@@ -202,8 +202,8 @@ Planned improvements include:
 - All metrics are stored locally in your project
 - No data is sent to external services
 - Sensitive information is never logged
-- Metrics can be cleared with `rm -rf .claude-flow/metrics`
+- Metrics can be cleared with `rm -rf .auggie-flow/metrics`
 
 ---
 
-For more information, see the [Claude Flow documentation](https://github.com/ruvnet/claude-flow) or run `claude-flow help analysis`.
+For more information, see the [Auggie Flow documentation](https://github.com/ruvnet/auggie-flow) or run `auggie-flow help analysis`.

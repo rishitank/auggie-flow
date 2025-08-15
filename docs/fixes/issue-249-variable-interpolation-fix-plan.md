@@ -1,17 +1,17 @@
-# Fix Plan: Issue #249 - Variable Interpolation in Claude Code Hooks
+# Fix Plan: Issue #249 - Variable Interpolation in Auggie Code Hooks
 
 ## Problem Summary
-Claude Code hooks use `${file}` and `${command}` syntax for variable interpolation, but these variables are not being replaced with actual values during hook execution.
+Auggie Code hooks use `${file}` and `${command}` syntax for variable interpolation, but these variables are not being replaced with actual values during hook execution.
 
 ## Investigation Plan
 
 ### Phase 1: Research & Documentation Analysis (2 hours)
 
-#### 1.1 Claude Code Documentation Review
-- [ ] Search official Claude Code documentation for hook variable syntax
-- [ ] Check Claude Code GitHub/Discord for similar issues
-- [ ] Review Claude Code changelog for hook-related changes
-- [ ] Test with latest Claude Code version
+#### 1.1 Auggie Code Documentation Review
+- [ ] Search official Auggie Code documentation for hook variable syntax
+- [ ] Check Auggie Code GitHub/Discord for similar issues
+- [ ] Review Auggie Code changelog for hook-related changes
+- [ ] Test with latest Auggie Code version
 
 #### 1.2 Environment Variable Testing
 ```bash
@@ -24,7 +24,7 @@ ${CLAUDE_FILE}   # Environment variable syntax
 ```
 
 #### 1.3 Hook Context Investigation
-- [ ] Determine what data Claude Code passes to hooks
+- [ ] Determine what data Auggie Code passes to hooks
 - [ ] Check if hooks receive stdin input
 - [ ] Investigate environment variables available during hook execution
 - [ ] Test command-line arguments passed to hooks
@@ -32,7 +32,7 @@ ${CLAUDE_FILE}   # Environment variable syntax
 ### Phase 2: Implementation Strategy (4 hours)
 
 #### 2.1 Approach A: Direct Variable Support
-If Claude Code supports variable interpolation:
+If Auggie Code supports variable interpolation:
 ```javascript
 // Fix template syntax in enhanced-templates.js
 const hookTemplates = {
@@ -40,7 +40,7 @@ const hookTemplates = {
     "matcher": "Write|Edit|MultiEdit",
     "hooks": [{
       "type": "command",
-      "command": "npx claude-flow@alpha hooks post-edit --file \"${CLAUDE_HOOK_FILE}\" --format true"
+      "command": "npx auggie-flow@alpha hooks post-edit --file \"${CLAUDE_HOOK_FILE}\" --format true"
     }]
   }]
 };
@@ -59,12 +59,12 @@ COMMAND=$(echo "$HOOK_DATA" | jq -r '.command // empty')
 
 # Execute actual hook with parsed values
 if [ -n "$FILE" ]; then
-  npx claude-flow@alpha hooks post-edit --file "$FILE" --format true
+  npx auggie-flow@alpha hooks post-edit --file "$FILE" --format true
 fi
 ```
 
 #### 2.3 Approach C: Hook Preprocessor
-Implement a preprocessor in Claude Flow:
+Implement a preprocessor in Auggie Flow:
 ```javascript
 // src/cli/simple-commands/init/hook-preprocessor.js
 export function preprocessHookCommand(command, context) {
@@ -81,7 +81,7 @@ export function preprocessHookCommand(command, context) {
 ```javascript
 // src/cli/simple-commands/init/templates/hook-variables.js
 export const HOOK_VARIABLE_MAPPINGS = {
-  // Map Claude Code variables to our expected format
+  // Map Auggie Code variables to our expected format
   'file': ['file', 'path', 'filePath', 'CLAUDE_FILE'],
   'command': ['command', 'cmd', 'CLAUDE_COMMAND'],
   'tool': ['tool', 'toolName', 'CLAUDE_TOOL']
@@ -182,16 +182,16 @@ describe('Hook Variable Interpolation', () => {
 #### 4.2 Integration Tests
 ```javascript
 // tests/integration/claude-code-hooks.test.js
-describe('Claude Code Hook Integration', () => {
+describe('Auggie Code Hook Integration', () => {
   test('hook receives file parameter on edit', async () => {
     // 1. Create test file
-    // 2. Trigger edit through Claude Code
+    // 2. Trigger edit through Auggie Code
     // 3. Verify hook was called with correct file path
   });
   
   test('hook receives command parameter on bash execution', async () => {
     // 1. Set up hook for Bash commands
-    // 2. Execute command through Claude Code
+    // 2. Execute command through Auggie Code
     // 3. Verify hook received command text
   });
 });
@@ -202,7 +202,7 @@ describe('Claude Code Hook Integration', () => {
 #!/bin/bash
 # tests/manual/test-hook-variables.sh
 
-echo "🧪 Testing Claude Code Hook Variables"
+echo "🧪 Testing Auggie Code Hook Variables"
 
 # Test 1: File edit hook
 cat > .claude/settings.json << 'EOF'
@@ -228,11 +228,11 @@ EOF
 
 #### 5.1 User Documentation
 ```markdown
-# Claude Code Hook Variables
+# Auggie Code Hook Variables
 
 ## Supported Variables
 
-Claude Code provides the following variables in hooks:
+Auggie Code provides the following variables in hooks:
 
 | Variable | Description | Example |
 |----------|-------------|---------|
@@ -279,14 +279,14 @@ Claude Code provides the following variables in hooks:
 
 If you're experiencing issues with hook variables not working:
 
-1. **Check your Claude Code version**
+1. **Check your Auggie Code version**
    ```bash
    claude --version
    ```
 
 2. **Run the variable fix script**
    ```bash
-   npx claude-flow@alpha fix-hook-variables
+   npx auggie-flow@alpha fix-hook-variables
    ```
 
 3. **Verify your syntax**
@@ -295,7 +295,7 @@ If you're experiencing issues with hook variables not working:
 
 4. **Test your hooks**
    ```bash
-   npx claude-flow@alpha test-hooks
+   npx auggie-flow@alpha test-hooks
    ```
 ```
 
@@ -337,13 +337,13 @@ If you're experiencing issues with hook variables not working:
 
 ## Risk Mitigation
 
-1. **Risk**: Claude Code doesn't support variables
+1. **Risk**: Auggie Code doesn't support variables
    - **Mitigation**: Implement wrapper script solution
 
 2. **Risk**: Breaking existing hooks
    - **Mitigation**: Extensive testing, gradual rollout
 
-3. **Risk**: Different Claude Code versions behave differently
+3. **Risk**: Different Auggie Code versions behave differently
    - **Mitigation**: Version detection and compatibility layer
 
 ## Alternative Solutions
@@ -353,11 +353,11 @@ If variable interpolation cannot be made to work:
 1. **Static Hooks**: Document that variables aren't supported
 2. **Wrapper Scripts**: Provide template wrapper scripts
 3. **Hook Proxy**: Create a proxy that intercepts and enhances hooks
-4. **Claude Flow Hooks**: Implement our own hook system independent of Claude Code
+4. **Auggie Flow Hooks**: Implement our own hook system independent of Auggie Code
 
 ## Testing Checklist
 
-- [ ] Test with Claude Code 1.0.51+
+- [ ] Test with Auggie Code 1.0.51+
 - [ ] Test with different operating systems (Mac, Linux, Windows)
 - [ ] Test with different shells (bash, zsh, fish, PowerShell)
 - [ ] Test all hook types (PreToolUse, PostToolUse, Stop)

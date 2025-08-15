@@ -1,6 +1,6 @@
 # ruv-swarm Workflow Patterns
 
-This document outlines proven workflow patterns for using ruv-swarm coordination with Claude Code across different development scenarios.
+This document outlines proven workflow patterns for using ruv-swarm coordination with Auggie Code across different development scenarios.
 
 ## 🏗️ Development Workflow Patterns
 

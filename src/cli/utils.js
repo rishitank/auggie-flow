@@ -178,7 +178,7 @@ export async function runCommand(command, args = [], options = {}) {
 }
 
 // Configuration helpers
-export async function loadConfig(path = 'claude-flow.config.json') {
+export async function loadConfig(path = 'auggie-flow.config.json') {
   const defaultConfig = {
     terminal: {
       poolSize: 10,
@@ -192,7 +192,7 @@ export async function loadConfig(path = 'claude-flow.config.json') {
     },
     memory: {
       backend: 'json',
-      path: './memory/claude-flow-data.json',
+      path: './memory/auggie-flow-data.json',
     },
   };
 
@@ -204,7 +204,7 @@ export async function loadConfig(path = 'claude-flow.config.json') {
   }
 }
 
-export async function saveConfig(config, path = 'claude-flow.config.json') {
+export async function saveConfig(config, path = 'auggie-flow.config.json') {
   await writeJsonFile(path, config);
 }
 
@@ -281,7 +281,7 @@ export async function retry(fn, maxAttempts = 3, delay = 1000) {
   }
 }
 
-// Claude Flow MCP integration helpers
+// Auggie Flow MCP integration helpers
 export async function callRuvSwarmMCP(tool, params = {}) {
   try {
     // First try real ruv-swarm MCP server
@@ -296,7 +296,7 @@ export async function callRuvSwarmMCP(tool, params = {}) {
       params: {
         protocolVersion: '2024-11-05',
         capabilities: { tools: {}, resources: {} },
-        clientInfo: { name: 'claude-flow-cli', version: '2.0.0' },
+        clientInfo: { name: 'auggie-flow-cli', version: '2.0.0' },
       },
     };
 

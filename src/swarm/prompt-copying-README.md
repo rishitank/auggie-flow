@@ -73,7 +73,7 @@ const result = await manager.copyPrompts();
 ### Installation
 
 ```bash
-npm install -g @claude-flow/prompt-copier
+npm install -g @auggie-flow/prompt-copier
 ```
 
 ### Basic Commands
@@ -113,7 +113,7 @@ npx prompt-copier rollback ./prompts/.prompt-backups/manifest-123456.json
 
 ```json
 {
-  "sourceDirectories": [".roo", ".claude/commands", "src/templates"],
+  "sourceDirectories": [".roo", ".auggie/commands", "src/templates"],
   "destinationDirectory": "./project-prompts",
   "defaultOptions": {
     "backup": true,

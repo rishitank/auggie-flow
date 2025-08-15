@@ -351,12 +351,12 @@ async function applyFix(fixType, metrics) {
 
     case 'SETUP_HIVE_MIND':
       console.log(chalk.blue('🧠 Setting up hive-mind system...'));
-      console.log(chalk.gray('  Run: claude-flow hive-mind init'));
+      console.log(chalk.gray('  Run: auggie-flow hive-mind init'));
       break;
 
     case 'SETUP_BOTH_SYSTEMS':
       console.log(chalk.blue('🔧 Setting up both swarm systems...'));
-      console.log(chalk.gray('  Run: claude-flow hive-mind init && npx ruv-swarm init'));
+      console.log(chalk.gray('  Run: auggie-flow hive-mind init && npx ruv-swarm init'));
       break;
   }
 }

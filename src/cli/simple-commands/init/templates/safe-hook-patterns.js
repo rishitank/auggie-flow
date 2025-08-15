@@ -1,5 +1,5 @@
 /**
- * Safe Hook Patterns - Templates for safe Claude Code hook configurations
+ * Safe Hook Patterns - Templates for safe Auggie Code hook configurations
  *
  * These patterns prevent infinite loops that could cost thousands of dollars
  * by avoiding recursive hook execution when hooks call 'claude' commands.
@@ -31,7 +31,7 @@ export const DANGEROUS_PATTERN_EXAMPLE = {
     '🚨 Creates infinite loop: Stop → claude command → Stop → claude command...',
     '💰 Can cost $3600+ per day by bypassing rate limits',
     '🚫 Makes system unresponsive',
-    '⚡ No built-in protection in Claude Code',
+    '⚡ No built-in protection in Auggie Code',
   ],
 };
 
@@ -51,7 +51,7 @@ export const SAFE_FLAG_PATTERN = {
             {
               type: 'command',
               command:
-                'bash -c \'echo "History update needed at $(date)" > ~/.claude/needs_update && echo "📝 History update flagged. Run: claude -c -p \\"Update history.md\\""\'',
+                'bash -c \'echo "History update needed at $(date)" > ~/.auggie/needs_update && echo "📝 History update flagged. Run: claude -c -p \\"Update history.md\\""\'',
             },
           ],
         },
@@ -87,7 +87,7 @@ export const SAFE_POST_TOOL_PATTERN = {
           hooks: [
             {
               type: 'command',
-              command: "echo 'File modified: {file}' >> ~/.claude/modifications.log",
+              command: "echo 'File modified: {file}' >> ~/.auggie/modifications.log",
             },
           ],
         },
@@ -124,7 +124,7 @@ export const SAFE_CONDITIONAL_PATTERN = {
             {
               type: 'command',
               command:
-                'bash -c \'if [ -z "$CLAUDE_HOOK_CONTEXT" ]; then claude -c -p "Update history.md" --skip-hooks; else echo "Skipping update - in hook context"; fi\'',
+                'bash -c \'if [ -z "$AUGGIE_HOOK_CONTEXT" ]; then claude -c -p "Update history.md" --skip-hooks; else echo "Skipping update - in hook context"; fi\'',
             },
           ],
         },
@@ -138,7 +138,7 @@ export const SAFE_CONDITIONAL_PATTERN = {
     '📊 Provides clear feedback',
   ],
   usage: [
-    '1. Checks CLAUDE_HOOK_CONTEXT environment variable',
+    '1. Checks AUGGIE_HOOK_CONTEXT environment variable',
     '2. Only runs claude if not in hook context',
     '3. Uses --skip-hooks to prevent triggering more hooks',
     '4. Shows clear message when skipping',
@@ -160,7 +160,7 @@ export const SAFE_BATCH_PATTERN = {
           hooks: [
             {
               type: 'command',
-              command: 'echo "$(date): Session ended" >> ~/.claude/session_log.txt',
+              command: 'echo "$(date): Session ended" >> ~/.auggie/session_log.txt',
             },
           ],
         },
@@ -171,8 +171,8 @@ export const SAFE_BATCH_PATTERN = {
     cronJob: '# Add to crontab (run every hour):\n# 0 * * * * /path/to/update-history.sh',
     updateScript: `#!/bin/bash
 # update-history.sh - Safe batch update script
-LOCK_FILE="~/.claude/update.lock"
-LOG_FILE="~/.claude/session_log.txt"
+LOCK_FILE="~/.auggie/update.lock"
+LOG_FILE="~/.auggie/session_log.txt"
 
 # Check if update is already running
 if [ -f "$LOCK_FILE" ]; then
@@ -189,7 +189,7 @@ if [ -f "$LOG_FILE" ] && [ -s "$LOG_FILE" ]; then
     claude -c -p "Update history.md with recent session data" --skip-hooks
     
     # Archive the log
-    mv "$LOG_FILE" "~/.claude/session_log_$(date +%Y%m%d_%H%M%S).txt"
+    mv "$LOG_FILE" "~/.auggie/session_log_$(date +%Y%m%d_%H%M%S).txt"
 fi
 
 # Remove lock file
@@ -219,7 +219,7 @@ export const SAFE_QUEUE_PATTERN = {
             {
               type: 'command',
               command:
-                'echo \'{"command": "update-history", "timestamp": "\'$(date -Iseconds)\'", "session": "\'$CLAUDE_SESSION_ID\'"}\' >> ~/.claude/command_queue.jsonl',
+                'echo \'{"command": "update-history", "timestamp": "\'$(date -Iseconds)\'", "session": "\'$AUGGIE_SESSION_ID\'"}\' >> ~/.auggie/command_queue.jsonl',
             },
           ],
         },
@@ -291,7 +291,7 @@ export const ALL_SAFE_PATTERNS = [
  * Generate safe hooks documentation
  */
 export function generateSafeHooksGuide() {
-  return `# 🛡️ Safe Hook Patterns for Claude Code
+  return `# 🛡️ Safe Hook Patterns for Auggie Code
 
 ⚠️ **CRITICAL WARNING**: Stop hooks that call 'claude' commands create infinite loops that can cost thousands of dollars per day!
 
@@ -388,33 +388,33 @@ ${pattern.processor}
 \`\`\`json
 {
   "hooks": {
-    "Stop": [{"hooks": [{"type": "command", "command": "touch ~/.claude/needs_update && echo 'Run: claude -c -p \"Update history\"'"}]}]
+    "Stop": [{"hooks": [{"type": "command", "command": "touch ~/.auggie/needs_update && echo 'Run: claude -c -p \"Update history\"'"}]}]
   }
 }
 \`\`\`
 
 ## 🛡️ Hook Safety Tools
 
-Use claude-flow's built-in safety tools:
+Use auggie-flow's built-in safety tools:
 
 \`\`\`bash
 # Check your configuration for dangerous patterns
-claude-flow hook-safety validate
+auggie-flow hook-safety validate
 
 # Enable safe mode (skips all hooks)
-claude-flow hook-safety safe-mode
+auggie-flow hook-safety safe-mode
 
 # Check current safety status
-claude-flow hook-safety status
+auggie-flow hook-safety status
 
 # Reset circuit breakers if triggered
-claude-flow hook-safety reset
+auggie-flow hook-safety reset
 \`\`\`
 
 ## 📚 Additional Resources
 
-- Issue #166: https://github.com/ruvnet/claude-flow/issues/166
-- Claude Code Hooks Documentation: https://docs.anthropic.com/en/docs/claude-code/hooks
+- Issue #166: https://github.com/ruvnet/auggie-flow/issues/166
+- Auggie Code Hooks Documentation: https://docs.anthropic.com/en/docs/claude-code/hooks
 - Reddit Discussion: https://www.reddit.com/r/ClaudeAI/comments/1ltvi6x/anyone_else_accidentally_create_an_infinite_loop/
 
 ---

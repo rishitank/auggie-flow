@@ -4,7 +4,7 @@
 The Claude-Flow memory system provides persistent storage and intelligent retrieval of information across agent sessions. It uses a hybrid approach combining SQL databases with semantic search capabilities.
 
 ## Storage Backends
-- **Primary**: JSON database (`./memory/claude-flow-data.json`)
+- **Primary**: JSON database (`./memory/auggie-flow-data.json`)
 - **Sessions**: File-based storage in `./memory/sessions/`
 - **Cache**: In-memory cache for frequently accessed data
 
@@ -15,18 +15,18 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 - **Replication**: Optional distributed storage support
 
 ## Commands
-- `npx claude-flow memory query <search>`: Search stored information
-- `npx claude-flow memory stats`: Show memory usage statistics
-- `npx claude-flow memory export <file>`: Export memory to file
-- `npx claude-flow memory import <file>`: Import memory from file
+- `npx auggie-flow memory query <search>`: Search stored information
+- `npx auggie-flow memory stats`: Show memory usage statistics
+- `npx auggie-flow memory export <file>`: Export memory to file
+- `npx auggie-flow memory import <file>`: Import memory from file
 
 ## Configuration
-Memory settings are configured in `claude-flow.config.json`:
+Memory settings are configured in `auggie-flow.config.json`:
 ```json
 {
   "memory": {
     "backend": "json",
-    "path": "./memory/claude-flow-data.json",
+    "path": "./memory/auggie-flow-data.json",
     "cacheSize": 1000,
     "indexing": true,
     "namespaces": ["default", "agents", "tasks", "sessions"],

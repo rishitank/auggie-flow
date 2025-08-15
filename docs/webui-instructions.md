@@ -1,16 +1,16 @@
-# Claude Code Web UI Access Instructions
+# Auggie Code Web UI Access Instructions
 
 ## 🌐 How to Access the Web-Based UI
 
-The Claude Code Web UI from v1.0.72 has been successfully ported and is now fully functional! Here's how to access it:
+The Auggie Code Web UI from v1.0.72 has been successfully ported and is now fully functional! Here's how to access it:
 
 ### Method 1: Using the Start Command (Recommended)
 ```bash
 # Start the web server
-claude-flow start --web
+auggie-flow start --web
 
 # Or with custom port
-claude-flow start --web --port 8080
+auggie-flow start --web --port 8080
 ```
 
 ### Method 2: Direct Script Execution
@@ -43,7 +43,7 @@ Once started, open your web browser and navigate to:
 - 🎨 **Multiple Themes**: Dark, Light, Classic Terminal, Matrix
 - 📱 **Mobile Responsive**: Works on tablets and phones
 - ⚙️ **Customizable Settings**: Font size, themes, behavior options
-- 🤖 **Claude Flow Integration**: Built-in support for all commands
+- 🤖 **Auggie Flow Integration**: Built-in support for all commands
 
 ### Advanced Capabilities
 - 🐝 **Swarm Orchestration**: Real-time swarm management
@@ -64,10 +64,10 @@ Once started, open your web browser and navigate to:
 
 ### Available Commands
 - `help` - Show all available commands
-- `connect [url] [token]` - Connect to Claude Code server
+- `connect [url] [token]` - Connect to Auggie Code server
 - `status` - Show connection and system status
 - `clear` - Clear console output
-- `claude-flow <command>` - Execute Claude Flow commands
+- `auggie-flow <command>` - Execute Auggie Flow commands
 - `swarm <action>` - Manage swarms
 - `tools` - List available tools
 
@@ -114,8 +114,8 @@ The UI is fully responsive and works on:
 
 ## 🚀 Advanced Features
 
-### Claude Flow Integration
-The web UI includes full integration with Claude Flow's swarm orchestration:
+### Auggie Flow Integration
+The web UI includes full integration with Auggie Flow's swarm orchestration:
 
 - **SPARC Mode Selection**: Choose from 10+ specialized modes
 - **Swarm Strategy**: Configure coordination approaches
@@ -133,7 +133,7 @@ The web UI includes full integration with Claude Flow's swarm orchestration:
 ### Common Issues
 
 **Connection Failed**
-- Ensure the server is running with `claude-flow start --web`
+- Ensure the server is running with `auggie-flow start --web`
 - Check the server URL in settings (default: `ws://localhost:3000/ws`)
 - Verify firewall settings allow connections to the port
 
@@ -195,17 +195,17 @@ window.claudeConsole.wsClient.debugMode = true;
 
 1. **Start the server**:
    ```bash
-   claude-flow start --web
+   auggie-flow start --web
    ```
 
 2. **Open your browser** to: `http://localhost:3000/console`
 
 3. **Configure connection** in the settings panel if needed
 
-4. **Start using Claude Flow** commands in the web console!
+4. **Start using Auggie Flow** commands in the web console!
 
 ---
 
-**Enjoy the fully functional Claude Code Web UI v1.0.72!** 🚀
+**Enjoy the fully functional Auggie Code Web UI v1.0.72!** 🚀
 
-The web interface provides all the power of Claude Flow with the convenience of a modern web application, featuring real-time communication, responsive design, and comprehensive swarm orchestration capabilities.
+The web interface provides all the power of Auggie Flow with the convenience of a modern web application, featuring real-time communication, responsive design, and comprehensive swarm orchestration capabilities.

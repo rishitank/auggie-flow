@@ -2,7 +2,7 @@
 ## Claude-Flow Multi-Terminal Orchestration System
 
 ### Executive Summary
-Claude-Flow is a next-generation CLI tool that orchestrates multiple Claude Code sessions across parallel terminal instances, enabling sophisticated multi-agent development workflows with shared memory and coordination capabilities.
+Claude-Flow is a next-generation CLI tool that orchestrates multiple Auggie Code sessions across parallel terminal instances, enabling sophisticated multi-agent development workflows with shared memory and coordination capabilities.
 
 ### Functional Requirements
 
@@ -167,23 +167,23 @@ interface MCPServer {
 #### CLI Command Structure
 ```bash
 # Basic Commands
-claude-flow init                    # Initialize new project
-claude-flow spawn <count>           # Spawn agent terminals
-claude-flow exec <command>          # Execute in all terminals
-claude-flow target <agent> <cmd>    # Target specific agent
-claude-flow status                  # Show system status
-claude-flow shutdown               # Graceful shutdown
+auggie-flow init                    # Initialize new project
+auggie-flow spawn <count>           # Spawn agent terminals
+auggie-flow exec <command>          # Execute in all terminals
+auggie-flow target <agent> <cmd>    # Target specific agent
+auggie-flow status                  # Show system status
+auggie-flow shutdown               # Graceful shutdown
 
 # Advanced Commands
-claude-flow workflow <file>         # Run workflow file
-claude-flow memory export <file>    # Export memory bank
-claude-flow replay <session>        # Replay session
-claude-flow monitor                 # Live monitoring UI
+auggie-flow workflow <file>         # Run workflow file
+auggie-flow memory export <file>    # Export memory bank
+auggie-flow replay <session>        # Replay session
+auggie-flow monitor                 # Live monitoring UI
 
 # Configuration Commands
-claude-flow config set <key> <val>  # Set configuration
-claude-flow config get <key>        # Get configuration
-claude-flow profile create <name>   # Create agent profile
+auggie-flow config set <key> <val>  # Set configuration
+auggie-flow config get <key>        # Get configuration
+auggie-flow profile create <name>   # Create agent profile
 ```
 
 ### Data Models
@@ -272,7 +272,7 @@ interface Task {
 2. Sufficient system resources for multiple terminals
 3. Network connectivity for MCP operations
 4. Basic familiarity with CLI tools
-5. Claude Code or compatible AI available
+5. Auggie Code or compatible AI available
 
 ---
 *Phase 1 Status: Complete*

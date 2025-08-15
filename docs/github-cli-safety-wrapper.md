@@ -15,7 +15,7 @@ A comprehensive, production-ready wrapper around GitHub CLI commands that provid
 
 ## Installation
 
-The wrapper is part of the Claude Flow project and can be imported directly:
+The wrapper is part of the Auggie Flow project and can be imported directly:
 
 ```javascript
 import { GitHubCliSafe, githubCli } from './src/utils/github-cli-safety-wrapper.js';

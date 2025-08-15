@@ -1,4 +1,4 @@
-# Claude Flow v2.0.0 - Cache Cleared Update
+# Auggie Flow v2.0.0 - Cache Cleared Update
 
 ## 🧹 Cache Clearing Actions Taken
 
@@ -20,7 +20,7 @@
 ### ✅ Working Components
 1. **Remote NPX execution**: `npx ruv-swarm@latest` fully functional
 2. **MCP Server**: Successfully started via ruv-swarm
-3. **Local wrapper**: `./claude-flow --version` correctly shows v2.0.0
+3. **Local wrapper**: `./auggie-flow --version` correctly shows v2.0.0
 4. **Swarm persistence**: Previous swarm and agents still active
 5. **WASM modules**: All loaded successfully
 
@@ -32,8 +32,8 @@
 ### 📁 Directory Structure Found
 ```
 bin/
-├── claude-flow (3.4KB) - Main wrapper script
-├── claude-flow-node-pkg (46MB) - Pre-compiled binary
+├── auggie-flow (3.4KB) - Main wrapper script
+├── auggie-flow-node-pkg (46MB) - Pre-compiled binary
 └── Multiple swarm-related scripts
 
 dist/
@@ -45,7 +45,7 @@ dist/
 ## 🎯 Recommendations
 
 ### Immediate Actions
-1. **Use pre-built binary**: `./bin/claude-flow-node-pkg` may work
+1. **Use pre-built binary**: `./bin/auggie-flow-node-pkg` may work
 2. **Continue with NPX**: Most reliable method currently
 3. **Dev mode**: `npm run dev` for development work
 

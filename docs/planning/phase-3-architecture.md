@@ -570,20 +570,20 @@ services:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: claude-flow-orchestrator
+  name: auggie-flow-orchestrator
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: claude-flow
+      app: auggie-flow
   template:
     metadata:
       labels:
-        app: claude-flow
+        app: auggie-flow
     spec:
       containers:
       - name: orchestrator
-        image: claude-flow:latest
+        image: auggie-flow:latest
         env:
         - name: MODE
           value: production

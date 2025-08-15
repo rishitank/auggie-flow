@@ -40,7 +40,7 @@ export function isInteractive() {
   }
 
   // Check if running in non-interactive mode explicitly
-  if (process.env.CLAUDE_FLOW_NON_INTERACTIVE === 'true') {
+  if (process.env.AUGGIE_FLOW_NON_INTERACTIVE === 'true') {
     return false;
   }
 
@@ -120,12 +120,12 @@ export function warnNonInteractive(commandName) {
  */
 export function checkNonInteractiveAuth() {
   if (!isInteractive()) {
-    const apiKey = process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
+    const apiKey = process.env.ANTHROPIC_API_KEY || process.env.AUGGIE_API_KEY;
     if (!apiKey) {
       console.error('\n❌ Non-interactive mode requires API key to be set.');
       console.error('\nSet one of these environment variables:');
       console.error('  export ANTHROPIC_API_KEY="your-api-key"');
-      console.error('  export CLAUDE_API_KEY="your-api-key"');
+      console.error('  export AUGGIE_API_KEY="your-api-key"');
       console.error('\nOr run in an interactive terminal for login prompt.\n');
       return false;
     }

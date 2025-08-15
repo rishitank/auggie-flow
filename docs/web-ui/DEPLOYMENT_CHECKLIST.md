@@ -1,4 +1,4 @@
-# Claude Flow Web UI - Deployment Checklist
+# Auggie Flow Web UI - Deployment Checklist
 
 ## 📋 Pre-Deployment Checklist
 
@@ -219,15 +219,15 @@
 ## 📞 Contact Information
 
 ### Deployment Team
-- **Lead Developer**: dev-lead@claude-flow.ai
-- **DevOps Engineer**: devops@claude-flow.ai
-- **QA Lead**: qa-lead@claude-flow.ai
-- **Product Manager**: pm@claude-flow.ai
+- **Lead Developer**: dev-lead@auggie-flow.ai
+- **DevOps Engineer**: devops@auggie-flow.ai
+- **QA Lead**: qa-lead@auggie-flow.ai
+- **Product Manager**: pm@auggie-flow.ai
 
 ### Emergency Contacts
 - **On-Call Engineer**: +1-555-CLAUDE-1
 - **Incident Hotline**: +1-555-FLOW-911
-- **Executive Escalation**: exec@claude-flow.ai
+- **Executive Escalation**: exec@auggie-flow.ai
 
 ## 📝 Sign-offs
 

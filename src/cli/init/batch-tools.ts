@@ -3,12 +3,12 @@ export async function createBatchToolsGuide(): Promise<void> {
   const fs = await import('fs/promises');
   const path = await import('path');
 
-  const batchToolsDir = '.claude/commands/swarm';
+  const batchToolsDir = '.auggie/commands/swarm';
 
   const batchToolsGuide = `# Batch Tools Coordination Guide
 
 ## Overview
-This guide explains how to use Claude Code's batch tools effectively for swarm orchestration and parallel task execution.
+This guide explains how to use Auggie Code's batch tools effectively for swarm orchestration and parallel task execution.
 
 ## Core Batch Tools
 

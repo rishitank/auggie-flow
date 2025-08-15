@@ -1,6 +1,6 @@
 /**
  * Main Console Application
- * Coordinates all components of the Claude Code Console
+ * Coordinates all components of the Auggie Code Console
  */
 
 import { WebSocketClient } from './websocket-client.js';
@@ -40,7 +40,7 @@ class ClaudeCodeConsole {
 
     try {
       // Show loading overlay
-      this.showLoading('Initializing Claude Code Console...');
+      this.showLoading('Initializing Auggie Code Console...');
 
       // Get DOM elements
       this.getDOMElements();
@@ -78,7 +78,7 @@ class ClaudeCodeConsole {
       }
 
       this.isInitialized = true;
-      console.log('Claude Code Console initialized successfully');
+      console.log('Auggie Code Console initialized successfully');
     } catch (error) {
       console.error('Failed to initialize console:', error);
       this.showError('Failed to initialize console: ' + error.message);
@@ -132,8 +132,8 @@ class ClaudeCodeConsole {
     // WebSocket -> Terminal
     this.wsClient.on('connected', () => {
       this.updateConnectionStatus(true, false);
-      this.terminal.writeSuccess('Connected to Claude Code server');
-      this.terminal.setPrompt('claude-flow>');
+      this.terminal.writeSuccess('Connected to Auggie Code server');
+      this.terminal.setPrompt('auggie-flow>');
     });
 
     this.wsClient.on('disconnected', (info) => {
@@ -327,8 +327,8 @@ class ClaudeCodeConsole {
       this.handleStreamingOutput(message.params);
     }
 
-    // Handle Claude Flow notifications
-    if (message.method && message.method.startsWith('claude-flow/')) {
+    // Handle Auggie Flow notifications
+    if (message.method && message.method.startsWith('auggie-flow/')) {
       this.handleClaudeFlowNotification(message);
     }
   }
@@ -382,26 +382,26 @@ class ClaudeCodeConsole {
   }
 
   /**
-   * Handle Claude Flow notifications
+   * Handle Auggie Flow notifications
    */
   handleClaudeFlowNotification(message) {
     const { method, params } = message;
 
     switch (method) {
-      case 'claude-flow/started':
-        this.terminal.writeSuccess(`Claude Flow started in ${params.mode} mode`);
+      case 'auggie-flow/started':
+        this.terminal.writeSuccess(`Auggie Flow started in ${params.mode} mode`);
         break;
 
-      case 'claude-flow/stopped':
-        this.terminal.writeInfo('Claude Flow stopped');
+      case 'auggie-flow/stopped':
+        this.terminal.writeInfo('Auggie Flow stopped');
         break;
 
-      case 'claude-flow/error':
-        this.terminal.writeError(`Claude Flow error: ${params.message}`);
+      case 'auggie-flow/error':
+        this.terminal.writeError(`Auggie Flow error: ${params.message}`);
         break;
 
       default:
-        this.terminal.writeInfo(`Claude Flow: ${method} - ${JSON.stringify(params)}`);
+        this.terminal.writeInfo(`Auggie Flow: ${method} - ${JSON.stringify(params)}`);
     }
   }
 

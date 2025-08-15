@@ -2,14 +2,14 @@
 
 ## 🎯 Overview
 
-This is the modular UI architecture designed to support **71+ MCP tools and CLI commands** for Claude Flow. The architecture provides a comprehensive interface that can run in multiple modes: full browser UI, enhanced terminal interface, or fallback mode.
+This is the modular UI architecture designed to support **71+ MCP tools and CLI commands** for Auggie Flow. The architecture provides a comprehensive interface that can run in multiple modes: full browser UI, enhanced terminal interface, or fallback mode.
 
 ## 🏗️ Architecture Components
 
 ### Core System (`/core/`)
 
 - **`UIManager.js`** - Central UI controller that coordinates all views and manages global state
-- **`MCPIntegrationLayer.js`** - Bridge between UI and Claude Flow MCP tools with caching and error handling
+- **`MCPIntegrationLayer.js`** - Bridge between UI and Auggie Flow MCP tools with caching and error handling
 - **`EventBus.js`** - Central event communication system for loose coupling between components
 - **`ViewManager.js`** - Dynamic view loading and state management with transitions
 - **`StateManager.js`** - Global state persistence and user preferences
@@ -305,4 +305,4 @@ The architecture is designed for easy extension:
 
 ## 📝 License
 
-Part of the Claude Flow project. See main project license.
+Part of the Auggie Flow project. See main project license.

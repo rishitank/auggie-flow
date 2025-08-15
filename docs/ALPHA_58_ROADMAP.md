@@ -1,4 +1,4 @@
-# Claude Flow Alpha 58 Release Roadmap
+# Auggie Flow Alpha 58 Release Roadmap
 
 ## 🎯 Priority Issues for Alpha 58
 
@@ -17,7 +17,7 @@
 - **Files to modify**:
   - `src/mcp/mcp-server.js` - Add database integration
   - `src/hive-mind/core/DatabaseManager.ts` - Ensure proper APIs
-  - `src/mcp/claude-flow-tools.ts` - Update tool implementations
+  - `src/mcp/auggie-flow-tools.ts` - Update tool implementations
 - **Expected outcome**: All MCP operations actually persist data to SQLite
 
 #### **Issue #330 - Hive-mind Wizard Hangs and Never Creates Prompt File**

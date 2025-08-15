@@ -5,7 +5,7 @@ Automatically spawn and manage agents based on task requirements.
 ## Usage
 
 ```bash
-npx claude-flow auto agent [options]
+npx auggie-flow auto agent [options]
 ```
 
 ## Options
@@ -21,25 +21,25 @@ npx claude-flow auto agent [options]
 ### Basic auto-spawning
 
 ```bash
-npx claude-flow auto agent --task "Build a REST API with authentication"
+npx auggie-flow auto agent --task "Build a REST API with authentication"
 ```
 
 ### Constrained spawning
 
 ```bash
-npx claude-flow auto agent -t "Debug performance issue" --max-agents 3
+npx auggie-flow auto agent -t "Debug performance issue" --max-agents 3
 ```
 
 ### Analysis only
 
 ```bash
-npx claude-flow auto agent -t "Refactor codebase" --no-spawn
+npx auggie-flow auto agent -t "Refactor codebase" --no-spawn
 ```
 
 ### Minimal strategy
 
 ```bash
-npx claude-flow auto agent -t "Fix bug in login" -s minimal
+npx auggie-flow auto agent -t "Fix bug in login" -s minimal
 ```
 
 ## How It Works
@@ -103,10 +103,10 @@ npx claude-flow auto agent -t "Fix bug in login" -s minimal
 - Default strategy
 - Good performance/resource ratio
 
-## Integration with Claude Code
+## Integration with Auggie Code
 
 ```javascript
-// In Claude Code after auto-spawning
+// In Auggie Code after auto-spawning
 mcp__claude-flow__auto_agent {
   task: "Build authentication system",
   strategy: "balanced",

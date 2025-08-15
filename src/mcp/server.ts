@@ -27,7 +27,7 @@ import { RequestRouter } from './router.js';
 import { SessionManager, ISessionManager } from './session-manager.js';
 import { AuthManager, IAuthManager } from './auth.js';
 import { LoadBalancer, ILoadBalancer, RequestQueue } from './load-balancer.js';
-import { createClaudeFlowTools, ClaudeFlowToolContext } from './claude-flow-tools.js';
+import { createClaudeFlowTools, ClaudeFlowToolContext } from './auggie-flow-tools.js';
 import { createSwarmTools, SwarmToolContext } from './swarm-tools.js';
 import {
   createRuvSwarmTools,
@@ -595,7 +595,7 @@ export class MCPServer implements IMCPServer {
             ...context,
             workingDirectory,
             sessionId: `mcp-session-${Date.now()}`,
-            swarmId: process.env.CLAUDE_SWARM_ID || `mcp-swarm-${Date.now()}`,
+            swarmId: process.env.AUGGIE_SWARM_ID || `mcp-swarm-${Date.now()}`,
           };
 
           return await originalHandler(input, ruvSwarmContext);

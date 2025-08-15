@@ -12,7 +12,7 @@ The current integration consists of multiple layers:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    Claude Code                          │
+│                    Auggie Code                          │
 ├─────────────────────────────────────────────────────────┤
 │                  MCP Protocol Layer                     │
 ├─────────────────────────────────────────────────────────┤
@@ -69,8 +69,8 @@ mcp__claude-flow__task_orchestrate({ task: "Research AI patterns" })
 #### 3.2 CLI Command Usage
 ```bash
 # Current pattern - requires shell execution
-claude-flow ruv-swarm init --topology mesh --max-agents 8
-claude-flow ruv-swarm spawn researcher --name "AI Researcher"
+auggie-flow ruv-swarm init --topology mesh --max-agents 8
+auggie-flow ruv-swarm spawn researcher --name "AI Researcher"
 ```
 
 #### 3.3 Configuration Management
@@ -87,7 +87,7 @@ const integration = getRuvSwarmIntegration();
 
 ```typescript
 // New simplified architecture
-import { RuvSwarm } from '@claude-flow/ruv-swarm-sdk';
+import { RuvSwarm } from '@auggie-flow/ruv-swarm-sdk';
 
 const swarm = new RuvSwarm({
   topology: 'mesh',
@@ -104,7 +104,7 @@ const result = await swarm.orchestrate('Research neural architectures');
 ### 2. SDK Module Structure
 
 ```
-@claude-flow/ruv-swarm-sdk/
+@auggie-flow/ruv-swarm-sdk/
 ├── src/
 │   ├── index.ts              # Main SDK entry
 │   ├── client/
@@ -294,7 +294,7 @@ class RuvSwarmProcess {
 ### 5. Migration Strategy
 
 #### 5.1 Phase 1: SDK Development
-1. Create `@claude-flow/ruv-swarm-sdk` package
+1. Create `@auggie-flow/ruv-swarm-sdk` package
 2. Implement core SDK functionality
 3. Add preset configurations
 4. Create comprehensive examples
@@ -316,7 +316,7 @@ class RuvSwarmProcess {
 #### 6.1 Simple Development Task
 
 ```typescript
-import { RuvSwarm } from '@claude-flow/ruv-swarm-sdk';
+import { RuvSwarm } from '@auggie-flow/ruv-swarm-sdk';
 
 // Before: Complex multi-step process
 // After: Simple and intuitive
@@ -461,7 +461,7 @@ const metrics = await swarm.metrics.export('prometheus');
 ### 10. Testing Support
 
 ```typescript
-import { MockSwarm } from '@claude-flow/ruv-swarm-sdk/testing';
+import { MockSwarm } from '@auggie-flow/ruv-swarm-sdk/testing';
 
 // Easy testing with mock swarm
 const mockSwarm = new MockSwarm();

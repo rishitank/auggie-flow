@@ -5,7 +5,7 @@ Initialize a new work session with context loading and environment setup.
 ## Usage
 
 ```bash
-npx claude-flow hook session-start [options]
+npx auggie-flow hook session-start [options]
 ```
 
 ## Options
@@ -21,25 +21,25 @@ npx claude-flow hook session-start [options]
 ### Basic session start
 
 ```bash
-npx claude-flow hook session-start --session-id "dev-session-2024"
+npx auggie-flow hook session-start --session-id "dev-session-2024"
 ```
 
 ### With full restoration
 
 ```bash
-npx claude-flow hook session-start -s "feature-auth" --restore-context --load-preferences
+npx auggie-flow hook session-start -s "feature-auth" --restore-context --load-preferences
 ```
 
 ### Auto swarm initialization
 
 ```bash
-npx claude-flow hook session-start -s "bug-fix-789" --init-swarm
+npx auggie-flow hook session-start -s "bug-fix-789" --init-swarm
 ```
 
 ### Telemetry enabled
 
 ```bash
-npx claude-flow hook session-start -s "performance-opt" --telemetry
+npx auggie-flow hook session-start -s "performance-opt" --telemetry
 ```
 
 ## Features
@@ -74,18 +74,18 @@ npx claude-flow hook session-start -s "performance-opt" --telemetry
 
 ## Integration
 
-This hook is automatically called by Claude Code when:
+This hook is automatically called by Auggie Code when:
 
 - Starting a new conversation
 - Beginning work session
-- After Claude Code restart
+- After Auggie Code restart
 - Switching projects
 
 Manual usage in agents:
 
 ```bash
 # At session start
-npx claude-flow hook session-start --session-id "your-session" --restore-context
+npx auggie-flow hook session-start --session-id "your-session" --restore-context
 ```
 
 ## Output

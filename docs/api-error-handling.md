@@ -1,6 +1,6 @@
 # Claude API Enhanced Error Handling
 
-This document describes the comprehensive error handling implemented for the Claude API client in Claude Flow, addressing Issue #183.
+This document describes the comprehensive error handling implemented for the Claude API client in Auggie Flow, addressing Issue #183.
 
 ## Overview
 

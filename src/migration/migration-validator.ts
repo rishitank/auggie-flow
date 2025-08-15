@@ -11,11 +11,11 @@ import { glob } from 'glob';
 
 export class MigrationValidator {
   private requiredFiles = [
-    '.claude/commands/sparc.md',
-    '.claude/commands/claude-flow-help.md',
-    '.claude/commands/claude-flow-memory.md',
-    '.claude/BATCHTOOLS_GUIDE.md',
-    '.claude/BATCHTOOLS_BEST_PRACTICES.md',
+    '.auggie/commands/sparc.md',
+    '.auggie/commands/auggie-flow-help.md',
+    '.auggie/commands/auggie-flow-memory.md',
+    '.auggie/BATCHTOOLS_GUIDE.md',
+    '.auggie/BATCHTOOLS_BEST_PRACTICES.md',
   ];
 
   private requiredCommands = [
@@ -23,9 +23,9 @@ export class MigrationValidator {
     'sparc-architect',
     'sparc-code',
     'sparc-tdd',
-    'claude-flow-help',
-    'claude-flow-memory',
-    'claude-flow-swarm',
+    'auggie-flow-help',
+    'auggie-flow-memory',
+    'auggie-flow-swarm',
   ];
 
   async validate(projectPath: string): Promise<ValidationResult> {
@@ -77,7 +77,7 @@ export class MigrationValidator {
     const commandsPath = path.join(claudePath, 'commands');
     if (!(await fs.pathExists(commandsPath))) {
       check.passed = false;
-      result.errors.push('.claude/commands directory not found');
+      result.errors.push('.auggie/commands directory not found');
     }
 
     // Check required files
@@ -98,7 +98,7 @@ export class MigrationValidator {
       passed: true,
     };
 
-    const commandsPath = path.join(projectPath, '.claude/commands');
+    const commandsPath = path.join(projectPath, '.auggie/commands');
 
     if (await fs.pathExists(commandsPath)) {
       for (const command of this.requiredCommands) {
@@ -291,7 +291,7 @@ export class MigrationValidator {
         // Check for script conflicts
         const scripts = packageJson.scripts || {};
         const conflictingScripts = Object.keys(scripts).filter(
-          (script) => script.startsWith('claude-flow') || script.startsWith('sparc'),
+          (script) => script.startsWith('auggie-flow') || script.startsWith('sparc'),
         );
 
         if (conflictingScripts.length > 0) {

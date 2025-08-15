@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Agentic Flow Hook System provides a comprehensive integration layer between Claude Flow and agentic-flow, enabling advanced features such as:
+The Agentic Flow Hook System provides a comprehensive integration layer between Auggie Flow and agentic-flow, enabling advanced features such as:
 
 - **Pre/Post Operation Hooks**: Intercept and modify all LLM calls
 - **Memory Persistence**: Cross-provider state management and synchronization
@@ -37,7 +37,7 @@ The Agentic Flow Hook System provides a comprehensive integration layer between 
 ### Installation
 
 ```bash
-npm install @claude-flow/agentic-hooks
+npm install @auggie-flow/agentic-hooks
 ```
 
 ### Basic Usage
@@ -47,7 +47,7 @@ import {
   initializeAgenticFlowHooks, 
   createHookContext,
   agenticHookManager 
-} from '@claude-flow/agentic-hooks';
+} from '@auggie-flow/agentic-hooks';
 
 // Initialize the hook system
 await initializeAgenticFlowHooks();
@@ -480,13 +480,13 @@ agenticHookManager.on('hook:executed', ({ hookId }) => {
 });
 ```
 
-## Integration with Claude Flow
+## Integration with Auggie Flow
 
-The hook system integrates seamlessly with Claude Flow's existing infrastructure:
+The hook system integrates seamlessly with Auggie Flow's existing infrastructure:
 
 ```typescript
-// In your Claude Flow command
-import { AgenticFlowHooks } from '@claude-flow/agentic-hooks';
+// In your Auggie Flow command
+import { AgenticFlowHooks } from '@auggie-flow/agentic-hooks';
 
 export const myCommand = {
   name: 'my-command',
@@ -526,7 +526,7 @@ export const myCommand = {
 Enable debug logging:
 
 ```typescript
-import { Logger } from '@claude-flow/core';
+import { Logger } from '@auggie-flow/core';
 
 Logger.setLevel('debug');
 

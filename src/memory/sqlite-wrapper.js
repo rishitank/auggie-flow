@@ -48,20 +48,20 @@ async function tryLoadSQLite() {
 ║  The native SQLite module failed to load. This is common on Windows when    ║
 ║  using 'npx' or when node-gyp build tools are not available.               ║
 ║                                                                              ║
-║  Claude Flow will continue with in-memory storage (non-persistent).         ║
+║  Auggie Flow will continue with in-memory storage (non-persistent).         ║
 ║                                                                              ║
 ║  To enable persistent storage on Windows:                                    ║
 ║                                                                              ║
 ║  Option 1 - Install Windows Build Tools:                                    ║
 ║  > npm install --global windows-build-tools                                 ║
-║  > npm install claude-flow@alpha                                           ║
+║  > npm install auggie-flow@alpha                                           ║
 ║                                                                              ║
 ║  Option 2 - Use Pre-built Binaries:                                        ║
 ║  > npm config set python python3                                           ║
-║  > npm install claude-flow@alpha --build-from-source=false                 ║
+║  > npm install auggie-flow@alpha --build-from-source=false                 ║
 ║                                                                              ║
 ║  Option 3 - Use WSL (Windows Subsystem for Linux):                         ║
-║  Install WSL and run Claude Flow inside a Linux environment                 ║
+║  Install WSL and run Auggie Flow inside a Linux environment                 ║
 ║                                                                              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 `);

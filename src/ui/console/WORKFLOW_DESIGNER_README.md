@@ -1,8 +1,8 @@
-# Claude Flow - Advanced Workflow Designer
+# Auggie Flow - Advanced Workflow Designer
 
 ## Overview
 
-The Claude Flow Workflow Designer is a comprehensive visual workflow builder that enables users to create, execute, and manage complex data processing pipelines through an intuitive drag-and-drop interface. It features real-time execution, AI integration, and advanced validation capabilities.
+The Auggie Flow Workflow Designer is a comprehensive visual workflow builder that enables users to create, execute, and manage complex data processing pipelines through an intuitive drag-and-drop interface. It features real-time execution, AI integration, and advanced validation capabilities.
 
 ## Features
 
@@ -592,7 +592,7 @@ console.log(designer.getDebugInfo());
 
 ## License
 
-This component is part of the Claude Flow system and follows the project's licensing terms.
+This component is part of the Auggie Flow system and follows the project's licensing terms.
 
 ## Contributing
 

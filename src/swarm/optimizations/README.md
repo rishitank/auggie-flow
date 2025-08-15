@@ -1,6 +1,6 @@
 # Swarm Performance Optimizations
 
-This directory contains performance optimizations for the Claude Code Flow swarm system, implementing the recommendations from the optimization analysis to achieve **2.5x performance improvement**.
+This directory contains performance optimizations for the Auggie Code Flow swarm system, implementing the recommendations from the optimization analysis to achieve **2.5x performance improvement**.
 
 ## 🚀 Quick Start
 

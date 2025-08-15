@@ -15,8 +15,8 @@ import * as path from 'path';
 const program = new Command();
 
 program
-  .name('claude-flow-migrate')
-  .description('Migrate existing claude-flow projects to optimized prompts')
+  .name('auggie-flow-migrate')
+  .description('Migrate existing auggie-flow projects to optimized prompts')
   .version('1.0.0');
 
 program

@@ -1,5 +1,5 @@
 /**
- * Timezone utilities for Claude Flow
+ * Timezone utilities for Auggie Flow
  * Provides consistent timezone handling across the application
  */
 

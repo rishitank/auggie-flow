@@ -2,20 +2,20 @@
 
 ## Overview
 
-The Claude-Flow MCP Wrapper is a new architecture that replaces the templated approach with a dynamic wrapper around Claude Code's MCP tools. This provides automatic SPARC/swarm prompt injection while leveraging Claude Code's native capabilities.
+The Claude-Flow MCP Wrapper is a new architecture that replaces the templated approach with a dynamic wrapper around Auggie Code's MCP tools. This provides automatic SPARC/swarm prompt injection while leveraging Auggie Code's native capabilities.
 
 ## Architecture
 
 ### Previous Architecture (Templated)
 ```
-User → claude-flow MCP → Template Engine → File Generation
+User → auggie-flow MCP → Template Engine → File Generation
                       ↓
                     Claude CLI (optional)
 ```
 
 ### New Architecture (Wrapper)
 ```
-User → claude-flow MCP Wrapper → Claude Code MCP Tools
+User → auggie-flow MCP Wrapper → Auggie Code MCP Tools
            ↓                           ↑
     Prompt Injection              Native Tools
 ```
@@ -23,9 +23,9 @@ User → claude-flow MCP Wrapper → Claude Code MCP Tools
 ## Key Benefits
 
 1. **No More Templates**: Removes the need for hardcoded file generation templates
-2. **Real Claude Intelligence**: Uses Claude Code's actual AI capabilities
+2. **Real Claude Intelligence**: Uses Auggie Code's actual AI capabilities
 3. **Automatic Enhancement**: Injects SPARC methodology without manual prompting
-4. **Tool Pass-Through**: Direct access to all Claude Code tools
+4. **Tool Pass-Through**: Direct access to all Auggie Code tools
 5. **Simplified Maintenance**: No need to update templates for new patterns
 
 ## How It Works
@@ -35,7 +35,7 @@ When a SPARC tool is called (e.g., `sparc_coder`), the wrapper:
 - Intercepts the request
 - Extracts the task and context
 - Builds an enhanced prompt with SPARC methodology
-- Forwards to Claude Code's `Task` tool
+- Forwards to Auggie Code's `Task` tool
 
 ### 2. Prompt Injection
 The wrapper automatically adds:
@@ -57,7 +57,7 @@ The wrapper automatically adds:
 }
 ```
 
-**Enhanced Prompt Sent to Claude Code:**
+**Enhanced Prompt Sent to Auggie Code:**
 ```
 SPARC: coder
 
@@ -97,7 +97,7 @@ Autonomous code generation and implementation
 npm run mcp:wrapper
 
 # Or use the executable
-./claude-flow-mcp-wrapper
+./auggie-flow-mcp-wrapper
 
 # Build and run compiled version
 npm run mcp:wrapper:build
@@ -106,11 +106,11 @@ npm run mcp:wrapper:serve
 
 ### Configuration
 
-The wrapper is configured via `claude-flow-wrapper.mcp.json`:
+The wrapper is configured via `auggie-flow-wrapper.mcp.json`:
 
 ```json
 {
-  "name": "claude-flow-wrapper",
+  "name": "auggie-flow-wrapper",
   "tools": {
     "sparc_coder": {
       "passThrough": "Task",
@@ -127,8 +127,8 @@ Add to your Claude desktop configuration:
 ```json
 {
   "servers": {
-    "claude-flow": {
-      "command": "/path/to/claude-flow-mcp-wrapper"
+    "auggie-flow": {
+      "command": "/path/to/auggie-flow-mcp-wrapper"
     }
   }
 }
@@ -198,7 +198,7 @@ function generateCode(task) {
 
 **After (Wrapper-based):**
 ```javascript
-// Just forward to Claude Code with enhanced prompt
+// Just forward to Auggie Code with enhanced prompt
 return this.forwardToClaudeCode('Task', {
   description: `SPARC ${mode}`,
   prompt: enhancedPrompt
@@ -253,8 +253,8 @@ sparc_coder({
 2. Verify SPARC modes are loading correctly
 3. Check console for error messages
 
-### Claude Code Connection Issues
-1. Ensure Claude Code is installed
+### Auggie Code Connection Issues
+1. Ensure Auggie Code is installed
 2. Check MCP server permissions
 3. Verify stdio communication
 
@@ -278,7 +278,7 @@ private buildEnhancedPrompt(mode: SparcMode, task: string, context?: SparcContex
 # Test wrapper functionality
 npm test src/mcp/claude-code-wrapper.test.ts
 
-# Test with real Claude Code
+# Test with real Auggie Code
 ./test-wrapper-integration.sh
 ```
 
@@ -293,7 +293,7 @@ npm test src/mcp/claude-code-wrapper.test.ts
 
 1. **Input Validation**: All inputs validated before forwarding
 2. **No Code Generation**: No hardcoded templates that could have vulnerabilities
-3. **Sandboxed Execution**: Relies on Claude Code's security model
+3. **Sandboxed Execution**: Relies on Auggie Code's security model
 4. **Environment Isolation**: No environment variable exposure
 
 ## Future Enhancements

@@ -1,7 +1,7 @@
 /**
  * Hook Safety System - Prevents recursive hook execution and financial damage
  *
- * This system protects against infinite loops where Claude Code hooks call
+ * This system protects against infinite loops where Auggie Code hooks call
  * 'claude' commands, which could bypass rate limits and cost thousands of dollars.
  *
  * Critical protections:
@@ -31,11 +31,11 @@ const HOOK_SAFETY_CONFIG = {
 
   // Environment variables for context detection
   ENV_VARS: {
-    CONTEXT: 'CLAUDE_HOOK_CONTEXT',
-    DEPTH: 'CLAUDE_HOOK_DEPTH',
-    SESSION_ID: 'CLAUDE_HOOK_SESSION_ID',
-    SKIP_HOOKS: 'CLAUDE_SKIP_HOOKS',
-    SAFE_MODE: 'CLAUDE_SAFE_MODE',
+    CONTEXT: 'AUGGIE_HOOK_CONTEXT',
+    DEPTH: 'AUGGIE_HOOK_DEPTH',
+    SESSION_ID: 'AUGGIE_HOOK_SESSION_ID',
+    SKIP_HOOKS: 'AUGGIE_SKIP_HOOKS',
+    SAFE_MODE: 'AUGGIE_SAFE_MODE',
   },
 };
 
@@ -277,11 +277,11 @@ export class HookCircuitBreaker {
  */
 export class HookConfigValidator {
   /**
-   * Validate Claude Code settings.json for dangerous hook configurations
+   * Validate Auggie Code settings.json for dangerous hook configurations
    */
   static validateClaudeCodeConfig(configPath = null) {
     if (!configPath) {
-      // Try to find Claude Code settings
+      // Try to find Auggie Code settings
       const possiblePaths = [
         path.join(process.env.HOME || '.', '.claude', 'settings.json'),
         path.join(process.cwd(), '.claude', 'settings.json'),
@@ -291,7 +291,7 @@ export class HookConfigValidator {
       configPath = possiblePaths.find((p) => existsSync(p));
 
       if (!configPath) {
-        return { safe: true, message: 'No Claude Code configuration found.' };
+        return { safe: true, message: 'No Auggie Code configuration found.' };
       }
     }
 
@@ -375,7 +375,7 @@ export class HookConfigValidator {
 // Use this SAFE pattern:
 {
   "Stop": [{
-    "hooks": [{"type": "command", "command": "touch ~/.claude/needs_update"}]
+    "hooks": [{"type": "command", "command": "touch ~/.auggie/needs_update"}]
   }]
 }
 
@@ -392,7 +392,7 @@ export class HookConfigValidator {
 {
   "PostToolUse": [{
     "matcher": "Write|Edit|MultiEdit",
-    "hooks": [{"type": "command", "command": "echo 'File modified' >> ~/.claude/changes.log"}]
+    "hooks": [{"type": "command", "command": "echo 'File modified' >> ~/.auggie/changes.log"}]
   }]
 }
         `,
@@ -587,7 +587,7 @@ function showHookSafetyHelp() {
 🛡️  Hook Safety System - Prevent Infinite Loops & Financial Damage
 
 USAGE:
-  claude-flow hook-safety <command> [options]
+  auggie-flow hook-safety <command> [options]
 
 COMMANDS:
   validate      Validate hook configuration for dangerous patterns
@@ -596,29 +596,29 @@ COMMANDS:
   safe-mode     Enable/disable safe mode (skips all hooks)
 
 VALIDATE OPTIONS:
-  --config, -c <path>     Path to Claude Code settings.json
+  --config, -c <path>     Path to Auggie Code settings.json
 
 SAFE-MODE OPTIONS:
   --disable, --off        Disable safe mode
 
 EXAMPLES:
-  # Check your Claude Code hooks for dangerous patterns
-  claude-flow hook-safety validate
+  # Check your Auggie Code hooks for dangerous patterns
+  auggie-flow hook-safety validate
 
   # Check specific configuration file
-  claude-flow hook-safety validate --config ~/.claude/settings.json
+  auggie-flow hook-safety validate --config ~/.auggie/settings.json
 
   # View current safety status
-  claude-flow hook-safety status
+  auggie-flow hook-safety status
 
   # Reset if circuit breaker is triggered
-  claude-flow hook-safety reset
+  auggie-flow hook-safety reset
 
   # Enable safe mode (skips all hooks)
-  claude-flow hook-safety safe-mode
+  auggie-flow hook-safety safe-mode
 
   # Disable safe mode
-  claude-flow hook-safety safe-mode --disable
+  auggie-flow hook-safety safe-mode --disable
 
 🚨 CRITICAL WARNING:
 Stop hooks that call 'claude' commands create INFINITE LOOPS that can:
@@ -632,7 +632,7 @@ SAFE ALTERNATIVES:
 • Use 'claude --skip-hooks' for manual updates
 • Create conditional execution scripts
 
-For more information: https://github.com/ruvnet/claude-flow/issues/166
+For more information: https://github.com/ruvnet/auggie-flow/issues/166
 `);
 }
 

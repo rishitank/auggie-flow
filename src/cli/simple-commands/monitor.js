@@ -179,7 +179,7 @@ async function getDiskUsage() {
 async function getOrchestratorMetrics() {
   try {
     // Try to read from metrics file if orchestrator is running
-    const metricsPath = path.join(process.cwd(), '.claude-flow', 'metrics.json');
+    const metricsPath = path.join(process.cwd(), '.auggie-flow', 'metrics.json');
     const metricsData = await fs.readFile(metricsPath, 'utf8');
     const metrics = JSON.parse(metricsData);
 
@@ -211,7 +211,7 @@ async function getOrchestratorMetrics() {
 // Check if orchestrator is running
 async function checkOrchestratorRunning() {
   try {
-    const pidPath = path.join(process.cwd(), '.claude-flow', 'orchestrator.pid');
+    const pidPath = path.join(process.cwd(), '.auggie-flow', 'orchestrator.pid');
     const pidData = await fs.readFile(pidPath, 'utf8');
     const pid = parseInt(pidData.trim());
 
@@ -244,7 +244,7 @@ function getPerformanceMetrics() {
 async function getResourceMetrics() {
   try {
     // Count memory entries from memory database if available
-    const memoryDbPath = path.join(process.cwd(), '.claude-flow', 'memory.db');
+    const memoryDbPath = path.join(process.cwd(), '.auggie-flow', 'memory.db');
     const memoryExists = await fs
       .access(memoryDbPath)
       .then(() => true)
@@ -277,7 +277,7 @@ async function getResourceMetrics() {
 // Count active terminal sessions
 async function countTerminalSessions() {
   try {
-    const sessionsPath = path.join(process.cwd(), '.claude-flow', 'sessions');
+    const sessionsPath = path.join(process.cwd(), '.auggie-flow', 'sessions');
     const files = await fs.readdir(sessionsPath);
     return files.filter((f) => f.endsWith('.json')).length;
   } catch {
@@ -288,7 +288,7 @@ async function countTerminalSessions() {
 // Count MCP connections
 async function countMCPConnections() {
   try {
-    const mcpPath = path.join(process.cwd(), '.claude-flow', 'mcp-connections.json');
+    const mcpPath = path.join(process.cwd(), '.auggie-flow', 'mcp-connections.json');
     const data = await fs.readFile(mcpPath, 'utf8');
     const connections = JSON.parse(data);
     return Array.isArray(connections) ? connections.length : 0;
@@ -410,8 +410,8 @@ export function showMonitorHelp() {
   console.log('  --watch                          Continuous monitoring mode');
   console.log();
   console.log('Examples:');
-  console.log('  claude-flow monitor              # Show current metrics');
-  console.log('  claude-flow monitor --watch      # Continuous monitoring');
-  console.log('  claude-flow monitor --interval 1000 --watch  # Fast updates');
-  console.log('  claude-flow monitor --format json            # JSON output');
+  console.log('  auggie-flow monitor              # Show current metrics');
+  console.log('  auggie-flow monitor --watch      # Continuous monitoring');
+  console.log('  auggie-flow monitor --interval 1000 --watch  # Fast updates');
+  console.log('  auggie-flow monitor --format json            # JSON output');
 }

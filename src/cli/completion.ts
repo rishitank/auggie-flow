@@ -195,11 +195,11 @@ _claude_flow_completion() {
     esac
 }
 
-complete -F _claude_flow_completion claude-flow`;
+complete -F _claude_flow_completion auggie-flow`;
   }
 
   private getZshCompletionScript(): string {
-    return `#compdef claude-flow
+    return `#compdef auggie-flow
 
 # Claude-Flow zsh completion
 
@@ -408,84 +408,84 @@ function __fish_claude_flow_using_command
 end
 
 # Main commands
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'start' -d 'Start the Claude-Flow orchestration system'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'agent' -d 'Manage Claude-Flow agents'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'task' -d 'Manage tasks'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'memory' -d 'Manage agent memory'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'config' -d 'Manage Claude-Flow configuration'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'status' -d 'Show Claude-Flow system status'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'monitor' -d 'Start live monitoring dashboard'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'session' -d 'Manage Claude-Flow sessions'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'workflow' -d 'Execute and manage workflows'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'repl' -d 'Start interactive REPL mode'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'version' -d 'Show detailed version information'
-complete -f -c claude-flow -n '__fish_claude_flow_needs_command' -a 'completion' -d 'Generate shell completion scripts'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'start' -d 'Start the Claude-Flow orchestration system'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'agent' -d 'Manage Claude-Flow agents'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'task' -d 'Manage tasks'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'memory' -d 'Manage agent memory'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'config' -d 'Manage Claude-Flow configuration'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'status' -d 'Show Claude-Flow system status'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'monitor' -d 'Start live monitoring dashboard'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'session' -d 'Manage Claude-Flow sessions'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'workflow' -d 'Execute and manage workflows'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'repl' -d 'Start interactive REPL mode'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'version' -d 'Show detailed version information'
+complete -f -c auggie-flow -n '__fish_claude_flow_needs_command' -a 'completion' -d 'Generate shell completion scripts'
 
 # Global options
-complete -c claude-flow -s h -l help -d 'Show help information'
-complete -c claude-flow -s v -l verbose -d 'Enable verbose logging'
-complete -c claude-flow -s q -l quiet -d 'Suppress non-essential output'
-complete -c claude-flow -s c -l config -r -d 'Path to configuration file'
-complete -c claude-flow -l log-level -r -a 'debug info warn error' -d 'Set log level'
-complete -c claude-flow -l no-color -d 'Disable colored output'
-complete -c claude-flow -l json -d 'Output in JSON format'
-complete -c claude-flow -l profile -r -d 'Use named configuration profile'
+complete -c auggie-flow -s h -l help -d 'Show help information'
+complete -c auggie-flow -s v -l verbose -d 'Enable verbose logging'
+complete -c auggie-flow -s q -l quiet -d 'Suppress non-essential output'
+complete -c auggie-flow -s c -l config -r -d 'Path to configuration file'
+complete -c auggie-flow -l log-level -r -a 'debug info warn error' -d 'Set log level'
+complete -c auggie-flow -l no-color -d 'Disable colored output'
+complete -c auggie-flow -l json -d 'Output in JSON format'
+complete -c auggie-flow -l profile -r -d 'Use named configuration profile'
 
 # Agent subcommands
-complete -f -c claude-flow -n '__fish_claude_flow_using_command agent' -a 'spawn' -d 'Spawn a new agent'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command agent' -a 'list' -d 'List all agents'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command agent' -a 'terminate' -d 'Terminate an agent'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command agent' -a 'info' -d 'Get agent information'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command agent' -a 'spawn' -d 'Spawn a new agent'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command agent' -a 'list' -d 'List all agents'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command agent' -a 'terminate' -d 'Terminate an agent'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command agent' -a 'info' -d 'Get agent information'
 
 # Task subcommands
-complete -f -c claude-flow -n '__fish_claude_flow_using_command task' -a 'create' -d 'Create a new task'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command task' -a 'list' -d 'List all tasks'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command task' -a 'status' -d 'Get task status'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command task' -a 'cancel' -d 'Cancel a task'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command task' -a 'workflow' -d 'Execute workflow from file'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command task' -a 'create' -d 'Create a new task'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command task' -a 'list' -d 'List all tasks'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command task' -a 'status' -d 'Get task status'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command task' -a 'cancel' -d 'Cancel a task'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command task' -a 'workflow' -d 'Execute workflow from file'
 
 # Memory subcommands
-complete -f -c claude-flow -n '__fish_claude_flow_using_command memory' -a 'query' -d 'Query memory entries'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command memory' -a 'export' -d 'Export memory to file'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command memory' -a 'import' -d 'Import memory from file'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command memory' -a 'stats' -d 'Show memory statistics'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command memory' -a 'cleanup' -d 'Clean up old entries'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command memory' -a 'query' -d 'Query memory entries'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command memory' -a 'export' -d 'Export memory to file'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command memory' -a 'import' -d 'Import memory from file'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command memory' -a 'stats' -d 'Show memory statistics'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command memory' -a 'cleanup' -d 'Clean up old entries'
 
 # Config subcommands
-complete -f -c claude-flow -n '__fish_claude_flow_using_command config' -a 'show' -d 'Show current configuration'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command config' -a 'get' -d 'Get specific config value'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command config' -a 'set' -d 'Set config value'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command config' -a 'init' -d 'Initialize config file'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command config' -a 'validate' -d 'Validate config file'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command config' -a 'show' -d 'Show current configuration'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command config' -a 'get' -d 'Get specific config value'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command config' -a 'set' -d 'Set config value'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command config' -a 'init' -d 'Initialize config file'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command config' -a 'validate' -d 'Validate config file'
 
 # Session subcommands
-complete -f -c claude-flow -n '__fish_claude_flow_using_command session' -a 'list' -d 'List all saved sessions'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command session' -a 'save' -d 'Save current session state'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command session' -a 'restore' -d 'Restore a saved session'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command session' -a 'delete' -d 'Delete a saved session'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command session' -a 'export' -d 'Export session to file'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command session' -a 'import' -d 'Import session from file'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command session' -a 'info' -d 'Show detailed session information'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command session' -a 'clean' -d 'Clean up old sessions'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command session' -a 'list' -d 'List all saved sessions'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command session' -a 'save' -d 'Save current session state'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command session' -a 'restore' -d 'Restore a saved session'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command session' -a 'delete' -d 'Delete a saved session'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command session' -a 'export' -d 'Export session to file'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command session' -a 'import' -d 'Import session from file'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command session' -a 'info' -d 'Show detailed session information'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command session' -a 'clean' -d 'Clean up old sessions'
 
 # Workflow subcommands
-complete -f -c claude-flow -n '__fish_claude_flow_using_command workflow' -a 'run' -d 'Execute a workflow from file'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command workflow' -a 'validate' -d 'Validate a workflow file'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command workflow' -a 'list' -d 'List running workflows'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command workflow' -a 'status' -d 'Show workflow execution status'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command workflow' -a 'stop' -d 'Stop a running workflow'
-complete -f -c claude-flow -n '__fish_claude_flow_using_command workflow' -a 'template' -d 'Generate workflow templates'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command workflow' -a 'run' -d 'Execute a workflow from file'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command workflow' -a 'validate' -d 'Validate a workflow file'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command workflow' -a 'list' -d 'List running workflows'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command workflow' -a 'status' -d 'Show workflow execution status'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command workflow' -a 'stop' -d 'Stop a running workflow'
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command workflow' -a 'template' -d 'Generate workflow templates'
 
 # Completion subcommands
-complete -f -c claude-flow -n '__fish_claude_flow_using_command completion' -a 'bash zsh fish'`;
+complete -f -c auggie-flow -n '__fish_claude_flow_using_command completion' -a 'bash zsh fish'`;
   }
 
   private async installBashCompletion(script: string): Promise<void> {
     const possiblePaths = [
-      '/etc/bash_completion.d/claude-flow',
-      '/usr/local/etc/bash_completion.d/claude-flow',
-      `${process.env['HOME']}/.local/share/bash-completion/completions/claude-flow`,
-      `${process.env['HOME']}/.bash_completion.d/claude-flow`,
+      '/etc/bash_completion.d/auggie-flow',
+      '/usr/local/etc/bash_completion.d/auggie-flow',
+      `${process.env['HOME']}/.local/share/bash-completion/completions/auggie-flow`,
+      `${process.env['HOME']}/.bash_completion.d/auggie-flow`,
     ];
 
     for (const path of possiblePaths) {
@@ -541,9 +541,9 @@ complete -f -c claude-flow -n '__fish_claude_flow_using_command completion' -a '
 
   private async installFishCompletion(script: string): Promise<void> {
     const possiblePaths = [
-      `${process.env['HOME']}/.config/fish/completions/claude-flow.fish`,
-      '/usr/local/share/fish/completions/claude-flow.fish',
-      '/usr/share/fish/completions/claude-flow.fish',
+      `${process.env['HOME']}/.config/fish/completions/auggie-flow.fish`,
+      '/usr/local/share/fish/completions/auggie-flow.fish',
+      '/usr/share/fish/completions/auggie-flow.fish',
     ];
 
     for (const path of possiblePaths) {

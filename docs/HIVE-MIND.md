@@ -45,7 +45,7 @@ The Hive Mind system is an advanced swarm intelligence implementation for Claude
 
 ### 1. Initialize Hive Mind
 ```bash
-claude-flow hive-mind init
+auggie-flow hive-mind init
 ```
 
 This creates:
@@ -55,7 +55,7 @@ This creates:
 
 ### 2. Interactive Setup
 ```bash
-claude-flow hive-mind wizard
+auggie-flow hive-mind wizard
 ```
 
 The wizard guides you through:
@@ -68,10 +68,10 @@ The wizard guides you through:
 ### 3. Quick Start
 ```bash
 # Spawn a swarm with objective
-claude-flow hive-mind spawn "Build microservices architecture"
+auggie-flow hive-mind spawn "Build microservices architecture"
 
 # With options
-claude-flow hive-mind spawn "Develop REST API" \
+auggie-flow hive-mind spawn "Develop REST API" \
   --queen-type strategic \
   --max-workers 6 \
   --consensus weighted \
@@ -85,23 +85,23 @@ claude-flow hive-mind spawn "Develop REST API" \
 
 ```bash
 # View status of all active swarms
-claude-flow hive-mind status
+auggie-flow hive-mind status
 
 # View consensus decisions
-claude-flow hive-mind consensus
+auggie-flow hive-mind consensus
 
 # View performance metrics
-claude-flow hive-mind metrics
+auggie-flow hive-mind metrics
 
 # Manage collective memory
-claude-flow hive-mind memory
+auggie-flow hive-mind memory
 ```
 
 ### Advanced Configurations
 
 ```bash
 # Enterprise development swarm
-claude-flow hive-mind spawn "Build enterprise SaaS platform" \
+auggie-flow hive-mind spawn "Build enterprise SaaS platform" \
   --queen-type strategic \
   --max-workers 12 \
   --consensus byzantine \
@@ -110,13 +110,13 @@ claude-flow hive-mind spawn "Build enterprise SaaS platform" \
   --monitor
 
 # Research and analysis swarm
-claude-flow hive-mind spawn "Research AI architectures" \
+auggie-flow hive-mind spawn "Research AI architectures" \
   --queen-type adaptive \
   --worker-types "researcher,analyst,documenter" \
   --auto-scale
 
 # Rapid prototyping swarm
-claude-flow hive-mind spawn "Create MVP for startup" \
+auggie-flow hive-mind spawn "Create MVP for startup" \
   --queen-type tactical \
   --max-workers 4 \
   --consensus majority
@@ -214,7 +214,7 @@ The Hive Mind system integrates all 87 MCP tools across 8 categories:
 
 ```bash
 # Real-time monitoring
-claude-flow hive-mind spawn "objective" --monitor
+auggie-flow hive-mind spawn "objective" --monitor
 
 # Displays:
 # - Active agents and their status
@@ -252,7 +252,7 @@ claude-flow hive-mind spawn "objective" --monitor
 
 1. **"Hive Mind not initialized"**
    ```bash
-   claude-flow hive-mind init
+   auggie-flow hive-mind init
    ```
 
 2. **"No consensus reached"**
@@ -269,10 +269,10 @@ claude-flow hive-mind spawn "objective" --monitor
 
 ```bash
 # Enable verbose logging
-claude-flow hive-mind spawn "objective" --verbose
+auggie-flow hive-mind spawn "objective" --verbose
 
 # Check system health
-claude-flow hive-mind status --verbose
+auggie-flow hive-mind status --verbose
 ```
 
 ## Integration with Existing Systems
@@ -280,14 +280,14 @@ claude-flow hive-mind status --verbose
 ### With Standard Swarm
 ```bash
 # Upgrade existing swarm to hive mind
-claude-flow hive-mind init
-claude-flow hive-mind spawn "Continue existing project"
+auggie-flow hive-mind init
+auggie-flow hive-mind spawn "Continue existing project"
 ```
 
 ### With GitHub Workflows
 ```bash
 # Automated PR management
-claude-flow hive-mind spawn "Review and merge PRs" \
+auggie-flow hive-mind spawn "Review and merge PRs" \
   --worker-types "reviewer,tester" \
   --queen-type tactical
 ```
@@ -295,8 +295,8 @@ claude-flow hive-mind spawn "Review and merge PRs" \
 ### With SPARC Modes
 ```bash
 # Combine with SPARC development
-claude-flow sparc architect "Design system"
-claude-flow hive-mind spawn "Implement designed system"
+auggie-flow sparc architect "Design system"
+auggie-flow hive-mind spawn "Implement designed system"
 ```
 
 ## Future Enhancements

@@ -1,5 +1,5 @@
 /**
- * Claude Swarm Mode - Self-orchestrating agent swarms using claude-flow
+ * Claude Swarm Mode - Self-orchestrating agent swarms using auggie-flow
  */
 
 import { generateId } from '../../utils/helpers.js';
@@ -22,8 +22,8 @@ export async function swarmAction(ctx: CommandContext) {
   if (!objective) {
     error('Usage: swarm <objective>');
     console.log('\nExamples:');
-    console.log('  claude-flow swarm "Build a REST API"');
-    console.log('  claude-flow swarm "Research cloud architecture"');
+    console.log('  auggie-flow swarm "Build a REST API"');
+    console.log('  auggie-flow swarm "Research cloud architecture"');
     console.log('\nOptions:');
     console.log('  --dry-run              Show configuration without executing');
     console.log('  --strategy <type>      Strategy: auto, research, development, analysis');
@@ -210,7 +210,7 @@ export async function swarmAction(ctx: CommandContext) {
 
     if (options.background) {
       console.log(
-        `Running in background mode. Check status with: claude-flow swarm status ${swarmId}`,
+        `Running in background mode. Check status with: auggie-flow swarm status ${swarmId}`,
       );
 
       // Save coordinator state and exit
@@ -478,7 +478,7 @@ When you're done, please end with "TASK COMPLETED" on its own line.`;
       ];
 
       // Write command to file for tracking
-      await fs.writeFile(`${agentDir}/command.txt`, `claude ${claudeArgs.join(' ')}`);
+      await fs.writeFile(`${agentDir}/command.txt`, `${(Deno.env.get('AUGGIE_FLOW_ENGINE') ?? 'auggie') === 'auggie' ? 'auggie' : 'claude'} ${claudeArgs.join(' ')}`);
 
       console.log(`    → Running: ${task.description}`);
 
@@ -487,7 +487,8 @@ When you're done, please end with "TASK COMPLETED" on its own line.`;
 
       // Create a wrapper script that will tee the output
       const wrapperScript = `#!/bin/bash
-claude ${claudeArgs.map((arg) => `"${arg}"`).join(' ')} | tee "${agentDir}/output.txt"
+ENGINE=\"${(Deno.env.get('AUGGIE_FLOW_ENGINE') ?? 'auggie') === 'auggie' ? 'auggie' : 'claude'}\"
+$ENGINE ${claudeArgs.map((arg) => `"${arg}"`).join(' ')} | tee "${agentDir}/output.txt"
 exit \${PIPESTATUS[0]}`;
 
       const wrapperPath = `${agentDir}/wrapper.sh`;
@@ -520,7 +521,7 @@ exit \${PIPESTATUS[0]}`;
       // Simulate execution if claude CLI not available
       console.log(`    → Simulating: ${task.type} (claude CLI not available)`);
 
-      // For now, let's use the claude-flow claude spawn command instead
+      // For now, let's use the auggie-flow claude spawn command instead
       const claudeFlowArgs = ['claude', 'spawn', task.description];
 
       if (task.type === 'research' || options.research) {
@@ -531,14 +532,14 @@ exit \${PIPESTATUS[0]}`;
         claudeFlowArgs.push('--parallel');
       }
 
-      console.log(`    → Using: claude-flow ${claudeFlowArgs.join(' ')}`);
+      console.log(`    → Using: auggie-flow ${claudeFlowArgs.join(' ')}`);
 
-      // Get the path to claude-flow binary
+      // Get the path to auggie-flow binary
       const claudeFlowPath = new URL(import.meta.url).pathname;
       const projectRoot = claudeFlowPath.substring(0, claudeFlowPath.indexOf('/src/'));
-      const claudeFlowBin = `${projectRoot}/bin/claude-flow`;
+      const claudeFlowBin = `${projectRoot}/bin/auggie-flow`;
 
-      // Execute claude-flow command
+      // Execute auggie-flow command
       const command = new Deno.Command(claudeFlowBin, {
         args: claudeFlowArgs,
         stdout: 'piped',

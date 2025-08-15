@@ -202,7 +202,7 @@ async function tokenUsageCommand(subArgs, flags) {
   console.log(`💰 Include cost analysis: ${costAnalysis ? 'Yes' : 'No'}`);
 
   try {
-    // Get real token usage from Claude Code metrics
+    // Get real token usage from Auggie Code metrics
     const tokenData = await getRealTokenUsage(agent);
     
     printSuccess(`✅ Token usage analysis completed`);
@@ -253,7 +253,7 @@ function showAnalysisHelp() {
 📊 Analysis Commands - Performance & Usage Analytics
 
 USAGE:
-  claude-flow analysis <command> [options]
+  auggie-flow analysis <command> [options]
 
 COMMANDS:
   bottleneck-detect    Detect performance bottlenecks in the system
@@ -279,19 +279,19 @@ TOKEN USAGE OPTIONS:
 
 EXAMPLES:
   # Detect system-wide bottlenecks
-  claude-flow analysis bottleneck-detect --scope system
+  auggie-flow analysis bottleneck-detect --scope system
 
   # Agent-specific bottleneck analysis
-  claude-flow analysis bottleneck-detect --scope agent --target coordinator-1
+  auggie-flow analysis bottleneck-detect --scope agent --target coordinator-1
 
   # Weekly performance report
-  claude-flow analysis performance-report --timeframe 7d --format detailed
+  auggie-flow analysis performance-report --timeframe 7d --format detailed
 
   # Token usage with breakdown
-  claude-flow analysis token-usage --breakdown --cost-analysis
+  auggie-flow analysis token-usage --breakdown --cost-analysis
 
   # Swarm-specific analysis
-  claude-flow analysis bottleneck-detect --scope swarm --target swarm-123
+  auggie-flow analysis bottleneck-detect --scope swarm --target swarm-123
 
 🎯 Analysis helps with:
   • Performance optimization
@@ -305,8 +305,8 @@ EXAMPLES:
 // Helper functions for real token tracking
 
 async function getRealTokenUsage(agent) {
-  // Check if Claude Code OpenTelemetry is configured
-  const isOTelEnabled = process.env.CLAUDE_CODE_ENABLE_TELEMETRY === '1';
+  // Check if Auggie Code OpenTelemetry is configured
+  const isOTelEnabled = process.env.AUGGIE_CODE_ENABLE_TELEMETRY === '1';
   
   if (!isOTelEnabled) {
     // Try to read from local metrics file if OTel is not enabled
@@ -318,7 +318,7 @@ async function getRealTokenUsage(agent) {
 }
 
 async function getLocalTokenMetrics(agent) {
-  // Look for Claude Code metrics in standard locations
+  // Look for Auggie Code metrics in standard locations
   const metricsPath = path.join(process.env.HOME || '', '.claude', 'metrics', 'usage.json');
   
   try {
@@ -333,7 +333,7 @@ async function getLocalTokenMetrics(agent) {
       byAgent: {}
     };
     
-    // Process metrics based on Claude Code format
+    // Process metrics based on Auggie Code format
     if (metrics.sessions) {
       metrics.sessions.forEach(session => {
         if (session.tokenUsage) {
@@ -359,7 +359,7 @@ async function getLocalTokenMetrics(agent) {
 
 async function getEnvironmentTokenMetrics(agent) {
   // Check for token tracking in environment or config
-  const configPath = path.join(process.cwd(), '.claude-flow', 'token-usage.json');
+  const configPath = path.join(process.cwd(), '.auggie-flow', 'token-usage.json');
   
   try {
     const data = await fs.readFile(configPath, 'utf8');
@@ -392,7 +392,7 @@ function calculateCost(tokenData) {
   // Claude 3 Sonnet: $3/$15 per million tokens
   // Claude 3 Haiku: $0.25/$1.25 per million tokens
   
-  // Default to Sonnet pricing for Claude Code
+  // Default to Sonnet pricing for Auggie Code
   const inputPricePerMillion = 3.00;
   const outputPricePerMillion = 15.00;
   
@@ -504,5 +504,5 @@ async function showSimulatedTokenUsage(breakdown, costAnalysis) {
     console.log(`  • Coordinator agents: Implement response caching (-8% potential)`);
   }
 
-  console.log(`\\n📄 Note: Enable CLAUDE_CODE_ENABLE_TELEMETRY=1 for real metrics`);
+  console.log(`\\n📄 Note: Enable AUGGIE_CODE_ENABLE_TELEMETRY=1 for real metrics`);
 }

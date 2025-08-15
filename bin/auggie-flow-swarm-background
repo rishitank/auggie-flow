@@ -1,0 +1,78 @@
+lc#!/usr/bin/env node
+/**
+ * Background swarm launcher for Claude Code invocations
+ * Prevents timeouts by running swarm in detached mode
+ */
+
+const { spawn } = require('child_process');
+const path = require('path');
+const fs = require('fs');
+
+// Parse command line arguments
+const args = process.argv.slice(2);
+const objectiveIndex = args.findIndex(arg => !arg.startsWith('--'));
+const objective = args[objectiveIndex] || '';
+const flags = args.filter((arg, i) => i !== objectiveIndex);
+
+// Ensure background flag is included
+if (!flags.includes('--background')) {
+  flags.push('--background');
+}
+
+// Get the auggie-flow binary path
+const claudeFlowPath = path.join(__dirname, 'auggie-flow');
+
+// Create swarm run directory
+const swarmId = `swarm_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+const swarmRunDir = path.join(process.cwd(), 'swarm-runs', swarmId);
+fs.mkdirSync(swarmRunDir, { recursive: true });
+
+// Log file for background process
+const logFile = path.join(swarmRunDir, 'swarm.log');
+const logStream = fs.createWriteStream(logFile);
+
+console.log(`🐝 Launching swarm in background mode...`);
+console.log(`📋 Objective: ${objective}`);
+console.log(`🆔 Swarm ID: ${swarmId}`);
+console.log(`📁 Results directory: ${swarmRunDir}`);
+console.log(`📄 Log file: ${logFile}`);
+
+// Spawn the swarm process in detached mode
+const swarmProcess = spawn(claudeFlowPath, ['swarm', objective, ...flags], {
+  detached: true,
+  stdio: ['ignore', logStream, logStream],
+  env: {
+    ...process.env,
+    AUGGIE_SWARM_BACKGROUND: 'true',
+    AUGGIE_SWARM_ID: swarmId
+  }
+});
+
+// Save process info
+const processInfo = {
+  pid: swarmProcess.pid,
+  swarmId: swarmId,
+  objective: objective,
+  flags: flags,
+  startTime: new Date().toISOString(),
+  logFile: logFile,
+  resultsDir: swarmRunDir
+};
+
+fs.writeFileSync(
+  path.join(swarmRunDir, 'process.json'),
+  JSON.stringify(processInfo, null, 2)
+);
+
+// Detach from the child process
+swarmProcess.unref();
+
+console.log(`\n✅ Swarm launched successfully!`);
+console.log(`\nMonitor progress with:`);
+console.log(`  tail -f ${logFile}`);
+console.log(`\nCheck status with:`);
+console.log(`  auggie-flow swarm status ${swarmId}`);
+console.log(`\nThe swarm will continue running in the background.`);
+
+// Exit immediately, letting the swarm run independently
+process.exit(0);

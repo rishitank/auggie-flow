@@ -4,7 +4,7 @@ Claude-Flow uses a comprehensive configuration system that allows fine-tuning of
 
 ## Configuration File Structure
 
-The main configuration file is `claude-flow.config.json`, located in your project root or specified via the `--config` flag.
+The main configuration file is `auggie-flow.config.json`, located in your project root or specified via the `--config` flag.
 
 ### Default Configuration
 
@@ -57,7 +57,7 @@ The main configuration file is `claude-flow.config.json`, located in your projec
     "level": "info",
     "format": "json",
     "destination": "console",
-    "fileOutput": "logs/claude-flow.log",
+    "fileOutput": "logs/auggie-flow.log",
     "maxFileSize": "10MB",
     "maxFiles": 5
   }
@@ -324,7 +324,7 @@ Controls system logging and audit trails.
     "level": "info",
     "format": "json",
     "destination": "console",
-    "fileOutput": "logs/claude-flow.log",
+    "fileOutput": "logs/auggie-flow.log",
     "maxFileSize": "10MB",
     "maxFiles": 5,
     "components": {
@@ -401,7 +401,7 @@ Optimized for production environments:
   "logging": {
     "level": "info",
     "destination": "file",
-    "fileOutput": "/var/log/claude-flow/app.log"
+    "fileOutput": "/var/log/auggie-flow/app.log"
   }
 }
 ```
@@ -444,22 +444,22 @@ For enterprise deployments with redundancy:
 
 ```bash
 # Show current configuration
-claude-flow config show
+auggie-flow config show
 
 # Get specific value
-claude-flow config get orchestrator.maxConcurrentAgents
+auggie-flow config get orchestrator.maxConcurrentAgents
 
 # Set configuration value
-claude-flow config set memory.cacheSizeMB 200
+auggie-flow config set memory.cacheSizeMB 200
 
 # Validate configuration file
-claude-flow config validate
+auggie-flow config validate
 
 # Initialize with defaults
-claude-flow config init
+auggie-flow config init
 
 # Use custom config file
-claude-flow --config /path/to/custom-config.json start
+auggie-flow --config /path/to/custom-config.json start
 ```
 
 ### Environment Variables
@@ -486,13 +486,13 @@ Create configuration hierarchies for different environments:
 
 ```bash
 # Base configuration
-claude-flow config create base --template base-config.json
+auggie-flow config create base --template base-config.json
 
 # Development inherits from base
-claude-flow config create development --inherit base --override dev-overrides.json
+auggie-flow config create development --inherit base --override dev-overrides.json
 
 # Production inherits from base
-claude-flow config create production --inherit base --override prod-overrides.json
+auggie-flow config create production --inherit base --override prod-overrides.json
 ```
 
 ## Advanced Configuration Patterns
@@ -558,13 +558,13 @@ Validate configuration against schema:
 
 ```bash
 # Validate current configuration
-claude-flow config validate
+auggie-flow config validate
 
 # Validate specific file
-claude-flow config validate --file custom-config.json
+auggie-flow config validate --file custom-config.json
 
 # Validate with strict mode
-claude-flow config validate --strict
+auggie-flow config validate --strict
 ```
 
 ### Common Validation Errors

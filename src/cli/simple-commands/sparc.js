@@ -4,6 +4,8 @@ import { promises as fs } from 'fs';
 import { spawn } from 'child_process';
 import { promisify } from 'util';
 import { createSparcPrompt } from './sparc-modes/index.js';
+import { spawnEngine } from '../engine/engine-adapter.js';
+
 import { cwd, exit, existsSync } from '../node-compat.js';
 import process from 'process';
 
@@ -91,7 +93,7 @@ async function listSparcModes(subArgs) {
       console.log(`Please ensure .roomodes file exists in: ${workingDir}`);
       console.log();
       console.log('To enable SPARC development modes, run:');
-      console.log('  npx claude-flow@latest init --sparc');
+      console.log('  npx auggie-flow@latest init --sparc');
       console.log();
       console.log('This will create:');
       console.log('  • .roomodes file with 17+ SPARC development modes');
@@ -143,7 +145,7 @@ async function showModeInfo(subArgs) {
       console.log(`Please ensure .roomodes file exists in: ${workingDir}`);
       console.log();
       console.log('To enable SPARC development modes, run:');
-      console.log('  npx claude-flow@latest init --sparc');
+      console.log('  npx auggie-flow@latest init --sparc');
       return;
     }
     const config = JSON.parse(configContent);
@@ -200,7 +202,7 @@ async function runSparcMode(subArgs, flags) {
       console.log(`Please ensure .roomodes file exists in: ${workingDir}`);
       console.log();
       console.log('To enable SPARC development modes, run:');
-      console.log('  npx claude-flow@latest init --sparc');
+      console.log('  npx auggie-flow@latest init --sparc');
       return;
     }
     const config = JSON.parse(configContent);
@@ -442,11 +444,11 @@ async function executeClaude(enhancedTask, toolsList, instanceId, memoryNamespac
       console.warn('⚠️  Could not verify claude command location');
     }
 
-    // Use spawn for claude command
-    const env = { ...process.env, CLAUDE_INSTANCE_ID: instanceId };
+    // Use spawn for engine command via adapter
+    const env = { ...process.env, AUGGIE_INSTANCE_ID: instanceId };
 
-    console.log('\n📡 Spawning claude process...\n');
-    const child = spawn('claude', claudeArgs, {
+    console.log(`\n📡 Spawning engine process...\n`);
+    const child = spawnEngine(claudeArgs, {
       cwd: cwd(),
       env: env,
       stdio: 'inherit'
@@ -477,29 +479,29 @@ function showSparcHelp() {
   console.log('  tdd <task>               Run Test-Driven Development workflow');
   console.log();
   console.log('Examples:');
-  console.log('  claude-flow sparc "orchestrate app development"    # Uses sparc orchestrator');
-  console.log('  claude-flow sparc modes --verbose');
-  console.log('  claude-flow sparc info architect');
-  console.log('  claude-flow sparc run code "implement user authentication"');
-  console.log('  claude-flow sparc run code "add login feature" --non-interactive');
-  console.log('  claude-flow sparc run tdd "create test suite" --namespace tests');
-  console.log('  claude-flow sparc tdd "payment processing system" --interactive');
+  console.log('  auggie-flow sparc "orchestrate app development"    # Uses sparc orchestrator');
+  console.log('  auggie-flow sparc modes --verbose');
+  console.log('  auggie-flow sparc info architect');
+  console.log('  auggie-flow sparc run code "implement user authentication"');
+  console.log('  auggie-flow sparc run code "add login feature" --non-interactive');
+  console.log('  auggie-flow sparc run tdd "create test suite" --namespace tests');
+  console.log('  auggie-flow sparc tdd "payment processing system" --interactive');
   console.log();
   console.log('Parallel Execution with BatchTool:');
   console.log('  # Run multiple SPARC modes concurrently');
   console.log('  batchtool run --parallel \\');
-  console.log('    "npx claude-flow sparc run code \'user service\' --non-interactive" \\');
-  console.log('    "npx claude-flow sparc run code \'auth service\' --non-interactive" \\');
-  console.log('    "npx claude-flow sparc run tdd \'test suite\' --non-interactive"');
+  console.log('    "npx auggie-flow sparc run code \'user service\' --non-interactive" \\');
+  console.log('    "npx auggie-flow sparc run code \'auth service\' --non-interactive" \\');
+  console.log('    "npx auggie-flow sparc run tdd \'test suite\' --non-interactive"');
   console.log();
   console.log('  # Boomerang orchestration pattern');
   console.log('  batchtool orchestrate --boomerang \\');
   console.log(
-    '    --research "npx claude-flow sparc run ask \'requirements\' --non-interactive" \\',
+    '    --research "npx auggie-flow sparc run ask \'requirements\' --non-interactive" \\',
   );
-  console.log('    --design "npx claude-flow sparc run architect \'system\' --non-interactive" \\');
-  console.log('    --implement "npx claude-flow sparc run code \'features\' --non-interactive" \\');
-  console.log('    --test "npx claude-flow sparc run tdd \'validation\' --non-interactive"');
+  console.log('    --design "npx auggie-flow sparc run architect \'system\' --non-interactive" \\');
+  console.log('    --implement "npx auggie-flow sparc run code \'features\' --non-interactive" \\');
+  console.log('    --test "npx auggie-flow sparc run tdd \'validation\' --non-interactive"');
   console.log();
   console.log('Flags:');
   console.log('  --dry-run, -d            Show configuration without executing');

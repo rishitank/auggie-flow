@@ -1,5 +1,5 @@
 /**
- * Settings Manager for Claude Code Console
+ * Settings Manager for Auggie Code Console
  * Handles configuration and preferences
  */
 
@@ -28,7 +28,7 @@ export class SettingsManager {
       enableSounds: false,
       maxLines: 1000,
 
-      // Claude Flow settings
+      // Auggie Flow settings
       defaultMode: 'coder',
       swarmStrategy: 'development',
       coordinationMode: 'centralized',
@@ -134,7 +134,7 @@ export class SettingsManager {
       }
     });
 
-    // Claude Flow settings
+    // Auggie Flow settings
     this.bindSetting('defaultMode', 'change');
     this.bindSetting('swarmStrategy', 'change');
     this.bindSetting('coordinationMode', 'change');
@@ -566,7 +566,7 @@ export class SettingsManager {
   }
 
   /**
-   * Get Claude Flow configuration
+   * Get Auggie Flow configuration
    */
   getClaudeFlowConfig() {
     return {

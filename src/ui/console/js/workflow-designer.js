@@ -1,5 +1,5 @@
 /**
- * Advanced Workflow Designer for Claude Flow
+ * Advanced Workflow Designer for Auggie Flow
  * Visual drag-and-drop workflow builder with real-time execution
  */
 

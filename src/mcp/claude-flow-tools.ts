@@ -29,7 +29,7 @@ async function enhanceToolWithAgentTypes(tool: MCPTool): Promise<MCPTool> {
         // Check if this is an agent type field
         if (key === 'type' || key === 'filterByType' || key === 'assignToAgentType') {
           const field = value as any;
-          if (field.type === 'string' && field.description?.includes('loaded dynamically from .claude/agents/')) {
+          if (field.type === 'string' && field.description?.includes('loaded dynamically from .auggie/agents/')) {
             field.enum = availableTypes;
           }
         }
@@ -106,7 +106,7 @@ function createSpawnAgentTool(logger: ILogger): MCPTool {
         type: {
           type: 'string',
           // Note: enum will be populated dynamically at runtime
-          description: 'Type of specialized agent to spawn (loaded dynamically from .claude/agents/)',
+          description: 'Type of specialized agent to spawn (loaded dynamically from .auggie/agents/)',
         },
         name: {
           type: 'string',
@@ -189,7 +189,7 @@ function createListAgentsTool(logger: ILogger): MCPTool {
         filterByType: {
           type: 'string',
           // Note: enum will be populated dynamically at runtime
-          description: 'Filter agents by type (loaded dynamically from .claude/agents/)',
+          description: 'Filter agents by type (loaded dynamically from .auggie/agents/)',
         },
       },
     },
@@ -333,7 +333,7 @@ function createCreateTaskTool(logger: ILogger): MCPTool {
         assignToAgentType: {
           type: 'string',
           // Note: enum will be populated dynamically at runtime
-          description: 'Type of specialized agent to assign the task to (loaded dynamically from .claude/agents/)',
+          description: 'Type of specialized agent to assign the task to (loaded dynamically from .auggie/agents/)',
         },
         input: {
           type: 'object',

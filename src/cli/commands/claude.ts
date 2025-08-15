@@ -6,6 +6,7 @@ import { promises as fs } from 'node:fs';
 import { Command } from 'commander';
 import chalk from 'chalk';
 import { spawn } from 'node:child_process';
+import { spawnEngine } from '../engine/engine-adapter.js';
 import { generateId } from '../../utils/helpers.js';
 
 export const claudeCommand = new Command()
@@ -80,19 +81,20 @@ claudeCommand
         return;
       }
 
-      console.log(chalk.green(`Spawning Claude instance: ${instanceId}`));
+      const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+      console.log(chalk.green(`Spawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} instance: ${instanceId}`));
       console.log(chalk.gray(`Task: ${task}`));
       console.log(chalk.gray(`Tools: ${tools}`));
 
-      // Spawn Claude process
-      const claude = spawn('claude', claudeArgs, {
+      // Spawn engine process
+      const claude = spawnEngine(claudeArgs, {
         stdio: 'inherit',
         env: {
           ...process.env,
-          CLAUDE_INSTANCE_ID: instanceId,
-          CLAUDE_FLOW_MODE: options.mode,
-          CLAUDE_FLOW_COVERAGE: parseInt(options.coverage).toString(),
-          CLAUDE_FLOW_COMMIT: options.commit,
+          AUGGIE_INSTANCE_ID: instanceId,
+          AUGGIE_FLOW_MODE: options.mode,
+          AUGGIE_FLOW_COVERAGE: parseInt(options.coverage).toString(),
+          AUGGIE_FLOW_COMMIT: options.commit,
         },
       });
 
@@ -153,16 +155,18 @@ claudeCommand
 
         if (options.dryRun) {
           console.log(chalk.yellow(`\nDRY RUN - Task: ${task.name || task.id}`));
-          console.log(chalk.gray(`claude ${claudeArgs.join(' ')}`));
+          const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+console.log(chalk.gray(`${engine} ${claudeArgs.join(' ')}`));
         } else {
-          console.log(chalk.blue(`\nSpawning Claude for task: ${task.name || task.id}`));
+          const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+console.log(chalk.blue(`\nSpawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} for task: ${task.name || task.id}`));
 
-          const claude = spawn('claude', claudeArgs, {
+          const claude = spawnEngine(claudeArgs, {
             stdio: 'inherit',
             env: {
               ...process.env,
-              CLAUDE_TASK_ID: task.id || generateId('task'),
-              CLAUDE_TASK_TYPE: task.type || 'general',
+              AUGGIE_TASK_ID: task.id || generateId('task'),
+              AUGGIE_TASK_TYPE: task.type || 'general',
             },
           });
 

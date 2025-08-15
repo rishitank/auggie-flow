@@ -1,16 +1,16 @@
-# Stream-JSON Chaining in Claude Flow
+# Stream-JSON Chaining in Auggie Flow
 
-## 🔁 Overview: Stream Chaining in Claude Code
+## 🔁 Overview: Stream Chaining in Auggie Code
 
-**Stream chaining** in Claude Code is the technique of connecting multiple `claude -p` (non-interactive) processes using real-time **JSON streams**, allowing you to build **modular, recursive, multi-agent pipelines**.
+**Stream chaining** in Auggie Code is the technique of connecting multiple `claude -p` (non-interactive) processes using real-time **JSON streams**, allowing you to build **modular, recursive, multi-agent pipelines**.
 
 Stream-JSON chaining enables Claude instances to pipe their outputs directly to other Claude instances, creating a seamless workflow where agents can build upon each other's work without intermediate storage.
 
 ## 🧱 How It Works
 
-### Core Claude Code Flags
+### Core Auggie Code Flags
 
-Claude Code supports two key flags that enable stream chaining:
+Auggie Code supports two key flags that enable stream chaining:
 
 * `--output-format stream-json`: emits newline-delimited JSON (`NDJSON`) with every token, turn, and tool interaction
 * `--input-format stream-json`: accepts a stream of messages in NDJSON format, simulating a continuous conversation
@@ -25,9 +25,9 @@ claude -p --output-format stream-json "First task" \
 
 Each agent processes input, emits structured responses, and hands them off to the next agent in the chain.
 
-### Automatic Chaining in Claude Flow
+### Automatic Chaining in Auggie Flow
 
-When tasks have dependencies and stream-json output format is enabled, Claude Flow automatically:
+When tasks have dependencies and stream-json output format is enabled, Auggie Flow automatically:
 
 1. Detects task dependencies from workflow definitions
 2. Captures the stdout stream from the dependency task
@@ -84,13 +84,13 @@ Stream chaining is **enabled by default** when using:
 
 ```bash
 # MLE-STAR with automatic chaining
-./claude-flow automation mle-star --dataset data.csv --target label --claude --output-format stream-json
+./auggie-flow automation mle-star --dataset data.csv --target label --claude --output-format stream-json
 
 # Custom workflow with chaining
-./claude-flow automation run-workflow workflow.json --claude --non-interactive --output-format stream-json
+./auggie-flow automation run-workflow workflow.json --claude --non-interactive --output-format stream-json
 
 # Disable chaining (agents run independently)
-./claude-flow automation mle-star --dataset data.csv --target label --claude --output-format stream-json --no-chaining
+./auggie-flow automation mle-star --dataset data.csv --target label --claude --output-format stream-json --no-chaining
 ```
 
 ## 📈 Benefits & Performance
@@ -238,7 +238,7 @@ interface StreamMessage {
 
 ### Process Spawning
 
-Claude Flow spawns processes with specific stdio configurations:
+Auggie Flow spawns processes with specific stdio configurations:
 
 ```javascript
 const claudeProcess = spawn('claude', [
@@ -278,7 +278,7 @@ if (inputStream && claudeProcess.stdin) {
 
 3. **"Context seems lost between agents"**
    - Cause: Missing `--input-format stream-json` flag
-   - Fix: Verify Claude Flow is adding the flag (check with --verbose)
+   - Fix: Verify Auggie Flow is adding the flag (check with --verbose)
 
 4. **Performance degradation**
    - Cause: Large context accumulation
@@ -288,10 +288,10 @@ if (inputStream && claudeProcess.stdin) {
 
 ```bash
 # Debug stream output
-./claude-flow automation mle-star --dataset data.csv --target label --claude --verbose
+./auggie-flow automation mle-star --dataset data.csv --target label --claude --verbose
 
 # Save stream for analysis
-./claude-flow automation run-workflow workflow.json --claude --output-format stream-json 2>&1 | tee debug.log
+./auggie-flow automation run-workflow workflow.json --claude --output-format stream-json 2>&1 | tee debug.log
 
 # Validate stream format
 cat debug.log | jq -c 'select(.type)' | head -20

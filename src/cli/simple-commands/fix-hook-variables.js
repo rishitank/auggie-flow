@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Fix hook variable interpolation in Claude Code settings.json files
+ * Fix hook variable interpolation in Auggie Code settings.json files
  * Addresses issue #249 - ${file} and ${command} variables not working
  */
 
@@ -11,7 +11,7 @@ import { existsSync } from 'fs';
 import chalk from 'chalk';
 import { printSuccess, printError, printWarning } from '../utils.js';
 
-// Known working variable syntaxes based on Claude Code version
+// Known working variable syntaxes based on Auggie Code version
 const VARIABLE_SYNTAXES = {
   legacy: {
     pattern: /\$\{(\w+)\}/g,
@@ -20,13 +20,13 @@ const VARIABLE_SYNTAXES = {
   },
   environment: {
     pattern: /\$(\w+)/g,
-    example: '$CLAUDE_FILE',
+    example: '$AUGGIE_FILE',
     description: 'Environment variable syntax (unverified)',
   },
   jq: {
     pattern: null,
     example: 'jq parsing of JSON input',
-    description: 'Official Claude Code approach using jq',
+    description: 'Official Auggie Code approach using jq',
   },
   wrapper: {
     pattern: null,
@@ -35,19 +35,19 @@ const VARIABLE_SYNTAXES = {
   },
 };
 
-// Mapping of our variables to Claude Code environment variables
+// Mapping of our variables to Auggie Code environment variables
 const VARIABLE_MAPPINGS = {
-  file: ['CLAUDE_EDITED_FILE', 'CLAUDE_FILE', 'EDITED_FILE'],
-  command: ['CLAUDE_COMMAND', 'COMMAND', 'CMD'],
-  tool: ['CLAUDE_TOOL', 'TOOL_NAME', 'TOOL'],
+  file: ['AUGGIE_EDITED_FILE', 'AUGGIE_FILE', 'EDITED_FILE'],
+  command: ['AUGGIE_COMMAND', 'COMMAND', 'CMD'],
+  tool: ['AUGGIE_TOOL', 'TOOL_NAME', 'TOOL'],
 };
 
 /**
- * Detect which variable syntax works with current Claude Code version
+ * Detect which variable syntax works with current Auggie Code version
  */
 async function detectWorkingSyntax() {
-  // Based on official Claude Code documentation and testing,
-  // JQ parsing is the recommended approach for Claude Code 1.0.51+
+  // Based on official Auggie Code documentation and testing,
+  // JQ parsing is the recommended approach for Auggie Code 1.0.51+
   return 'jq';
 }
 
@@ -56,7 +56,7 @@ async function detectWorkingSyntax() {
  */
 function transformHookCommand(command, fromSyntax, toSyntax) {
   if (fromSyntax === 'legacy' && toSyntax === 'environment') {
-    // Replace ${file} with $CLAUDE_EDITED_FILE
+    // Replace ${file} with $AUGGIE_EDITED_FILE
     return command.replace(/\$\{(\w+)\}/g, (match, varName) => {
       const mappings = VARIABLE_MAPPINGS[varName];
       if (mappings && mappings[0]) {
@@ -93,7 +93,7 @@ function transformHookCommand(command, fromSyntax, toSyntax) {
       : command.includes('pre-edit')
         ? 'pre-edit-hook.sh'
         : 'generic-hook.sh';
-    return `.claude/hooks/${scriptName}`;
+    return `.auggie/hooks/${scriptName}`;
   }
 
   return command;
@@ -103,7 +103,7 @@ function transformHookCommand(command, fromSyntax, toSyntax) {
  * Create wrapper scripts for hooks
  */
 async function createWrapperScripts(commands) {
-  const hooksDir = '.claude/hooks';
+  const hooksDir = '.auggie/hooks';
   await fs.mkdir(hooksDir, { recursive: true });
 
   const wrapperScripts = new Map();
@@ -112,11 +112,11 @@ async function createWrapperScripts(commands) {
     if (command.includes('post-edit')) {
       const script = `#!/bin/bash
 # Post-edit hook wrapper
-# Handles variable interpolation for Claude Code hooks
+# Handles variable interpolation for Auggie Code hooks
 
 # Try to get file from various sources
-FILE="$CLAUDE_EDITED_FILE"
-[ -z "$FILE" ] && FILE="$CLAUDE_FILE"
+FILE="$AUGGIE_EDITED_FILE"
+[ -z "$FILE" ] && FILE="$AUGGIE_FILE"
 [ -z "$FILE" ] && FILE="$1"
 
 if [ -n "$FILE" ]; then
@@ -126,7 +126,7 @@ else
 fi
 `;
       await fs.writeFile(path.join(hooksDir, 'post-edit-hook.sh'), script, { mode: 0o755 });
-      wrapperScripts.set('post-edit', '.claude/hooks/post-edit-hook.sh');
+      wrapperScripts.set('post-edit', '.auggie/hooks/post-edit-hook.sh');
     }
   }
 
@@ -213,9 +213,9 @@ async function fixHookVariables(settingsPath, options = {}) {
  */
 async function findSettingsFiles() {
   const locations = [
-    '.claude/settings.json',
+    '.auggie/settings.json',
     'settings.json',
-    '.vscode/.claude/settings.json',
+    '.vscode/.auggie/settings.json',
     path.join(process.env.HOME || '', '.claude', 'settings.json'),
   ];
 
@@ -233,7 +233,7 @@ async function findSettingsFiles() {
  * Main command handler
  */
 export async function fixHookVariablesCommand(args = [], flags = {}) {
-  console.log(chalk.bold('\n🔧 Fixing Claude Code Hook Variables\n'));
+  console.log(chalk.bold('\n🔧 Fixing Auggie Code Hook Variables\n'));
 
   const options = {
     backup: !flags['no-backup'],
@@ -247,9 +247,9 @@ export async function fixHookVariablesCommand(args = [], flags = {}) {
   if (files.length === 0) {
     printError('No settings.json files found');
     console.log('\nSearched locations:');
-    console.log('  - .claude/settings.json');
+    console.log('  - .auggie/settings.json');
     console.log('  - settings.json');
-    console.log('  - .vscode/.claude/settings.json');
+    console.log('  - .vscode/.auggie/settings.json');
     console.log(`  - ${path.join(process.env.HOME || '', '.claude', 'settings.json')}`);
     return;
   }
@@ -283,9 +283,9 @@ export async function fixHookVariablesCommand(args = [], flags = {}) {
 
   if (totalChanges > 0) {
     console.log(chalk.yellow('\n⚠️  Important:'));
-    console.log('  1. Restart Claude Code for changes to take effect');
+    console.log('  1. Restart Auggie Code for changes to take effect');
     console.log('  2. Test your hooks to ensure they work correctly');
-    console.log('  3. Report any issues to: https://github.com/ruvnet/claude-flow/issues');
+    console.log('  3. Report any issues to: https://github.com/ruvnet/auggie-flow/issues');
   }
 
   // Test mode
@@ -308,7 +308,7 @@ async function createTestHook() {
             {
               type: 'command',
               command:
-                'cat | jq -r \'.tool_input.file_path // .tool_input.path // ""\' | xargs -I {} echo "Hook test - File: {}" >> .claude/hook-test.log',
+                'cat | jq -r \'.tool_input.file_path // .tool_input.path // ""\' | xargs -I {} echo "Hook test - File: {}" >> .auggie/hook-test.log',
             },
           ],
         },
@@ -317,19 +317,19 @@ async function createTestHook() {
   };
 
   await fs.mkdir('.claude', { recursive: true });
-  await fs.writeFile('.claude/test-settings.json', JSON.stringify(testSettings, null, 2));
+  await fs.writeFile('.auggie/test-settings.json', JSON.stringify(testSettings, null, 2));
 
-  console.log('Created test configuration at: .claude/test-settings.json');
+  console.log('Created test configuration at: .auggie/test-settings.json');
   console.log('\nTo test:');
-  console.log('  1. Copy .claude/test-settings.json to .claude/settings.json');
-  console.log('  2. Open Claude Code');
+  console.log('  1. Copy .auggie/test-settings.json to .auggie/settings.json');
+  console.log('  2. Open Auggie Code');
   console.log('  3. Create or edit any file');
-  console.log('  4. Check .claude/hook-test.log for output');
+  console.log('  4. Check .auggie/hook-test.log for output');
 }
 
 // Export command configuration
 export const fixHookVariablesCommandConfig = {
-  description: 'Fix variable interpolation in Claude Code hooks (${file} syntax)',
+  description: 'Fix variable interpolation in Auggie Code hooks (${file} syntax)',
   usage: 'fix-hook-variables [settings-file...]',
   options: [
     { flag: '--no-backup', description: 'Skip creating backup files' },
@@ -337,27 +337,27 @@ export const fixHookVariablesCommandConfig = {
     { flag: '--test', description: 'Create test hook configuration' },
   ],
   examples: [
-    'claude-flow fix-hook-variables',
-    'claude-flow fix-hook-variables .claude/settings.json',
-    'claude-flow fix-hook-variables --syntax wrapper',
-    'claude-flow fix-hook-variables --test',
+    'auggie-flow fix-hook-variables',
+    'auggie-flow fix-hook-variables .auggie/settings.json',
+    'auggie-flow fix-hook-variables --syntax wrapper',
+    'auggie-flow fix-hook-variables --test',
   ],
   details: `
-Fixes the \${file} and \${command} variable interpolation issue in Claude Code hooks.
+Fixes the \${file} and \${command} variable interpolation issue in Auggie Code hooks.
 
 This command will:
-  • Detect your Claude Code version
+  • Detect your Auggie Code version
   • Transform hook commands to use working variable syntax
   • Create wrapper scripts if needed
   • Backup original settings files
 
 Available syntaxes:
-  • environment: Use environment variables like $CLAUDE_EDITED_FILE (unverified)
+  • environment: Use environment variables like $AUGGIE_EDITED_FILE (unverified)
   • jq: Use official jq JSON parsing approach (recommended)
   • wrapper: Create wrapper scripts to handle variables
 
-Note: The 'jq' syntax is based on official Claude Code documentation and is likely
-the most reliable approach for Claude Code 1.0.51+.
+Note: The 'jq' syntax is based on official Auggie Code documentation and is likely
+the most reliable approach for Auggie Code 1.0.51+.
 
-For more information: https://github.com/ruvnet/claude-flow/issues/249`,
+For more information: https://github.com/ruvnet/auggie-flow/issues/249`,
 };

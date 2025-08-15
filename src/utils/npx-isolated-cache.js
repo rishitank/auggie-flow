@@ -4,7 +4,7 @@
  * NPX Isolated Cache
  *
  * Provides isolated NPX cache directories per process to prevent
- * concurrent cache conflicts when multiple claude-flow instances
+ * concurrent cache conflicts when multiple auggie-flow instances
  * run simultaneously.
  *
  * This simple solution gives each process its own cache directory,
@@ -33,7 +33,7 @@ export function createIsolatedCache() {
   const timestamp = Date.now();
   const pid = process.pid;
   const random = Math.random().toString(36).substring(2, 8);
-  const cacheName = `claude-flow-${pid}-${timestamp}-${random}`;
+  const cacheName = `auggie-flow-${pid}-${timestamp}-${random}`;
   const cacheDir = path.join(os.tmpdir(), '.npm-cache', cacheName);
 
   // Track for cleanup

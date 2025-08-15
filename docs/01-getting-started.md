@@ -7,20 +7,20 @@ Welcome to Claude-Flow, an advanced AI agent orchestration system designed for s
 ### Option 1: NPX (Recommended for First-Time Users)
 ```bash
 # Run directly without installation
-npx claude-flow
+npx auggie-flow
 
 # Or install globally for persistent use
-npm install -g claude-flow
-claude-flow --version
+npm install -g auggie-flow
+auggie-flow --version
 ```
 
 ### Option 2: Deno Installation
 ```bash
 # Install with Deno
-deno install --allow-all --name claude-flow https://raw.githubusercontent.com/ruvnet/claude-code-flow/main/src/cli/index.ts
+deno install --allow-all --name auggie-flow https://raw.githubusercontent.com/ruvnet/claude-code-flow/main/src/cli/index.ts
 
 # Verify installation
-claude-flow --help
+auggie-flow --help
 ```
 
 ### Option 3: From Source
@@ -41,30 +41,30 @@ deno task dev
 ### 1. Initialize Configuration
 ```bash
 # Create default configuration file
-claude-flow config init
+auggie-flow config init
 
 # Verify configuration
-claude-flow config show
+auggie-flow config show
 ```
 
 ### 2. Start the Orchestrator
 ```bash
 # Basic start
-claude-flow start
+auggie-flow start
 
 # Start with daemon mode for background operation
-claude-flow start --daemon
+auggie-flow start --daemon
 
 # Start with custom port
-claude-flow start --port 3000
+auggie-flow start --port 3000
 ```
 
 ### 3. Verify System Health
 ```bash
 # Check system status
-claude-flow agent list
-claude-flow memory stats
-claude-flow mcp status
+auggie-flow agent list
+auggie-flow memory stats
+auggie-flow mcp status
 ```
 
 ## Your First Workflow
@@ -74,39 +74,39 @@ Let's create a simple research workflow to demonstrate Claude-Flow's capabilitie
 ### Step 1: Spawn a Research Agent
 ```bash
 # Create a research agent
-claude-flow agent spawn researcher --name "Research Assistant"
+auggie-flow agent spawn researcher --name "Research Assistant"
 
 # Verify agent is active
-claude-flow agent list
+auggie-flow agent list
 ```
 
 ### Step 2: Create a Research Task
 ```bash
 # Create a research task
-claude-flow task create research "Analyze current trends in AI development tools" \
+auggie-flow task create research "Analyze current trends in AI development tools" \
   --priority high \
   --estimated-duration 2h
 
 # Check task status
-claude-flow task list
+auggie-flow task list
 ```
 
 ### Step 3: Monitor Progress
 ```bash
 # Monitor task execution
-claude-flow task monitor --follow
+auggie-flow task monitor --follow
 
 # Check agent activity
-claude-flow agent info <agent-id>
+auggie-flow agent info <agent-id>
 ```
 
 ### Step 4: Review Results
 ```bash
 # Query memory for research findings
-claude-flow memory query --filter "AI development tools" --recent
+auggie-flow memory query --filter "AI development tools" --recent
 
 # Export findings
-claude-flow memory export --filter "research-results" --output research-findings.json
+auggie-flow memory export --filter "research-results" --output research-findings.json
 ```
 
 ## Interactive Exploration
@@ -115,7 +115,7 @@ For learning and experimentation, use the interactive REPL mode:
 
 ```bash
 # Start interactive session
-claude-flow repl
+auggie-flow repl
 ```
 
 In REPL mode, you can:
@@ -171,49 +171,49 @@ Model Context Protocol enables:
 ### Agent Management
 ```bash
 # List all agents
-claude-flow agent list
+auggie-flow agent list
 
 # Get detailed agent info
-claude-flow agent info <agent-id>
+auggie-flow agent info <agent-id>
 
 # Terminate an agent
-claude-flow agent terminate <agent-id>
+auggie-flow agent terminate <agent-id>
 ```
 
 ### Task Management
 ```bash
 # List all tasks
-claude-flow task list
+auggie-flow task list
 
 # Check task status
-claude-flow task status <task-id>
+auggie-flow task status <task-id>
 
 # Cancel a task
-claude-flow task cancel <task-id>
+auggie-flow task cancel <task-id>
 ```
 
 ### Memory Operations
 ```bash
 # Search memory
-claude-flow memory query --search "keyword"
+auggie-flow memory query --search "keyword"
 
 # View memory stats
-claude-flow memory stats
+auggie-flow memory stats
 
 # Clean up old entries
-claude-flow memory cleanup --older-than 30d
+auggie-flow memory cleanup --older-than 30d
 ```
 
 ### Configuration
 ```bash
 # View current config
-claude-flow config show
+auggie-flow config show
 
 # Update settings
-claude-flow config set orchestrator.maxConcurrentAgents 15
+auggie-flow config set orchestrator.maxConcurrentAgents 15
 
 # Reset to defaults
-claude-flow config init --force
+auggie-flow config init --force
 ```
 
 ## Next Steps
@@ -225,10 +225,10 @@ claude-flow config init --force
 
 ## Getting Help
 
-- Use `claude-flow help` for command-line help
-- Join our [Discord community](https://discord.gg/claude-flow)
+- Use `auggie-flow help` for command-line help
+- Join our [Discord community](https://discord.gg/auggie-flow)
 - Check [GitHub Issues](https://github.com/ruvnet/claude-code-flow/issues)
-- Review the [full documentation](https://claude-flow.dev/docs)
+- Review the [full documentation](https://auggie-flow.dev/docs)
 
 ## Troubleshooting Common Issues
 
@@ -250,21 +250,21 @@ If configuration fails to initialize:
 ls -la $(pwd)
 
 # Manually create config
-touch claude-flow.config.json
-claude-flow config init --force
+touch auggie-flow.config.json
+auggie-flow config init --force
 ```
 
 ### Agent Startup Issues
 If agents fail to start:
 ```bash
 # Check system resources
-claude-flow system resources
+auggie-flow system resources
 
 # Increase limits
-claude-flow config set orchestrator.maxConcurrentAgents 5
+auggie-flow config set orchestrator.maxConcurrentAgents 5
 
 # Check logs
-claude-flow logs --level debug
+auggie-flow logs --level debug
 ```
 
 You're now ready to start using Claude-Flow! Continue to the next sections for more advanced features and configuration options.

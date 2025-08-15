@@ -18,7 +18,7 @@ export async function launchUI(args = []) {
         const webServer = new ClaudeCodeWebServer(port);
         await webServer.start();
 
-        printSuccess('🌐 Claude Flow Web UI is running!');
+        printSuccess('🌐 Auggie Flow Web UI is running!');
         console.log(`📍 Open your browser to: http://localhost:${port}/console`);
         console.log();
         console.log('Features:');
@@ -125,10 +125,10 @@ async function launchTerminalUI(port) {
       printWarning('UI launch failed. Use these commands instead:');
       console.log();
       console.log('Process Management Commands:');
-      console.log('  • Start all: claude-flow start');
-      console.log('  • Check status: claude-flow status');
-      console.log('  • View logs: claude-flow logs');
-      console.log('  • Stop: claude-flow stop');
+      console.log('  • Start all: auggie-flow start');
+      console.log('  • Check status: auggie-flow status');
+      console.log('  • View logs: auggie-flow logs');
+      console.log('  • Stop: auggie-flow stop');
     }
   }
 }

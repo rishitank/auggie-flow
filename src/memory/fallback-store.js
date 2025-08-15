@@ -74,7 +74,7 @@ class FallbackMemoryStore {
       );
     } else {
       console.error(
-        `[${new Date().toISOString()}] INFO [fallback-store] To enable persistent storage, install the package locally: npm install claude-flow@alpha`,
+        `[${new Date().toISOString()}] INFO [fallback-store] To enable persistent storage, install the package locally: npm install auggie-flow@alpha`,
       );
     }
   }

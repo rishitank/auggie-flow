@@ -1,5 +1,5 @@
 /**
- * ruv-swarm configuration management for Claude Code integration
+ * ruv-swarm configuration management for Auggie Code integration
  *
  * This module handles configuration settings for ruv-swarm integration,
  * including topology preferences, agent limits, and coordination patterns.

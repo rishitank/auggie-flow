@@ -1,0 +1,43 @@
+name: Update Package Lockfile
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to update'
+        required: true
+        default: 'feature/auggie-orchestration'
+
+permissions:
+  contents: write
+
+jobs:
+  update-lockfile:
+    name: Regenerate package-lock.json
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Regenerate lockfile
+        run: npm install --package-lock-only
+
+      - name: Commit changes if any
+        run: |
+          if git diff --quiet -- package-lock.json; then
+            echo "No lockfile changes detected."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add package-lock.json
+            git commit -m "chore(lockfile): regenerate package-lock.json via workflow"
+            git push origin "${{ github.event.inputs.branch }}"
+          fi
+

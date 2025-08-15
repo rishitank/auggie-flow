@@ -35,13 +35,13 @@ SPARC (Specification, Planning, Architecture, Review, Code) is a comprehensive d
 ## Usage
 \`\`\`bash
 # Run a specific mode
-./claude-flow sparc run <mode> "task description"
+./auggie-flow sparc run <mode> "task description"
 
 # List all modes
-./claude-flow sparc modes
+./auggie-flow sparc modes
 
 # Get help for a mode
-./claude-flow sparc help <mode>
+./auggie-flow sparc help <mode>
 \`\`\`
 `;
 }
@@ -66,7 +66,7 @@ Comprehensive analysis through distributed agent coordination.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__swarm_init {
   topology: "mesh",
@@ -83,16 +83,16 @@ mcp__claude-flow__task_orchestrate {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow swarm "analyze system performance" --strategy analysis
+npx auggie-flow swarm "analyze system performance" --strategy analysis
 
 # For alpha features
-npx claude-flow@alpha swarm "analyze system performance" --strategy analysis
+npx auggie-flow@alpha swarm "analyze system performance" --strategy analysis
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow swarm "analyze system performance" --strategy analysis
+# If auggie-flow is installed locally
+./auggie-flow swarm "analyze system performance" --strategy analysis
 \`\`\`
 
 ## Agent Roles
@@ -116,7 +116,7 @@ Coordinated development through specialized agent teams.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__swarm_init {
   topology: "hierarchical",
@@ -133,16 +133,16 @@ mcp__claude-flow__task_orchestrate {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow swarm "build feature X" --strategy development
+npx auggie-flow swarm "build feature X" --strategy development
 
 # For alpha features
-npx claude-flow@alpha swarm "build feature X" --strategy development
+npx auggie-flow@alpha swarm "build feature X" --strategy development
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow swarm "build feature X" --strategy development
+# If auggie-flow is installed locally
+./auggie-flow swarm "build feature X" --strategy development
 \`\`\`
 
 ## Agent Roles
@@ -166,7 +166,7 @@ function createExamplesStrategy() {
 
 ### Research Swarm
 \`\`\`bash
-./claude-flow swarm "research AI trends" \\
+./auggie-flow swarm "research AI trends" \\
   --strategy research \\
   --mode distributed \\
   --max-agents 6 \\
@@ -175,7 +175,7 @@ function createExamplesStrategy() {
 
 ### Development Swarm
 \`\`\`bash
-./claude-flow swarm "build REST API" \\
+./auggie-flow swarm "build REST API" \\
   --strategy development \\
   --mode hierarchical \\
   --monitor \\
@@ -184,7 +184,7 @@ function createExamplesStrategy() {
 
 ### Analysis Swarm
 \`\`\`bash
-./claude-flow swarm "analyze codebase" \\
+./auggie-flow swarm "analyze codebase" \\
   --strategy analysis \\
   --mode mesh \\
   --parallel \\
@@ -201,7 +201,7 @@ System maintenance and updates through coordinated agents.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__swarm_init {
   topology: "hierarchical",
@@ -219,16 +219,16 @@ mcp__claude-flow__task_orchestrate {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow swarm "update dependencies" --strategy maintenance
+npx auggie-flow swarm "update dependencies" --strategy maintenance
 
 # For alpha features
-npx claude-flow@alpha swarm "update dependencies" --strategy maintenance
+npx auggie-flow@alpha swarm "update dependencies" --strategy maintenance
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow swarm "update dependencies" --strategy maintenance
+# If auggie-flow is installed locally
+./auggie-flow swarm "update dependencies" --strategy maintenance
 \`\`\`
 
 ## Agent Roles
@@ -252,7 +252,7 @@ Performance optimization through specialized analysis.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__swarm_init {
   topology: "mesh",
@@ -269,16 +269,16 @@ mcp__claude-flow__task_orchestrate {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow swarm "optimize performance" --strategy optimization
+npx auggie-flow swarm "optimize performance" --strategy optimization
 
 # For alpha features
-npx claude-flow@alpha swarm "optimize performance" --strategy optimization
+npx auggie-flow@alpha swarm "optimize performance" --strategy optimization
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow swarm "optimize performance" --strategy optimization
+# If auggie-flow is installed locally
+./auggie-flow swarm "optimize performance" --strategy optimization
 \`\`\`
 
 ## Agent Roles
@@ -303,7 +303,7 @@ Deep research through parallel information gathering.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__swarm_init {
   topology: "distributed",
@@ -320,16 +320,16 @@ mcp__claude-flow__task_orchestrate {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow swarm "research topic X" --strategy research
+npx auggie-flow swarm "research topic X" --strategy research
 
 # For alpha features
-npx claude-flow@alpha swarm "research topic X" --strategy research
+npx auggie-flow@alpha swarm "research topic X" --strategy research
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow swarm "research topic X" --strategy research
+# If auggie-flow is installed locally
+./auggie-flow swarm "research topic X" --strategy research
 \`\`\`
 
 ## Agent Roles
@@ -353,7 +353,7 @@ Comprehensive testing through distributed execution.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__swarm_init {
   topology: "distributed",
@@ -370,16 +370,16 @@ mcp__claude-flow__task_orchestrate {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow swarm "test application" --strategy testing
+npx auggie-flow swarm "test application" --strategy testing
 
 # For alpha features
-npx claude-flow@alpha swarm "test application" --strategy testing
+npx auggie-flow@alpha swarm "test application" --strategy testing
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow swarm "test application" --strategy testing
+# If auggie-flow is installed locally
+./auggie-flow swarm "test application" --strategy testing
 \`\`\`
 
 ## Agent Roles
@@ -426,7 +426,7 @@ Deep code and data analysis with batch processing capabilities.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "analyzer",
@@ -441,16 +441,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run analyzer "analyze codebase performance"
+npx auggie-flow sparc run analyzer "analyze codebase performance"
 
 # For alpha features
-npx claude-flow@alpha sparc run analyzer "analyze codebase performance"
+npx auggie-flow@alpha sparc run analyzer "analyze codebase performance"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run analyzer "analyze codebase performance"
+# If auggie-flow is installed locally
+./auggie-flow sparc run analyzer "analyze codebase performance"
 \`\`\`
 
 ## Core Capabilities
@@ -482,7 +482,7 @@ System design with Memory-based coordination for scalable architectures.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "architect",
@@ -497,16 +497,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run architect "design microservices architecture"
+npx auggie-flow sparc run architect "design microservices architecture"
 
 # For alpha features
-npx claude-flow@alpha sparc run architect "design microservices architecture"
+npx auggie-flow@alpha sparc run architect "design microservices architecture"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run architect "design microservices architecture"
+# If auggie-flow is installed locally
+./auggie-flow sparc run architect "design microservices architecture"
 \`\`\`
 
 ## Core Capabilities
@@ -539,7 +539,7 @@ Parallel task execution specialist using batch operations.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "batch-executor",
@@ -554,16 +554,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run batch-executor "process multiple files"
+npx auggie-flow sparc run batch-executor "process multiple files"
 
 # For alpha features
-npx claude-flow@alpha sparc run batch-executor "process multiple files"
+npx auggie-flow@alpha sparc run batch-executor "process multiple files"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run batch-executor "process multiple files"
+# If auggie-flow is installed locally
+./auggie-flow sparc run batch-executor "process multiple files"
 \`\`\`
 
 ## Core Capabilities
@@ -597,7 +597,7 @@ Autonomous code generation with batch file operations.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "coder",
@@ -612,16 +612,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run coder "implement user authentication"
+npx auggie-flow sparc run coder "implement user authentication"
 
 # For alpha features
-npx claude-flow@alpha sparc run coder "implement user authentication"
+npx auggie-flow@alpha sparc run coder "implement user authentication"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run coder "implement user authentication"
+# If auggie-flow is installed locally
+./auggie-flow sparc run coder "implement user authentication"
 \`\`\`
 
 ## Core Capabilities
@@ -655,7 +655,7 @@ Systematic debugging with TodoWrite and Memory integration.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "debugger",
@@ -670,16 +670,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run debugger "fix authentication issues"
+npx auggie-flow sparc run debugger "fix authentication issues"
 
 # For alpha features
-npx claude-flow@alpha sparc run debugger "fix authentication issues"
+npx auggie-flow@alpha sparc run debugger "fix authentication issues"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run debugger "fix authentication issues"
+# If auggie-flow is installed locally
+./auggie-flow sparc run debugger "fix authentication issues"
 \`\`\`
 
 ## Core Capabilities
@@ -713,7 +713,7 @@ UI/UX design with Memory coordination for consistent experiences.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "designer",
@@ -728,16 +728,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run designer "create dashboard UI"
+npx auggie-flow sparc run designer "create dashboard UI"
 
 # For alpha features
-npx claude-flow@alpha sparc run designer "create dashboard UI"
+npx auggie-flow@alpha sparc run designer "create dashboard UI"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run designer "create dashboard UI"
+# If auggie-flow is installed locally
+./auggie-flow sparc run designer "create dashboard UI"
 \`\`\`
 
 ## Core Capabilities
@@ -770,7 +770,7 @@ Documentation with batch file operations for comprehensive docs.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "documenter",
@@ -785,16 +785,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run documenter "create API documentation"
+npx auggie-flow sparc run documenter "create API documentation"
 
 # For alpha features
-npx claude-flow@alpha sparc run documenter "create API documentation"
+npx auggie-flow@alpha sparc run documenter "create API documentation"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run documenter "create API documentation"
+# If auggie-flow is installed locally
+./auggie-flow sparc run documenter "create API documentation"
 \`\`\`
 
 ## Core Capabilities
@@ -828,7 +828,7 @@ Creative problem solving with WebSearch and Memory integration.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "innovator",
@@ -843,16 +843,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run innovator "innovative solutions for scaling"
+npx auggie-flow sparc run innovator "innovative solutions for scaling"
 
 # For alpha features
-npx claude-flow@alpha sparc run innovator "innovative solutions for scaling"
+npx auggie-flow@alpha sparc run innovator "innovative solutions for scaling"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run innovator "innovative solutions for scaling"
+# If auggie-flow is installed locally
+./auggie-flow sparc run innovator "innovative solutions for scaling"
 \`\`\`
 
 ## Core Capabilities
@@ -886,7 +886,7 @@ Knowledge management with Memory tools for persistent insights.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "memory-manager",
@@ -901,16 +901,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run memory-manager "organize project knowledge"
+npx auggie-flow sparc run memory-manager "organize project knowledge"
 
 # For alpha features
-npx claude-flow@alpha sparc run memory-manager "organize project knowledge"
+npx auggie-flow@alpha sparc run memory-manager "organize project knowledge"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run memory-manager "organize project knowledge"
+# If auggie-flow is installed locally
+./auggie-flow sparc run memory-manager "organize project knowledge"
 \`\`\`
 
 ## Core Capabilities
@@ -944,7 +944,7 @@ Performance optimization with systematic analysis and improvements.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "optimizer",
@@ -959,16 +959,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run optimizer "optimize application performance"
+npx auggie-flow sparc run optimizer "optimize application performance"
 
 # For alpha features
-npx claude-flow@alpha sparc run optimizer "optimize application performance"
+npx auggie-flow@alpha sparc run optimizer "optimize application performance"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run optimizer "optimize application performance"
+# If auggie-flow is installed locally
+./auggie-flow sparc run optimizer "optimize application performance"
 \`\`\`
 
 ## Core Capabilities
@@ -1002,7 +1002,7 @@ Multi-agent task orchestration with TodoWrite/TodoRead/Task/Memory.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "orchestrator",
@@ -1017,16 +1017,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run orchestrator "coordinate feature development"
+npx auggie-flow sparc run orchestrator "coordinate feature development"
 
 # For alpha features
-npx claude-flow@alpha sparc run orchestrator "coordinate feature development"
+npx auggie-flow@alpha sparc run orchestrator "coordinate feature development"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run orchestrator "coordinate feature development"
+# If auggie-flow is installed locally
+./auggie-flow sparc run orchestrator "coordinate feature development"
 \`\`\`
 
 ## Core Capabilities
@@ -1060,7 +1060,7 @@ Deep research with parallel WebSearch/WebFetch and Memory coordination.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "researcher",
@@ -1075,16 +1075,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run researcher "research AI trends 2024"
+npx auggie-flow sparc run researcher "research AI trends 2024"
 
 # For alpha features
-npx claude-flow@alpha sparc run researcher "research AI trends 2024"
+npx auggie-flow@alpha sparc run researcher "research AI trends 2024"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run researcher "research AI trends 2024"
+# If auggie-flow is installed locally
+./auggie-flow sparc run researcher "research AI trends 2024"
 \`\`\`
 
 ## Core Capabilities
@@ -1118,7 +1118,7 @@ Code review using batch file analysis for comprehensive reviews.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "reviewer",
@@ -1133,16 +1133,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run reviewer "review pull request #123"
+npx auggie-flow sparc run reviewer "review pull request #123"
 
 # For alpha features
-npx claude-flow@alpha sparc run reviewer "review pull request #123"
+npx auggie-flow@alpha sparc run reviewer "review pull request #123"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run reviewer "review pull request #123"
+# If auggie-flow is installed locally
+./auggie-flow sparc run reviewer "review pull request #123"
 \`\`\`
 
 ## Core Capabilities
@@ -1176,7 +1176,7 @@ Specialized swarm management with batch coordination capabilities.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "swarm-coordinator",
@@ -1191,16 +1191,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run swarm-coordinator "manage development swarm"
+npx auggie-flow sparc run swarm-coordinator "manage development swarm"
 
 # For alpha features
-npx claude-flow@alpha sparc run swarm-coordinator "manage development swarm"
+npx auggie-flow@alpha sparc run swarm-coordinator "manage development swarm"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run swarm-coordinator "manage development swarm"
+# If auggie-flow is installed locally
+./auggie-flow sparc run swarm-coordinator "manage development swarm"
 \`\`\`
 
 ## Core Capabilities
@@ -1234,7 +1234,7 @@ Test-driven development with TodoWrite planning and comprehensive testing.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "tdd",
@@ -1249,16 +1249,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run tdd "shopping cart feature"
+npx auggie-flow sparc run tdd "shopping cart feature"
 
 # For alpha features
-npx claude-flow@alpha sparc run tdd "shopping cart feature"
+npx auggie-flow@alpha sparc run tdd "shopping cart feature"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run tdd "shopping cart feature"
+# If auggie-flow is installed locally
+./auggie-flow sparc run tdd "shopping cart feature"
 \`\`\`
 
 ## Core Capabilities
@@ -1292,7 +1292,7 @@ Comprehensive testing with parallel execution capabilities.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "tester",
@@ -1307,16 +1307,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run tester "full regression suite"
+npx auggie-flow sparc run tester "full regression suite"
 
 # For alpha features
-npx claude-flow@alpha sparc run tester "full regression suite"
+npx auggie-flow@alpha sparc run tester "full regression suite"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run tester "full regression suite"
+# If auggie-flow is installed locally
+./auggie-flow sparc run tester "full regression suite"
 \`\`\`
 
 ## Core Capabilities
@@ -1350,7 +1350,7 @@ Process automation with TodoWrite planning and Task execution.
 
 ## Activation
 
-### Option 1: Using MCP Tools (Preferred in Claude Code)
+### Option 1: Using MCP Tools (Preferred in Auggie Code)
 \`\`\`javascript
 mcp__claude-flow__sparc_mode {
   mode: "workflow-manager",
@@ -1365,16 +1365,16 @@ mcp__claude-flow__sparc_mode {
 ### Option 2: Using NPX CLI (Fallback when MCP not available)
 \`\`\`bash
 # Use when running from terminal or MCP tools unavailable
-npx claude-flow sparc run workflow-manager "automate deployment"
+npx auggie-flow sparc run workflow-manager "automate deployment"
 
 # For alpha features
-npx claude-flow@alpha sparc run workflow-manager "automate deployment"
+npx auggie-flow@alpha sparc run workflow-manager "automate deployment"
 \`\`\`
 
 ### Option 3: Local Installation
 \`\`\`bash
-# If claude-flow is installed locally
-./claude-flow sparc run workflow-manager "automate deployment"
+# If auggie-flow is installed locally
+./auggie-flow sparc run workflow-manager "automate deployment"
 \`\`\`
 
 ## Core Capabilities

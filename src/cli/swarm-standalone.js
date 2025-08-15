@@ -38,18 +38,18 @@ const objective = args.join(' ');
 if (!objective && !flags.help) {
   console.error('❌ Usage: swarm <objective>');
   console.log(`
-🐝 Claude Flow Advanced Swarm System
+🐝 Auggie Flow Advanced Swarm System
 
 USAGE:
-  claude-flow swarm <objective> [options]
+  auggie-flow swarm <objective> [options]
 
 EXAMPLES:
-  claude-flow swarm "Build a REST API" --strategy development
-  claude-flow swarm "Research cloud architecture" --strategy research --ui
-  claude-flow swarm "Analyze data trends" --strategy analysis --parallel
-  claude-flow swarm "Optimize performance" --distributed --monitor
+  auggie-flow swarm "Build a REST API" --strategy development
+  auggie-flow swarm "Research cloud architecture" --strategy research --ui
+  auggie-flow swarm "Analyze data trends" --strategy analysis --parallel
+  auggie-flow swarm "Optimize performance" --distributed --monitor
 
-Run 'claude-flow swarm --help' for full options
+Run 'auggie-flow swarm --help' for full options
 `);
   process.exit(1);
 }
@@ -117,7 +117,7 @@ if (!swarmPath) {
       console.log(`✅ Swarm initialized with ID: ${swarmId}`);
       console.log('\n⚠️  Note: Advanced swarm features require Claude or local installation.');
       console.log('Install Claude: https://claude.ai/code');
-      console.log('Or install locally: npm install -g claude-flow@latest');
+      console.log('Or install locally: npm install -g auggie-flow@latest');
       console.log('\nThe swarm system would coordinate the following:');
       console.log('1. Agent spawning and task distribution');
       console.log('2. Parallel execution of subtasks');
@@ -202,7 +202,7 @@ Use all available tools including file operations, web search, and code executio
     console.log(`✅ Swarm initialized with ID: ${swarmId}`);
     console.log('\n⚠️  Note: Advanced swarm features require Claude or local installation.');
     console.log('Install Claude: https://claude.ai/code');
-    console.log('Or install locally: npm install -g claude-flow@latest');
+    console.log('Or install locally: npm install -g auggie-flow@latest');
     console.log('\nThe swarm system would coordinate the following:');
     console.log('1. Agent spawning and task distribution');
     console.log('2. Parallel execution of subtasks');

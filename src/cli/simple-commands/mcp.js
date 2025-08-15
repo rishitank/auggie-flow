@@ -50,7 +50,7 @@ async function startMcpServer(subArgs, flags) {
 
   if (stdio) {
     // Start MCP server in stdio mode (like ruv-swarm)
-    printSuccess('Starting Claude Flow MCP server in stdio mode...');
+    printSuccess('Starting Auggie Flow MCP server in stdio mode...');
 
     if (autoOrchestrator) {
       console.log('🚀 Auto-starting orchestrator...');
@@ -84,9 +84,9 @@ async function startMcpServer(subArgs, flags) {
         stdio: 'inherit',
         env: {
           ...process.env,
-          CLAUDE_FLOW_AUTO_ORCHESTRATOR: autoOrchestrator ? 'true' : 'false',
-          CLAUDE_FLOW_NEURAL_ENABLED: 'true',
-          CLAUDE_FLOW_WASM_ENABLED: 'true',
+          AUGGIE_FLOW_AUTO_ORCHESTRATOR: autoOrchestrator ? 'true' : 'false',
+          AUGGIE_FLOW_NEURAL_ENABLED: 'true',
+          AUGGIE_FLOW_WASM_ENABLED: 'true',
         },
       });
 
@@ -113,7 +113,7 @@ async function startMcpServer(subArgs, flags) {
     const port = getFlag(subArgs, '--port') || flags.port || 3000;
     const host = getFlag(subArgs, '--host') || flags.host || 'localhost';
 
-    printSuccess(`Starting Claude Flow MCP server on ${host}:${port}...`);
+    printSuccess(`Starting Auggie Flow MCP server on ${host}:${port}...`);
     console.log('🚀 HTTP mode not yet implemented, use --stdio for full functionality');
   }
 }
@@ -274,7 +274,7 @@ async function listMcpTools(subArgs, flags) {
 
     console.log('\n  🔗 INTEGRATION CAPABILITIES:');
     console.log('    • Full ruv-swarm feature parity (rebranded)');
-    console.log('    • Claude Code native tool integration');
+    console.log('    • Auggie Code native tool integration');
     console.log('    • GitHub Actions workflow automation');
     console.log('    • SPARC methodology with 17 modes');
     console.log('    • MCP protocol compatibility');
@@ -283,7 +283,7 @@ async function listMcpTools(subArgs, flags) {
   console.log('\n📡 Status: 87 tools & resources available when server is running');
   console.log('🎯 Categories: swarm, neural, memory, analysis, workflow, github, daa, system');
   console.log('🔗 Compatibility: ruv-swarm + DAA + Claude-Flow unified platform');
-  console.log('\n💡 Usage: claude-flow mcp tools --category=<category> --verbose');
+  console.log('\n💡 Usage: auggie-flow mcp tools --category=<category> --verbose');
 }
 
 async function manageMcpAuth(subArgs, flags) {
@@ -314,8 +314,8 @@ async function manageMcpAuth(subArgs, flags) {
     default:
       console.log('Auth commands: setup, status, rotate');
       console.log('Examples:');
-      console.log('  claude-flow mcp auth setup');
-      console.log('  claude-flow mcp auth status');
+      console.log('  auggie-flow mcp auth setup');
+      console.log('  auggie-flow mcp auth status');
   }
 }
 
@@ -349,7 +349,7 @@ async function showMcpConfig(subArgs, flags) {
 
   console.log('\n🔐 Security Settings:');
   console.log('   TLS: Enabled in production');
-  console.log('   CORS: Configured for Claude Code');
+  console.log('   CORS: Configured for Auggie Code');
   console.log('   API Key Rotation: 30 days');
   console.log('   Audit Logging: Enabled');
 
@@ -360,7 +360,7 @@ async function showMcpConfig(subArgs, flags) {
   console.log('   SPARC Modes: 17 available');
 
   console.log('\n📁 Configuration Files:');
-  console.log('   Main Config: ./mcp_config/claude-flow.json');
+  console.log('   Main Config: ./mcp_config/auggie-flow.json');
   console.log('   Neural Models: ./models/');
   console.log('   Memory Store: ./memory/');
   console.log('   Logs: ./logs/mcp/');
@@ -408,12 +408,12 @@ function showMcpHelp() {
   console.log('  system       ⚙️ System & utilities (8 tools)');
   console.log();
   console.log('EXAMPLES:');
-  console.log('  claude-flow mcp status');
-  console.log('  claude-flow mcp start --auto-orchestrator --daemon');
-  console.log('  claude-flow mcp tools --category=neural --verbose');
-  console.log('  claude-flow mcp tools --category=swarm');
-  console.log('  claude-flow mcp config');
-  console.log('  claude-flow mcp auth setup');
+  console.log('  auggie-flow mcp status');
+  console.log('  auggie-flow mcp start --auto-orchestrator --daemon');
+  console.log('  auggie-flow mcp tools --category=neural --verbose');
+  console.log('  auggie-flow mcp tools --category=swarm');
+  console.log('  auggie-flow mcp config');
+  console.log('  auggie-flow mcp auth setup');
   console.log();
   console.log('🎯 Total: 87 tools & resources available');
   console.log('🔗 Full ruv-swarm + DAA + Claude-Flow integration');

@@ -123,7 +123,7 @@ interface SessionData {
   };
 }
 
-const SESSION_DIR = '.claude-flow/sessions';
+const SESSION_DIR = '.auggie-flow/sessions';
 
 async function ensureSessionDir(): Promise<void> {
   try {

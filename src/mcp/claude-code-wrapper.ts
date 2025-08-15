@@ -52,12 +52,12 @@ export class ClaudeCodeMCPWrapper {
   private server: Server;
   private sparcModes: Map<string, SparcMode> = new Map();
   private swarmExecutions: Map<string, SwarmExecution> = new Map();
-  private claudeCodeMCP: any; // Reference to Claude Code MCP client
+  private claudeCodeMCP: any; // Reference to Auggie Code MCP client
 
   constructor() {
     this.server = new Server(
       {
-        name: 'claude-flow-wrapper',
+        name: 'auggie-flow-wrapper',
         version: '1.0.0',
       },
       {
@@ -202,7 +202,7 @@ export class ClaudeCodeMCPWrapper {
         return await this.handleSparcTool(toolName, args);
       }
 
-      // Pass through to Claude Code MCP
+      // Pass through to Auggie Code MCP
       return this.forwardToClaudeCode(toolName, args);
     } catch (error) {
       return {
@@ -824,9 +824,9 @@ Use the appropriate tools for each phase and maintain progress in TodoWrite.`;
 
     // Log startup message
     console.error('🚀 Claude-Flow MCP Server (Wrapper Mode)');
-    console.error('📦 Using Claude Code MCP pass-through with SPARC prompt injection');
+    console.error('📦 Using Auggie Code MCP pass-through with SPARC prompt injection');
     console.error('🔧 All SPARC tools available with enhanced AI capabilities');
-    console.error('ℹ️  To use legacy mode, set CLAUDE_FLOW_LEGACY_MCP=true');
+    console.error('ℹ️  To use legacy mode, set AUGGIE_FLOW_LEGACY_MCP=true');
     console.error('');
 
     await this.server.connect(transport);

@@ -66,8 +66,8 @@ export class MaestroSwarmCoordinator extends EventEmitter {
   ) {
     super();
     
-    this.specsDirectory = config.specsDirectory || join(process.cwd(), '.claude', 'claude-flow', 'maestro', 'specs');
-    this.steeringDirectory = config.steeringDirectory || join(process.cwd(), '.claude', 'claude-flow', 'maestro', 'steering');
+    this.specsDirectory = config.specsDirectory || join(process.cwd(), '.claude', 'auggie-flow', 'maestro', 'specs');
+    this.steeringDirectory = config.steeringDirectory || join(process.cwd(), '.claude', 'auggie-flow', 'maestro', 'steering');
     
     this.setupEventHandlers();
     this.logger.info('MaestroSwarmCoordinator initialized with native hive mind');

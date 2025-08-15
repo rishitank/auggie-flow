@@ -1,4 +1,4 @@
-# Claude Flow v2.0.0 - Comprehensive Documentation Audit Report
+# Auggie Flow v2.0.0 - Comprehensive Documentation Audit Report
 
 ## 🎯 Executive Summary
 
@@ -93,8 +93,8 @@ Missing Documentation:
 #### 01-getting-started.md - CRITICAL UPDATE NEEDED ⭐
 - **Current**: Deno-based installation, old CLI patterns
 - **V2.0.0 Missing**: 
-  - NPX installation (`npx claude-flow@2.0.0`)
-  - MCP server setup (`claude mcp add claude-flow`)
+  - NPX installation (`npx auggie-flow@2.0.0`)
+  - MCP server setup (`claude mcp add auggie-flow`)
   - Neural network initialization
   - WebUI startup (`start --ui`)
   - Hive Mind wizard (`hive-mind wizard`)
@@ -434,4 +434,4 @@ The documentation audit reveals a **critical need for comprehensive v2.0.0 docum
 
 **Strategic Priority**: Create comprehensive documentation for the 87 MCP tools, neural networks, and Hive Mind systems that form the core of v2.0.0's value proposition.
 
-This documentation redesign will transform Claude Flow from having mismatched documentation to having industry-leading documentation that properly showcases its revolutionary capabilities.
+This documentation redesign will transform Auggie Flow from having mismatched documentation to having industry-leading documentation that properly showcases its revolutionary capabilities.

@@ -14,7 +14,7 @@ export class ClaudeAPIError extends ClaudeFlowError {
     public readonly retryable: boolean = false,
     details?: unknown,
   ) {
-    super(message, 'CLAUDE_API_ERROR', details);
+    super(message, 'AUGGIE_API_ERROR', details);
     this.name = 'ClaudeAPIError';
   }
 }

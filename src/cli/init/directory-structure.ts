@@ -6,12 +6,12 @@ export async function createDirectoryStructure(): Promise<void> {
   // Define directory structure
   const directories = [
     '.claude',
-    '.claude/commands',
-    '.claude/commands/swarm',
-    '.claude/commands/sparc',
-    '.claude/logs',
-    '.claude/memory',
-    '.claude/configs',
+    '.auggie/commands',
+    '.auggie/commands/swarm',
+    '.auggie/commands/sparc',
+    '.auggie/logs',
+    '.auggie/memory',
+    '.auggie/configs',
     'memory',
     'memory/agents',
     'memory/sessions',
@@ -56,8 +56,8 @@ export async function createDirectoryStructure(): Promise<void> {
     version: '1.0.71',
   };
 
-  await fs.writeFile('memory/claude-flow-data.json', JSON.stringify(initialData, null, 2));
-  console.log('  ✅ Created memory/claude-flow-data.json (persistence database)');
+  await fs.writeFile('memory/auggie-flow-data.json', JSON.stringify(initialData, null, 2));
+  console.log('  ✅ Created memory/auggie-flow-data.json (persistence database)');
 }
 
 function createAgentsReadme(): string {
@@ -72,9 +72,9 @@ This directory stores persistent information about AI agents created and managed
 
 ## Usage
 Agents are automatically managed by the Claude-Flow orchestration system. You can:
-- View agent status with \`claude-flow agent list\`
-- Create new agents with \`claude-flow agent spawn <type>\`
-- Configure agents with \`claude-flow agent configure <id>\`
+- View agent status with \`auggie-flow agent list\`
+- Create new agents with \`auggie-flow agent spawn <type>\`
+- Configure agents with \`auggie-flow agent configure <id>\`
 
 ## Files
 - \`agent-registry.json\`: Central agent registry
@@ -95,9 +95,9 @@ This directory stores information about Claude-Flow orchestration sessions.
 
 ## Usage
 Sessions are managed automatically during orchestration:
-- Start sessions with \`claude-flow start\`
-- Monitor sessions with \`claude-flow status\`
-- Review session history with \`claude-flow session list\`
+- Start sessions with \`auggie-flow start\`
+- Monitor sessions with \`auggie-flow status\`
+- Review session history with \`auggie-flow session list\`
 
 ## Files
 - \`session-<id>/\`: Individual session directories
@@ -139,8 +139,8 @@ This directory stores output reports from swarm operations and orchestration tas
 
 ## Usage
 Reports are generated automatically by swarm operations:
-- View recent reports with \`claude-flow swarm list\`
-- Check specific reports with \`claude-flow swarm status <id>\`
+- View recent reports with \`auggie-flow swarm list\`
+- Check specific reports with \`auggie-flow swarm status <id>\`
 - Export reports in different formats using \`--output\` flags
 
 ## File Types

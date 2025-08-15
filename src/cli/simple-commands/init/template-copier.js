@@ -86,7 +86,7 @@ export async function copyTemplates(targetDir, options = {}) {
       }
       
       if (await copyFile(settingsPath, settingsDest, options)) {
-        results.copiedFiles.push('.claude/settings.json');
+        results.copiedFiles.push('.auggie/settings.json');
       }
 
       // Copy command templates
@@ -157,7 +157,7 @@ async function copyFile(source, destination, options) {
       await fs.writeFile(destination, content);
       
       // Preserve file permissions for executable scripts
-      if (source.endsWith('.sh') || source.includes('claude-flow')) {
+      if (source.endsWith('.sh') || source.includes('auggie-flow')) {
         await fs.chmod(destination, 0o755);
       }
     }
@@ -249,7 +249,7 @@ async function copySparcTemplates(templatesDir, targetDir, options, results) {
         await fs.writeFile(destPath, content);
       }
       
-      console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .claude/commands/sparc/${filename}`);
+      console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .auggie/commands/sparc/${filename}`);
       results.copiedFiles.push(join('.claude', 'commands', 'sparc', filename));
     }
 
@@ -258,8 +258,8 @@ async function copySparcTemplates(templatesDir, targetDir, options, results) {
     if (!options.dryRun) {
       await fs.writeFile(overviewPath, createSparcModesOverview());
     }
-    console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .claude/commands/sparc/sparc-modes.md`);
-    results.copiedFiles.push('.claude/commands/sparc/sparc-modes.md');
+    console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .auggie/commands/sparc/sparc-modes.md`);
+    results.copiedFiles.push('.auggie/commands/sparc/sparc-modes.md');
 
     // Copy swarm templates
     await copySwarmTemplates(templatesDir, targetDir, options, results);
@@ -292,7 +292,7 @@ async function copySwarmTemplates(templatesDir, targetDir, options, results) {
         await fs.writeFile(destPath, content);
       }
       
-      console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .claude/commands/swarm/${filename}`);
+      console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .auggie/commands/swarm/${filename}`);
       results.copiedFiles.push(join('.claude', 'commands', 'swarm', filename));
     }
   } catch (err) {
@@ -324,7 +324,7 @@ async function copyHelperScripts(templatesDir, targetDir, options, results) {
           await fs.chmod(destPath, 0o755);
         }
         
-        console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .claude/helpers/${helper}`);
+        console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} .auggie/helpers/${helper}`);
         results.copiedFiles.push(join('.claude', 'helpers', helper));
       }
     }
@@ -339,30 +339,30 @@ async function copyHelperScripts(templatesDir, targetDir, options, results) {
 async function copyWrapperScripts(templatesDir, targetDir, options, results) {
   try {
     // Unix wrapper
-    const unixWrapperPath = join(targetDir, 'claude-flow');
-    const unixWrapperSource = join(templatesDir, 'claude-flow-universal');
+    const unixWrapperPath = join(targetDir, 'auggie-flow');
+    const unixWrapperSource = join(templatesDir, 'auggie-flow-universal');
     
     if (await copyFile(unixWrapperSource, unixWrapperPath, options)) {
       if (!options.dryRun) {
         await fs.chmod(unixWrapperPath, 0o755);
       }
-      results.copiedFiles.push('claude-flow');
+      results.copiedFiles.push('auggie-flow');
     }
 
     // Windows batch wrapper
-    const batchWrapperPath = join(targetDir, 'claude-flow.bat');
-    const batchWrapperSource = join(templatesDir, 'claude-flow.bat');
+    const batchWrapperPath = join(targetDir, 'auggie-flow.bat');
+    const batchWrapperSource = join(templatesDir, 'auggie-flow.bat');
     
     if (await copyFile(batchWrapperSource, batchWrapperPath, options)) {
-      results.copiedFiles.push('claude-flow.bat');
+      results.copiedFiles.push('auggie-flow.bat');
     }
 
     // PowerShell wrapper
-    const psWrapperPath = join(targetDir, 'claude-flow.ps1');
-    const psWrapperSource = join(templatesDir, 'claude-flow.ps1');
+    const psWrapperPath = join(targetDir, 'auggie-flow.ps1');
+    const psWrapperSource = join(templatesDir, 'auggie-flow.ps1');
     
     if (await copyFile(psWrapperSource, psWrapperPath, options)) {
-      results.copiedFiles.push('claude-flow.ps1');
+      results.copiedFiles.push('auggie-flow.ps1');
     }
   } catch (err) {
     results.errors.push(`Failed to copy wrapper scripts: ${err.message}`);
@@ -382,15 +382,15 @@ async function createDirectoryStructure(targetDir, options) {
     'coordination/subtasks',
     'coordination/orchestration',
     '.claude',
-    '.claude/commands',
-    '.claude/logs',
+    '.auggie/commands',
+    '.auggie/logs',
     '.swarm', // For memory persistence
   ];
 
   if (options.sparc) {
     directories.push(
-      '.claude/commands/sparc',
-      '.claude/commands/swarm'
+      '.auggie/commands/sparc',
+      '.auggie/commands/swarm'
     );
   }
 
@@ -436,7 +436,7 @@ async function createMemoryReadmeFiles(targetDir, options, results) {
   }
 
   // Initialize persistence database
-  const dbPath = join(targetDir, 'memory', 'claude-flow-data.json');
+  const dbPath = join(targetDir, 'memory', 'auggie-flow-data.json');
   const initialData = {
     agents: [],
     tasks: [],
@@ -447,8 +447,8 @@ async function createMemoryReadmeFiles(targetDir, options, results) {
     if (!options.dryRun) {
       await fs.writeFile(dbPath, JSON.stringify(initialData, null, 2));
     }
-    console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} memory/claude-flow-data.json (persistence database)`);
-    results.copiedFiles.push('memory/claude-flow-data.json');
+    console.log(`  ${options.dryRun ? '[DRY RUN] Would create' : '✓ Created'} memory/auggie-flow-data.json (persistence database)`);
+    results.copiedFiles.push('memory/auggie-flow-data.json');
   } catch (err) {
     results.errors.push(`Failed to create persistence database: ${err.message}`);
   }
@@ -513,14 +513,14 @@ async function getTemplateContent(templatePath) {
       const { createEnhancedSettingsJson } = await import('./templates/enhanced-templates.js');
       return createEnhancedSettingsJson();
     },
-    'claude-flow-universal': async () => {
-      return await fs.readFile(join(__dirname, 'templates', 'claude-flow-universal'), 'utf8');
+    'auggie-flow-universal': async () => {
+      return await fs.readFile(join(__dirname, 'templates', 'auggie-flow-universal'), 'utf8');
     },
-    'claude-flow.bat': async () => {
-      return await fs.readFile(join(__dirname, 'templates', 'claude-flow.bat'), 'utf8');
+    'auggie-flow.bat': async () => {
+      return await fs.readFile(join(__dirname, 'templates', 'auggie-flow.bat'), 'utf8');
     },
-    'claude-flow.ps1': async () => {
-      return await fs.readFile(join(__dirname, 'templates', 'claude-flow.ps1'), 'utf8');
+    'auggie-flow.ps1': async () => {
+      return await fs.readFile(join(__dirname, 'templates', 'auggie-flow.ps1'), 'utf8');
     },
   };
 
@@ -554,7 +554,7 @@ async function generateCommandTemplates(targetDir, options, results) {
         // Create category README
         const categoryReadme = `# ${category.charAt(0).toUpperCase() + category.slice(1)} Commands
 
-Commands for ${category} operations in Claude Flow.
+Commands for ${category} operations in Auggie Flow.
 
 ## Available Commands
 

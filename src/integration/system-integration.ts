@@ -1,5 +1,5 @@
 /**
- * Claude Flow v2.0.0 System Integration
+ * Auggie Flow v2.0.0 System Integration
  * Comprehensive integration manager for all system components
  */
 
@@ -64,7 +64,7 @@ export class SystemIntegration {
       return;
     }
 
-    this.logger.info('🚀 Starting Claude Flow v2.0.0 System Integration');
+    this.logger.info('🚀 Starting Auggie Flow v2.0.0 System Integration');
 
     try {
       // Phase 1: Core Infrastructure
@@ -86,7 +86,7 @@ export class SystemIntegration {
       await this.wireComponents();
 
       this.initialized = true;
-      this.logger.info('✅ Claude Flow v2.0.0 System Integration Complete');
+      this.logger.info('✅ Auggie Flow v2.0.0 System Integration Complete');
 
       // Emit system ready event
       this.eventBus.emit('system:ready', {
@@ -460,7 +460,7 @@ export class SystemIntegration {
    * Shutdown all components gracefully
    */
   async shutdown(): Promise<void> {
-    this.logger.info('🛑 Shutting down Claude Flow v2.0.0');
+    this.logger.info('🛑 Shutting down Auggie Flow v2.0.0');
 
     // Shutdown in reverse order
     if (this.mcpServer) {
@@ -492,7 +492,7 @@ export class SystemIntegration {
     }
 
     this.initialized = false;
-    this.logger.info('✅ Claude Flow v2.0.0 Shutdown Complete');
+    this.logger.info('✅ Auggie Flow v2.0.0 Shutdown Complete');
   }
 
   /**

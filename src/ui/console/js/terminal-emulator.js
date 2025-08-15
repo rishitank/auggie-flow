@@ -1,5 +1,5 @@
 /**
- * Terminal Emulator for Claude Code Console
+ * Terminal Emulator for Auggie Code Console
  * Provides terminal-like behavior and output formatting
  */
 
@@ -11,7 +11,7 @@ export class TerminalEmulator {
     this.historyIndex = -1;
     this.maxHistorySize = 1000;
     this.maxOutputLines = 1000;
-    this.currentPrompt = 'claude-flow>';
+    this.currentPrompt = 'auggie-flow>';
     this.isLocked = false;
 
     // Command suggestions
@@ -21,7 +21,7 @@ export class TerminalEmulator {
       'status',
       'connect',
       'disconnect',
-      'claude-flow',
+      'auggie-flow',
       'swarm',
       'init',
       'config',
@@ -151,7 +151,7 @@ export class TerminalEmulator {
     welcome.innerHTML = `
       <div class="ascii-art">╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
-║     🌊 Claude Flow v2.0.0                                ║
+║     🌊 Auggie Flow v2.0.0                                ║
 ║                                                           ║
 ║     Welcome to the web-based swarm orchestration         ║
 ║     Type 'help' for available commands                   ║

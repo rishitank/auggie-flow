@@ -61,8 +61,8 @@ class VSCodeTerminalWrapper implements Terminal {
         name: `Claude-Flow Terminal ${this.id}`,
         shellArgs: this.getShellArgs(),
         env: {
-          CLAUDE_FLOW_TERMINAL: 'true',
-          CLAUDE_FLOW_TERMINAL_ID: this.id,
+          AUGGIE_FLOW_TERMINAL: 'true',
+          AUGGIE_FLOW_TERMINAL_ID: this.id,
           PS1: '$ ', // Simple prompt
         },
       };

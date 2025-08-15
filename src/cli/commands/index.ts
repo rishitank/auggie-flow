@@ -56,7 +56,7 @@ export function setupCommands(cli: CLI): void {
   // Init command
   cli.command({
     name: 'init',
-    description: 'Initialize Claude Code integration files',
+    description: 'Initialize Auggie Code integration files',
     options: [
       {
         name: 'force',
@@ -73,7 +73,7 @@ export function setupCommands(cli: CLI): void {
     ],
     action: async (ctx: CommandContext) => {
       try {
-        success('Initializing Claude Code integration files...');
+        success('Initializing Auggie Code integration files...');
 
         const force = (ctx.flags.force as boolean) || (ctx.flags.f as boolean);
         const minimal = (ctx.flags.minimal as boolean) || (ctx.flags.m as boolean);
@@ -157,15 +157,15 @@ export function setupCommands(cli: CLI): void {
           tasks: [],
           lastUpdated: Date.now(),
         };
-        await writeFile('memory/claude-flow-data.json', JSON.stringify(initialData, null, 2));
-        console.log('  ✓ Created memory/claude-flow-data.json (persistence database)');
+        await writeFile('memory/auggie-flow-data.json', JSON.stringify(initialData, null, 2));
+        console.log('  ✓ Created memory/auggie-flow-data.json (persistence database)');
 
-        success('Claude Code integration files initialized successfully!');
+        success('Auggie Code integration files initialized successfully!');
         console.log('\nNext steps:');
         console.log('1. Review and customize the generated files for your project');
-        console.log("2. Run 'npx claude-flow start' to begin the orchestration system");
+        console.log("2. Run 'npx auggie-flow start' to begin the orchestration system");
         console.log("3. Use 'claude --dangerously-skip-permissions' for unattended operation");
-        console.log('\nNote: Persistence database initialized at memory/claude-flow-data.json');
+        console.log('\nNote: Persistence database initialized at memory/auggie-flow-data.json');
       } catch (err) {
         error(`Failed to initialize files: ${(err as Error).message}`);
       }
@@ -418,7 +418,7 @@ export function setupCommands(cli: CLI): void {
 
             warning('Enhanced agent management is available!');
             console.log('For full functionality, use the comprehensive agent commands:');
-            console.log(`  - claude-flow agent ${subcommand} ${ctx.args.slice(1).join(' ')}`);
+            console.log(`  - auggie-flow agent ${subcommand} ${ctx.args.slice(1).join(' ')}`);
             console.log('  - Enhanced features: pools, health monitoring, resource management');
             console.log('  - Interactive configuration and detailed metrics');
             break;
@@ -442,7 +442,7 @@ export function setupCommands(cli: CLI): void {
             console.log('  ✨ Interactive configuration');
             console.log('  ✨ Memory integration for coordination');
             console.log('');
-            console.log('For detailed help, use: claude-flow agent <command> --help');
+            console.log('For detailed help, use: auggie-flow agent <command> --help');
             break;
           }
         }
@@ -528,7 +528,7 @@ export function setupCommands(cli: CLI): void {
 
       // Mock the enhanced status command action
       console.log(chalk.cyan('🔍 Enhanced Status Command'));
-      console.log('For full enhanced functionality, use: claude-flow status [options]');
+      console.log('For full enhanced functionality, use: auggie-flow status [options]');
       console.log(
         'Available options: --watch, --interval, --component, --json, --detailed, --health-check, --history',
       );
@@ -563,7 +563,7 @@ export function setupCommands(cli: CLI): void {
 
         if (options.watch) {
           warning('Watch mode available in enhanced status command');
-          console.log('Use: claude-flow status --watch');
+          console.log('Use: auggie-flow status --watch');
         }
       } catch (err) {
         error(`Failed to get status: ${(err as Error).message}`);
@@ -663,14 +663,14 @@ export function setupCommands(cli: CLI): void {
             const health = await orch.healthCheck();
 
             if (!health.healthy) {
-              warning("Orchestrator is not running. Start it first with 'claude-flow start'");
+              warning("Orchestrator is not running. Start it first with 'auggie-flow start'");
               return;
             }
 
             success(`MCP server is running as part of the orchestration system`);
             console.log(`📡 Default address: http://${host}:${port}`);
             console.log(`🔧 Available tools: Research, Code, Terminal, Memory`);
-            console.log(`📚 Use 'claude-flow mcp tools' to see all available tools`);
+            console.log(`📚 Use 'auggie-flow mcp tools' to see all available tools`);
           } catch (err) {
             error(`Failed to check MCP server: ${(err as Error).message}`);
           }
@@ -686,7 +686,7 @@ export function setupCommands(cli: CLI): void {
               info('MCP server is not running');
             } else {
               warning(
-                "MCP server runs as part of the orchestrator. Use 'claude-flow stop' to stop the entire system",
+                "MCP server runs as part of the orchestrator. Use 'auggie-flow stop' to stop the entire system",
               );
             }
           } catch (err) {
@@ -761,7 +761,7 @@ export function setupCommands(cli: CLI): void {
         case 'restart': {
           try {
             warning(
-              "MCP server runs as part of the orchestrator. Use 'claude-flow stop' then 'claude-flow start' to restart the entire system",
+              "MCP server runs as part of the orchestrator. Use 'auggie-flow stop' then 'auggie-flow start' to restart the entire system",
             );
           } catch (err) {
             error(`Failed to restart MCP server: ${(err as Error).message}`);
@@ -1070,10 +1070,10 @@ You are running within the Claude-Flow orchestration system, which provides powe
 ### Available Features
 
 1. **Memory Bank** (Always Available)
-   - Store data: \`npx claude-flow memory store <key> <value>\` - Save important data, findings, or progress
-   - Retrieve data: \`npx claude-flow memory query <key>\` - Access previously stored information
-   - Check status: \`npx claude-flow status\` - View current system/task status
-   - List agents: \`npx claude-flow agent list\` - See active agents
+   - Store data: \`npx auggie-flow memory store <key> <value>\` - Save important data, findings, or progress
+   - Retrieve data: \`npx auggie-flow memory query <key>\` - Access previously stored information
+   - Check status: \`npx auggie-flow status\` - View current system/task status
+   - List agents: \`npx auggie-flow agent list\` - See active agents
    - Memory persists across Claude instances in the same namespace
 
 2. **Tool Access**
@@ -1081,9 +1081,9 @@ You are running within the Claude-Flow orchestration system, which provides powe
 
             if (ctx.flags.parallel) {
               enhancedTask += `
-   - **Parallel Execution Enabled**: Use \`npx claude-flow agent spawn <type> --name <name>\` to spawn sub-agents
-   - Create tasks: \`npx claude-flow task create <type> "<description>"\`
-   - Assign tasks: \`npx claude-flow task assign <task-id> <agent-id>\`
+   - **Parallel Execution Enabled**: Use \`npx auggie-flow agent spawn <type> --name <name>\` to spawn sub-agents
+   - Create tasks: \`npx auggie-flow task create <type> "<description>"\`
+   - Assign tasks: \`npx auggie-flow task assign <task-id> <agent-id>\`
    - Break down complex tasks and delegate to specialized agents`;
             }
 
@@ -1097,24 +1097,24 @@ You are running within the Claude-Flow orchestration system, which provides powe
 ### Workflow Guidelines
 
 1. **Before Starting**:
-   - Check memory: \`npx claude-flow memory query previous_work\`
-   - Check system status: \`npx claude-flow status\`
-   - List active agents: \`npx claude-flow agent list\`
-   - List active tasks: \`npx claude-flow task list\`
+   - Check memory: \`npx auggie-flow memory query previous_work\`
+   - Check system status: \`npx auggie-flow status\`
+   - List active agents: \`npx auggie-flow agent list\`
+   - List active tasks: \`npx auggie-flow task list\`
 
 2. **During Execution**:
-   - Store findings: \`npx claude-flow memory store findings "your data here"\`
-   - Save checkpoints: \`npx claude-flow memory store progress_${task.replace(/\s+/g, '_')} "current status"\`
-   ${ctx.flags.parallel ? '- Spawn agents: `npx claude-flow agent spawn researcher --name "research-agent"`' : ''}
-   ${ctx.flags.parallel ? '- Create tasks: `npx claude-flow task create implementation "implement feature X"`' : ''}
+   - Store findings: \`npx auggie-flow memory store findings "your data here"\`
+   - Save checkpoints: \`npx auggie-flow memory store progress_${task.replace(/\s+/g, '_')} "current status"\`
+   ${ctx.flags.parallel ? '- Spawn agents: `npx auggie-flow agent spawn researcher --name "research-agent"`' : ''}
+   ${ctx.flags.parallel ? '- Create tasks: `npx auggie-flow task create implementation "implement feature X"`' : ''}
 
 3. **Best Practices**:
-   - Use the Bash tool to run \`npx claude-flow\` commands
+   - Use the Bash tool to run \`npx auggie-flow\` commands
    - Store data as JSON strings for complex structures
    - Query memory before starting to check for existing work
    - Use descriptive keys for memory storage
    ${ctx.flags.parallel ? '- Coordinate with other agents through shared memory' : ''}
-   ${ctx.flags.research ? '- Store research findings: `npx claude-flow memory store research_findings "data"`' : ''}
+   ${ctx.flags.research ? '- Store research findings: `npx auggie-flow memory store research_findings "data"`' : ''}
 
 ## Configuration
 - Instance ID: ${instanceId}
@@ -1128,17 +1128,17 @@ To interact with Claude-Flow, use the Bash tool:
 
 \`\`\`bash
 # Check for previous work
-Bash("npx claude-flow memory query previous_work")
+Bash("npx auggie-flow memory query previous_work")
 
 # Store your findings
-Bash("npx claude-flow memory store analysis_results 'Found 3 critical issues...'")
+Bash("npx auggie-flow memory store analysis_results 'Found 3 critical issues...'")
 
 # Check system status
-Bash("npx claude-flow status")
+Bash("npx auggie-flow status")
 
 # Create and assign tasks (when --parallel is enabled)
-Bash("npx claude-flow task create research 'Research authentication methods'")
-Bash("npx claude-flow agent spawn researcher --name auth-researcher")
+Bash("npx auggie-flow task create research 'Research authentication methods'")
+Bash("npx auggie-flow agent spawn researcher --name auth-researcher")
 \`\`\`
 
 Now, please proceed with the task: ${task}`;
@@ -1171,7 +1171,7 @@ Now, please proceed with the task: ${task}`;
               console.log(`Coverage: ${ctx.flags.coverage || 80}%`);
               console.log(`Commit: ${ctx.flags.commit || 'phase'}`);
               console.log(`\nEnhanced Features:`);
-              console.log(`  - Memory Bank enabled via: npx claude-flow memory commands`);
+              console.log(`  - Memory Bank enabled via: npx auggie-flow memory commands`);
               console.log(`  - Coordination ${ctx.flags.parallel ? 'enabled' : 'disabled'}`);
               console.log(`  - Access Claude-Flow features through Bash tool`);
               return;
@@ -1192,22 +1192,21 @@ Now, please proceed with the task: ${task}`;
             console.log('');
 
             // Execute Claude command
-            const { spawn } = await import('child_process');
-            const child = spawn(
-              'claude',
+            const { spawnEngine } = await import('../engine/engine-adapter.js');
+            const child = spawnEngine(
               claudeCmd.slice(1).map((arg) => arg.replace(/^"|"$/g, '')),
               {
                 env: {
                   ...process.env,
-                  CLAUDE_INSTANCE_ID: instanceId,
-                  CLAUDE_FLOW_MODE: (ctx.flags.mode as string) || 'full',
-                  CLAUDE_FLOW_COVERAGE: (ctx.flags.coverage || 80).toString(),
-                  CLAUDE_FLOW_COMMIT: (ctx.flags.commit as string) || 'phase',
+                  AUGGIE_INSTANCE_ID: instanceId,
+                  AUGGIE_FLOW_MODE: (ctx.flags.mode as string) || 'full',
+                  AUGGIE_FLOW_COVERAGE: (ctx.flags.coverage || 80).toString(),
+                  AUGGIE_FLOW_COMMIT: (ctx.flags.commit as string) || 'phase',
                   // Add Claude-Flow specific features
-                  CLAUDE_FLOW_MEMORY_ENABLED: 'true',
-                  CLAUDE_FLOW_MEMORY_NAMESPACE: 'default',
-                  CLAUDE_FLOW_COORDINATION_ENABLED: ctx.flags.parallel ? 'true' : 'false',
-                  CLAUDE_FLOW_FEATURES: 'memory,coordination,swarm',
+                  AUGGIE_FLOW_MEMORY_ENABLED: 'true',
+                  AUGGIE_FLOW_MEMORY_NAMESPACE: 'default',
+                  AUGGIE_FLOW_COORDINATION_ENABLED: ctx.flags.parallel ? 'true' : 'false',
+                  AUGGIE_FLOW_FEATURES: 'memory,coordination,swarm',
                 },
                 stdio: 'inherit',
               },
@@ -1279,17 +1278,17 @@ Now, please proceed with the task: ${task}`;
                 continue;
               }
 
-              console.log(`\n🚀 Spawning Claude for task: ${task.name || taskId}`);
+              const engine = process.env.AUGGIE_FLOW_ENGINE || 'auggie';
+console.log(`\n🚀 Spawning ${engine === 'auggie' ? 'Auggie' : 'Claude'} for task: ${task.name || taskId}`);
 
-              const { spawn } = await import('child_process');
-              const child = spawn(
-                'claude',
+              const { spawnEngine } = await import('../engine/engine-adapter.js');
+              const child = spawnEngine(
                 claudeCmd.slice(1).map((arg) => arg.replace(/^"|"$/g, '')),
                 {
                   env: {
                     ...process.env,
-                    CLAUDE_TASK_ID: taskId,
-                    CLAUDE_TASK_TYPE: task.type || 'general',
+                    AUGGIE_TASK_ID: taskId,
+                    AUGGIE_TASK_TYPE: task.type || 'general',
                   },
                   stdio: 'inherit',
                 },
@@ -1336,10 +1335,10 @@ Now, please proceed with the task: ${task}`;
           console.log('Available subcommands: spawn, batch');
           console.log('\nExamples:');
           console.log(
-            '  claude-flow claude spawn "implement user authentication" --research --parallel',
+            '  auggie-flow claude spawn "implement user authentication" --research --parallel',
           );
-          console.log('  claude-flow claude spawn "fix bug in payment system" --no-permissions');
-          console.log('  claude-flow claude batch workflow.json --dry-run');
+          console.log('  auggie-flow claude spawn "fix bug in payment system" --no-permissions');
+          console.log('  auggie-flow claude batch workflow.json --dry-run');
           break;
         }
       }
@@ -1362,7 +1361,7 @@ Now, please proceed with the task: ${task}`;
       };
 
       console.log(chalk.cyan('📊 Enhanced Monitor Command'));
-      console.log('For full enhanced functionality, use: claude-flow monitor [options]');
+      console.log('For full enhanced functionality, use: auggie-flow monitor [options]');
       console.log(
         'Available options: --interval, --compact, --focus, --alerts, --export, --threshold, --log-level, --no-graphs',
       );
@@ -1378,7 +1377,7 @@ Now, please proceed with the task: ${task}`;
           .catch(() => false);
 
         if (!isRunning) {
-          warning("Orchestrator is not running. Start it first with 'claude-flow start'");
+          warning("Orchestrator is not running. Start it first with 'auggie-flow start'");
           return;
         }
 
@@ -1558,7 +1557,7 @@ Now, please proceed with the task: ${task}`;
             .catch(() => false);
 
           if (!isRunning) {
-            warning("Orchestrator is not running. Start it first with 'claude-flow start'");
+            warning("Orchestrator is not running. Start it first with 'auggie-flow start'");
             return;
           }
 
@@ -1692,12 +1691,12 @@ Now, please proceed with the task: ${task}`;
       },
       {
         name: 'claude',
-        description: 'Launch Claude Code with swarm coordination prompt',
+        description: 'Launch Auggie Code with swarm coordination prompt',
         type: 'boolean',
       },
       {
         name: 'executor',
-        description: 'Use built-in executor instead of Claude Code',
+        description: 'Use built-in executor instead of Auggie Code',
         type: 'boolean',
       },
     ],
@@ -1877,7 +1876,7 @@ Now, please proceed with the task: ${task}`;
   try {
     const enhancedSessionAction = async (ctx: CommandContext) => {
       console.log(chalk.cyan('💾 Enhanced Session Management'));
-      console.log('For full enhanced functionality, use: claude-flow session <command> [options]');
+      console.log('For full enhanced functionality, use: auggie-flow session <command> [options]');
       console.log();
       console.log('Available commands:');
       console.log('  list          - List all saved sessions with status');
@@ -1905,7 +1904,7 @@ Now, please proceed with the task: ${task}`;
       if (subcommand) {
         console.log();
         console.log(
-          `For detailed help on '${subcommand}', use: claude-flow session ${subcommand} --help`,
+          `For detailed help on '${subcommand}', use: auggie-flow session ${subcommand} --help`,
         );
       }
     };
@@ -1952,7 +1951,7 @@ Now, please proceed with the task: ${task}`;
       }
 
       console.log();
-      console.log('For full enhanced functionality, use: claude-flow start [options]');
+      console.log('For full enhanced functionality, use: auggie-flow start [options]');
       console.log(
         'Available options: --daemon, --port, --mcp-transport, --ui, --verbose, --auto-start, --force, --health-check, --timeout',
       );
@@ -2037,7 +2036,7 @@ Now, please proceed with the task: ${task}`;
       if (command === 'claude') {
         console.log(bold(blue('Claude Instance Management')));
         console.log();
-        console.log('Spawn and manage Claude Code instances with specific configurations.');
+        console.log('Spawn and manage Auggie Code instances with specific configurations.');
         console.log();
         console.log(bold('Subcommands:'));
         console.log('  spawn <task>    Spawn Claude with specific configuration');
@@ -2059,12 +2058,12 @@ Now, please proceed with the task: ${task}`;
         console.log();
         console.log(bold('Examples:'));
         console.log(
-          `  ${blue('claude-flow claude spawn')} "implement user authentication" --research --parallel`,
+          `  ${blue('auggie-flow claude spawn')} "implement user authentication" --research --parallel`,
         );
         console.log(
-          `  ${blue('claude-flow claude spawn')} "fix payment bug" --tools "View,Edit,Bash" --no-permissions`,
+          `  ${blue('auggie-flow claude spawn')} "fix payment bug" --tools "View,Edit,Bash" --no-permissions`,
         );
-        console.log(`  ${blue('claude-flow claude batch')} workflow.json --dry-run`);
+        console.log(`  ${blue('auggie-flow claude batch')} workflow.json --dry-run`);
         console.log();
         console.log(
           'For more information, see: https://github.com/ruvnet/claude-code-flow/docs/11-claude-spawning.md',
@@ -2075,9 +2074,9 @@ Now, please proceed with the task: ${task}`;
         console.log('Create self-orchestrating Claude agent swarms to tackle complex objectives.');
         console.log();
         console.log(bold('Usage:'));
-        console.log('  claude-flow swarm <objective> [options]');
+        console.log('  auggie-flow swarm <objective> [options]');
         console.log(
-          '  claude-flow swarm-ui <objective> [options]  # Uses blessed UI (avoids TTY issues)',
+          '  auggie-flow swarm-ui <objective> [options]  # Uses blessed UI (avoids TTY issues)',
         );
         console.log();
         console.log(bold('Options:'));
@@ -2100,19 +2099,19 @@ Now, please proceed with the task: ${task}`;
         console.log('  --ui                       Use blessed terminal UI (avoids TTY issues)');
         console.log();
         console.log(bold('Examples:'));
-        console.log(`  ${blue('claude-flow swarm')} "Build a REST API"`);
-        console.log(`  ${blue('claude-flow swarm-ui')} "Build a REST API"  # Avoids TTY issues`);
+        console.log(`  ${blue('auggie-flow swarm')} "Build a REST API"`);
+        console.log(`  ${blue('auggie-flow swarm-ui')} "Build a REST API"  # Avoids TTY issues`);
         console.log(
-          `  ${blue('claude-flow swarm')} "Research cloud architecture" --strategy research --research`,
+          `  ${blue('auggie-flow swarm')} "Research cloud architecture" --strategy research --research`,
         );
         console.log(
-          `  ${blue('claude-flow swarm')} "Migrate app to microservices" --coordinator --review --ui`,
+          `  ${blue('auggie-flow swarm')} "Migrate app to microservices" --coordinator --review --ui`,
         );
         console.log();
         console.log(bold('TTY Issues?'));
         console.log("If you encounter 'Raw mode is not supported' errors, use:");
-        console.log(`  - ${blue('claude-flow swarm-ui')} <objective>  # Recommended`);
-        console.log(`  - ${blue('claude-flow swarm')} <objective> --ui`);
+        console.log(`  - ${blue('auggie-flow swarm-ui')} <objective>  # Recommended`);
+        console.log(`  - ${blue('auggie-flow swarm')} <objective> --ui`);
         console.log();
         console.log('For more information, see:');
         console.log('  - https://github.com/ruvnet/claude-code-flow/docs/12-swarm.md');
@@ -2152,16 +2151,16 @@ Now, please proceed with the task: ${task}`;
         console.log();
         console.log(bold('Examples:'));
         console.log(
-          `  ${blue('claude-flow sparc modes')}                              # List all modes`,
+          `  ${blue('auggie-flow sparc modes')}                              # List all modes`,
         );
         console.log(
-          `  ${blue('claude-flow sparc run code')} "implement user auth"      # Run specific mode`,
+          `  ${blue('auggie-flow sparc run code')} "implement user auth"      # Run specific mode`,
         );
         console.log(
-          `  ${blue('claude-flow sparc tdd')} "payment processing system"    # Full TDD workflow`,
+          `  ${blue('auggie-flow sparc tdd')} "payment processing system"    # Full TDD workflow`,
         );
         console.log(
-          `  ${blue('claude-flow sparc workflow')} project-workflow.json     # Custom workflow`,
+          `  ${blue('auggie-flow sparc workflow')} project-workflow.json     # Custom workflow`,
         );
         console.log();
         console.log(
@@ -2175,7 +2174,7 @@ Now, please proceed with the task: ${task}`;
         );
         console.log();
         console.log(bold('Usage:'));
-        console.log('  claude-flow start [options]');
+        console.log('  auggie-flow start [options]');
         console.log();
         console.log(bold('Options:'));
         console.log('  -d, --daemon              Run as daemon in background');
@@ -2190,17 +2189,17 @@ Now, please proceed with the task: ${task}`;
         console.log('  --timeout <seconds>       Startup timeout in seconds (default: 60)');
         console.log();
         console.log(bold('Examples:'));
-        console.log(`  ${blue('claude-flow start')}                    # Interactive mode`);
-        console.log(`  ${blue('claude-flow start --daemon')}           # Background daemon`);
-        console.log(`  ${blue('claude-flow start --ui')}               # Process management UI`);
-        console.log(`  ${blue('claude-flow start --health-check')}     # With pre-flight checks`);
+        console.log(`  ${blue('auggie-flow start')}                    # Interactive mode`);
+        console.log(`  ${blue('auggie-flow start --daemon')}           # Background daemon`);
+        console.log(`  ${blue('auggie-flow start --ui')}               # Process management UI`);
+        console.log(`  ${blue('auggie-flow start --health-check')}     # With pre-flight checks`);
       } else if (command === 'status') {
         console.log(bold(blue('Enhanced Status Command')));
         console.log();
         console.log('Show comprehensive Claude-Flow system status with detailed reporting.');
         console.log();
         console.log(bold('Usage:'));
-        console.log('  claude-flow status [options]');
+        console.log('  auggie-flow status [options]');
         console.log();
         console.log(bold('Options:'));
         console.log('  -w, --watch              Watch mode - continuously update status');
@@ -2212,17 +2211,17 @@ Now, please proceed with the task: ${task}`;
         console.log('  --history                Show status history from logs');
         console.log();
         console.log(bold('Examples:'));
-        console.log(`  ${blue('claude-flow status')}                   # Basic status`);
-        console.log(`  ${blue('claude-flow status --watch')}           # Live updates`);
-        console.log(`  ${blue('claude-flow status --detailed')}        # Comprehensive info`);
-        console.log(`  ${blue('claude-flow status --component mcp')}   # Specific component`);
+        console.log(`  ${blue('auggie-flow status')}                   # Basic status`);
+        console.log(`  ${blue('auggie-flow status --watch')}           # Live updates`);
+        console.log(`  ${blue('auggie-flow status --detailed')}        # Comprehensive info`);
+        console.log(`  ${blue('auggie-flow status --component mcp')}   # Specific component`);
       } else if (command === 'monitor') {
         console.log(bold(blue('Enhanced Monitor Command')));
         console.log();
         console.log('Real-time monitoring dashboard with comprehensive metrics and alerting.');
         console.log();
         console.log(bold('Usage:'));
-        console.log('  claude-flow monitor [options]');
+        console.log('  auggie-flow monitor [options]');
         console.log();
         console.log(bold('Options:'));
         console.log('  -i, --interval <seconds> Update interval in seconds (default: 2)');
@@ -2235,10 +2234,10 @@ Now, please proceed with the task: ${task}`;
         console.log('  --no-graphs              Disable ASCII graphs');
         console.log();
         console.log(bold('Examples:'));
-        console.log(`  ${blue('claude-flow monitor')}                  # Basic monitoring`);
-        console.log(`  ${blue('claude-flow monitor --alerts')}         # With alerting`);
-        console.log(`  ${blue('claude-flow monitor --focus mcp')}      # Component focus`);
-        console.log(`  ${blue('claude-flow monitor --export data.json')} # Data export`);
+        console.log(`  ${blue('auggie-flow monitor')}                  # Basic monitoring`);
+        console.log(`  ${blue('auggie-flow monitor --alerts')}         # With alerting`);
+        console.log(`  ${blue('auggie-flow monitor --focus mcp')}      # Component focus`);
+        console.log(`  ${blue('auggie-flow monitor --export data.json')} # Data export`);
       } else if (command === 'session') {
         console.log(bold(blue('Enhanced Session Management')));
         console.log();
@@ -2259,10 +2258,10 @@ Now, please proceed with the task: ${task}`;
         console.log('  monitor                  Monitor active sessions');
         console.log();
         console.log(bold('Examples:'));
-        console.log(`  ${blue('claude-flow session list')}             # List sessions`);
-        console.log(`  ${blue('claude-flow session save mywork')}      # Save session`);
-        console.log(`  ${blue('claude-flow session restore abc123')}   # Restore session`);
-        console.log(`  ${blue('claude-flow session validate --fix')}   # Validate and fix`);
+        console.log(`  ${blue('auggie-flow session list')}             # List sessions`);
+        console.log(`  ${blue('auggie-flow session save mywork')}      # Save session`);
+        console.log(`  ${blue('auggie-flow session restore abc123')}   # Restore session`);
+        console.log(`  ${blue('auggie-flow session validate --fix')}   # Validate and fix`);
       } else {
         // Show general help with enhanced commands
         console.log(bold(blue('Claude-Flow Enhanced Orchestration System')));
@@ -2281,7 +2280,7 @@ Now, please proceed with the task: ${task}`;
         console.log('  claude       Claude instance spawning');
         console.log();
         console.log('For detailed help on any command, use:');
-        console.log(`  ${blue('claude-flow help <command>')}`);
+        console.log(`  ${blue('auggie-flow help <command>')}`);
         console.log();
         console.log('Enhanced features:');
         console.log('  ✨ Comprehensive service management');
@@ -2302,7 +2301,7 @@ Now, please proceed with the task: ${task}`;
   console.log('  ✓ session  - Advanced session lifecycle management');
   console.log('  ✓ sparc    - Enhanced TDD with orchestration features');
   console.log();
-  console.log('For detailed help on enhanced commands: claude-flow help <command>');
+  console.log('For detailed help on enhanced commands: auggie-flow help <command>');
 
   // Hive Mind command
   cli.command({
@@ -2464,7 +2463,7 @@ function getDefaultPromptForType(type: string): string {
 
 // Template creation functions
 function createMinimalClaudeMd(): string {
-  return `# Claude Code Configuration
+  return `# Auggie Code Configuration
 
 ## Build Commands
 - \`npm run build\`: Build the project
@@ -2482,15 +2481,15 @@ This is a Claude-Flow AI agent orchestration system.
 }
 
 function createFullClaudeMd(): string {
-  return `# Claude Code Configuration
+  return `# Auggie Code Configuration
 
 ## Build Commands
 - \`npm run build\`: Build the project using Deno compile
 - \`npm run test\`: Run the full test suite
 - \`npm run lint\`: Run ESLint and format checks
 - \`npm run typecheck\`: Run TypeScript type checking
-- \`npx claude-flow start\`: Start the orchestration system
-- \`npx claude-flow --help\`: Show all available commands
+- \`npx auggie-flow start\`: Start the orchestration system
+- \`npx auggie-flow --help\`: Show all available commands
 
 ## Code Style Preferences
 - Use ES modules (import/export) syntax, not CommonJS (require)
@@ -2524,9 +2523,9 @@ This is a Claude-Flow AI agent orchestration system with the following component
 - All components are event-driven for scalability
 
 ## Debugging
-- Check logs in \`./claude-flow.log\`
-- Use \`npx claude-flow status\` to check system health
-- Monitor with \`npx claude-flow monitor\` for real-time updates
+- Check logs in \`./auggie-flow.log\`
+- Use \`npx auggie-flow status\` to check system health
+- Monitor with \`npx auggie-flow monitor\` for real-time updates
 - Verbose output available with \`--verbose\` flag on most commands
 `;
 }
@@ -2537,10 +2536,10 @@ function createMinimalMemoryBankMd(): string {
 ## Quick Reference
 - Project uses SQLite for memory persistence
 - Memory is organized by namespaces
-- Query with \`npx claude-flow memory query <search>\`
+- Query with \`npx auggie-flow memory query <search>\`
 
 ## Storage Location
-- Database: \`./memory/claude-flow-data.json\`
+- Database: \`./memory/auggie-flow-data.json\`
 - Sessions: \`./memory/sessions/\`
 `;
 }
@@ -2552,7 +2551,7 @@ function createFullMemoryBankMd(): string {
 The Claude-Flow memory system provides persistent storage and intelligent retrieval of information across agent sessions. It uses a hybrid approach combining SQL databases with semantic search capabilities.
 
 ## Storage Backends
-- **Primary**: JSON database (\`./memory/claude-flow-data.json\`)
+- **Primary**: JSON database (\`./memory/auggie-flow-data.json\`)
 - **Sessions**: File-based storage in \`./memory/sessions/\`
 - **Cache**: In-memory cache for frequently accessed data
 
@@ -2563,18 +2562,18 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 - **Replication**: Optional distributed storage support
 
 ## Commands
-- \`npx claude-flow memory query <search>\`: Search stored information
-- \`npx claude-flow memory stats\`: Show memory usage statistics
-- \`npx claude-flow memory export <file>\`: Export memory to file
-- \`npx claude-flow memory import <file>\`: Import memory from file
+- \`npx auggie-flow memory query <search>\`: Search stored information
+- \`npx auggie-flow memory stats\`: Show memory usage statistics
+- \`npx auggie-flow memory export <file>\`: Export memory to file
+- \`npx auggie-flow memory import <file>\`: Import memory from file
 
 ## Configuration
-Memory settings are configured in \`claude-flow.config.json\`:
+Memory settings are configured in \`auggie-flow.config.json\`:
 \`\`\`json
 {
   "memory": {
     "backend": "json",
-    "path": "./memory/claude-flow-data.json",
+    "path": "./memory/auggie-flow-data.json",
     "cacheSize": 1000,
     "indexing": true,
     "namespaces": ["default", "agents", "tasks", "sessions"],
@@ -2611,9 +2610,9 @@ function createMinimalCoordinationMd(): string {
   return `# Agent Coordination
 
 ## Quick Commands
-- \`npx claude-flow agent spawn <type>\`: Create new agent
-- \`npx claude-flow agent list\`: Show active agents
-- \`npx claude-flow task create <type> <description>\`: Create task
+- \`npx auggie-flow agent spawn <type>\`: Create new agent
+- \`npx auggie-flow agent list\`: Show active agents
+- \`npx auggie-flow task create <type> <description>\`: Create task
 
 ## Agent Types
 - researcher, coder, analyst, coordinator, general
@@ -2642,27 +2641,27 @@ The Claude-Flow coordination system manages multiple AI agents working together 
 ## Coordination Commands
 \`\`\`bash
 # Agent Management
-npx claude-flow agent spawn <type> --name <name> --priority <1-10>
-npx claude-flow agent list
-npx claude-flow agent info <agent-id>
-npx claude-flow agent terminate <agent-id>
+npx auggie-flow agent spawn <type> --name <name> --priority <1-10>
+npx auggie-flow agent list
+npx auggie-flow agent info <agent-id>
+npx auggie-flow agent terminate <agent-id>
 
 # Task Management  
-npx claude-flow task create <type> <description> --priority <1-10> --deps <task-ids>
-npx claude-flow task list --verbose
-npx claude-flow task status <task-id>
-npx claude-flow task cancel <task-id>
+npx auggie-flow task create <type> <description> --priority <1-10> --deps <task-ids>
+npx auggie-flow task list --verbose
+npx auggie-flow task status <task-id>
+npx auggie-flow task cancel <task-id>
 
 # System Monitoring
-npx claude-flow status --verbose
-npx claude-flow monitor --interval 5000
+npx auggie-flow status --verbose
+npx auggie-flow monitor --interval 5000
 \`\`\`
 
 ## Workflow Execution
 Workflows are defined in JSON format and can orchestrate complex multi-agent operations:
 \`\`\`bash
-npx claude-flow workflow examples/research-workflow.json
-npx claude-flow workflow examples/development-config.json --async
+npx auggie-flow workflow examples/research-workflow.json
+npx auggie-flow workflow examples/development-config.json --async
 \`\`\`
 
 ## Advanced Features
@@ -2672,7 +2671,7 @@ npx claude-flow workflow examples/development-config.json --async
 - **Metrics Collection**: Performance monitoring and optimization
 
 ## Configuration
-Coordination settings in \`claude-flow.config.json\`:
+Coordination settings in \`auggie-flow.config.json\`:
 \`\`\`json
 {
   "orchestrator": {
@@ -2705,8 +2704,8 @@ Coordination settings in \`claude-flow.config.json\`:
 - Regular cleanup of completed tasks and inactive agents
 
 ## Troubleshooting
-- Check agent health with \`npx claude-flow status\`
-- View detailed logs with \`npx claude-flow monitor\`
+- Check agent health with \`npx auggie-flow status\`
+- View detailed logs with \`npx auggie-flow monitor\`
 - Restart stuck agents with terminate/spawn cycle
 - Use \`--verbose\` flags for detailed diagnostic information
 `;

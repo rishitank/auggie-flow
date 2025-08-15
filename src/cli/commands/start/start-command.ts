@@ -46,7 +46,7 @@ export const startCommand = new Command()
         ]);
 
         if (!shouldContinue) {
-          console.log(chalk.gray('Use --force to override or "claude-flow stop" first'));
+          console.log(chalk.gray('Use --force to override or "auggie-flow stop" first'));
           return;
         }
 
@@ -183,15 +183,15 @@ export const startCommand = new Command()
           config: options.config || 'default',
           processes: processManager.getAllProcesses().map((p) => ({ id: p.id, status: p.status })),
         };
-        await fs.writeFile('.claude-flow.pid', JSON.stringify(pidData, null, 2));
+        await fs.writeFile('.auggie-flow.pid', JSON.stringify(pidData, null, 2));
         console.log(chalk.gray(`Process ID: ${pid}`));
 
         // Wait for services to be fully ready
         await waitForSystemReady(processManager);
 
         console.log(chalk.green.bold('✓'), 'Daemon started successfully');
-        console.log(chalk.gray('Use "claude-flow status" to check system status'));
-        console.log(chalk.gray('Use "claude-flow monitor" for real-time monitoring'));
+        console.log(chalk.gray('Use "auggie-flow status" to check system status'));
+        console.log(chalk.gray('Use "auggie-flow monitor" for real-time monitoring'));
 
         // Keep process running
         await new Promise<void>(() => {});
@@ -301,7 +301,7 @@ export const startCommand = new Command()
 
 async function isSystemRunning(): Promise<boolean> {
   try {
-    const pidData = await fs.readFile('.claude-flow.pid', 'utf-8');
+    const pidData = await fs.readFile('.auggie-flow.pid', 'utf-8');
     const data = JSON.parse(pidData);
 
     // Check if process is still running
@@ -318,7 +318,7 @@ async function isSystemRunning(): Promise<boolean> {
 
 async function stopExistingInstance(): Promise<void> {
   try {
-    const pidData = await fs.readFile('.claude-flow.pid', 'utf-8');
+    const pidData = await fs.readFile('.auggie-flow.pid', 'utf-8');
     const data = JSON.parse(pidData);
 
     console.log(chalk.yellow('Stopping existing instance...'));
@@ -334,7 +334,7 @@ async function stopExistingInstance(): Promise<void> {
       // Process already stopped
     }
 
-    await Deno.remove('.claude-flow.pid').catch(() => {});
+    await Deno.remove('.auggie-flow.pid').catch(() => {});
     console.log(chalk.green('✓ Existing instance stopped'));
   } catch (error) {
     console.warn(
@@ -398,7 +398,7 @@ async function checkNetworkConnectivity(): Promise<void> {
 
 async function checkDependencies(): Promise<void> {
   // Check for required directories and files
-  const requiredDirs = ['.claude-flow', 'memory', 'logs'];
+  const requiredDirs = ['.auggie-flow', 'memory', 'logs'];
   for (const dir of requiredDirs) {
     try {
       await Deno.mkdir(dir, { recursive: true });
@@ -504,7 +504,7 @@ async function waitForSystemReady(processManager: ProcessManager): Promise<void>
 
 async function cleanupOnFailure(): Promise<void> {
   try {
-    await Deno.remove('.claude-flow.pid').catch(() => {});
+    await Deno.remove('.auggie-flow.pid').catch(() => {});
     console.log(chalk.gray('Cleaned up PID file'));
   } catch {
     // Ignore cleanup errors
@@ -513,7 +513,7 @@ async function cleanupOnFailure(): Promise<void> {
 
 async function cleanupOnShutdown(): Promise<void> {
   try {
-    await Deno.remove('.claude-flow.pid').catch(() => {});
+    await Deno.remove('.auggie-flow.pid').catch(() => {});
     console.log(chalk.gray('Cleaned up PID file'));
   } catch {
     // Ignore cleanup errors

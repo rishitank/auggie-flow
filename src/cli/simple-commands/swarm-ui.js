@@ -30,7 +30,7 @@ class SwarmUI {
     // Create blessed screen
     this.screen = blessed.screen({
       smartCSR: true,
-      title: 'Claude Flow - Swarm Control Center',
+      title: 'Auggie Flow - Swarm Control Center',
     });
 
     this.createLayout();
@@ -65,7 +65,7 @@ class SwarmUI {
       left: 0,
       width: '100%',
       height: 3,
-      content: '{center}🐝 Claude Flow Swarm Control Center{/center}',
+      content: '{center}🐝 Auggie Flow Swarm Control Center{/center}',
       tags: true,
       style: {
         fg: 'white',
@@ -544,18 +544,19 @@ class SwarmUI {
 
       // Execute swarm command
       const args = ['swarm', description, '--ui', '--monitor'];
-      const process = spawn('claude-flow', args, {
+      const binary = process.env.AUGGIE_FLOW_BIN || 'auggie-flow';
+      const child = spawn(binary, args, {
         detached: true,
         stdio: 'ignore',
       });
 
-      process.unref();
+      child.unref();
 
       // Track the process for later termination
-      const processId = `swarm-${Date.now()}`;
-      this.activeProcesses.set(processId, process);
+      const processId = `swarm-${child.pid}`;
+      this.activeProcesses.set(processId, child);
 
-      this.log(`Launched swarm with PID: ${process.pid} (ID: ${processId})`);
+      this.log(`Launched swarm with PID: ${child.pid} (ID: ${processId})`);
 
       // Update data after a delay
       setTimeout(() => {
@@ -574,13 +575,18 @@ class SwarmUI {
       let stoppedCount = 0;
 
       // First, try to stop tracked processes
-      for (const [processId, process] of this.activeProcesses) {
+      const os = require('os');
+      const { exec } = require('child_process');
+      for (const [processId, child] of this.activeProcesses) {
         try {
-          // Use process.kill() for cross-platform compatibility
-          if (process.pid && !process.killed) {
-            process.kill('SIGTERM');
+          if (child.pid && !child.killed) {
+            if (os.platform() === 'win32') {
+              exec(`taskkill /T /F /PID ${child.pid}`);
+            } else {
+              child.kill('SIGTERM');
+            }
             stoppedCount++;
-            this.log(`Stopped process ${processId} (PID: ${process.pid})`);
+            this.log(`Stopped process ${processId} (PID: ${child.pid})`);
           }
         } catch (err) {
           // Process might already be dead
@@ -611,8 +617,9 @@ class SwarmUI {
 
     if (os.platform() === 'win32') {
       // Windows: Use wmic to find and kill processes
+      const binName = process.env.AUGGIE_FLOW_BIN || 'auggie-flow';
       exec(
-        'wmic process where "commandline like \'%claude-flow swarm%\'" get processid',
+        `wmic process where "commandline like '%${binName} swarm%'" get processid`,
         (error, stdout) => {
           if (!error && stdout) {
             const pids = stdout
@@ -627,12 +634,31 @@ class SwarmUI {
                 }
               });
             });
+          } else {
+            // WMIC unavailable → PowerShell fallback
+            const psCmd = [
+              'Get-CimInstance Win32_Process',
+              `| Where-Object { $_.CommandLine -match '${binName} swarm' }`,
+              '| ForEach-Object { $_.ProcessId }'
+            ].join(' ');
+            exec(`powershell -NoProfile -Command "${psCmd}"`, (psErr, psOut) => {
+              if (!psErr && psOut) {
+                psOut
+                  .trim()
+                  .split(/\r?\n/)
+                  .filter(Boolean)
+                  .forEach((pid) => {
+                    exec(`taskkill /F /PID ${pid}`);
+                  });
+              }
+            });
           }
         },
       );
     } else {
       // Unix-like systems: Use ps and grep
-      exec('ps aux | grep "claude-flow swarm" | grep -v grep', (error, stdout) => {
+      const binName = process.env.AUGGIE_FLOW_BIN || 'auggie-flow';
+      exec(`ps aux | grep "${binName} swarm" | grep -v grep`, (error, stdout) => {
         if (!error && stdout) {
           const lines = stdout.split('\n').filter((line) => line.trim());
           lines.forEach((line) => {
@@ -698,10 +724,10 @@ class SwarmUI {
     }
 
     // Clean up any remaining processes
-    for (const [processId, process] of this.activeProcesses) {
+    for (const [processId, child] of this.activeProcesses) {
       try {
-        if (process.pid && !process.killed) {
-          process.kill('SIGTERM');
+        if (child.pid && !child.killed) {
+          child.kill('SIGTERM');
         }
       } catch (err) {
         // Ignore errors during cleanup
