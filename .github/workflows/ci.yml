@@ -13,9 +13,6 @@ on:
   schedule:
     - cron: '0 2 * * *'
 
-permissions:
-  contents: read
-
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -41,7 +38,7 @@ jobs:
 
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm install --legacy-peer-deps --no-audit --no-fund
 
       - name: Run security audit
         run: |
@@ -85,7 +82,7 @@ jobs:
 
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm install --legacy-peer-deps --no-audit --no-fund
 
       - name: Run tests (CI + coverage)
         run: npm run test:ci
@@ -134,7 +131,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm install --legacy-peer-deps --no-audit --no-fund
 
       - name: Build project
         run: |
