@@ -1,4 +1,6 @@
 name: CI/CD Pipeline
+# CI tweak: trigger run after removing lockfile regen and using npm ci --legacy-peer-deps
+
 
 on:
   push:
